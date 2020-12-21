@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Neurath's Speedboat</title>
+    <link>http://joshualoftus.com/</link>
+    <atom:link href="http://joshualoftus.com/index.xml" rel="self" type="application/rss+xml"/>
+    <description>[We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea
+must reconstruct their ship
+while traveling at 100mph
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Relocating and rebuilding</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/welcome</link>
+      <description>The end of 2020, the beginning of who knows what</description>
+      <guid>http://joshualoftus.com/posts/welcome</guid>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Least squares as springs</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs</link>
+      <description>Physics intuition for regression and other methods that minimize a squared error.</description>
+      <guid>http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs</guid>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>
