@@ -28,5 +28,16 @@
       <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
+    <item>
+      <title>A concise defense of statistical significance</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance</link>
+      <description>Recent arguments against the use of p-values and significance testing are mostly weak. The weak ones actually arguments against making decisions or mistakes in general, which is impossible.</description>
+      <category>statistics</category>
+      <category>science</category>
+      <guid>http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance</guid>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance/zscores.png" medium="image" type="image/png" width="1040" height="640"/>
+    </item>
   </channel>
 </rss>
