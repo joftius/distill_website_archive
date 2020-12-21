@@ -1,0 +1,18 @@
+name: "distill"
+title: "Neurath's Speedboat"
+description: |
+  [We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea
+  must reconstruct their ship
+  while traveling at 100mph
+base_url: http://joshualoftus.com/
+collections:
+  posts:
+    share: [twitter, linkedin]
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
