@@ -85,29 +85,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Neurath's Speedboat: Joshua Loftus, Assistant Professor of Statistics</title>
+  <title>Neurath's Speedboat: Research</title>
 
-  <meta property="description" itemprop="description" content="Who am I and what do I do?"/>
+  <meta property="description" itemprop="description" content="Publishing and perishing"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Neurath&#39;s Speedboat: Joshua Loftus, Assistant Professor of Statistics"/>
+  <meta property="og:title" content="Neurath&#39;s Speedboat: Research"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Who am I and what do I do?"/>
+  <meta property="og:description" content="Publishing and perishing"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Neurath&#39;s Speedboat"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Neurath&#39;s Speedboat: Joshua Loftus, Assistant Professor of Statistics"/>
-  <meta property="twitter:description" content="Who am I and what do I do?"/>
+  <meta property="twitter:title" content="Neurath&#39;s Speedboat: Research"/>
+  <meta property="twitter:description" content="Publishing and perishing"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus, Assistant Professor of Statistics"]},{"type":"character","attributes":{},"value":["Who am I and what do I do? "]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Research"]},{"type":"character","attributes":{},"value":["Publishing and perishing"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2005,7 +2005,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Joshua Loftus, Assistant Professor of Statistics","description":"Who am I and what do I do?","authors":[]}
+{"title":"Research","description":"Publishing and perishing","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2030,34 +2030,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Joshua Loftus, Assistant Professor of Statistics</h1>
+<h1>Research</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Who am I and what do I do?</p></p>
+<p><p>Publishing and perishing</p></p>
 </div>
 
 
 <div class="d-article">
-<p>I’m a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:</p>
+<p>My two areas of active work are summarized below with links to selected papers. More information can be found on my <a href="https://scholar.google.com/citations?user=SIbr3XUAAAAJ">Google Scholar</a> profile page.</p>
+<h1 id="causal-inference-in-fairness">Causal inference in fairness</h1>
+<p>This work approaches fair machine learning from a causal inference perspective, arguing that determining what is fair is a similar challenge to determining causality.</p>
+<h3 id="press">Press</h3>
+<p>Some of this work was covered in the <a href="https://www.newscientist.com/article/mg23431195-300-bias-test-to-prevent-algorithms-discriminating-unfairly/">New Scientist</a> and <a href="https://36kr.com/p/5106656.html">36Kr</a>.</p>
+<h3 id="publications">Publications</h3>
 <ul>
-<li>Developing methods for inference after model selection such as <em>p</em>-values adjusted for selection bias</li>
-<li>Analyzing the social fairness of machine learning algorithms from a causal perspective</li>
+<li><p>M. J. Kusner, C. Russell, J. R. Loftus, R. Silva. <strong>Making Decisions that Reduce Discriminatory Impact</strong>. International Conference on Machine Learning, 2019. [<a href="http://proceedings.mlr.press/v97/kusner19a/kusner19a.pdf">link</a>]</p></li>
+<li><p>M. J. Kusner, J. R. Loftus, C. Russell, R. Silva. <strong>Counterfactual fairness</strong>. Advances in Neural Information Processing Systems, 2017. [<a href="http://papers.nips.cc/paper/6995-counterfactual-fairness">link</a>]</p></li>
+<li><p>C. Russell, M. J. Kusner, J. R. Loftus, R. Silva. <strong>When worlds collide: integrating different counterfactual assumptions in fairness</strong>. Advances in Neural Information Processing Systems, 2017. [<a href="http://papers.nips.cc/paper/7220-when-worlds-collide-integrating-different-counterfactual-assumptions-in-fairness">link</a>]</p></li>
+<li><p>J. R. Loftus, C. Russell, M. J. Kusner, R. Silva. <strong>Causal reasoning for algorithmic fairness</strong>. Preprint.</p></li>
 </ul>
-<p>My work has been published in the <strong>Annals of Statistics</strong> and <strong>Advances in Neural Information Processing Systems</strong> (NIPS).</p>
-<p>As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I’m happy to speak with, mentor, or help students from any background.</p>
-<h3 id="history">History</h3>
+<h1 id="post-selection-inference">Post-selection inference</h1>
+<p>This work involves challenging mathematical and computational aspects of conducting inference after selection procedures with complicated underlying geometry. For example, this research enables significance testing after use of some of the most popular model selection procedures such as the lasso with regularization chosen by cross-validation, or forward stepwise with number of steps chosen by AIC or BIC. Often the resulting significance tests are slightly modified versions of the classical tests in regression analysis.</p>
+<h3 id="software">Software</h3>
+<p>I’m a co-author of the <a href="https://cran.r-project.org/web/packages/selectiveInference/">selectiveInference</a> package on CRAN.</p>
+<h3 id="publications-1">Publications</h3>
 <ul>
-<li>Assistant Professor, <strong>New York University</strong>, Department of Technology, Operations, and Statistics, 2017-present.</li>
-<li>Research Fellow, <strong>Alan Turing Institute</strong> and <strong>University of Cambridge</strong>, 2016-17.</li>
-<li>Ph.D. Statistics, (Biostatistics trainee), <strong>Stanford University</strong>, 2016.</li>
-<li>M.A. Mathematics, (concentration in computational biology), <strong>Rutgers University</strong>, 2011.</li>
-<li>B.S. Mathematics, (summa cum laude), <strong>Western Michigan University</strong>, 2009.</li>
+<li><p>X. Tian, J. R. Loftus, J. E. Taylor. <strong>Selective inference with unknown variance via the square-root LASSO</strong>. Biometrika, 2018. [<a href="https://academic.oup.com/biomet/article/105/4/755/5105991">link</a>]</p></li>
+<li><p>J. E. Taylor, J. R. Loftus, and R. J. Tibshirani. <strong>Inference in adaptive regression via the Kac-Rice formula</strong>. Annals of Statistics, 2016. [<a href="http://projecteuclid.org/euclid.aos/1458245734">link</a>]</p></li>
+<li><p>J. R. Loftus. <strong>Selective inference after cross-validation</strong>. Preprint.</p></li>
+<li><p>J. R. Loftus and J. E. Taylor. <strong>Selective inference in regression models with groups of variables</strong>. Preprint.</p></li>
+<li><p>J. R. Loftus, J. E. Taylor. <strong>A significance test for forward stepwise model selection</strong>. Preprint.</p></li>
 </ul>
-<h3 id="selected-honors-and-awards">Selected Honors and Awards</h3>
+<h1 id="collaborations-and-other-projects">Collaborations and other projects</h1>
 <ul>
-<li>Statistics Department Teaching Award, 2014.</li>
-<li>Alan M. Abrams Memorial Fellowship, 2013-2015.</li>
-<li>Phi Beta Kappa.</li>
+<li><p>Xu, J., et al. <strong>Landscape of monoallelic DNA accessibility in mouse embryonic stem cells and neural progenitor cells</strong>. Nature genetics. Chang lab. [<a href="https://www.nature.com/articles/ng.3769">link</a>]</p></li>
+<li><p>E. T. Richardson, et. al. <strong>Modeling cash incentives vs. oral preexposure prophylaxis in high-risk African women: the Cash-PreP Study</strong>. Poster, AIDS Conference.</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

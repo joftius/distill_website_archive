@@ -88,24 +88,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Neurath's Speedboat</title>
 
+  <meta property="description" itemprop="description" content="Can I write descriptions here?"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Neurath&#39;s Speedboat"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Can I write descriptions here?"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Neurath&#39;s Speedboat"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Neurath&#39;s Speedboat"/>
+  <meta property="twitter:description" content="Can I write descriptions here?"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Neurath's Speedboat"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Neurath's Speedboat"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["Can I write descriptions here?\n"]},{"type":"character","attributes":{},"value":["posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2003,7 +2006,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Neurath's Speedboat","authors":[]}
+{"title":"Neurath's Speedboat","description":"Can I write descriptions here?","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2017,6 +2020,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
+<a href="Research.html">Research</a>
+<a href="Teaching.html">Teaching</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2156,7 +2161,7 @@ function init_posts_list() {
 
 
 
-<div class="posts-container posts-apply-limit l-page">
+<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Neurath&#39;s Speedboat">Neurath's Speedboat</h1>
 <a href="posts/welcome/" class="post-preview">
@@ -2177,7 +2182,7 @@ function init_posts_list() {
 </div>
 </a>
 <a href="posts/2020-11-23-least-squares-as-springs/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<script class="post-metadata" type="text/json">{"categories":["statistics","machine learning","physics"]}</script>
 <div class="metadata">
 <div class="publishedDate">Nov. 23, 2020</div>
 <div class="dt-authors">
@@ -2189,10 +2194,37 @@ function init_posts_list() {
 </div>
 <div class="description">
 <h2>Least squares as springs</h2>
-<div class="dt-tags"></div>
+<div class="dt-tags">
+<div class="dt-tag">statistics</div>
+<div class="dt-tag">machine learning</div>
+<div class="dt-tag">physics</div>
+</div>
 <p>Physics intuition for regression and other methods that minimize a squared error.</p>
 </div>
 </a>
+</div>
+<div class="posts-sidebar">
+<div class="sidebar-section categories">
+<h3>Categories</h3>
+<ul>
+<li>
+<a href="#category:articles">articles</a>
+<span class="category-count">(2)</span>
+</li>
+<li>
+<a href="#category:machine_learning">machine learning</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:physics">physics</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:statistics">statistics</a>
+<span class="category-count">(1)</span>
+</li>
+</ul>
+</div>
 </div>
 <div class="posts-more">
 <a href="#">More articles &raquo;</a>
@@ -2204,12 +2236,16 @@ function init_posts_list() {
 <h1>Neurath’s Speedboat</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Can I write descriptions here?</p></p>
 </div>
 
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>What happens when I put something here?</p>
+<h2 id="what-if-there-are-sections">What if there are sections?</h2>
+<pre><code>and chunks</code></pre>
+<p>and things of that nature</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

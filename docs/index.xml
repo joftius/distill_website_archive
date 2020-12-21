@@ -23,6 +23,9 @@ while traveling at 100mph
       <dc:creator>Joshua Loftus</dc:creator>
       <link>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs</link>
       <description>Physics intuition for regression and other methods that minimize a squared error.</description>
+      <category>statistics</category>
+      <category>machine learning</category>
+      <category>physics</category>
       <guid>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs</guid>
       <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>

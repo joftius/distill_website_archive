@@ -1,9 +1,32 @@
 ---
-title: "About this blog"
+title: "Joshua Loftus, Assistant Professor of Statistics"
 description: |
-  Some additional details about the blog
+  Who am I and what do I do? 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
+
+- Developing methods for inference after model selection such as *p*-values adjusted for selection bias
+- Analyzing the social fairness of machine learning algorithms from a causal perspective
+
+My work has been published in the **Annals of Statistics** and **Advances in Neural Information Processing Systems** (NIPS).
+
+As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I'm happy to speak with, mentor, or help students from any background. 
+
+### History
+
+- Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-present.
+- Research Fellow, **Alan Turing Institute** and **University of Cambridge**, 2016-17. 
+- Ph.D. Statistics, (Biostatistics trainee), **Stanford University**, 2016.
+- M.A. Mathematics, (concentration in computational biology), **Rutgers University**, 2011.
+- B.S. Mathematics, (summa cum laude), **Western Michigan University**, 2009.
+
+### Selected Honors and Awards
+
+- Statistics Department Teaching Award, 2014.
+- Alan M. Abrams Memorial Fellowship, 2013-2015.
+- Phi Beta Kappa.
