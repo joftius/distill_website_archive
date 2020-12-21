@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <meta property="description" itemprop="description" content="Physics intuition for regression and other methods that minimize a squared error."/>
 
-<link rel="canonical" href="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"/>
+<link rel="canonical" href="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2020-11-23"/>
@@ -100,8 +100,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Physics intuition for regression and other methods that minimize a squared error."/>
-<meta property="og:url" content="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"/>
-<meta property="og:image" content="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="og:url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
+<meta property="og:image" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"/>
 <meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
@@ -111,14 +111,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
 <meta property="twitter:description" content="Physics intuition for regression and other methods that minimize a squared error."/>
-<meta property="twitter:url" content="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"/>
-<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="twitter:url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
+<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"/>
 <meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
-<meta name="citation_fulltext_html_url" content="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"/>
+<meta name="citation_fulltext_html_url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
 <meta name="citation_online_date" content="2020/11/23"/>
 <meta name="citation_publication_date" content="2020/11/23"/>
 <meta name="citation_author" content="Joshua Loftus"/>
@@ -126,12 +126,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Least squares as springs"]},{"type":"character","attributes":{},"value":["Physics intuition for regression and other methods that minimize a squared error."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]}]}]},{"type":"character","attributes":{},"value":["11-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Least squares as springs"]},{"type":"character","attributes":{},"value":["Physics intuition for regression and other methods that minimize a squared error."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]}]}]},{"type":"character","attributes":{},"value":["11-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-2-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-3-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-5-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"]}
+  {"type":"character","attributes":{},"value":["least-squares-as-springs_files/anchor-4.2.2/anchor.min.js","least-squares-as-springs_files/bowser-1.9.3/bowser.min.js","least-squares-as-springs_files/distill-2.2.21/template.v2.js","least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-2-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-3-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-5-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png","least-squares-as-springs_files/header-attrs-2.6/header-attrs.js","least-squares-as-springs_files/jquery-1.11.3/jquery.min.js","least-squares-as-springs_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2114,7 +2114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>In this analogy, simpler models like linear regression correspond to more rigid objects like an unbendable metal stick, and more complex models allow flexibility or elasticity when fitting the conditional expectation function like a bendable plastic stick, a rubber band, or even a tensionless string in the most complex case where the model is allowed to fit the points perfectly.</p>
 <p>For example, here’s the local polynomial regression method (<code>loess</code>) used by default in the <code>ggplot</code> function <code>stat_smooth</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" width="624" data-distill-preview=1 /></p>
 </div>
 <p>This intuition is not only useful for learning the basic ideas of model complexity and machine learning, it can even be used for cutting-edge research. For example see this <a href="https://arxiv.org/abs/1910.06943">recent paper</a> on elasticity in neural networks (by my friend Weijie Su and his coauthor!)</p>
 <h2 id="concluding-thoughts">Concluding thoughts</h2>
@@ -2145,10 +2145,10 @@ document.addEventListener('DOMContentLoaded', function() {
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Least%20squares%20as%20springs&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-12-21-least-squares-as-springs%2F">
+      <a href="https://twitter.com/share?text=Least%20squares%20as%20springs&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-11-23-least-squares-as-springs%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-12-21-least-squares-as-springs%2F&amp;title=Least%20squares%20as%20springs">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-11-23-least-squares-as-springs%2F&amp;title=Least%20squares%20as%20springs">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2176,12 +2176,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Loftus (2020, Nov. 23). Neurath's Speedboat: Least squares as springs. Retrieved from http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/</pre>
+  <pre class="citation-appendix short">Loftus (2020, Nov. 23). Neurath's Speedboat: Least squares as springs. Retrieved from http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/</pre>
   <p>BibTeX citation</p>
   <pre class="citation-appendix long">@misc{loftus2020least,
   author = {Loftus, Joshua},
   title = {Neurath's Speedboat: Least squares as springs},
-  url = {http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/},
+  url = {http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/},
   year = {2020}
 }</pre>
 </div>

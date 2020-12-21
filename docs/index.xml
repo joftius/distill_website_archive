@@ -21,11 +21,11 @@ while traveling at 100mph
     <item>
       <title>Least squares as springs</title>
       <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs</link>
+      <link>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs</link>
       <description>Physics intuition for regression and other methods that minimize a squared error.</description>
-      <guid>http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs</guid>
+      <guid>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs</guid>
       <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
-      <media:content url="http://joshualoftus.com/posts/2020-12-21-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <media:content url="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

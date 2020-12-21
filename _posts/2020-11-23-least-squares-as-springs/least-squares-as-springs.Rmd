@@ -19,6 +19,7 @@ During a recent "Zoom" lecture a student asked me a question about outliers. In 
 library(tidyverse)
 library(gapminder)
 theme_set(theme_minimal())
+set.seed(1)
 ```
 
 ## The simplest version
@@ -277,7 +278,7 @@ In this analogy, simpler models like linear regression correspond to more rigid 
 
 For example, here's the local polynomial regression method (`loess`) used by default in the `ggplot` function `stat_smooth`:
 
-```{r echo=FALSE}
+```{r echo=FALSE, preview = TRUE}
 gm2007 <- filter(gapminder, year == 2007, continent == "Asia") %>%
   mutate(gdp = log10(gdpPercap))
 xbar <- 10^mean(gm2007$gdp)
