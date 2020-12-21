@@ -4,9 +4,7 @@
     <title>Neurath's Speedboat</title>
     <link>http://joshualoftus.com/</link>
     <atom:link href="http://joshualoftus.com/index.xml" rel="self" type="application/rss+xml"/>
-    <description>[We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea
-must reconstruct their ship
-while traveling at 100mph
+    <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate>

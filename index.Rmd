@@ -2,16 +2,9 @@
 title: "Neurath's Speedboat"
 site: distill::distill_website
 description: |
-  Can I write descriptions here?
 listing: posts
 ---
 
-What happens when I put something here?
+ \ 
 
-## What if there are sections?
-
-```
-and chunks
-```
-
-and things of that nature
+  

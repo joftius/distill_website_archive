@@ -1,7 +1,6 @@
 ---
 title: "Research"
 description: |
-  Publishing and perishing
 ---
 
 ```{r setup, include=FALSE}

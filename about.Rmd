@@ -1,7 +1,6 @@
 ---
 title: "Joshua Loftus, Assistant Professor of Statistics"
 description: |
-  Who am I and what do I do? 
 ---
 
 ```{r setup, include=FALSE}
@@ -9,6 +8,12 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
+
+<aside>
+  The meaning of Neurath's Speedboat:
+  
+  "[We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea must reconstruct their ship" while traveling at 100mph
+</aside>
 
 - Developing methods for inference after model selection such as *p*-values adjusted for selection bias
 - Analyzing the social fairness of machine learning algorithms from a causal perspective

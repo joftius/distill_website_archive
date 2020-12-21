@@ -1,7 +1,6 @@
 ---
 title: "Teaching"
 description: |
-  Courses I have taught
 ---
 
 ```{r setup, include=FALSE}

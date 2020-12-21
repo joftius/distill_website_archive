@@ -1,10 +1,9 @@
 name: "distill"
 title: "Neurath's Speedboat"
 description: |
-  [We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea
-  must reconstruct their ship
-  while traveling at 100mph
+  Academic website and blog of Joshua Loftus
 base_url: http://joshualoftus.com/
+google_analytics: "UA-114292497-1"
 collections:
   posts:
     share: [twitter, linkedin]
@@ -16,7 +15,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Research"
-      href: Research.html
+      href: research.html
     - text: "Teaching"
-      href: Teaching.html      
+      href: teaching.html      
 output: distill::distill_article
