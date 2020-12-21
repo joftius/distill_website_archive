@@ -1,19 +1,19 @@
 [
   {
     "path": "posts/welcome/",
-    "title": "Welcome to Neurath's Speedboat",
-    "description": "Welcome to our new blog, Neurath's Speedboat. We hope you enjoy \nreading what we have to say!",
+    "title": "Relocating and rebuilding",
+    "description": "The end of 2020, the beginning of who knows what",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Joshua Loftus",
+        "url": "https://joshualoftus.com/"
       }
     ],
     "date": "2020-12-21",
     "categories": [],
-    "contents": "\n\n\n\n",
+    "contents": "\nI’m rebuilding my site using distill. It might take some time but links to old posts and lecture notes will eventually work again.\n\n\n\n",
     "preview": {},
-    "last_modified": "2020-12-21T16:31:35+00:00",
+    "last_modified": "2020-12-21T17:05:40+00:00",
     "input_file": {}
   }
 ]
