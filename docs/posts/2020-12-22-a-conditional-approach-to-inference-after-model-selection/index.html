@@ -85,24 +85,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Neurath's Speedboat: Least squares as springs</title>
+<title>Neurath's Speedboat: A conditional approach to inference after model selection</title>
 
-<meta property="description" itemprop="description" content="Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data."/>
+<meta property="description" itemprop="description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
 
-<link rel="canonical" href="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
+<link rel="canonical" href="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2020-11-23"/>
-<meta property="article:created" itemprop="dateCreated" content="2020-11-23"/>
+<meta property="article:published" itemprop="datePublished" content="2018-02-26"/>
+<meta property="article:created" itemprop="dateCreated" content="2018-02-26"/>
 <meta name="article:author" content="Joshua Loftus"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
+<meta property="og:title" content="Neurath&#39;s Speedboat: A conditional approach to inference after model selection"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data."/>
-<meta property="og:url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
-<meta property="og:image" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"/>
+<meta property="og:description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
+<meta property="og:url" content="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"/>
+<meta property="og:image" content="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png"/>
 <meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
@@ -110,31 +110,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
-<meta property="twitter:description" content="Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data."/>
-<meta property="twitter:url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
-<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"/>
+<meta property="twitter:title" content="Neurath&#39;s Speedboat: A conditional approach to inference after model selection"/>
+<meta property="twitter:description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
+<meta property="twitter:url" content="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"/>
+<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png"/>
 <meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 <meta property="twitter:site" content="@joftius"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Neurath&#39;s Speedboat: Least squares as springs"/>
-<meta name="citation_fulltext_html_url" content="http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"/>
+<meta name="citation_title" content="Neurath&#39;s Speedboat: A conditional approach to inference after model selection"/>
+<meta name="citation_fulltext_html_url" content="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2020/11/23"/>
-<meta name="citation_publication_date" content="2020/11/23"/>
+<meta name="citation_online_date" content="2018/02/26"/>
+<meta name="citation_publication_date" content="2018/02/26"/>
 <meta name="citation_author" content="Joshua Loftus"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Least squares as springs"]},{"type":"character","attributes":{},"value":["Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]}]}]},{"type":"character","attributes":{},"value":["11-23-2020"]},{"type":"character","attributes":{},"value":["statistics","machine learning","physics"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["A conditional approach to inference after model selection"]},{"type":"character","attributes":{},"value":["Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]}]}]},{"type":"character","attributes":{},"value":["02-26-2018"]},{"type":"character","attributes":{},"value":["statistics","reproducibility","selective inference","R"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["least-squares-as-springs_files/anchor-4.2.2/anchor.min.js","least-squares-as-springs_files/bowser-1.9.3/bowser.min.js","least-squares-as-springs_files/distill-2.2.21/template.v2.js","least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-2-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-3-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-5-1.png","least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png","least-squares-as-springs_files/header-attrs-2.6/header-attrs.js","least-squares-as-springs_files/jquery-1.11.3/jquery.min.js","least-squares-as-springs_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["a-conditional-approach-to-inference-after-model-selection_files/anchor-4.2.2/anchor.min.js","a-conditional-approach-to-inference-after-model-selection_files/bowser-1.9.3/bowser.min.js","a-conditional-approach-to-inference-after-model-selection_files/distill-2.2.21/template.v2.js","a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png","a-conditional-approach-to-inference-after-model-selection_files/header-attrs-2.6/header-attrs.js","a-conditional-approach-to-inference-after-model-selection_files/jquery-1.11.3/jquery.min.js","a-conditional-approach-to-inference-after-model-selection_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2038,7 +2038,7 @@ gtag('config', 'UA-114292497-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Least squares as springs","description":"Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data.","authors":[{"author":"Joshua Loftus","authorURL":"https://joshualoftus.com/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-23T00:00:00.000+00:00","citationText":"Loftus, 2020"}
+{"title":"A conditional approach to inference after model selection","description":"Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.","authors":[{"author":"Joshua Loftus","authorURL":"https://joshualoftus.com/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2018-02-26T00:00:00.000+00:00","citationText":"Loftus, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2063,110 +2063,102 @@ gtag('config', 'UA-114292497-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Least squares as springs</h1>
+<h1>A conditional approach to inference after model selection</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
   <a href="../../index.html#category:statistics" class="dt-tag">statistics</a>
-  <a href="../../index.html#category:machine_learning" class="dt-tag">machine learning</a>
-  <a href="../../index.html#category:physics" class="dt-tag">physics</a>
+  <a href="../../index.html#category:reproducibility" class="dt-tag">reproducibility</a>
+  <a href="../../index.html#category:selective_inference" class="dt-tag">selective inference</a>
+  <a href="../../index.html#category:R" class="dt-tag">R</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data.</p></p>
+<p><p>Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.</p></p>
 </div>
 
 <div class="d-byline">
   Joshua Loftus <a href="https://joshualoftus.com/" class="uri">https://joshualoftus.com/</a> 
   
-<br/>11-23-2020
+<br/>02-26-2018
 </div>
 
 <div class="d-article">
-<p>During a recent “Zoom” lecture a student asked me a question about outliers. In the process of answering I realized something that I knew was true but had never seen explained in any sources. This post is my first attempt to develop an <strong>analogy that connects least squares methods, like regression or PCA, to physical intuition about springs or elastics</strong>.</p>
-<h2 id="the-simplest-version">The simplest version</h2>
-<p>To illustrate I will use data from <a href="https://cran.r-project.org/web/packages/gapminder/index.html">gapminder</a> conveniently provided in an R package by Jenny Bryan. Consider these two variables in the dataset, GDP per capita and life expectancy, plotted here in a standard scatterplot:</p>
+<h2 id="overly-honest-research-methods">Overly honest research methods?</h2>
+<p>A high profile case of a scientist retracting multiple papers due to <a href="https://xkcd.com/882/">p-hacking</a> is recently gaining new attention due to a <a href="https://www.buzzfeed.com/stephaniemlee/brian-wansink-cornell-p-hacking">BuzzFeed article</a>. Hopefully this will raise awareness and convince some that “keep hammering away at your data until you find want you were expecting” is a poor way to do science. But it’s possible to get things wrong, for the same reason, no matter how well-intentioned we may be. Even if we aren’t specifically seeking significant <span class="math inline">\(p\)</span>-values, we can end up with biased results due to model selection. To see why, check out this earlier post on <a href="../model-selection-bias-invalidates-significance-tests/">model selection bias</a>. In this post I will describe a method to protect ourselves from this bias and compute <em>adjusted</em> <span class="math inline">\(p\)</span>-values that are valid even though we’ve done model selection.</p>
+<h2 id="model-selection-with-forward-stepwise">Model selection with forward stepwise</h2>
+<p>We’ll pick up on the same example from a previous post:</p>
+<blockquote>
+<p>[…] consider the <code>candy_rankings</code> data from the <a href="https://cran.r-project.org/web/packages/fivethirtyeight/index.html">fivethirtyeight</a> package. The <strong>outcome variable</strong> is how often a given candy won in popularity matchups against other candies, and the <strong>predictor variables</strong> are various properties like whether or not the candy has chocolate, whether or not it’s fruit flavored, how sugary it is relative to other candies, and so on. There are 85 candies and 11 predictor variables in the dataset.</p>
+</blockquote>
+<p>This time we’ll use the actual response variable, and run forward stepwise with AIC to pick a subset of the predictors that are highly predictive of the outcome (win percent). The resulting model, along with the biased <span class="math inline">\(p\)</span>-values that popular software computes by default, is given below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+<pre><code>                     Estimate Std. Error t value  Pr(&gt;|t|)
+chocolateTRUE            19.1        3.6     5.3 0.0000009
+fruityTRUE                8.9        3.6     2.5 0.0147319
+peanutyalmondyTRUE        9.5        3.4     2.8 0.0073720
+crispedricewaferTRUE      8.4        4.5     1.9 0.0652527
+hardTRUE                 -5.7        3.3    -1.7 0.0887116
+sugarpercent              8.0        4.1     1.9 0.0569311</code></pre>
 </div>
-<p>(To have a less busy plot, one with fewer points, I’ve subsetted the data to the year 2007 and countries in Asia).</p>
-<p>Now we’re going to bring physical intuition into this by imagining these points as physical objects. For example, we can interpret the mean <span class="math inline">\((\bar x, \bar y)\)</span> = 6252.7, 70.7 as the center of mass (if we assume every point has the same mass). This is the larger, blue point in the plot above. It’s not really important to think of mass specifically, just that this point is the center of the physical ensemble.</p>
-<p>We need a few simple rules for our physical system:</p>
+<p>These <span class="math inline">\(p\)</span>-values are probably too small. The model selection method chose variables that seemed to be predictive of the outcome. The way <span class="math inline">\(p\)</span>-values are computed is to consider how extreme the test statistic <span class="math inline">\(T\)</span> is under the null hypothesis: <span class="math inline">\(P(T &gt; |t|)\)</span>. But the model selection procedure picks variables that tend to have large observed values of <span class="math inline">\(|t|\)</span>, whether or not the null hypothesis for any one of them is true. How can we correct this? By the end of this post we’ll have adjusted <span class="math inline">\(p\)</span>-values for this example, but first we need to understand how that adjustment works.</p>
+<h2 id="adjusted-inference-by-conditionional-probability">Adjusted inference by conditionional probability</h2>
+<p>One approach, often referred to as <a href="http://www.pnas.org/content/112/25/7629.short">selective inference</a>, is to use <em>conditional</em> probabilities when computing <span class="math inline">\(p\)</span>-values. Consider a random variable <span class="math inline">\(M\)</span> representing which model is chosen by the model selection method, and let <span class="math inline">\(m\)</span> be the observed value of <span class="math inline">\(M\)</span> after running the algorithm (e.g. forward stepwise) on our data and getting a specific model. To compute conditionally adjusted <span class="math inline">\(p\)</span>-values, we use <span class="math display">\[
+P(T &gt; |t| \mid M = m)
+\]</span> This conditional probability law usually has a simple form. For example, if the test statistic has a <span class="math inline">\(t\)</span>-distribution, then the conditional law is usually a truncated <span class="math inline">\(t\)</span>. The specifics depend on the kind of model selection algorithm being used, and working them out is an area of ongoing research in statistics. During my PhD, I worked on a few cases (<a href="https://arxiv.org/abs/1511.01478">groups of variables</a>, <a href="https://arxiv.org/abs/1511.08866">cross-validation</a>) as part of my dissertation. To understand how/why the conditional law works, let’s consider an example that’s simpler than forward stepwise.</p>
+<h2 id="marginal-screening-example">Marginal screening example</h2>
+<p>Suppose that instead of regression, we are solving a many-means problem where we want to select the largest effects. (Regression is similar to this when the design matrix is orthogonal). That is, we have many effects <span class="math inline">\(z_i\)</span> for <span class="math inline">\(i = 1, \ldots, p\)</span> and the selection rule we use is to choose <span class="math inline">\(z_i\)</span> if <span class="math inline">\(z_i &gt; 1\)</span>. Then we want to do a one-sided test to see if those <span class="math inline">\(z_i\)</span> are significantly large. We can think of this procedure as first screening away the majority of the data which we think is just noise, and then testing what made it through the screening procedure. I’ll generate data under the global null hypothesis where every effect is actually zero, and then plot some results.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png" width="624" data-distill-preview=1 /></p>
+</div>
+<p>This plot shows three things:</p>
 <ul>
-<li>Changing the data is not allowed, i.e. the points are immovable.</li>
-<li>For methods like regression (or PCA), we imagine a rigid object like a line (or hyperplane, in multiple regression) passing through the points, and the points exerting some force that changes the position of this body</li>
-<li>If these methods use the standard least squares loss function then this force can be represented by springs or elastics, all of the same length and strength, attached at one end to the points and on the other end to the line (or hyperplane).</li>
+<li>A <strong>histogram</strong> of the selected effects.</li>
+<li>The <strong>solid line</strong> shows the <strong>standard</strong> normal distribution. The upper tail areas of this distribution would be used for standard, unadjusted <span class="math inline">\(p\)</span>-values.</li>
+<li>The <strong>dashed line</strong> shows the truncated, <strong>conditional</strong> distribution <span class="math inline">\(Z | Z &gt; 1\)</span> for a standard normal <span class="math inline">\(Z\)</span>.</li>
 </ul>
-<p>This line (or hyperplane) may bounce around at first as the springs pull it toward their anchoring points, but eventually it settles into an equilibrium where the forces from all the opposing springs are balanced out. In this equilibrium state we have two immediate consequences:</p>
-<ol type="1">
-<li>The rigid object (line or hyperplane) <em>must pass through the center point</em>. If it did not, there would be a net force acting on the object pulling it toward the center point, hence it would not yet be at equilibrium. In other words, all of the forces that would <em>shift</em> the object are exactly balanced out so it does not shift.</li>
-<li>The same is true about <em>torques</em>, all of the forces that would <em>rotate</em> the object are balanced out.</li>
-</ol>
-<p>For regression we need one more rule: the springs are guided so they only pull in directions aligned with the axis of the outcome variable, i.e. “vertically.” Let’s call this the <strong>vertical rule</strong> for reference later.</p>
-<p>Here is our simple example in picture form:</p>
+<p>If we used the tail areas of the standard normal to compute <span class="math inline">\(p\)</span>-values, these would be very small, even though the data was all generated under a global null hypothesis. This shows that the selection effect can invalidate inference, leading to a high type 1 error rate. But it’s pretty clear from the plot that the conditional distribution fits the data very well: if “significant” means extreme according to <em>this</em> distribution, then type 1 error rate would be small, it would match whatever nominal threshold <span class="math inline">\(\alpha\)</span> we decided.</p>
+<h2 id="the-selectiveinference-r-package">The selectiveInference R package</h2>
+<p>Let’s return to our first example about forward stepwise.</p>
+<p>The details for computing <span class="math inline">\(p\)</span>-values with conditional probability when model selection is more complicated–like using forward stepwise with AIC, or the LASSO with cross-validation, etc–are harder than the marginal screening case. But fortunately, there is an R package for it: the <code>selectiveInference</code> package available on <a href="https://cran.r-project.org/web/packages/selectiveInference/index.html">CRAN</a>! This package is still under development, and its authors include Ryan Tibshirani, Rob Tibshirani, Jonathan Taylor, Stephen Reid and some other guy. The package currently does not support R formulas, so first we need to create a <code>model.matrix</code>, then we’ll run forward stepwise again with the <code>fs</code> function, then we’ll compute adjusted inference for the fitted model using <code>fsInf</code>. These last two functions are among several others in the <code>selectiveInference</code> package, including ones for doing all of this with the <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">LASSO</a> instead of forward stepwise.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+<pre><code>
+Call:
+fsInf(obj = fit, type = &quot;aic&quot;, ntimes = 1)
+
+Standard deviation of noise (specified or estimated) sigma = 10.703
+
+Testing results at step = 6, with alpha = 0.100
+ Var   Coef Z-score P-value LowConfPt UpConfPt LowTailArea UpTailArea
+   1 19.147   5.233   0.171   -14.225   37.970        0.05      0.050
+   4  9.483   2.697   0.559   -43.440   13.021        0.05      0.049
+   2  8.881   2.445   0.472   -35.763   26.424        0.05      0.050
+   6  8.385   1.833   0.515   -61.565   46.348        0.05      0.050
+  10  7.979   1.894   0.355   -44.222   72.414        0.05      0.050
+   7 -5.669  -1.690   0.358   -48.097   30.090        0.05      0.050
+
+Estimated stopping point from AIC rule = 6</code></pre>
 </div>
-<p>(To create this plot I have copied the <code>geom_spring</code> example by <a href="https://twitter.com/thomasp85/status/1331338379636649986">Thomas Lin Pedersen</a> from (the new version of!) the <a href="https://ggplot2-book.org/spring1.html">ggplot2 book</a>).</p>
-<p>If you are not immediately convinced that this intuition pays off, consider the issue that motivated me to think of this in the first place: <a href="https://en.wikipedia.org/wiki/Influential_observation">influential outliers</a>, points with high “leverage” in the statistical sense. The definition of statistical leverage is a bit complicated. But we can get the right intuition about it from a physical sense rather than those formal definitions. See the point in the bottom left of the plot above? Since it is pulling closer to the end of the line it has more leverage in the actual <em>physical</em> sense. This is the explanation I prefer to give students who aren’t taking a mathematical statistics course.</p>
-<p>(In case you’re wondering, that point is Afghanistan, a nation where the United States remains at war for almost two decades now…)</p>
-<p>Let’s see what happens when we move this one point so its leverage is being used to rotate the line clockwise instead of counter-clockwise. The old regression line, before this change, is shown as a faded line below for comparison.</p>
+<p>There’s a lot of output here, but let’s focus on the adjusted <span class="math inline">\(p\)</span>-values. We’ll put them together in a readout with the unadjusted ones:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<pre><code>                     Estimate    Pr(&gt;|t|) Adj.Pr(&gt;|t|)
+chocolateTRUE           19.15 0.000000898        0.171
+peanutyalmondyTRUE       9.48 0.007372014        0.559
+fruityTRUE               8.88 0.014731896        0.472
+crispedricewaferTRUE     8.39 0.065252715        0.515
+sugarpercent             7.98 0.056931100        0.355
+hardTRUE                -5.67 0.088711566        0.358</code></pre>
 </div>
-<p>Notice the following changes: the center of mass has shifted a little, the point we moved is now a greater distance from the line so its force is larger, and the line has rotated noticeably due to the influence of this one point, even though our dataset has over 30 points, because that point has a lot of leverage.</p>
-<h3 id="hookes-law">Hooke’s law</h3>
-<p>Is this intuition correct? Can we really think of least squares solutions (e.g. regression lines) as the equilibrium of a system of springs? Yes, or elastic rubber bands, or any material with linear elasticity, i.e. that follows <a href="https://en.wikipedia.org/wiki/Hooke&#39;s_law">Hooke’s law</a>. Let’s consider how to apply this to regression, where for each point <span class="math inline">\((x_i, y_i)\)</span> in the data, the spring attaches to the regression line at the point <span class="math inline">\((x_i, \hat y_i)\)</span>. So the spring is stretched to a length of <span class="math inline">\(|r_i| = |y_i - \hat y_i|\)</span>, and Hooke’s law says each spring is pulling on the line with a force proportional to this distance.</p>
-<p>When the system of the line and springs has stopped moving and settled into an equilibrium, this equilibrium position minimizes the <em>energy</em> of the system, which in this case is just the <a href="https://en.wikipedia.org/wiki/Potential_energy#Potential_energy_for_a_linear_spring">potential energy</a>. The potential energy stored in a spring that is stretched a certain distance is the integral of the force over that distance, and since the force scales with the distance this means the energy scales with the squared distance. Hence, the equilibrium of this physical system <strong>minimizes the total potential energy</strong>:</p>
-<p><span class="math display">\[
-\sum_{i=1}^n \frac{1}{2}k |r_i|^2 = \frac{1}{2}k \sum_{i=1}^n  (y_i - \hat y_i)^2
-\]</span> where <span class="math inline">\(k &gt; 0\)</span> is the spring “stiffness” constant. The line that minimizes this is the same as the least squares regression line because the constants in front don’t change the minimizer. This argument works just as well for multiple regression as simple regression, even if we can’t visualize the higher dimensional plots involved. We can still think of springs that are pulling, perpendicular to the <span class="math inline">\(y\)</span>-axis, on a hyperplane. In this case there can be torques in various different hyperplanes passing through the center of mass but they’re all balanced out, so the hyperplane doesn’t get “tilted” in any direction (if it’s in equilibrium).</p>
-<h2 id="principal-components-analysis">Principal components analysis</h2>
-<p>Although PCA is often considered a more advanced topic than (simple) regression, its justification in our physical analogy is actually simpler. All we need to do is drop the <strong>vertical rule</strong> that was required for regression. In this case, the springs are allowed to rotate their angle of departure from the points, and their position of attachment to the line (or hyperplane) can slide to accommodate this change in angle. This results in an equilibrium where the springs are stretched as little possible. The total potential energy reaches a lower value because the springs are no longer constrained in which direction they can pull.</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
-</div>
-<p>I’ve plotted the line in a different color to emphasize that it’s <a href="https://benediktehinger.de/blog/science/scatterplots-regression-lines-and-the-first-principal-component/"><strong>not</strong> the regression line</a>. Notice that the springs are no longer pulling vertically, instead they connect to the line at the point on the line which is <em>nearest</em> (as measured by overall distance, not just distance in the <span class="math inline">\(y\)</span>-coordinate alone).</p>
-<p>(This is also called <a href="https://en.wikipedia.org/wiki/Total_least_squares">total least squares</a> or a special case of <a href="https://en.wikipedia.org/wiki/Deming_regression">Deming regression</a>.)</p>
-<h2 id="model-complexityelasticity-machine-learning-or-ai">Model complexity/elasticity: machine learning or AI</h2>
-<p>We can keep building on this analogy by using it to understand more complex modeling methods with another very simple idea: <strong>elasticity of the model object itself</strong>. Instead of a rigid body like a line (or hyperplane), if we imagine it’s made of an elastic material that can be (locally) stretched and deformed then we can get more complex types of regression models.</p>
-<p>In this analogy, simpler models like linear regression correspond to more rigid objects like an unbendable metal stick, and more complex models allow flexibility or elasticity when fitting the conditional expectation function like a bendable plastic stick, a rubber band, or even a tensionless string in the most complex case where the model is allowed to fit the points perfectly.</p>
-<p>For example, here’s the local polynomial regression method (<code>loess</code>) used by default in the <code>ggplot</code> function <code>stat_smooth</code>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png" width="624" data-distill-preview=1 /></p>
-</div>
-<p>This intuition is not only useful for learning the basic ideas of model complexity and machine learning, it can even be used for cutting-edge research. For example see this <a href="https://arxiv.org/abs/1910.06943">recent paper</a> on elasticity in neural networks (by my friend Weijie Su and his coauthor!)</p>
-<h2 id="concluding-thoughts">Concluding thoughts</h2>
-<p>I think there’s a lot of <em>potential</em> here for statistics education, especially for younger students. It wouldn’t be too difficult to create a physical <a href="https://en.wikipedia.org/wiki/Bean_machine">classroom demonstration</a> using springs or elastics, especially for the PCA case since that wouldn’t require any guiding tracks to constraint the force direction to be vertical.</p>
-<p>I also need to teach myself some more advanced plotting to <code>gganimate</code> these examples. If I succeed I’ll update this page.</p>
-<h2 id="references">References</h2>
-<p>I was surprised by how difficult it was to find any references for this elementary idea that provides physical intuition for such an important method as least squares regression. If you’re aware of any others please contact me because I would be glad to know of them.</p>
-<p>(<em>Update</em>) Thankfully, after this post was shared widely on Twitter people have helped alert me to more references which are now included in the list below.</p>
-<ul>
-<li>Dwight, T. W. (1937). <a href="https://pubs.cif-ifc.org/doi/abs/10.5558/tfc13509-4">The fitting of linear regression lines by the method of least squares</a>. The Forestry Chronicle, 13(4), 509-519.</li>
-<li>Levi, M. (2012). <a href="https://press.princeton.edu/books/paperback/9780691154565/the-mathematical-mechanic">The mathematical mechanic: using physical reasoning to solve problems</a>. Princeton University Press.</li>
-<li>Excerpt of the previous reference on <a href="https://math.stackexchange.com/questions/2369673/proving-linear-regression-by-using-physical-springs-model">stackexchange</a></li>
-</ul>
-<p>Update: Thanks to everyone who has contacted me with these additional references!</p>
-<ul>
-<li><p>Trey Goesh created this <a href="https://www.desmos.com/calculator/90vaqtqpx6">interactive simulation</a></p></li>
-<li><p>Kieran Healy linked to this stackexchange answer with an <a href="https://stats.stackexchange.com/a/140579">awesome animation</a></p></li>
-<li><p>Kameron Decker Harris pointed out this blog post showing <a href="https://www.core77.com/posts/55368/When-Splines-Were-Physical-Objects">splines as bendy physical sticks</a></p></li>
-<li><p>Chris Schwarz at UIowa brought my attention to these <a href="https://ocw.mit.edu/courses/mathematics/18-085-computational-science-and-engineering-i-fall-2008/video-lectures/lecture-1-four-special-matrices/">lectures by the legendary Gil Strang</a></p></li>
-<li><p>Michael Friendly created a <a href="https://gist.github.com/friendly/b20af682f18900eb3271e0c8dacfb7c6">bibliography</a> of some references to physics inspired stats models</p></li>
-<li><p>A <a href="https://youtu.be/tVwV14YkbYs">lecture by Yann LeCun</a> in the NYU deep learning course</p></li>
-<li><p>A recent <a href="https://iclr.cc/virtual/poster_Hkxzx0NtDB.html">ICLR paper (with video of a short talk)</a> by Will Grathwohl and others</p></li>
-<li><p>A <a href="https://arxiv.org/abs/1503.03585">paper on deep learning</a> by Jascha Sohl-Dickstein and others</p></li>
-<li><p>John Davis at UIndiana created this <a href="https://gist.github.com/johnjdavisiv/378863d54889b1b923c89f590ece341e">demo showing 3D splines</a> (just imagine the vertical lines are springs!) and pointed to a <a href="https://fromthebottomoftheheap.net/2016/03/27/soap-film-smoothers/">different physics-inspired example</a> by Gavin Simpson</p></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>The adjusted <span class="math inline">\(p\)</span>-values in the right column are all much larger than the unadjusted ones. In general, adjusted <span class="math inline">\(p\)</span>-values will be larger, but by how much depends on a lot of specifics. In this case, and at the usual <span class="math inline">\(\alpha = 0.05\)</span> level, we went from 3 significant effects without adjusting for selection bias to zero. This reflects a fundamental tradeoff: <strong>the more we use the data to search for interesting things, the less surprised we must be about what we find</strong>. Otherwise, we may just be fooling ourselves, and maybe even end up needing to retract lots of papers…</p>
+<p>I hope this post was a useful introduction to the basic idea of using conditional probability to adjust for model selection, and makes more people aware of the <code>selectiveInference</code> package. This project is also on <a href="https://github.com/selective-inference">github</a>. In future posts I will describe more examples, including other approaches to adjusting inference for model selection bias.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Least%20squares%20as%20springs&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-11-23-least-squares-as-springs%2F">
+      <a href="https://twitter.com/share?text=A%20conditional%20approach%20to%20inference%20after%20model%20selection&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-12-22-a-conditional-approach-to-inference-after-model-selection%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-11-23-least-squares-as-springs%2F&amp;title=Least%20squares%20as%20springs">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fjoshualoftus.com%2Fposts%2F2020-12-22-a-conditional-approach-to-inference-after-model-selection%2F&amp;title=A%20conditional%20approach%20to%20inference%20after%20model%20selection">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2196,13 +2188,13 @@ gtag('config', 'UA-114292497-1');
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Loftus (2020, Nov. 23). Neurath's Speedboat: Least squares as springs. Retrieved from http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/</pre>
+  <pre class="citation-appendix short">Loftus (2018, Feb. 26). Neurath's Speedboat: A conditional approach to inference after model selection. Retrieved from http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{loftus2020least,
+  <pre class="citation-appendix long">@misc{loftus2018a,
   author = {Loftus, Joshua},
-  title = {Neurath's Speedboat: Least squares as springs},
-  url = {http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/},
-  year = {2020}
+  title = {Neurath's Speedboat: A conditional approach to inference after model selection},
+  url = {http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/},
+  year = {2018}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

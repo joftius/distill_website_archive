@@ -20,7 +20,7 @@
       <title>Least squares as springs</title>
       <dc:creator>Joshua Loftus</dc:creator>
       <link>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs</link>
-      <description>Physics intuition for regression and other methods that minimize a squared error.</description>
+      <description>Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data.</description>
       <category>statistics</category>
       <category>machine learning</category>
       <category>physics</category>
@@ -34,10 +34,34 @@
       <link>http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance</link>
       <description>Recent arguments against the use of p-values and significance testing are mostly weak. The weak ones are actually arguments against making decisions or mistakes in general, which is impossible.</description>
       <category>statistics</category>
-      <category>science</category>
+      <category>reproducibility</category>
       <guid>http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance</guid>
       <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
       <media:content url="http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance/zscores.png" medium="image" type="image/png" width="1040" height="640"/>
+    </item>
+    <item>
+      <title>A conditional approach to inference after model selection</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection</link>
+      <description>Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.</description>
+      <category>statistics</category>
+      <category>reproducibility</category>
+      <category>selective inference</category>
+      <category>R</category>
+      <guid>http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection</guid>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Model selection bias invalidates significance tests</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2020-12-22-model-selection-bias-invalidates-significance-tests</link>
+      <description>People often do regression model selection, either by hand or using algorithms like forward stepwise or the lasso. Sometimes they also report significance tests for the variables in the chosen model. But there's a problem: the reason for *p*-value significance may just be something called model selection bias.</description>
+      <category>statistics</category>
+      <category>reproducibility</category>
+      <guid>http://joshualoftus.com/posts/2020-12-22-model-selection-bias-invalidates-significance-tests</guid>
+      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2020-12-22-model-selection-bias-invalidates-significance-tests/model-selection-bias-invalidates-significance-tests_files/figure-html5/many_correlations-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

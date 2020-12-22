@@ -1,7 +1,7 @@
 ---
 title: "Least squares as springs"
 description: |
-  Physics intuition for regression and other methods that minimize a squared error.
+  Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data.
 author:
   - name: Joshua Loftus
     url: https://joshualoftus.com/

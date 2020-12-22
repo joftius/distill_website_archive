@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="http://joshualoftus.com/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -86,623 +85,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Neurath's Speedboat</title>
+  <title>A conditional approach to inference after model selection</title>
+
+  <meta property="description" itemprop="description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
 
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2018-02-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2018-02-26"/>
+  <meta name="article:author" content="Joshua Loftus"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Neurath&#39;s Speedboat"/>
+  <meta property="og:title" content="A conditional approach to inference after model selection"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Neurath&#39;s Speedboat"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Neurath&#39;s Speedboat"/>
-  <meta property="twitter:site" content="@joftius"/>
+  <meta property="twitter:title" content="A conditional approach to inference after model selection"/>
+  <meta property="twitter:description" content="Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Neurath's Speedboat"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output"]}},"value":[{"type":"character","attributes":{},"value":["A conditional approach to inference after model selection"]},{"type":"character","attributes":{},"value":["Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]}]}]},{"type":"character","attributes":{},"value":["02-26-2018"]},{"type":"character","attributes":{},"value":["statistics","reproducibility","selective inference","R"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["a-conditional-approach-to-inference-after-model-selection_files/anchor-4.2.2/anchor.min.js","a-conditional-approach-to-inference-after-model-selection_files/bowser-1.9.3/bowser.min.js","a-conditional-approach-to-inference-after-model-selection_files/distill-2.2.21/template.v2.js","a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png","a-conditional-approach-to-inference-after-model-selection_files/header-attrs-2.6/header-attrs.js","a-conditional-approach-to-inference-after-model-selection_files/jquery-1.11.3/jquery.min.js","a-conditional-approach-to-inference-after-model-selection_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  </style>
-
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-              .filter(function(item) { return !!item.description; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description}
-                  </div>
-                  <div class="search-item-preview">
-                    <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1988,341 +1403,120 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/header-attrs-2.6/header-attrs.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="a-conditional-approach-to-inference-after-model-selection_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114292497-1"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-114292497-1');
-  </script>
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Neurath's Speedboat","authors":[]}
+{"title":"A conditional approach to inference after model selection","description":"Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.","authors":[{"author":"Joshua Loftus","authorURL":"https://joshualoftus.com/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2018-02-26T00:00:00.000+00:00","citationText":"Loftus, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Neurath's Speedboat</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="research.html">Research</a>
-<a href="teaching.html">Teaching</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Neurath&#39;s Speedboat">Neurath's Speedboat</h1>
-<a href="posts/welcome/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 21, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">Joshua Loftus</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Relocating and rebuilding</h2>
-<div class="dt-tags"></div>
-<p>The end of 2020, the beginning of who knows what</p>
-</div>
-</a>
-<a href="posts/2020-11-23-least-squares-as-springs/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["statistics","machine learning","physics"]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 23, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">Joshua Loftus</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-11-23-least-squares-as-springs/least-squares-as-springs_files/figure-html5/unnamed-chunk-6-1.png"/>
-</div>
-<div class="description">
-<h2>Least squares as springs</h2>
-<div class="dt-tags">
-<div class="dt-tag">statistics</div>
-<div class="dt-tag">machine learning</div>
-<div class="dt-tag">physics</div>
-</div>
-<p>Physics intuition for regression and other methods that minimize squared error. We can imagine springs pulling the model toward the data.</p>
-</div>
-</a>
-<a href="posts/2020-12-21-concise-defense-of-statistical-significance/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["statistics","reproducibility"]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 18, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Joshua Loftus</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-12-21-concise-defense-of-statistical-significance/zscores.png"/>
-</div>
-<div class="description">
-<h2>A concise defense of statistical significance</h2>
-<div class="dt-tags">
-<div class="dt-tag">statistics</div>
-<div class="dt-tag">reproducibility</div>
-</div>
-<p>Recent arguments against the use of p-values and significance testing are mostly weak. The weak ones are actually arguments against making decisions or mistakes in general, which is impossible.</p>
-</div>
-</a>
-<a href="posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["statistics","reproducibility","selective inference","R"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 26, 2018</div>
-<div class="dt-authors">
-<div class="dt-author">Joshua Loftus</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png"/>
-</div>
-<div class="description">
-<h2>A conditional approach to inference after model selection</h2>
-<div class="dt-tags">
-<div class="dt-tag">statistics</div>
-<div class="dt-tag">reproducibility</div>
-<div class="dt-tag">selective inference</div>
-<div class="dt-tag">R</div>
-</div>
-<p>Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.</p>
-</div>
-</a>
-<a href="posts/2020-12-22-model-selection-bias-invalidates-significance-tests/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["statistics","reproducibility"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 13, 2018</div>
-<div class="dt-authors">
-<div class="dt-author">Joshua Loftus</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-12-22-model-selection-bias-invalidates-significance-tests/model-selection-bias-invalidates-significance-tests_files/figure-html5/many_correlations-1.png"/>
-</div>
-<div class="description">
-<h2>Model selection bias invalidates significance tests</h2>
-<div class="dt-tags">
-<div class="dt-tag">statistics</div>
-<div class="dt-tag">reproducibility</div>
-</div>
-<p>People often do regression model selection, either by hand or using algorithms like forward stepwise or the lasso. Sometimes they also report significance tests for the variables in the chosen model. But there's a problem: the reason for *p*-value significance may just be something called model selection bias.</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(5)</span>
-</li>
-<li>
-<a href="#category:machine_learning">machine learning</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:physics">physics</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:R">R</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:reproducibility">reproducibility</a>
-<span class="category-count">(3)</span>
-</li>
-<li>
-<a href="#category:selective_inference">selective inference</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:statistics">statistics</a>
-<span class="category-count">(4)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Neurath’s Speedboat</h1>
+<h1>A conditional approach to inference after model selection</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">statistics</div>
+<div class="dt=tag">reproducibility</div>
+<div class="dt=tag">selective inference</div>
+<div class="dt=tag">R</div>
+</div>
 <!--/radix_placeholder_categories-->
-
+<p><p>Model selection can invalidate inference, such as significance tests, but statisticians have recently made progress developing methods to adjust for this bias. This post motivates a conditional approach with a simple screening rule example and introduces an R package that can compute adjusted significance tests.</p></p>
 </div>
 
+<div class="d-byline">
+  Joshua Loftus <a href="https://joshualoftus.com/" class="uri">https://joshualoftus.com/</a> 
+  
+<br/>02-26-2018
+</div>
 
 <div class="d-article">
-<p> </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="overly-honest-research-methods">Overly honest research methods?</h2>
+<p>A high profile case of a scientist retracting multiple papers due to <a href="https://xkcd.com/882/">p-hacking</a> is recently gaining new attention due to a <a href="https://www.buzzfeed.com/stephaniemlee/brian-wansink-cornell-p-hacking">BuzzFeed article</a>. Hopefully this will raise awareness and convince some that “keep hammering away at your data until you find want you were expecting” is a poor way to do science. But it’s possible to get things wrong, for the same reason, no matter how well-intentioned we may be. Even if we aren’t specifically seeking significant <span class="math inline">\(p\)</span>-values, we can end up with biased results due to model selection. To see why, check out this earlier post on <a href="../model-selection-bias-invalidates-significance-tests/">model selection bias</a>. In this post I will describe a method to protect ourselves from this bias and compute <em>adjusted</em> <span class="math inline">\(p\)</span>-values that are valid even though we’ve done model selection.</p>
+<h2 id="model-selection-with-forward-stepwise">Model selection with forward stepwise</h2>
+<p>We’ll pick up on the same example from a previous post:</p>
+<blockquote>
+<p>[…] consider the <code>candy_rankings</code> data from the <a href="https://cran.r-project.org/web/packages/fivethirtyeight/index.html">fivethirtyeight</a> package. The <strong>outcome variable</strong> is how often a given candy won in popularity matchups against other candies, and the <strong>predictor variables</strong> are various properties like whether or not the candy has chocolate, whether or not it’s fruit flavored, how sugary it is relative to other candies, and so on. There are 85 candies and 11 predictor variables in the dataset.</p>
+</blockquote>
+<p>This time we’ll use the actual response variable, and run forward stepwise with AIC to pick a subset of the predictors that are highly predictive of the outcome (win percent). The resulting model, along with the biased <span class="math inline">\(p\)</span>-values that popular software computes by default, is given below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>                     Estimate Std. Error t value  Pr(&gt;|t|)
+chocolateTRUE            19.1        3.6     5.3 0.0000009
+fruityTRUE                8.9        3.6     2.5 0.0147319
+peanutyalmondyTRUE        9.5        3.4     2.8 0.0073720
+crispedricewaferTRUE      8.4        4.5     1.9 0.0652527
+hardTRUE                 -5.7        3.3    -1.7 0.0887116
+sugarpercent              8.0        4.1     1.9 0.0569311</code></pre>
+</div>
+<p>These <span class="math inline">\(p\)</span>-values are probably too small. The model selection method chose variables that seemed to be predictive of the outcome. The way <span class="math inline">\(p\)</span>-values are computed is to consider how extreme the test statistic <span class="math inline">\(T\)</span> is under the null hypothesis: <span class="math inline">\(P(T &gt; |t|)\)</span>. But the model selection procedure picks variables that tend to have large observed values of <span class="math inline">\(|t|\)</span>, whether or not the null hypothesis for any one of them is true. How can we correct this? By the end of this post we’ll have adjusted <span class="math inline">\(p\)</span>-values for this example, but first we need to understand how that adjustment works.</p>
+<h2 id="adjusted-inference-by-conditionional-probability">Adjusted inference by conditionional probability</h2>
+<p>One approach, often referred to as <a href="http://www.pnas.org/content/112/25/7629.short">selective inference</a>, is to use <em>conditional</em> probabilities when computing <span class="math inline">\(p\)</span>-values. Consider a random variable <span class="math inline">\(M\)</span> representing which model is chosen by the model selection method, and let <span class="math inline">\(m\)</span> be the observed value of <span class="math inline">\(M\)</span> after running the algorithm (e.g. forward stepwise) on our data and getting a specific model. To compute conditionally adjusted <span class="math inline">\(p\)</span>-values, we use <span class="math display">\[
+P(T &gt; |t| \mid M = m)
+\]</span> This conditional probability law usually has a simple form. For example, if the test statistic has a <span class="math inline">\(t\)</span>-distribution, then the conditional law is usually a truncated <span class="math inline">\(t\)</span>. The specifics depend on the kind of model selection algorithm being used, and working them out is an area of ongoing research in statistics. During my PhD, I worked on a few cases (<a href="https://arxiv.org/abs/1511.01478">groups of variables</a>, <a href="https://arxiv.org/abs/1511.08866">cross-validation</a>) as part of my dissertation. To understand how/why the conditional law works, let’s consider an example that’s simpler than forward stepwise.</p>
+<h2 id="marginal-screening-example">Marginal screening example</h2>
+<p>Suppose that instead of regression, we are solving a many-means problem where we want to select the largest effects. (Regression is similar to this when the design matrix is orthogonal). That is, we have many effects <span class="math inline">\(z_i\)</span> for <span class="math inline">\(i = 1, \ldots, p\)</span> and the selection rule we use is to choose <span class="math inline">\(z_i\)</span> if <span class="math inline">\(z_i &gt; 1\)</span>. Then we want to do a one-sided test to see if those <span class="math inline">\(z_i\)</span> are significantly large. We can think of this procedure as first screening away the majority of the data which we think is just noise, and then testing what made it through the screening procedure. I’ll generate data under the global null hypothesis where every effect is actually zero, and then plot some results.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png" width="624" data-distill-preview=1 /></p>
+</div>
+<p>This plot shows three things:</p>
+<ul>
+<li>A <strong>histogram</strong> of the selected effects.</li>
+<li>The <strong>solid line</strong> shows the <strong>standard</strong> normal distribution. The upper tail areas of this distribution would be used for standard, unadjusted <span class="math inline">\(p\)</span>-values.</li>
+<li>The <strong>dashed line</strong> shows the truncated, <strong>conditional</strong> distribution <span class="math inline">\(Z | Z &gt; 1\)</span> for a standard normal <span class="math inline">\(Z\)</span>.</li>
+</ul>
+<p>If we used the tail areas of the standard normal to compute <span class="math inline">\(p\)</span>-values, these would be very small, even though the data was all generated under a global null hypothesis. This shows that the selection effect can invalidate inference, leading to a high type 1 error rate. But it’s pretty clear from the plot that the conditional distribution fits the data very well: if “significant” means extreme according to <em>this</em> distribution, then type 1 error rate would be small, it would match whatever nominal threshold <span class="math inline">\(\alpha\)</span> we decided.</p>
+<h2 id="the-selectiveinference-r-package">The selectiveInference R package</h2>
+<p>Let’s return to our first example about forward stepwise.</p>
+<p>The details for computing <span class="math inline">\(p\)</span>-values with conditional probability when model selection is more complicated–like using forward stepwise with AIC, or the LASSO with cross-validation, etc–are harder than the marginal screening case. But fortunately, there is an R package for it: the <code>selectiveInference</code> package available on <a href="https://cran.r-project.org/web/packages/selectiveInference/index.html">CRAN</a>! This package is still under development, and its authors include Ryan Tibshirani, Rob Tibshirani, Jonathan Taylor, Stephen Reid and some other guy. The package currently does not support R formulas, so first we need to create a <code>model.matrix</code>, then we’ll run forward stepwise again with the <code>fs</code> function, then we’ll compute adjusted inference for the fitted model using <code>fsInf</code>. These last two functions are among several others in the <code>selectiveInference</code> package, including ones for doing all of this with the <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">LASSO</a> instead of forward stepwise.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+fsInf(obj = fit, type = &quot;aic&quot;, ntimes = 1)
+
+Standard deviation of noise (specified or estimated) sigma = 10.703
+
+Testing results at step = 6, with alpha = 0.100
+ Var   Coef Z-score P-value LowConfPt UpConfPt LowTailArea UpTailArea
+   1 19.147   5.233   0.171   -14.225   37.970        0.05      0.050
+   4  9.483   2.697   0.559   -43.440   13.021        0.05      0.049
+   2  8.881   2.445   0.472   -35.763   26.424        0.05      0.050
+   6  8.385   1.833   0.515   -61.565   46.348        0.05      0.050
+  10  7.979   1.894   0.355   -44.222   72.414        0.05      0.050
+   7 -5.669  -1.690   0.358   -48.097   30.090        0.05      0.050
+
+Estimated stopping point from AIC rule = 6</code></pre>
+</div>
+<p>There’s a lot of output here, but let’s focus on the adjusted <span class="math inline">\(p\)</span>-values. We’ll put them together in a readout with the unadjusted ones:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>                     Estimate    Pr(&gt;|t|) Adj.Pr(&gt;|t|)
+chocolateTRUE           19.15 0.000000898        0.171
+peanutyalmondyTRUE       9.48 0.007372014        0.559
+fruityTRUE               8.88 0.014731896        0.472
+crispedricewaferTRUE     8.39 0.065252715        0.515
+sugarpercent             7.98 0.056931100        0.355
+hardTRUE                -5.67 0.088711566        0.358</code></pre>
+</div>
+<p>The adjusted <span class="math inline">\(p\)</span>-values in the right column are all much larger than the unadjusted ones. In general, adjusted <span class="math inline">\(p\)</span>-values will be larger, but by how much depends on a lot of specifics. In this case, and at the usual <span class="math inline">\(\alpha = 0.05\)</span> level, we went from 3 significant effects without adjusting for selection bias to zero. This reflects a fundamental tradeoff: <strong>the more we use the data to search for interesting things, the less surprised we must be about what we find</strong>. Otherwise, we may just be fooling ourselves, and maybe even end up needing to retract lots of papers…</p>
+<p>I hope this post was a useful introduction to the basic idea of using conditional probability to adjust for model selection, and makes more people aware of the <code>selectiveInference</code> package. This project is also on <a href="https://github.com/selective-inference">github</a>. In future posts I will describe more examples, including other approaches to adjusting inference for model selection bias.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2330,14 +1524,20 @@ function init_posts_list() {
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-<h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->
