@@ -2,6 +2,7 @@
 title: "Relocating and rebuilding"
 description: |
   Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website.
+preview: nyumap.jpg
 author:
   - name: Joshua Loftus
     url: https://joshualoftus.com/
@@ -32,4 +33,9 @@ I read a few books this year that influenced my thinking a lot.
 [This Life](https://lareviewofbooks.org/feature/capitalism-or-freedom-a-symposium-on-martin-hagglunds-this-life-secular-faith-and-spiritual-freedom/) by Martin Hägglund resonated with vague but deeply held feelings I've had as long as I can remember, and gives a coherent way to think explicitly about them. My own short version: the fact of inevitable death reminds us that time is precious, but if we look around it seems most of us are "wasting" a lot of our time or "spending" it in ways we would rather not, which is a great tragedy and maybe the most important moral problem facing humanity. Hägglund argues convincingly to define democratic socialism as nothing less than a revolution in values which is required for humanity to be meaningfully free.
 
 [The Secret of Our Success](https://secretofoursuccess.fas.harvard.edu/) by Joseph Henrich was my first in-depth exposure to academic research about (cumulative) cultural evolution. The book is focused on the particular ways that humans are different from other animals. I'm obsessed with cumulative cultural evolution now, even if I did disagree with the book in some points (mainly where it seems to take evolutionary psychology seriously for some reason). I'm somewhat convinced now that "[over-imitation](https://en.wikipedia.org/wiki/Imitation#Over-imitation)" is our One Weird Trick for building civilization, a useful lens through which to approach learning (and, therefore, anything that can be learned), and (despite [this paper](https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1399)) closely related to another useful concept called "causal opacity."
+
+Leaving New York was [not easy](https://twitter.com/joftius/status/1339605169584140289). I'm gonna [miss it](https://twitter.com/joftius/status/1340089448143466498). There are so many places I need to visit again when I get chance. With vaccines rolling out now, hopefully it won't be long until we're all visiting each other much more often again.
+
+![Map showing the area around Washington Square Park](nyumap.jpg)
+
 
