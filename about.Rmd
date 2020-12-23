@@ -1,11 +1,13 @@
 ---
-title: "Joshua Loftus, Assistant Professor of Statistics"
+title: "Joshua Loftus"
 description: |
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+#  Assistant Professor of Statistics
 
 I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
 
@@ -18,13 +20,13 @@ I'm a statistician and data scientist with a broad range of interests including 
 - Developing methods for inference after model selection such as *p*-values adjusted for selection bias
 - Analyzing the social fairness of machine learning algorithms from a causal perspective
 
-My work has been published in the **Annals of Statistics** and **Advances in Neural Information Processing Systems** (NIPS).
+My peer reviewed research has been published in the **Annals of Statistics**, **Biometrika**, **Advances in Neural Information Processing Systems** (NeurIPS), and the **International Conference on Machine Learning** (ICML).
 
 As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I'm happy to speak with, mentor, or help students from any background. 
 
 ### History
 
-- Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-present.
+- Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-2020.
 - Research Fellow, **Alan Turing Institute** and **University of Cambridge**, 2016-17. 
 - Ph.D. Statistics, (Biostatistics trainee), **Stanford University**, 2016.
 - M.A. Mathematics, (concentration in computational biology), **Rutgers University**, 2011.

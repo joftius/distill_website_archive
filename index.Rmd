@@ -1,5 +1,5 @@
 ---
-title: "Neurath's Speedboat"
+title: "Blog"
 site: distill::distill_website
 description: |
 listing: posts

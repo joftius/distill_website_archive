@@ -12,6 +12,7 @@ include: "post"
 creative_commons: CC BY
 twitter:
   site: "@joftius"
+theme: theme.css
 navbar:
   right:
     - text: "Home"
@@ -21,7 +22,9 @@ navbar:
     - text: "Research"
       href: research.html
     - text: "Teaching"
-      href: teaching.html      
+      href: teaching.html
+    - icon: fa fa-rss
+      href: index.xml
 cookie_consent:
   style: simple
   type: express

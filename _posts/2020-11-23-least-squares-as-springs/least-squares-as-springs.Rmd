@@ -5,6 +5,7 @@ description: |
 author:
   - name: Joshua Loftus
     url: https://joshualoftus.com/
+    affiliation: New York University    
 date: 11-23-2020
 categories:
   - statistics

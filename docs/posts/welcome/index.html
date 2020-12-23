@@ -87,7 +87,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Neurath's Speedboat: Relocating and rebuilding</title>
 
-<meta property="description" itemprop="description" content="The end of 2020, the beginning of who knows what"/>
+<meta property="description" itemprop="description" content="Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website."/>
 
 <link rel="canonical" href="http://joshualoftus.com/posts/welcome/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -100,7 +100,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Neurath&#39;s Speedboat: Relocating and rebuilding"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="The end of 2020, the beginning of who knows what"/>
+<meta property="og:description" content="Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website."/>
 <meta property="og:url" content="http://joshualoftus.com/posts/welcome/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Neurath&#39;s Speedboat"/>
@@ -108,7 +108,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Neurath&#39;s Speedboat: Relocating and rebuilding"/>
-<meta property="twitter:description" content="The end of 2020, the beginning of who knows what"/>
+<meta property="twitter:description" content="Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website."/>
 <meta property="twitter:url" content="http://joshualoftus.com/posts/welcome/"/>
 <meta property="twitter:site" content="@joftius"/>
 
@@ -124,7 +124,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Relocating and rebuilding"]},{"type":"character","attributes":{},"value":["The end of 2020, the beginning of who knows what"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]},{"type":"character","attributes":{},"value":["New York University"]},{"type":"character","attributes":{},"value":["https://www.stern.nyu.edu/faculty/bio/joshua-loftus"]}]}]},{"type":"character","attributes":{},"value":["12-21-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/welcome/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/welcome/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Relocating and rebuilding"]},{"type":"character","attributes":{},"value":["Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]},{"type":"character","attributes":{},"value":["https://joshualoftus.com/"]},{"type":"character","attributes":{},"value":["New York University"]},{"type":"character","attributes":{},"value":["https://www.stern.nyu.edu/faculty/bio/joshua-loftus"]}]}]},{"type":"character","attributes":{},"value":["12-21-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/welcome/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/posts/welcome/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2008,6 +2008,309 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Merriweather", serif;
+  --mono-font:       monospace;
+  --body-font:       "Merriweather+Sans", sans-serif;
+  --navbar-font:     "Merriweather", serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       1.4rem;
+  --text-color:       rgba(55, 55, 55, 0.8);
+  --text-size:        1.2rem;
+  --hover-color:      black;
+  --bkgd-color:       #FFFFFF;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+	font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+/* only text inside of <p> tags */
+d-article > p {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+	font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+	font-size: var(--aside-size, 12px);
+	color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+	font-size: var(--fig-cap-size, 13px);
+	color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+	font-size: var(--heading-size, 0.6rem);
+	color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+	font-size: var(--body-size, 0.8rem);
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+	font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+	font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+	color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+	font-size: var(--title-size, 18px);
+	font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a,
+.nav-dropdown .nav-dropbtn {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a:hover {
+	color: var(--hover-color, white);
+}
+
+.distill-site-header {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+	color: var(--hover-color, white);
+}</style>
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -2033,7 +2336,7 @@ gtag('config', 'UA-114292497-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Relocating and rebuilding","description":"The end of 2020, the beginning of who knows what","authors":[{"author":"Joshua Loftus","authorURL":"https://joshualoftus.com/","affiliation":"New York University","affiliationURL":"https://www.stern.nyu.edu/faculty/bio/joshua-loftus","orcidID":""}],"publishedDate":"2020-12-21T00:00:00.000+00:00","citationText":"Loftus, 2020"}
+{"title":"Relocating and rebuilding","description":"Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website.","authors":[{"author":"Joshua Loftus","authorURL":"https://joshualoftus.com/","affiliation":"New York University","affiliationURL":"https://www.stern.nyu.edu/faculty/bio/joshua-loftus","orcidID":""}],"publishedDate":"2020-12-21T00:00:00.000+00:00","citationText":"Loftus, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2049,6 +2352,9 @@ gtag('config', 'UA-114292497-1');
 <a href="../../about.html">About</a>
 <a href="../../research.html">Research</a>
 <a href="../../teaching.html">Teaching</a>
+<a href="../../index.xml">
+<i class="fa fa-rss" aria-hidden="true"></i>
+</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2061,7 +2367,7 @@ gtag('config', 'UA-114292497-1');
 <h1>Relocating and rebuilding</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>The end of 2020, the beginning of who knows what</p></p>
+<p><p>Some retrospective on an eventful 2020, announcing a move from New York to London, a couple book recommendations, and a new design for this website.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2071,7 +2377,12 @@ gtag('config', 'UA-114292497-1');
 </div>
 
 <div class="d-article">
-<p>I’m rebuilding my site using <a href="https://rstudio.github.io/distill">distill</a>. It might take some time but links to old posts and lecture notes will eventually work again.</p>
+<p>I’m rebuilding this site using <a href="https://rstudio.github.io/distill">distill</a>. It might take some time but links to old posts and lecture notes will eventually work again. If something is missing feel free to contact me about it.</p>
+<p>I’m also relocating to start a position in the Statistics Department at the London School of Economics. I’ll be teaching an undergraduate course on machine learning for statistics majors, and will post some of the materials in the teaching section here.</p>
+<p>A lot of things happened in 2020 and changed my thinking in certain ways. Imagining counterfactual responses and trajectories of the coronavirus pandemic is illuminating. From the beginning, and even now after almost a year, many countries have failed almost completely at learning from the experiences of others. There are deep structural, institutional, and behavioral obstacles to coordinated intentional action, which become worse the longer capitalism has dominated a given society. Thinking of economies as a distributed artificial intelligence, capitalism is a kind of overfitting- maximizing the wealth and power of one small class of people at the expense of every other possible fitness metric. We’ve seen myriad negative consequences of that this year in a kind of speed-run preview of what will likely become much worse over the course of climate change.</p>
+<p>I read a few books this year that influenced my thinking a lot.</p>
+<p><a href="https://lareviewofbooks.org/feature/capitalism-or-freedom-a-symposium-on-martin-hagglunds-this-life-secular-faith-and-spiritual-freedom/">This Life</a> by Martin Hägglund resonated with vague but deeply held feelings I’ve had as long as I can remember, and gives a coherent way to think explicitly about them. My own short version: the fact of inevitable death reminds us that time is precious, but if we look around it seems most of us are “wasting” a lot of our time or “spending” it in ways we would rather not, which is a great tragedy and maybe the most important moral problem facing humanity. Hägglund argues convincingly to define democratic socialism as nothing less than a revolution in values which is required for humanity to be meaningfully free.</p>
+<p><a href="https://secretofoursuccess.fas.harvard.edu/">The Secret of Our Success</a> by Joseph Henrich was my first in-depth exposure to academic research about (cumulative) cultural evolution. The book is focused on the particular ways that humans are different from other animals. I’m obsessed with cumulative cultural evolution now, even if I did disagree with the book in some points (mainly where it seems to take evolutionary psychology seriously for some reason). I’m somewhat convinced now that “<a href="https://en.wikipedia.org/wiki/Imitation#Over-imitation">over-imitation</a>” is our One Weird Trick for building civilization, a useful lens through which to approach learning (and, therefore, anything that can be learned), and (despite <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1399">this paper</a>) closely related to another useful concept called “causal opacity.”</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
