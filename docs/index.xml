@@ -7,7 +7,16 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Is the new variant of COVID really more transmissible?</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible</link>
+      <description>A variant of COVID recently grew rapidly in London. Experts have warned this strain may be more transmissible, and governments have enacted more restrictions as a response. But the new variant has not spread rapidly in other locations.</description>
+      <guid>http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible</guid>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Relocating and rebuilding</title>
       <dc:creator>Joshua Loftus</dc:creator>
