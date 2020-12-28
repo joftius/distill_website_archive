@@ -103,7 +103,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="A variant of COVID recently grew rapidly in London. Experts have warned this strain may be more transmissible, and governments have enacted more restrictions as a response. But the new variant has not spread rapidly in other locations."/>
 <meta property="og:url" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/"/>
-<meta property="og:image" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="og:image" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-7-1.png"/>
 <meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="twitter:title" content="Neurath&#39;s Speedboat: Is the new variant of COVID really more transmissible?"/>
 <meta property="twitter:description" content="A variant of COVID recently grew rapidly in London. Experts have warned this strain may be more transmissible, and governments have enacted more restrictions as a response. But the new variant has not spread rapidly in other locations."/>
 <meta property="twitter:url" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/"/>
-<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="twitter:image" content="http://joshualoftus.com/posts/2020-12-28-is-the-new-variant-of-covid-really-more-transmissible/is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-7-1.png"/>
 <meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 <meta property="twitter:site" content="@joftius"/>
@@ -135,7 +135,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["is-the-new-variant-of-covid-really-more-transmissible_files/anchor-4.2.2/anchor.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/bowser-1.9.3/bowser.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/distill-2.2.21/template.v2.js","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-2.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-3.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-3-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-4-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-5-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/jquery-1.11.3/jquery.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["is-the-new-variant-of-covid-really-more-transmissible_files/anchor-4.2.2/anchor.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/bowser-1.9.3/bowser.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/distill-2.2.21/template.v2.js","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-2.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-3.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-3-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-4-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-5-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-6-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-7-1.png","is-the-new-variant-of-covid-really-more-transmissible_files/jquery-1.11.3/jquery.min.js","is-the-new-variant-of-covid-really-more-transmissible_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2417,19 +2417,23 @@ I’m over-simplifying and over-generalizing because many of the experts (and ev
 <p><strong>So let’s look at these estimates of the percent of the UK population testing positive, broken down based on whether the test result is consistent with the new strain or otherwise</strong>.</p>
 <h2 id="getting-the-data-dont-read-this">Getting the data (don’t read this)</h2>
 <p>We can download data with estimates of <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/adhocs/12708covid19infectionsurveyorf1abnpositivityrates">COVID-19 infection rates</a> from the Office of National Statistics (which <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/methodologies/covid19infectionsurveypilotmethodsandfurtherinformation">uses random sampling</a> and adjusts for differential response with <a href="https://statmodeling.stat.columbia.edu/2013/10/09/mister-p-whats-its-secret-sauce/">MRP</a>, hence the smooth-looking curves in the graphs below). Unfortunately this data is stored in an excel spreadsheet (an abhorrent practice), so I’m showing my code below in case anyone else would like to access this data programmatically</p>
+<aside>
+One point about the ONS estimates that might be important: they’re adjusted to make the survey representative on age, sex and region, but not, for example, <a href="https://www.pewresearch.org/methods/2017/05/15/what-low-response-rates-mean-for-telephone-surveys/">education</a>. Their <a href="https://www.medrxiv.org/content/10.1101/2020.07.06.20147348v1">survey</a> response rate was about 42%.
+</aside>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 <span class='va'>download_filename</span> <span class='op'>&lt;-</span> <span class='st'>"covid_positivity.xlsx"</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span><span class='op'>(</span>
   url <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span>
-  <span class='st'>"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/"</span>,
-  <span class='st'>"healthandsocialcare/conditionsanddiseases/adhocs/"</span>,
-  <span class='st'>"12708covid19infectionsurveyorf1abnpositivityrates/"</span>,
-  <span class='st'>"orf1abnmodellingadhoc.xlsx"</span><span class='op'>)</span>,
+  <span class='st'>"https://www.ons.gov.uk/file?"</span>,
+  <span class='st'>"uri=/peoplepopulationandcommunity/"</span>,
+  <span class='st'>"healthandsocialcare/conditionsanddiseases"</span>,
+  <span class='st'>"/adhocs/12708covid19infectionsurveyorf1abn"</span>,
+  <span class='st'>"positivityrates/orf1abnmodellingadhoc.xlsx"</span><span class='op'>)</span>,
   destfile <span class='op'>=</span> <span class='va'>download_filename</span><span class='op'>)</span>
 
-<span class='va'>c19rates</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='st'>"covid_positivity.xlsx"</span>,
+<span class='va'>c19rates</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>download_filename</span>,
                               col_names <span class='op'>=</span> <span class='cn'>FALSE</span>,
                               sheet <span class='op'>=</span> <span class='st'>"Data"</span>,
                               range  <span class='op'>=</span> <span class='st'>"A6:BI54"</span><span class='op'>)</span>
@@ -2456,31 +2460,40 @@ I’m over-simplifying and over-generalizing because many of the experts (and ev
 <h2 id="positivity-rate-plots-for-uk-regions">Positivity rate plots for UK regions</h2>
 <p>First let’s see the rates in two regions, the one where the new strain grew most rapidly and another region where it hasn’t.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+
 </div>
-<aside>
-One point about the ONS estimates that might be important: they’re adjusted to make the survey representative on age, sex and region, but not, for example, <a href="https://www.pewresearch.org/methods/2017/05/15/what-low-response-rates-mean-for-telephone-surveys/">education</a>. Their <a href="https://www.medrxiv.org/content/10.1101/2020.07.06.20147348v1">survey</a> response rate was about 42%.
-</aside>
-<p>Next, here are all the regions sorted (top left to bottom right) in the order of the maximum estimated prevalence of the new strain.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<aside>
+The error bars are 95% credible intervals provided by the ONS, presumably these come from the MRP model used to adjust the survey.
+</aside>
+<p>Next, here are all the regions sorted (top left to bottom right) in the order of the maximum estimated prevalence of the new strain.</p>
+<div class="layout-chunk" data-layout="l-page">
+<p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <h2 id="conclusion">Conclusion</h2>
 <p><strong>If the new strain has a biological advantage that makes it more transmissible why isn’t it taking over in every region?</strong> This is not a rhetorical question. One real possibility is that only <em>some</em> of the test results that are consistent with the new strain actually are the new strain, and other ones are similar but don’t have the same set of important mutations. If this were true then regions where the new strain hasn’t taken over could just be places where it has not yet reached, or reached recently enough that it’s still early, i.e. these regions are a month or so behind London in the trajectory for the new strain.</p>
 <p>And let me repeat: <strong>none of this should be taken as skepticism about the importance of taking actions to control the spread of the pandemic</strong>. Whether this new strain is more transmissible or not, we already know there is continued widespread community transmission. We already know that millions more could suffer horribly, and die, and that our emergency and healthcare systems and economies will be devastated if this virus is allowed to spread out of control. We already knew that more action was necessary to slow the spread before we learned of this new variant. Still, the question of whether or not this new variant is more transmissible is important as a matter of scientific accuracy and public trust.</p>
-<p>Finally, to be comprehensive I’ll also show the previous plots for the (separate) dataset that includes Scotland, Wales, and Northern Ireland.</p>
+<p>To be clear, I haven’t done the work of spelling out an alternate, behavioral explanation. Some have tried, but there just isn’t much good data available for that purpose. For example, <a href="https://twitter.com/BillHanage/status/1341861117602246656">mobility data</a> apparently doesn’t show differences in activity levels between London and other parts of the UK throughout the relevant time period. Such data is incredibly coarse and not guaranteed to surface behavioral differences that could be important causal explanations.</p>
+<p>Instead of thinking about what data is available and convenient to access (like the mobility indexes), <strong>ask yourself what kind of social information you would like to know if it were included as a question in the ONS COVID infection survey</strong>. Does the household have any contacts with schools? Where do household members work? Has anyone eaten indoors at a restaurant in the last week? Questions like these linked with actual test results, rather than aggregated by region in a mobility index, could be of tremendous help in tracking down how the virus is spreading and figuring out how to slow it down. <strong>There’s almost no cost to simply asking a few more questions on a survey compared to the cost already going toward tests. It seems the only reasons this has not been done are a reluctance to know the answers to such questions (from e.g. desire to keep schools or restaurants open) and a reliance on big dumb data instead of intentional scientific thinking and deliberate study design</strong>.</p>
+<h2 id="supplemental-plots">Supplemental plots</h2>
+<p>To be comprehensive I’ll also show the previous plots for the (separate) dataset that includes Scotland, Wales, and Northern Ireland.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>download_filename</span> <span class='op'>&lt;-</span> <span class='st'>"covid_positivity_SWNI.xlsx"</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span><span class='op'>(</span>
   url <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span>
-    <span class='st'>"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/"</span>,
-    <span class='st'>"healthandsocialcare/conditionsanddiseases/adhocs/12711coronavirus"</span>,
-    <span class='st'>"covid19infectionsurveyorf1abnmodellingscotlandwalesandnorthern"</span>,
-    <span class='st'>"ireland/orf1abnmodellingadhocscotlandwalesandnorthernireland.xlsx"</span><span class='op'>)</span>,
+    <span class='st'>"https://www.ons.gov.uk/file?uri="</span>,
+    <span class='st'>"/peoplepopulationandcommunity/"</span>,
+    <span class='st'>"healthandsocialcare/conditionsanddiseases/"</span>,
+    <span class='st'>"adhocs/12711coronaviruscovid19infectionsurvey"</span>,
+    <span class='st'>"orf1abnmodellingscotlandwalesandnorthern"</span>,
+    <span class='st'>"ireland/orf1abnmodellingadhocscotlandwales"</span>,
+    <span class='st'>"andnorthernireland.xlsx"</span><span class='op'>)</span>,
   destfile <span class='op'>=</span> <span class='va'>download_filename</span><span class='op'>)</span>
 
-<span class='va'>c19rates</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='st'>"covid_positivity_SWNI.xlsx"</span>,
+<span class='va'>c19rates</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>download_filename</span>,
                               col_names <span class='op'>=</span> <span class='cn'>FALSE</span>,
                               sheet <span class='op'>=</span> <span class='st'>"Data"</span>,
                               range  <span class='op'>=</span> <span class='st'>"A6:S54"</span><span class='op'>)</span>
@@ -2506,14 +2519,18 @@ One point about the ONS estimates that might be important: they’re adjusted to
   <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>region</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>summarize</span><span class='op'>(</span>max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>positive</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='va'>c19_long_plot</span> <span class='op'>&lt;-</span> <span class='va'>c19_long</span> <span class='op'>%&gt;%</span> 
+<span class='va'>c19_long_plot_SWNI</span> <span class='op'>&lt;-</span> <span class='va'>c19_long</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>new_regions</span>, by <span class='op'>=</span> <span class='st'>"region"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>mutate</span><span class='op'>(</span>region <span class='op'>=</span> <span class='fu'>fct_reorder</span><span class='op'>(</span><span class='va'>region</span>, <span class='fu'>desc</span><span class='op'>(</span><span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<p>And as a reward for anyone who scrolled this far, the most extreme comparison: Wales and London.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="is-the-new-variant-of-covid-really-more-transmissible_files/figure-html5/unnamed-chunk-7-1.png" width="624" data-distill-preview=1 /></p>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
