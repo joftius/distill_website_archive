@@ -9,6 +9,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 #  Assistant Professor of Statistics
 
+(**Temporary note: I am currently moving from New York University to the London School of Economics**).
+
 I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
 
 <aside>
