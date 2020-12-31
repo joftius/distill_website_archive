@@ -256,3 +256,102 @@ c19_long_plot %>%
     axis.text.x=element_blank(),
     axis.ticks.x=element_blank())
 ```
+
+##  New data update
+
+The ONS has released [new data](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/adhocs/12716covid19infectionsurveyestimatesofcovid19casesto23decemberforenglandregionsofenglandandbycasescompatiblewiththenewvariant) up to 23 December so I'm updating this post. The new data shows more increases in the percent compatible with the new variant across England, which is now more consistent with the theory of increased transmissibility. However there is not yet any new data for Scotland, Wales, and Northern Ireland, so we can't see if the trend is different now in Wales.
+
+
+```{r echo = FALSE, cache = TRUE}
+library(tidyverse)
+download_filename_update <- "covid_positivity_update.xlsx"
+download.file(
+  url = paste0(
+  "https://www.ons.gov.uk/file?",
+  "uri=/peoplepopulationandcommunity/",
+  "healthandsocialcare/conditionsanddiseases",
+  "/adhocs/12716covid19infectionsurveyestimates",
+  "ofcovid19casesto23decemberforenglandregionsof",
+  "englandandbycasescompatiblewiththenewvariant/",
+  "estimatesofcovid19to23decemberforenglandregions",
+  "ofenglandandbythenewvariant..xlsx"),
+  destfile = download_filename_update)
+
+c19rates_update <- readxl::read_xlsx(download_filename_update,
+                              col_names = FALSE,
+                              sheet = "4",
+                              range  = "A6:BI54")
+
+deleted <- file.remove(download_filename_update)
+
+names(c19rates_update) <- c("date", 
+do.call(paste, 
+expand.grid(
+  c("positive", "lower", "upper"),
+  c("new", "other"),
+  c("England", "NorthEast", "NorthWest", "YorkshHum", "EastMid",
+    "WestMid", "EastEngland", "London", "SouthEast", "SouthWest"))
+))
+
+c19_long_update <- c19rates_update %>%
+  pivot_longer(!date) %>%
+  separate(col = name, sep = " ",
+           into = c("est", "variant", "region")) %>%
+  pivot_wider(names_from = est, values_from = value)
+```
+
+```{r layout="l-page", fig.width=7, fig.height=7}
+new_regions_update <- c19_long_update %>%
+  filter(variant == "new") %>%
+  group_by(region) %>%
+  summarize(max = max(positive))
+
+c19_long_plot_update <- c19_long_update %>% 
+  left_join(new_regions_update, by = "region") %>%
+  mutate(region = fct_reorder(region, desc(max)))
+
+c19_long_plot_update %>%
+  filter(region != "England") %>%
+ggplot(aes(x = as.Date(date), y = positive, color = variant)) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0, alpha = 0.4) +
+  geom_line(aes(linetype = variant)) + 
+  facet_wrap(vars(region)) +
+  scale_colour_manual(values = c("blue3", "darkviolet")) +
+  ylab("Percent positive estimates") +
+  xlab("")  +
+  scale_x_date(breaks = as.Date(c("2020-11-01", "2020-12-01")),
+               labels = date_format("%b %d"))
+```
+
+
+This new data also comes with revisions of the previous data, this is perhaps most obvious by looking at the West Midlands region.
+
+```{r echo = FALSE}
+westmid <- rbind(
+  c19_long_plot %>% 
+    filter(region == "WestMid"),
+  c19_long_plot_update %>%
+  filter(region == "WestMid") %>%
+  mutate(region = "Updated"))
+
+westmid %>%
+  ggplot(
+       aes(x = as.Date(date), y = positive, color = variant)) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0, alpha = 0.4) +
+  geom_line(aes(linetype = variant)) + 
+  scale_colour_manual(values = c("blue3", "darkviolet")) +
+  facet_wrap(vars(region)) +
+  ylab("Percent positive estimates") + 
+  xlab("") +
+  scale_x_date(breaks = as.Date(c("2020-11-01", "2020-12-01")),
+               labels = date_format("%b %d"))
+```
+
+I have not yet seen the explanation for this but it could reflect the addition of back-dated test results and/or updates to parameters of the MRP model that adjusts survey responses.
+
+In summary:
+
+- New estimates are more consistent with the new variant being more transmissible
+- I still think it's inconclusive. I'd like to see the explanation for the revision of previous numbers, and continue to watch other regions (including Wales, and other countries where the new variant has been detected)
+- And as before, this information isn't really necessary to know that more effective actions are required to stop the spread of (all strains of) the virus
+
