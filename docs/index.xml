@@ -7,7 +7,19 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Did the new variant of COVID spread through schools?</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools</link>
+      <description>Perhaps the new COVID variant is not more transmissible due to intrinsic biological factors, but spread more rapidly for social reasons. This post considers circumstiantial evidence of spread in schools.</description>
+      <category>statistics</category>
+      <category>covid19</category>
+      <category>biocentrism</category>
+      <guid>http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools</guid>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools/did-the-new-variant-of-covid-spread-through-schools_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Is the new variant of COVID really more transmissible?</title>
       <dc:creator>Joshua Loftus</dc:creator>

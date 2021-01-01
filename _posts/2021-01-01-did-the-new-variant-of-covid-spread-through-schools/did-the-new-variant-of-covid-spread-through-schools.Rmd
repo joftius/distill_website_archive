@@ -1,0 +1,196 @@
+---
+title: "Did the new variant of COVID spread through schools?"
+description: |
+  Perhaps the new COVID variant is not more transmissible due to intrinsic biological factors, but spread more rapidly for social reasons. This post considers circumstiantial evidence of spread in schools.
+author:
+  - name: Joshua Loftus
+    url: https://joshualoftus.com/
+date: 01-01-2021
+categories:
+  - statistics
+  - covid19
+  - biocentrism
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(dplyr.summarise.inform = FALSE)
+library(tidyverse)
+library(scales)
+```
+
+## Cases and age across London Boroughs
+
+Using [PHE data](https://data.london.gov.uk/dataset/coronavirus--covid-19--cases) on cases and [ONS data](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland) for population demographic estimates (age, specifically), we can plot the **rate of new COVID cases since 1 November** compared to the **proportion of each Borough's population under age 20**.
+
+```{r echo = FALSE}
+download_filename <- "UK_population.xls"
+download.file(
+  url = paste0(
+    "https://www.ons.gov.uk/file?uri=",
+    "%2fpeoplepopulationandcommunity%2f",
+    "populationandmigration%2fpopulationestimates",
+    "%2fdatasets%2fpopulationestimatesforukenglandand",
+    "walesscotlandandnorthernireland%2fmid2019april2020",
+    "localauthoritydistrictcodes/ukmidyearestimates",
+    "20192020ladcodes.xls"),
+  destfile = download_filename)
+
+UK_age_pop <- readxl::read_xls(download_filename,
+                                     col_names = TRUE,
+                                     sheet = "MYE2 - Persons",
+                                     range  = "A5:CQ431")
+
+deleted <- file.remove(download_filename)
+
+n_age_0_19 <- UK_age_pop %>%
+  select(num_range("", 0:19)) %>%
+  mutate(total = rowSums(.)) %>%
+  pull(total)
+
+UK_pop <- UK_age_pop %>%
+  select(matches("[A-Z]")) %>%
+  mutate(pop_019 = n_age_0_19, pop = `All ages`) %>%
+  select(-`All ages`)
+
+london_covid <- read_csv("https://data.london.gov.uk/download/coronavirus--covid-19--cases/151e497c-a16e-414e-9e03-9e428f555ae9/phe_cases_london_boroughs.csv")
+
+london_recent <- london_covid %>%
+  filter(date > "2020-11-01") %>%
+  group_by(area_name) %>%
+  summarize(recent_cases = sum(new_cases))
+
+london_covid_age <- inner_join(
+  UK_pop, london_recent,
+  by = c("Name" = "area_name")) %>%
+  mutate(
+    prop_child = pop_019 / pop,
+    recent_rate = recent_cases / pop)
+```
+
+```{r}
+theme_set(
+  theme_minimal(
+    base_size = 12,
+    base_line_size = 1
+    )
+  )
+theme_update(strip.text.x = element_text(size = 14))
+
+london_covid_age %>%
+  ggplot(aes(prop_child, recent_rate)) +
+  geom_point() +
+  xlab("Pop. % under age 20") +
+  ylab("Pop. case rate since Nov")
+```
+
+I would interpret this plot as a rough summary of some observational data. I'm not going to fit any regression line or do any fancy modeling. But it seems pretty clear that the rate of new COVID cases is lower in boroughs with proportionally less children, and higher in those with more children.
+
+One of the most important caveats about interpreting the above graph is that this is an [ecological correlation](https://en.wikipedia.org/wiki/Ecological_correlation). Since the data has already been aggregated to the borough level relationships will appear more clear than they would be at finer scales of spatial resolution. So, take this plot with a graint of salt.
+
+Also note that this plot does not distinguish cases of the new variant from other cases. However, the focus here is on London where the new variant rapidly took over recently, so the majority of new cases are of the new variant. Here's what the plot looks like if we consider even more recent cases, those since mid December. It's basically the same.
+
+```{r}
+london_recent <- london_covid %>%
+  filter(date > "2020-12-14") %>%
+  group_by(area_name) %>%
+  summarize(recent_cases = sum(new_cases))
+
+london_covid_age <- inner_join(
+  UK_pop, london_recent,
+  by = c("Name" = "area_name")) %>%
+  mutate(
+    prop_child = pop_019 / pop,
+    recent_rate = recent_cases / pop)
+
+london_covid_age %>%
+  ggplot(aes(prop_child, recent_rate)) +
+  geom_point() +
+  xlab("Pop. % under age 20") +
+  ylab("Pop. case rate since 15 Dec")
+```
+
+
+
+## Age group and new variant odds
+
+Given the caveats of the previous section it's important to note that there is another piece of evidence showing associations between age and the new variant. [This analysis](https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-12-31-COVID19-Report-42-Preprint-VOC.pdf) by Imperial College, PHE, COG-UK and others, showed that among COVID cases those in age groups under age 20 were more likely to have tests consistent with the new variant. It also appears that adults in the age range most likely to have children in school might have slightly higher rates, and that all other age groups had relatively lower rates.
+
+```{r layout="l-body-outset", fig.width=6, fig.height=5}
+knitr::include_graphics("imperialcovidfig4.jpg")
+```
+
+> **(A)** Age distribution of S- and S+ cases. **(B)** Ratio of S- to S+ proportions of cases in each 10 year band. Results shown are for weeks 46-51. Ages were capped at 80.
+
+## Conclusion
+
+Since the beginning of this story about a new variant I always stressed that even without knowledge of any different strains we already knew case numbers were increasing and more actions were necessary. I think the "new variant" story has been a distraction. 
+
+I believe there is a tenable alternative theory to the current narrative about mutations conferring increased transmission. This B.1.1.7 variant might just be the strain that was most prevalent in schools going into the November lockdown. The fact that this variant continued to spread during the lockdown has been one of the key pieces of evidence for the claim that it is more contagious. But if schools remaining open explains that observation we can conclude two things. First, we may not need any additional biological explanation. And second, **the biological explanation *may* in fact be a harmful distraction from the important conclusion that widespread community transmission can continue throughout lockdowns if schools remain open**.
+
+## Code for reproducibility
+
+For downloading the population data with counts of persons of various ages.
+
+```{r eval = FALSE, echo = TRUE}
+# library(tidyverse)
+download_filename <- "UK_population.xls"
+download.file(
+  url = paste0(
+    "https://www.ons.gov.uk/file?uri=",
+    "%2fpeoplepopulationandcommunity%2f",
+    "populationandmigration%2fpopulationestimates",
+    "%2fdatasets%2fpopulationestimatesforukenglandand",
+    "walesscotlandandnorthernireland%2fmid2019april2020",
+    "localauthoritydistrictcodes/ukmidyearestimates",
+    "20192020ladcodes.xls"),
+  destfile = download_filename)
+
+UK_age_pop <- readxl::read_xls(download_filename,
+                                     col_names = TRUE,
+                                     sheet = "MYE2 - Persons",
+                                     range  = "A5:CQ431")
+
+deleted <- file.remove(download_filename)
+
+
+n_age_0_19 <- UK_age_pop %>%
+  select(num_range("", 0:19)) %>%
+  mutate(total = rowSums(.)) %>%
+  pull(total)
+
+UK_pop <- UK_age_pop %>%
+  select(matches("[A-Z]")) %>%
+  mutate(pop_019 = n_age_0_19, pop = `All ages`) %>%
+  select(-`All ages`)
+```
+
+For downloading London COVID case data, filtering to recent cases, merging with population demographic data.
+
+```{r eval = FALSE, echo = TRUE}
+london_covid <- read_csv(
+  paste0("https://data.london.gov.uk/download/coronavirus",
+  "--covid-19--cases/151e497c-a16e-414e-9e03-9e428f555ae9/",
+  "phe_cases_london_boroughs.csv")
+
+london_recent <- london_covid %>%
+  filter(date > "2020-11-01") %>%
+  group_by(area_name) %>%
+  summarize(recent_cases = sum(new_cases))
+
+london_covid_age <- inner_join(
+  UK_pop, london_recent,
+  by = c("Name" = "area_name")) %>%
+  mutate(
+    prop_child = pop_019 / pop,
+    recent_rate = recent_cases / pop)
+```
+
+Finally, for anyone curious about more of the details involved in the age odds ratios calculation this is the caption for Figure 4 in that paper:
+
+> To assess differences in the age distribution of VOC versus non-VOC cases, we considered S-and S+ case numbers in weeks 46-51 across NHS STP regions. Case numbers were standardised for differences in the population age composition in each area, weighted to compare S- cases from each NHS STP region and each epidemiological week with an equal number of S+ cases from that same STP and week (a case-control design), and aggregated over STP weeks. Accounting for binomial sampling variation and variation by area and week,we observe significantly more S- cases, our biomarker of VOC cases, among individuals aged 0-19...
+
