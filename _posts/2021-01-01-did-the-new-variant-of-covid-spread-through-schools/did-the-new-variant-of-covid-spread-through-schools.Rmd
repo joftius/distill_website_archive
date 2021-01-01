@@ -1,7 +1,7 @@
 ---
 title: "Did the new variant of COVID spread through schools?"
 description: |
-  Perhaps the new COVID variant is not more transmissible due to intrinsic biological factors, but spread more rapidly for social reasons. This post considers circumstiantial evidence of spread in schools.
+  The common theory of the new COVID variant is that intrinsic biological factors make it more transmissible. An alternate theory attributes the same dynamics to social explanations like community spread among school-aged children.
 author:
   - name: Joshua Loftus
     url: https://joshualoftus.com/
@@ -24,9 +24,15 @@ library(scales)
 library(plotly)
 ```
 
+## TL;DR
+
+- London Boroughs with the highest recent infection rates also have younger populations
+- Since September the infection rates have remained highest and increased fastest for school aged children
+- The observation that the new variant has not broken out in some regions could be explained by these regions experiencing their school-based outbreaks earlier in the season with a different variant
+
 ## Cases and age across London Boroughs
 
-Using [PHE data](https://data.london.gov.uk/dataset/coronavirus--covid-19--cases) on cases and [ONS data](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland) for population demographic estimates (age, specifically), we can plot the **rate of new COVID cases since 1 November** compared to the **proportion of each Borough's population under age 20**.
+The new SARS-nCov-2 variant drawing much attention from international media saw most of its recent growth in London and nearby regions, so let's look at London first. We can plot the **rate of new COVID cases after 1 November** compared to the **proportion of each Borough's population under age 20** using [PHE data](https://data.london.gov.uk/dataset/coronavirus--covid-19--cases) on cases and [ONS data](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland) for population demographic estimates (age, specifically)
 
 ```{r echo = FALSE}
 download_filename <- "UK_population.xls"
@@ -89,11 +95,11 @@ london_covid_age %>%
   ylab("Pop. case rate since Nov")
 ```
 
-I would interpret this plot as a rough summary of some observational data. I'm not going to fit any regression line or do any fancy modeling. But it seems pretty clear that the rate of new COVID cases is lower in boroughs with proportionally less children, and higher in those with more children.
+<aside>
+Note that this graph is an example of [ecological correlation](https://en.wikipedia.org/wiki/Ecological_correlation). Since the data has already been aggregated to the borough level relationships will appear more clear than they would be at finer scales of spatial resolution.
+</aside>
 
-One of the most important caveats about interpreting the above graph is that this is an [ecological correlation](https://en.wikipedia.org/wiki/Ecological_correlation). Since the data has already been aggregated to the borough level relationships will appear more clear than they would be at finer scales of spatial resolution. So, take this plot with a graint of salt.
-
-Also note that this plot does not distinguish cases of the new variant from other cases. However, the focus here is on London where the new variant rapidly took over recently, so the majority of new cases are of the new variant.
+This plot is a rough summary of observational data, but it seems pretty clear that the rate of new COVID cases is lower in boroughs with proportionally less children, and higher in those with more children. This plot does not distinguish cases of the new variant from other cases. However, the focus here is on London where the new variant rapidly took over recently, so the majority of new cases here are of the new variant.
 
 ```{r echo = FALSE, eval = FALSE}
 #Here's an animation from the same data showing **cumulative cases / population over time**. The points only move upward because it's cumulative cases, but you can press play or move the slider to see how the boroughs accumulated cases over time. Mouse over a point to see the name of the Borough.
@@ -126,7 +132,7 @@ fig
 
 ## Age group and infection rates
 
-Data from the ONS COVID survey (described in the previous post) has estimated infection rates by age groups. Unfortunately there was no breakdown by age group and region, or by age group and new/old variant. But we can see from this data that the rates have remained consistently higher for school aged children and young adults. These younger groups also experienced the most rapid increase in infection rates in December during the same period that the new variant became more prevalent.
+The ONS COVID survey provides estimates using random sampling of the population. Unlike data from cases, this should be less influenced by selection biases from people deciding whether or not to go get tested. Unfortunately there was no breakdown by age group and region, or by age group and new/old variant. But we can see from this data that the **overall infection rates have remained consistently higher for school aged children and young adults**. These **younger groups also experienced the most rapid increase in infection rates in December** during the same period that the new variant became more prevalent.
 
 ```{r}
 download_filename <- "covid_positivity_update.xlsx"
@@ -182,9 +188,8 @@ c19_long_update %>%
                labels = date_format("%b %d"))
 ```
 
-### Update with better data
 
-Thanks to [Dan Cookson](https://twitter.com/danc00ks0n/status/1345093755632758784) who brought my attention to [this data^[Under supplementary data on the side]](https://coronavirus.data.gov.uk/details/download) and pointed out that **some regions which are not currently seeing high infection rates among young people did so earlier in the season**. This is a potential answer to the big open question I ended with before: schools that had outbreaks earlier have some amount of acquired immunity and probably enacted policy and behavior changes. Perhaps these earlier outbreaks among young people also explain the prevalence of a different strain that was predominant before the current variant broke out in the London area. The [previous strain](https://nextstrain.org/groups/neherlab/ncov/S.N501?c=gt-S_501,69&dmax=2020-10-20&dmin=2020-09-01&p=grid&r=country) accounted for around 2/3 of cases between September and late October.
+Thanks to [Dan Cookson](https://twitter.com/danc00ks0n/status/1345093755632758784) who brought my attention to [this data^[Under supplementary data on the side]](https://coronavirus.data.gov.uk/details/download) from test results. I do not believe this data comes from a representative survey, so it could be biased by whatever factors cause people to get tested or not. On the plus side, it has more detailed spatial resolution for different age groups, so we can see **test results by age group in different regions of England**. Dan pointed out that **some regions which are not currently seeing high infection rates among young people did so earlier in the season**.
 
 ```{r cache = TRUE}
 covid_specimens <- read_csv("~/Downloads/specimenDate_ageDemographic-stacked.csv")
@@ -246,7 +251,18 @@ covid_age %>%
                labels = date_format("%b %d"))
 ```
 
-And just for a closer comparison, here is London and one other region which had an earlier outbreak
+### Comparing the two explanations
+
+We saw an explosion of cases, centered in London, after the November lockdown ended. The biological theory attributes this to a new variant of the virus being more transmissible. The social theory I'm considering in this post attributes the same observation to community transmission enabled by schools remaining open, without any important biological difference.
+
+There are other regions of England which are not experiencing the same explosion of cases as London. Both of these theories have to contend with this fact.
+
+- The biological theory would say that it's only a matter of time before the new variant does take over in other regions
+- The school theory can point out that (at least some of) these other regions had outbreaks earlier in the season, so people may have changed already their behavior
+
+Perhaps these earlier outbreaks among young people also explain the prevalence of a different strain that was predominant before the current variant broke out in the London area. The [previous strain](https://nextstrain.org/groups/neherlab/ncov/S.N501?c=gt-S_501,69&dmax=2020-10-20&dmin=2020-09-01&p=grid&r=country) accounted for around 2/3 of cases between September and late October.
+
+And just for one closer comparison, here is London and another region which had an earlier outbreak:
 
 ```{r preview = TRUE, layout="l-page", fig.width=7, fig.height=5}
 covid_age %>%
@@ -269,7 +285,7 @@ covid_age %>%
 
 ## Age group and new variant odds
 
-Given the caveats of the previous sections it's important to note that there is another piece of evidence showing associations between age and the new variant specifically, although I do not have access to the data this is based on. [This analysis](https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-12-31-COVID19-Report-42-Preprint-VOC.pdf) by Imperial College, PHE, COG-UK and others, showed that among COVID cases those in age groups under age 20 were more likely to have tests consistent with the new variant. It also appears that adults in the age range most likely to have children in school might have slightly higher rates, and that all other age groups had relatively lower rates.
+So far we've only considered data which does not distinguish between the different variants. Now we'll conclude with another piece of evidence showing associations between age and the new variant specifically, although I do not have access to the data this is based on. [This analysis](https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-12-31-COVID19-Report-42-Preprint-VOC.pdf) by Imperial College, PHE, COG-UK and others, showed that among COVID cases those in age groups under age 20 were more likely to have tests consistent with the new variant. It also appears that adults in the age range most likely to have children in school might have slightly higher rates, and that all other age groups had relatively lower rates.
 
 ```{r layout="l-body-outset", fig.width=6, fig.height=5}
 knitr::include_graphics("imperialcovidfig4.jpg")
@@ -283,7 +299,7 @@ Since the beginning of this story about a new variant I consistently stressed th
 
 There is a tenable alternative theory to the current narrative about mutations conferring increased transmission. This B.1.1.7 variant might just be the strain that was most prevalent in schools in and around London going into the November lockdown. The fact that this variant continued to spread during the lockdown has been one of the key pieces of evidence for the claim that it is more contagious. But if schools remaining open explains that observation we can conclude two things. First, we may not need any additional biological explanation. And second, **the biological explanation *may* in fact be a harmful distraction from the important conclusion that widespread community transmission can continue throughout lockdowns if schools remain open**. Instead of focusing on random mutations we should be focusing on what concrete actions those with power can take to stop the spread.
 
-Perhaps the biggest open question remaining for this alternative theory concerns why the school-centered outbreak in the London region didn't happen in other areas that also kept schools open. The data showing higher infection rates for young people in other regions that occurred in September and October offers a partial explanation, but more work can certainly be done to further elaborate this social explanation and show it can better explain all the facts than the biological explanation.
+More work needs to be done to further elaborate this social explanation and show it can better explain all the facts than the biological explanation.
 
 ## Code for reproducibility
 
