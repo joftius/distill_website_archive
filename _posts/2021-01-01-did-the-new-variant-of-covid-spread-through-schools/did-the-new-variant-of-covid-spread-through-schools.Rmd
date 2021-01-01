@@ -361,7 +361,7 @@ london_covid_age <- inner_join(
 
 For infection rates by age from [ONS data](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/datasets/coronaviruscovid19infectionsurveydata)
 
-```{r eval = FALSE}
+```{r eval = FALSE, echo = TRUE}
 download_filename <- "covid_positivity_update.xlsx"
 download.file(
   url = paste0(
@@ -403,7 +403,7 @@ c19_long_update <- c19rates_update %>%
 
 For case data by age and region:
 
-```{r eval = FALSE}
+```{r eval = FALSE, echo = TRUE}
 covid_specimens <- read_csv("download the giant file and put it here")
 covid_spec_age <- covid_specimens %>%
   filter(areaType %in% c("region", "utla"),

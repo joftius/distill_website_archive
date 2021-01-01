@@ -2508,11 +2508,98 @@ Note that this graph is an example of <a href="https://en.wikipedia.org/wiki/Eco
 </div>
 <p>For infection rates by age from <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/datasets/coronaviruscovid19infectionsurveydata">ONS data</a></p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>download_filename</span> <span class='op'>&lt;-</span> <span class='st'>"covid_positivity_update.xlsx"</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span><span class='op'>(</span>
+  url <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span>
+  <span class='st'>"https://www.ons.gov.uk/file?uri="</span>,
+  <span class='st'>"%2fpeoplepopulationandcommunity%2f"</span>,
+  <span class='st'>"healthandsocialcare%2fconditionsand"</span>,
+  <span class='st'>"diseases%2fdatasets%2fcoronaviruscovid19"</span>,
+  <span class='st'>"infectionsurveydata%2f2020/covid19infection"</span>,
+  <span class='st'>"surveydatasets2020122423122020174305.xlsx"</span><span class='op'>)</span>,
+  destfile <span class='op'>=</span> <span class='va'>download_filename</span><span class='op'>)</span>
 
+<span class='va'>c19rates_update</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>download_filename</span>,
+                              col_names <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                              sheet <span class='op'>=</span> <span class='st'>"1g"</span>,
+                              range  <span class='op'>=</span> <span class='st'>"A7:V49"</span><span class='op'>)</span>
+
+<span class='va'>deleted</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.remove</a></span><span class='op'>(</span><span class='va'>download_filename_update</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>c19rates_update</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"date"</span>, 
+<span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span><span class='op'>(</span><span class='va'>paste</span>, 
+<span class='fu'><a href='https://rdrr.io/r/base/expand.grid.html'>expand.grid</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"positive"</span>, <span class='st'>"lower"</span>, <span class='st'>"upper"</span><span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Age2to10"</span>,
+    <span class='st'>"Age11to15"</span>,
+    <span class='st'>"Age16toAge24"</span>,
+    <span class='st'>"Age25to34"</span>,
+    <span class='st'>"Age35to49"</span>,
+    <span class='st'>"Age50to69"</span>,
+    <span class='st'>"Age70+"</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>c19_long_update</span> <span class='op'>&lt;-</span> <span class='va'>c19rates_update</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='op'>!</span><span class='va'>date</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>separate</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>name</span>, sep <span class='op'>=</span> <span class='st'>" "</span>,
+           into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"est"</span>, <span class='st'>"age"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>est</span>, values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>For case data by age and region:</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>covid_specimens</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"download the giant file and put it here"</span><span class='op'>)</span>
+<span class='va'>covid_spec_age</span> <span class='op'>&lt;-</span> <span class='va'>covid_specimens</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>areaType</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"region"</span>, <span class='st'>"utla"</span><span class='op'>)</span>,
+         <span class='va'>date</span> <span class='op'>&gt;</span> <span class='st'>"2020-09-01"</span>,
+         <span class='va'>age</span> <span class='op'>%in%</span>  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+           <span class='st'>"0_4"</span>,
+           <span class='st'>"5_9"</span>,
+           <span class='st'>"10_14"</span>,
+           <span class='st'>"15_19"</span>,
+           <span class='st'>"20_24"</span>,
+           <span class='st'>"25_29"</span>,
+           <span class='st'>"30_34"</span>,
+           <span class='st'>"35_39"</span>,
+           <span class='st'>"40_44"</span>,
+           <span class='st'>"45_49"</span>,
+           <span class='st'>"50_54"</span>,
+           <span class='st'>"55_59"</span>,
+           <span class='st'>"60_64"</span>,
+           <span class='st'>"65_69"</span>,
+           <span class='st'>"70_74"</span>,
+           <span class='st'>"75_79"</span>,
+           <span class='st'>"80_84"</span>,
+           <span class='st'>"85_89"</span><span class='op'>)</span><span class='op'>)</span>
 
+<span class='co'># uncomment to free up memory</span>
+<span class='co'>#rm(covid_specimens)</span>
+
+<span class='va'>covid_age</span> <span class='op'>&lt;-</span> <span class='va'>covid_spec_age</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>separate</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>age</span>, sep <span class='op'>=</span> <span class='st'>"_"</span>,
+           into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"agel"</span>, <span class='st'>"ageu"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>agel <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>agel</span><span class='op'>)</span>,
+         ageu <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>ageu</span><span class='op'>)</span>,
+         Age <span class='op'>=</span> <span class='fu'>cut_interval</span><span class='op'>(</span><span class='va'>agel</span>, length <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+         <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>areaType</span>, <span class='va'>areaName</span>, <span class='va'>date</span>, <span class='va'>Age</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>smoothed_cases <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>newCasesBySpecimenDateRollingRate</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>#omg the name is too long</span>
+<span class='va'>covid_age</span><span class='op'>$</span><span class='va'>areaName</span><span class='op'>[</span><span class='va'>covid_age</span><span class='op'>$</span><span class='va'>areaName</span> <span class='op'>==</span>
+            <span class='st'>"Yorkshire and The Humber"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Yorkshire&amp;Humber"</span>
+
+<span class='va'>covid_age</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>areaType</span> <span class='op'>==</span> <span class='st'>"region"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>areaName</span>, <span class='va'>date</span>, <span class='va'>Age</span>, <span class='va'>smoothed_cases</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>drop_na</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>etc</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Finally, for anyone curious for more of the details involved in the age odds ratios calculation this is the caption for Figure 4 in that paper:</p>
 <blockquote>
