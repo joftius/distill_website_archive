@@ -93,9 +93,10 @@ I would interpret this plot as a rough summary of some observational data. I'm n
 
 One of the most important caveats about interpreting the above graph is that this is an [ecological correlation](https://en.wikipedia.org/wiki/Ecological_correlation). Since the data has already been aggregated to the borough level relationships will appear more clear than they would be at finer scales of spatial resolution. So, take this plot with a graint of salt.
 
-Also note that this plot does not distinguish cases of the new variant from other cases. However, the focus here is on London where the new variant rapidly took over recently, so the majority of new cases are of the new variant. Here's an animation from the same data showing **cumulative cases / population over time**. The points only move upward because it's cumulative cases, but you can press play or move the slider to see how the boroughs accumulated cases over time. Mouse over a point to see the name of the Borough.
+Also note that this plot does not distinguish cases of the new variant from other cases. However, the focus here is on London where the new variant rapidly took over recently, so the majority of new cases are of the new variant.
 
-```{r}
+```{r echo = FALSE, eval = FALSE}
+#Here's an animation from the same data showing **cumulative cases / population over time**. The points only move upward because it's cumulative cases, but you can press play or move the slider to see how the boroughs accumulated cases over time. Mouse over a point to see the name of the Borough.
 fig <- inner_join(
   UK_pop, london_covid,
   by = c("Name" = "area_name")) %>%
@@ -122,8 +123,6 @@ fig <- inner_join(
 fig
 ```
 
-
-There's not much point in looking at large regions outside of London, like in my previous post, because there's little variation in the population proportions of different age groups at that scale. I haven't found data with finer spatial resolution in places other than London. (If you're aware of such data feel free to contact me).
 
 ## Age group and infection rates
 
@@ -169,7 +168,7 @@ c19_long_update <- c19rates_update %>%
   pivot_wider(names_from = est, values_from = value)
 ```
 
-```{r preview = TRUE, layout="l-body-outset", fig.width=6, fig.height=4}
+```{r layout="l-body-outset", fig.width=6, fig.height=4}
 c19_long_update %>%
   ggplot(aes(as.Date(date), positive, linetype = age, color = age)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0, alpha = 0.3) +
@@ -183,6 +182,90 @@ c19_long_update %>%
                labels = date_format("%b %d"))
 ```
 
+### Update with better data
+
+Thanks to [Dan Cookson](https://twitter.com/danc00ks0n/status/1345093755632758784) who brought my attention to [this data^[Under supplementary data on the side]](https://coronavirus.data.gov.uk/details/download) and pointed out that **some regions which are not currently seeing high infection rates among young people did so earlier in the season**. This is a potential answer to the big open question I ended with before: schools that had outbreaks earlier have some amount of acquired immunity and probably enacted policy and behavior changes. Perhaps these earlier outbreaks among young people also explain the prevalence of a different strain that was predominant before the current variant broke out in the London area. The [previous strain](https://nextstrain.org/groups/neherlab/ncov/S.N501?c=gt-S_501,69&dmax=2020-10-20&dmin=2020-09-01&p=grid&r=country) accounted for around 2/3 of cases between September and late October.
+
+```{r cache = TRUE}
+covid_specimens <- read_csv("~/Downloads/specimenDate_ageDemographic-stacked.csv")
+covid_spec_age <- covid_specimens %>%
+  filter(areaType %in% c("region", "utla"),
+         date > "2020-09-01",
+         age %in%  c(
+           "0_4",
+           "5_9",
+           "10_14",
+           "15_19",
+           "20_24",
+           "25_29",
+           "30_34",
+           "35_39",
+           "40_44",
+           "45_49",
+           "50_54",
+           "55_59",
+           "60_64",
+           "65_69",
+           "70_74",
+           "75_79",
+           "80_84",
+           "85_89"))
+rm(covid_specimens)
+```
+
+
+```{r}
+covid_age <- covid_spec_age %>%
+  separate(col = age, sep = "_",
+           into = c("agel", "ageu")) %>%
+  mutate(agel = as.numeric(agel),
+         ageu = as.numeric(ageu),
+         Age = cut_interval(agel, length = 10)
+         ) %>%
+  group_by(areaType, areaName, date, Age) %>%
+  summarize(smoothed_cases = sum(newCasesBySpecimenDateRollingRate))
+#  mutate(smoothed = rollsum(newCasesBySpecimenDateRollingRate, 7, fill = NA))
+covid_age$areaName[covid_age$areaName == "Yorkshire and The Humber"] <- "Yorkshire&Humber"
+```
+
+```{r layout="l-page", fig.width=7, fig.height=7}
+covid_age %>%
+  filter(areaType == "region") %>%
+  select(areaName, date, Age, smoothed_cases) %>%
+  drop_na() %>%
+  #mutate(early = date < "2020-11-01")
+#%>%
+  ggplot(aes(as.Date(date), smoothed_cases)) +
+  geom_line(aes(color = Age)) +
+  facet_wrap(vars(fct_reorder2(areaName, date, smoothed_cases))) +
+  scale_color_viridis_d(end = .9) +
+  ylab("Smoothed cases") +
+  xlab("")  +
+  scale_x_date(breaks = as.Date(c("2020-10-01",
+                                  "2020-12-01")),
+               labels = date_format("%b %d"))
+```
+
+And just for a closer comparison, here is London and one other region which had an earlier outbreak
+
+```{r preview = TRUE, layout="l-page", fig.width=7, fig.height=5}
+covid_age %>%
+  filter(areaType == "region") %>%
+  filter(areaName %in% c("West Midlands", "London")) %>%
+  select(areaName, date, Age, smoothed_cases) %>%
+  drop_na() %>%
+  #mutate(early = date < "2020-11-01")
+#%>%
+  ggplot(aes(as.Date(date), smoothed_cases)) +
+  geom_line(aes(color = Age)) +
+  facet_wrap(vars(fct_reorder2(areaName, date, -smoothed_cases))) +
+  scale_color_viridis_d(end = .9) +
+  ylab("Smoothed cases") +
+  xlab("")  +
+  scale_x_date(breaks = as.Date(c("2020-10-01",
+                                  "2020-12-01")),
+               labels = date_format("%b %d"))
+```
 
 ## Age group and new variant odds
 
@@ -200,7 +283,7 @@ Since the beginning of this story about a new variant I consistently stressed th
 
 There is a tenable alternative theory to the current narrative about mutations conferring increased transmission. This B.1.1.7 variant might just be the strain that was most prevalent in schools in and around London going into the November lockdown. The fact that this variant continued to spread during the lockdown has been one of the key pieces of evidence for the claim that it is more contagious. But if schools remaining open explains that observation we can conclude two things. First, we may not need any additional biological explanation. And second, **the biological explanation *may* in fact be a harmful distraction from the important conclusion that widespread community transmission can continue throughout lockdowns if schools remain open**. Instead of focusing on random mutations we should be focusing on what concrete actions those with power can take to stop the spread.
 
-Perhaps the biggest open question remaining for this alternative theory concerns why the school-centered outbreak in the London region didn't happen in other areas that also kept schools open. For this it would be useful to have more and better data about such simple social factors, like age, whether or not a household has any children in school, local population density, and perhaps more sophisticated data like a measure of local social connectivity. I think population density and social connectivity are correlated, higher in the London region, and perhaps help to explain why similar school outbreaks have not occurred elsewhere.
+Perhaps the biggest open question remaining for this alternative theory concerns why the school-centered outbreak in the London region didn't happen in other areas that also kept schools open. The data showing higher infection rates for young people in other regions that occurred in September and October offers a partial explanation, but more work can certainly be done to further elaborate this social explanation and show it can better explain all the facts than the biological explanation.
 
 ## Code for reproducibility
 
