@@ -176,10 +176,10 @@ c19_long_update <- c19rates_update %>%
 
 ```{r layout="l-body-outset", fig.width=6, fig.height=4}
 c19_long_update %>%
-  ggplot(aes(as.Date(date), positive, linetype = age, color = age)) +
+  ggplot(aes(as.Date(date), positive, color = age)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0, alpha = 0.3) +
-  geom_line() +
-  scale_color_viridis_d(end = .8) +
+  geom_line(aes(linetype = age)) +
+  scale_color_viridis_d(option = "magma", begin = .1, end = .8) +
   ylab("Percent positive estimates") +
   xlab("")  +
   scale_x_date(breaks = as.Date(c("2020-11-15",
@@ -241,9 +241,9 @@ covid_age %>%
   #mutate(early = date < "2020-11-01")
 #%>%
   ggplot(aes(as.Date(date), smoothed_cases)) +
-  geom_line(aes(color = Age)) +
+  geom_line(aes(color = Age, linetype = Age)) +
   facet_wrap(vars(fct_reorder2(areaName, date, smoothed_cases))) +
-  scale_color_viridis_d(end = .9) +
+  scale_color_viridis_d(option = "magma", begin = .1, end = .8) +
   ylab("Smoothed cases") +
   xlab("")  +
   scale_x_date(breaks = as.Date(c("2020-10-01",
@@ -272,10 +272,10 @@ covid_age %>%
   drop_na() %>%
   #mutate(early = date < "2020-11-01")
 #%>%
-  ggplot(aes(as.Date(date), smoothed_cases)) +
+  ggplot(aes(as.Date(date), smoothed_cases, linetype = Age)) +
   geom_line(aes(color = Age)) +
   facet_wrap(vars(fct_reorder2(areaName, date, -smoothed_cases))) +
-  scale_color_viridis_d(end = .9) +
+  scale_color_viridis_d(option = "magma", begin = .1, end = .8) +
   ylab("Smoothed cases") +
   xlab("")  +
   scale_x_date(breaks = as.Date(c("2020-10-01",
