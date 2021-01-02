@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 options(dplyr.summarise.inform = FALSE)
 library(tidyverse)
 library(scales)
-library(plotly)
+#library(plotly)
 ```
 
 ## TL;DR
@@ -225,10 +225,13 @@ covid_age <- covid_spec_age %>%
            into = c("agel", "ageu")) %>%
   mutate(agel = as.numeric(agel),
          ageu = as.numeric(ageu),
-         Age = cut_interval(agel, length = 10)
+         Age = cut_interval(agel, length = 10),
          ) %>%
   group_by(areaType, areaName, date, Age) %>%
-  summarize(smoothed_cases = sum(newCasesBySpecimenDateRollingRate))
+  summarize(
+    school = 1-min(agel)/100,
+    smoothed_cases = sum(newCasesBySpecimenDateRollingRate),
+    )
 #  mutate(smoothed = rollsum(newCasesBySpecimenDateRollingRate, 7, fill = NA))
 covid_age$areaName[covid_age$areaName == "Yorkshire and The Humber"] <- "Yorkshire&Humber"
 ```
@@ -236,14 +239,15 @@ covid_age$areaName[covid_age$areaName == "Yorkshire and The Humber"] <- "Yorkshi
 ```{r layout="l-page", fig.width=7, fig.height=7}
 covid_age %>%
   filter(areaType == "region") %>%
-  select(areaName, date, Age, smoothed_cases) %>%
+  select(areaName, date, Age, school, smoothed_cases) %>%
   drop_na() %>%
   #mutate(early = date < "2020-11-01")
 #%>%
   ggplot(aes(as.Date(date), smoothed_cases)) +
-  geom_line(aes(color = Age, linetype = Age)) +
+  geom_line(aes(color = Age, linetype = Age, alpha = school)) +
   facet_wrap(vars(fct_reorder2(areaName, date, smoothed_cases))) +
   scale_color_viridis_d(option = "magma", begin = .1, end = .8) +
+  guides(alpha = "none") +
   ylab("Smoothed cases") +
   xlab("")  +
   scale_x_date(breaks = as.Date(c("2020-10-01",
@@ -268,14 +272,15 @@ And just for one closer comparison, here is London and another region which had 
 covid_age %>%
   filter(areaType == "region") %>%
   filter(areaName %in% c("West Midlands", "London")) %>%
-  select(areaName, date, Age, smoothed_cases) %>%
+  select(areaName, date, Age, school, smoothed_cases) %>%
   drop_na() %>%
   #mutate(early = date < "2020-11-01")
 #%>%
-  ggplot(aes(as.Date(date), smoothed_cases, linetype = Age)) +
+  ggplot(aes(as.Date(date), smoothed_cases, linetype = Age, alpha = school)) +
   geom_line(aes(color = Age)) +
   facet_wrap(vars(fct_reorder2(areaName, date, -smoothed_cases))) +
   scale_color_viridis_d(option = "magma", begin = .1, end = .8) +
+  guides(alpha = "none") +
   ylab("Smoothed cases") +
   xlab("")  +
   scale_x_date(breaks = as.Date(c("2020-10-01",
@@ -436,7 +441,7 @@ covid_age <- covid_spec_age %>%
            into = c("agel", "ageu")) %>%
   mutate(agel = as.numeric(agel),
          ageu = as.numeric(ageu),
-         Age = cut_interval(agel, length = 10)
+         Age = cut_interval(agel, length = 10)]
          ) %>%
   group_by(areaType, areaName, date, Age) %>%
   summarize(smoothed_cases = sum(newCasesBySpecimenDateRollingRate))

@@ -2551,55 +2551,52 @@ Note that this graph is an example of <a href="https://en.wikipedia.org/wiki/Eco
 </div>
 <p>For case data by age and region:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre><code><span class='va'>covid_specimens</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"download the giant file and put it here"</span><span class='op'>)</span>
-<span class='va'>covid_spec_age</span> <span class='op'>&lt;-</span> <span class='va'>covid_specimens</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>areaType</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"region"</span>, <span class='st'>"utla"</span><span class='op'>)</span>,
-         <span class='va'>date</span> <span class='op'>&gt;</span> <span class='st'>"2020-09-01"</span>,
-         <span class='va'>age</span> <span class='op'>%in%</span>  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-           <span class='st'>"0_4"</span>,
-           <span class='st'>"5_9"</span>,
-           <span class='st'>"10_14"</span>,
-           <span class='st'>"15_19"</span>,
-           <span class='st'>"20_24"</span>,
-           <span class='st'>"25_29"</span>,
-           <span class='st'>"30_34"</span>,
-           <span class='st'>"35_39"</span>,
-           <span class='st'>"40_44"</span>,
-           <span class='st'>"45_49"</span>,
-           <span class='st'>"50_54"</span>,
-           <span class='st'>"55_59"</span>,
-           <span class='st'>"60_64"</span>,
-           <span class='st'>"65_69"</span>,
-           <span class='st'>"70_74"</span>,
-           <span class='st'>"75_79"</span>,
-           <span class='st'>"80_84"</span>,
-           <span class='st'>"85_89"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># uncomment to free up memory</span>
-<span class='co'>#rm(covid_specimens)</span>
-
-<span class='va'>covid_age</span> <span class='op'>&lt;-</span> <span class='va'>covid_spec_age</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>separate</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>age</span>, sep <span class='op'>=</span> <span class='st'>"_"</span>,
-           into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"agel"</span>, <span class='st'>"ageu"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>agel <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>agel</span><span class='op'>)</span>,
-         ageu <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>ageu</span><span class='op'>)</span>,
-         Age <span class='op'>=</span> <span class='fu'>cut_interval</span><span class='op'>(</span><span class='va'>agel</span>, length <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
-         <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>areaType</span>, <span class='va'>areaName</span>, <span class='va'>date</span>, <span class='va'>Age</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarize</span><span class='op'>(</span>smoothed_cases <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>newCasesBySpecimenDateRollingRate</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>#omg the name is too long</span>
-<span class='va'>covid_age</span><span class='op'>$</span><span class='va'>areaName</span><span class='op'>[</span><span class='va'>covid_age</span><span class='op'>$</span><span class='va'>areaName</span> <span class='op'>==</span>
-            <span class='st'>"Yorkshire and The Humber"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Yorkshire&amp;Humber"</span>
-
-<span class='va'>covid_age</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>areaType</span> <span class='op'>==</span> <span class='st'>"region"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='va'>areaName</span>, <span class='va'>date</span>, <span class='va'>Age</span>, <span class='va'>smoothed_cases</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>drop_na</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>etc</span><span class='op'>)</span>
-</code></pre>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>covid_specimens &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;download the giant file and put it here&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>covid_spec_age &lt;-<span class="st"> </span>covid_specimens <span class="op">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="st">  </span><span class="kw">filter</span>(areaType <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;region&quot;</span>, <span class="st">&quot;utla&quot;</span>),</span>
+<span id="cb2-4"><a href="#cb2-4"></a>         date <span class="op">&gt;</span><span class="st"> &quot;2020-09-01&quot;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>         age <span class="op">%in%</span><span class="st">  </span><span class="kw">c</span>(</span>
+<span id="cb2-6"><a href="#cb2-6"></a>           <span class="st">&quot;0_4&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>           <span class="st">&quot;5_9&quot;</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>           <span class="st">&quot;10_14&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>           <span class="st">&quot;15_19&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>           <span class="st">&quot;20_24&quot;</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>           <span class="st">&quot;25_29&quot;</span>,</span>
+<span id="cb2-12"><a href="#cb2-12"></a>           <span class="st">&quot;30_34&quot;</span>,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>           <span class="st">&quot;35_39&quot;</span>,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>           <span class="st">&quot;40_44&quot;</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>           <span class="st">&quot;45_49&quot;</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>           <span class="st">&quot;50_54&quot;</span>,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>           <span class="st">&quot;55_59&quot;</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>           <span class="st">&quot;60_64&quot;</span>,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>           <span class="st">&quot;65_69&quot;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>           <span class="st">&quot;70_74&quot;</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>           <span class="st">&quot;75_79&quot;</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>           <span class="st">&quot;80_84&quot;</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>           <span class="st">&quot;85_89&quot;</span>))</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># uncomment to free up memory</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#rm(covid_specimens)</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a>covid_age &lt;-<span class="st"> </span>covid_spec_age <span class="op">%&gt;%</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="st">  </span><span class="kw">separate</span>(<span class="dt">col =</span> age, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>,</span>
+<span id="cb2-30"><a href="#cb2-30"></a>           <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;agel&quot;</span>, <span class="st">&quot;ageu&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">agel =</span> <span class="kw">as.numeric</span>(agel),</span>
+<span id="cb2-32"><a href="#cb2-32"></a>         <span class="dt">ageu =</span> <span class="kw">as.numeric</span>(ageu),</span>
+<span id="cb2-33"><a href="#cb2-33"></a>         <span class="dt">Age =</span> <span class="kw">cut_interval</span>(agel, <span class="dt">length =</span> <span class="dv">10</span>)]</span>
+<span id="cb2-34"><a href="#cb2-34"></a>         ) <span class="op">%&gt;%</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="st">  </span><span class="kw">group_by</span>(areaType, areaName, date, Age) <span class="op">%&gt;%</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">smoothed_cases =</span> <span class="kw">sum</span>(newCasesBySpecimenDateRollingRate))</span>
+<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#omg the name is too long</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a>covid_age<span class="op">$</span>areaName[covid_age<span class="op">$</span>areaName <span class="op">==</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="st">            &quot;Yorkshire and The Humber&quot;</span>] &lt;-<span class="st"> &quot;Yorkshire&amp;Humber&quot;</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a></span>
+<span id="cb2-42"><a href="#cb2-42"></a>covid_age <span class="op">%&gt;%</span></span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="st">  </span><span class="kw">filter</span>(areaType <span class="op">==</span><span class="st"> &quot;region&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="st">  </span><span class="kw">select</span>(areaName, date, Age, smoothed_cases) <span class="op">%&gt;%</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a><span class="st">  </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="st">  </span><span class="kw">ggplot</span>(etc)</span></code></pre></div>
 </div>
 <p>Finally, for anyone curious for more of the details involved in the age odds ratios calculation this is the caption for Figure 4 in that paper:</p>
 <blockquote>
@@ -2614,7 +2611,7 @@ Note that this graph is an example of <a href="https://en.wikipedia.org/wiki/Eco
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
