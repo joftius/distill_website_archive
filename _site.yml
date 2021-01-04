@@ -7,6 +7,11 @@ google_analytics: "UA-114292497-1"
 collections:
   posts:
     share: [twitter, linkedin]
+    categories: true
+  ms4ds:
+    categories: false
+  ml4ds:
+    categories: false
 output_dir: "docs"
 include: "post"
 creative_commons: CC BY
@@ -22,7 +27,13 @@ navbar:
     - text: "Research"
       href: research.html
     - text: "Teaching"
-      href: teaching.html
+      menu:
+        - text: "Machine Learning"
+          href: ml4ds.html
+        - text: "Modern Statistics"
+          href: ms4ds.html
+        - text: "Older pages"
+          href: teaching.html
     - icon: fa fa-rss
       href: index.xml
 cookie_consent:

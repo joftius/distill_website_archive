@@ -3,17 +3,18 @@ title: "Teaching"
 description: |
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Course pages
 
-- [Stat-GB.4304](../ms4ds/): Modern statistics for data science
+- [ST 310](ml4ds.html): Machine learning for data science
+- [Stat-GB.4304](ms4ds.html): Modern statistics for data science
 - [Stat-UB.103](http://stats103.org/): Introductory statistics (created by Vinu Abeywick)
-- [Stat-UB.103 (old)](../introstats/): Statistics for business: control, regression, and forecasting
-- Stat-UB.003: Regression and forecasting (page not active)
-- [Stats 390](http://joshualoftus.com/stats390.html): Statistical Consulting Workshop (at Stanford, old page)
+- [Stat-UB.103]: Statistics for business: control, regression, and forecasting (page not active)
+- [Stats 390]: Statistical Consulting Workshop (to be refactored)
 
 # Selected links
 

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
+  <link rel="alternate" type="application/rss+xml" href="http://joshualoftus.com/ml4ds.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -86,28 +87,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Neurath's Speedboat: Teaching</title>
+  <title>Neurath's Speedboat: Machine Learning 4 Data Science</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Neurath&#39;s Speedboat: Teaching"/>
+  <meta property="og:title" content="Neurath&#39;s Speedboat: Machine Learning 4 Data Science"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Neurath&#39;s Speedboat"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Neurath&#39;s Speedboat: Teaching"/>
+  <meta property="twitter:title" content="Neurath&#39;s Speedboat: Machine Learning 4 Data Science"/>
   <meta property="twitter:site" content="@joftius"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Teaching"]},{"type":"NULL"}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Machine Learning 4 Data Science"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ml4ds"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2376,12 +2377,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Teaching","authors":[]}
+{"title":"Machine Learning 4 Data Science","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2418,9 +2419,167 @@ Teaching
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).load(function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-apply-limit l-page">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption="Machine Learning 4 Data Science">Machine Learning 4 Data Science</h1>
+<a href="ml4ds/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Jan. 4, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Nora Jones</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Introduction and foundations</h2>
+<div class="dt-tags"></div>
+<p>A new article created using the Distill format.</p>
+</div>
+</a>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Teaching</h1>
+<h1>Machine Learning 4 Data Science</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2428,31 +2587,7 @@ Teaching
 
 
 <div class="d-article">
-<h1 id="course-pages">Course pages</h1>
-<ul>
-<li><a href="ml4ds.html">ST 310</a>: Machine learning for data science</li>
-<li><a href="ms4ds.html">Stat-GB.4304</a>: Modern statistics for data science</li>
-<li><a href="http://stats103.org/">Stat-UB.103</a>: Introductory statistics (created by Vinu Abeywick)</li>
-<li></li>
-<li></li>
-</ul>
-<h1 id="selected-links">Selected links</h1>
-<h2 id="for-the-r-programming-language">For the R programming language</h2>
-<p>Installation: download and install the <a href="https://cran.rstudio.com/">R language</a> itself, then download and install the free desktop version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>, finally, you may find this short, free book on the <a href="https://ismayc.github.io/rbasics-book/">basics of R and RStudio</a> helpful for getting started.</p>
-<h3 id="packages-and-guides">Packages and guides</h3>
-<ul>
-<li><p>The <a href="https://www.tidyverse.org/packages/">tidyverse</a> is essential. It’s a bundle of packages including blockbusters like <code>ggplot2</code> and <code>dplyr</code>.</p></li>
-<li><p>This list of <a href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages">recommended packages</a> has a lot of great suggestions as well.</p></li>
-<li><p>There are many great, free books for learning R in more depth than the R Basics one above, including books focusing on <a href="http://socviz.co/gettingstarted.html">visualization</a>, <a href="http://moderndive.com/">introductory statistics</a>, <a href="https://www.tidytextmining.com/">text mining</a>, and <a href="http://r4ds.had.co.nz/">data science</a>.</p></li>
-</ul>
-<h3 id="interesting-data-sets">Interesting data sets</h3>
-<p>Data in R packages is easy to access. Just <code>install.packages("packagename")</code> (with quotes), then <code>library(packagename)</code> (without quotes), and read the package documentation for help. For example, the <code>nycflights13</code> documentation describes 5 dataframes contained in that package, like the <code>flights</code> dataframe and the name and meaning of each variable it contains.</p>
-<p>If a package is not available on CRAN (the central repository for R), but is instead only hosted on github, you may need to install the package <code>devtools</code> and use the command <code>devtools::install_github("authorname/packagename")</code>.</p>
-<ul>
-<li><p><a href="https://cran.r-project.org/web/packages/fivethirtyeight/index.html">FiveThiryEight</a> is an R package with many interesting datasets from the data journalism site with the same name. There are several sports and politics datasets, one about which movies pass or fail the Bechdel test, one about hate crimes and income inequality, one about employment and earnings of recent college graduates by major, and so on. Check the documentation for a full list of datasets and how to use each one.</p></li>
-<li><p><a href="https://cran.r-project.org/web/packages/gapminder/index.html">Gapminder</a> is an R package with data including life expectancy and GDP per capita by country and year. This is the data shown in a famous TED talk by the late Hans Rosling.</p></li>
-<li><p>The four packages described in <a href="https://blog.rstudio.com/2014/07/23/new-data-packages/">this post</a> on the RStudio blog: <code>babynames</code>, <code>fueleconomy</code>, <code>nasaweather</code> and <code>nycflights13</code>.</p></li>
-</ul>
+<p> </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
