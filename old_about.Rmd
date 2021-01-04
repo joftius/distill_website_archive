@@ -1,20 +1,21 @@
 ---
 title: "Joshua Loftus"
-image: "me.jpg"
-links:
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/joftius/"
-  - label: Twitter
-    url: "https://twitter.com/joftius"
-  - label: Email
-    url: "mailto:lastname@nyu.edu"
-output:
-  postcards::trestles
+description: |
 ---
- 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
 #  Assistant Professor of Statistics
 
 I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
+
+<aside>
+  The meaning of Neurath's Speedboat:
+  
+  "[We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea must reconstruct their ship" while traveling at 100mph
+</aside>
 
 - Developing methods for inference after model selection such as *p*-values adjusted for selection bias
 - Analyzing the social fairness of machine learning algorithms from a causal perspective
@@ -23,7 +24,7 @@ My peer reviewed research has been published in the **Annals of Statistics**, **
 
 As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I'm happy to speak with, mentor, or help students from any background. 
 
-## History
+### History
 
 - Assistant Professor, **London School of Economics**, Department of Statistics, 2021-present.
 - Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-2020.
@@ -32,13 +33,8 @@ As a first generation college graduate, my journey in higher education started i
 - M.A. Mathematics, (concentration in computational biology), **Rutgers University**, 2011.
 - B.S. Mathematics, (summa cum laude), **Western Michigan University**, 2009.
 
-## Selected Honors and Awards
+### Selected Honors and Awards
 
 - Statistics Department Teaching Award, 2014.
 - Alan M. Abrams Memorial Fellowship, 2013-2015.
 - Phi Beta Kappa.
-
-
-### The meaning of "Neurath's Speedboat"
-
-"[We are like sailors](https://en.wikipedia.org/wiki/Neurath%27s_boat) who on the open sea must reconstruct their ship" while traveling at 90mph
