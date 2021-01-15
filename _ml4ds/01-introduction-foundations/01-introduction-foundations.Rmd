@@ -21,4 +21,9 @@ Distill is a publication format for scientific and technical writing, native to 
 
 Learn more about using Distill at <https://rstudio.github.io/distill>.
 
+maybe we can even do slides in here like this
+
+```{r}
+knitr::include_url("slides/01-1-introduction.html")
+```
 
