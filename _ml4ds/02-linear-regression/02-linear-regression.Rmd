@@ -1,0 +1,24 @@
+---
+title: "Linear regression"
+description: |
+  A short description of the post.
+author:
+  - name: J
+date: 01-15-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+learning and intelligence before automated computers
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

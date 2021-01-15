@@ -7,14 +7,22 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Introduction and foundations</title>
       <dc:creator>Nora Jones</dc:creator>
       <link>http://joshualoftus.com/ml4ds</link>
       <description>A new article created using the Distill format.</description>
       <guid>http://joshualoftus.com/ml4ds</guid>
-      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>02-linear-regression</title>
+      <dc:creator>Nora Jones</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/2021-01-15-02-linear-regression</link>
+      <description>A short description of the post.</description>
+      <guid>http://joshualoftus.com/ml4ds/2021-01-15-02-linear-regression</guid>
+      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
