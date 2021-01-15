@@ -1,0 +1,36 @@
+[
+  {
+    "path": "ml4ds/01-introduction-foundations/",
+    "title": "Introduction and foundations",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "J",
+        "url": {}
+      }
+    ],
+    "date": "2021-01-15",
+    "categories": [],
+    "contents": "\nyes\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-01-15T21:42:06+00:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/02-linear-regression/",
+    "title": "Linear regression",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "J",
+        "url": {}
+      }
+    ],
+    "date": "2021-01-15",
+    "categories": [],
+    "contents": "\nlearning and intelligence before automated computers\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-01-15T21:42:43+00:00",
+    "input_file": {}
+  }
+]

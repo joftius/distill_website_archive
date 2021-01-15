@@ -10,18 +10,18 @@
     <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Introduction and foundations</title>
-      <dc:creator>Nora Jones</dc:creator>
-      <link>http://joshualoftus.com/ml4ds</link>
-      <description>A new article created using the Distill format.</description>
-      <guid>http://joshualoftus.com/ml4ds</guid>
+      <dc:creator>J</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/01-introduction-foundations</link>
+      <description>A short description of the post.</description>
+      <guid>http://joshualoftus.com/ml4ds/01-introduction-foundations</guid>
       <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>02-linear-regression</title>
-      <dc:creator>Nora Jones</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/2021-01-15-02-linear-regression</link>
+      <title>Linear regression</title>
+      <dc:creator>J</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/02-linear-regression</link>
       <description>A short description of the post.</description>
-      <guid>http://joshualoftus.com/ml4ds/2021-01-15-02-linear-regression</guid>
+      <guid>http://joshualoftus.com/ml4ds/02-linear-regression</guid>
       <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
