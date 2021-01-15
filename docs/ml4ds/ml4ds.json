@@ -14,7 +14,7 @@
     "contents": "\nyes\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\nmaybe we can even do slides in here like this\n\n\n\n\n\n\n\n",
     "preview": {},
     "last_modified": "2021-01-15T22:04:30+00:00",
-    "input_file": "01-introduction-foundations.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/02-linear-regression/",

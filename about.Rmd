@@ -2,12 +2,14 @@
 title: "Joshua Loftus"
 image: "me.jpg"
 links:
+  - label: Website
+    url: "https://joshualoftus.com/"
   - label: LinkedIn
     url: "https://www.linkedin.com/in/joftius/"
   - label: Twitter
     url: "https://twitter.com/joftius"
   - label: Email
-    url: "mailto:lastname@nyu.edu"
+    url: "mailto:J.R.Lastname@lse.ac.uk"
 output:
   postcards::trestles
 ---
