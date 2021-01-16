@@ -13,7 +13,7 @@ collections:
   ml4ds:
     categories: false
 output_dir: "docs"
-include: "post"
+include: ["post", "files"]
 creative_commons: CC BY
 twitter:
   site: "@joftius"
