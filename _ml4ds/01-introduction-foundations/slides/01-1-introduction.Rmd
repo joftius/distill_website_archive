@@ -260,14 +260,62 @@ class: inverse, center, middle
 
 # Teaching/course philosophy
 
+???
+
+Not just math, also my opinions
+
+Textbooks are excellent, read them!
+
+But! Value added by lectures
+
 ---
 
-Causality is important
+# Recurring themes
 
-over-imitation
+- Human-centric ML
+  - Tools for us to control, not conversely...
+  - Ethics of data science
 
-human Understanding, interpretability
+- Interpretability
+  - Philosophy of science
+  - Causality vs "curve fitting"
+
+- Social learning
+  - Come post on the forum!
+  - (More on this later)
+---
+
+.pull-left[
+
+![Henrich: Secret of our success](https://pup-assets.imgix.net/onix/images/9780691178431.jpg)
+]
 
 
+.pull-right[
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+What makes humans "special"?
+
+- vs machines: We're alive
+
+- vs other animals...?
+
+  - Cumulative cultural evolution (our crowd-sourced software, not really our hardware)
+]
+
+---
+
+# Social learning: imitation
+
+> Monkey see, monkey do
+
+
+Might apply to humans more than any other species
+
+[Over-imitation](https://en.wikipedia.org/wiki/Imitation#Over-imitation) [[article](https://theconversation.com/being-copycats-might-be-key-to-being-human-121932)] [[video](https://www.youtube.com/watch?v=JwwclyVYTkk)]
 
