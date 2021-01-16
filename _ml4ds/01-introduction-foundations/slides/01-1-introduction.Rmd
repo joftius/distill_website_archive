@@ -55,16 +55,17 @@ theme_set(theme_minimal(base_size = 22))
 }
 </style>
 
+![](../../../files/theme/LSE_stats_banner.jpg)
 
-class: center, middle
-
-# Welcome!
-
-### ST 310 - Machine Learning
-
-London School of Economics
+# ST 310 - Machine Learning
 
 Michaelmas term 2021
+
+Lecturer: Joshua Loftus
+
+Co-instructor: Phil Chan
+
+Website: [ml4ds.com](https://ml4ds.com)
 
 ???
 
