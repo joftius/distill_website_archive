@@ -41,9 +41,9 @@ class: left, bottom, title-slide
 
 ![](../../../files/theme/LSE_stats_banner.jpg)
 
-# ST 310 - Machine Learning
+### ST 310: Machine Learning (for Data Science)
 
-Michaelmas term 2021
+Lent term 2021
 
 Lecturer: Joshua Loftus
 
@@ -59,52 +59,6 @@ Provide context
 
 Set expectations
 
----
-class: inverse, center, middle
-
-# Please allow me
-
-# to introduce
-
-# myself
-
-I'm Joshua Loftus
-
-???
-
-I'm the lecturer
-
-For seminars, help from the very capable Phil Chan
-
----
-class: bottom
-
-.pull-left[
-
-![](https://i.ytimg.com/vi/bQhEALoxoGE/maxresdefault.jpg)
-
-![](../../../files/brooklynbridge.jpg)
-]
-
-.pull-right[
-
-&amp;nbsp; 
-
-&amp;nbsp; 
-&amp;nbsp; 
-
-- New to LSE! 
-- Used to teach at NYU
-- Cambridge postdoc
-- Stats PhD from Stanford
-- Reproducibility, fairness
-
-![](https://statweb.stanford.edu/~joftius/yosemite.jpg)
-]
-
-???
-
-I am a person in the world, not just on lecture slides!
 
 ---
 
@@ -165,16 +119,90 @@ class: inverse, center, middle
 
 # Quick preview
 
+Don't worry about following all the details now
+
+We'll introduce R coding gradually
+
 ---
 
 .panelset[
+  .panel[.panel-name[Data]
+
+```r
+library(gapminder)
+gapminder %&gt;% head() %&gt;% kable()
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; continent &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; lifeExp &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; pop &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; gdpPercap &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1952 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.801 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8425333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 779.4453 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1957 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30.332 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9240934 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 820.8530 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1962 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.997 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10267083 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 853.1007 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1967 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.020 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11537966 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 836.1971 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1972 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 36.088 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13079460 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 739.9811 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Asia &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1977 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 38.438 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14880372 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 786.1134 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+  
+  ]
   .panel[.panel-name[Code]
   
 
 ```r
-library(gapminder)
 gdp_data &lt;- gapminder %&gt;%
-  filter(year == max(year))
+  `filter`(year == max(year))
 
 life_exp_plot &lt;- 
   ggplot(gdp_data, `aes`(x = gdpPercap, y = lifeExp)) +
@@ -284,6 +312,56 @@ But! Value added by lectures
 - Social learning
   - Come post on the forum!
   - (More on this later)
+
+
+---
+class: inverse, center, middle
+
+# Please allow me
+
+# to introduce
+
+# myself
+
+I'm Joshua Loftus
+
+???
+
+I'm the lecturer
+
+For seminars, help from the very capable Phil Chan
+
+---
+class: bottom
+
+.pull-left[
+
+![](https://i.ytimg.com/vi/bQhEALoxoGE/maxresdefault.jpg)
+
+![](../../../files/brooklynbridge.jpg)
+]
+
+.pull-right[
+
+&amp;nbsp; 
+
+&amp;nbsp; 
+&amp;nbsp; 
+
+- New to LSE! 
+- Used to teach at NYU
+- Cambridge postdoc
+- Stats PhD from Stanford
+- Reproducibility, fairness
+
+![](https://statweb.stanford.edu/~joftius/yosemite.jpg)
+]
+
+???
+
+I am a person in the world, not just on lecture slides!
+
+
 
 ---
 class: inverse, center, middle

@@ -21,6 +21,7 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(fig.retina = 3)
+options(knitr.table.format = "html")
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -45,6 +46,7 @@ xaringanExtra::style_panelset_tabs(font_family = "inherit")
 
 ```{r tidyverse, include=FALSE, warning=FALSE}
 library(tidyverse)
+library(knitr)
 theme_set(theme_minimal(base_size = 22))
 ```
 
@@ -57,9 +59,9 @@ theme_set(theme_minimal(base_size = 22))
 
 ![](../../../files/theme/LSE_stats_banner.jpg)
 
-# ST 310 - Machine Learning
+### ST 310: Machine Learning (for Data Science)
 
-Michaelmas term 2021
+Lent term 2021
 
 Lecturer: Joshua Loftus
 
@@ -75,52 +77,6 @@ Provide context
 
 Set expectations
 
----
-class: inverse, center, middle
-
-# Please allow me
-
-# to introduce
-
-# myself
-
-I'm Joshua Loftus
-
-???
-
-I'm the lecturer
-
-For seminars, help from the very capable Phil Chan
-
----
-class: bottom
-
-.pull-left[
-
-![](https://i.ytimg.com/vi/bQhEALoxoGE/maxresdefault.jpg)
-
-![](../../../files/brooklynbridge.jpg)
-]
-
-.pull-right[
-
-&nbsp; 
-
-&nbsp; 
-&nbsp; 
-
-- New to LSE! 
-- Used to teach at NYU
-- Cambridge postdoc
-- Stats PhD from Stanford
-- Reproducibility, fairness
-
-![](https://statweb.stanford.edu/~joftius/yosemite.jpg)
-]
-
-???
-
-I am a person in the world, not just on lecture slides!
 
 ---
 
@@ -181,15 +137,25 @@ class: inverse, center, middle
 
 # Quick preview
 
+Don't worry about following all the details now
+
+We'll introduce R coding gradually
+
 ---
 
 .panelset[
+  .panel[.panel-name[Data]
+```{r gapminder}
+library(gapminder)
+gapminder %>% head() %>% kable()
+```
+  
+  ]
   .panel[.panel-name[Code]
   
 ```{r plot-example, fig.show = "hide"}
-library(gapminder)
 gdp_data <- gapminder %>%
-  filter(year == max(year))
+  `filter`(year == max(year))
 
 life_exp_plot <- 
   ggplot(gdp_data, `aes`(x = gdpPercap, y = lifeExp)) +
@@ -300,6 +266,56 @@ But! Value added by lectures
 - Social learning
   - Come post on the forum!
   - (More on this later)
+
+
+---
+class: inverse, center, middle
+
+# Please allow me
+
+# to introduce
+
+# myself
+
+I'm Joshua Loftus
+
+???
+
+I'm the lecturer
+
+For seminars, help from the very capable Phil Chan
+
+---
+class: bottom
+
+.pull-left[
+
+![](https://i.ytimg.com/vi/bQhEALoxoGE/maxresdefault.jpg)
+
+![](../../../files/brooklynbridge.jpg)
+]
+
+.pull-right[
+
+&nbsp; 
+
+&nbsp; 
+&nbsp; 
+
+- New to LSE! 
+- Used to teach at NYU
+- Cambridge postdoc
+- Stats PhD from Stanford
+- Reproducibility, fairness
+
+![](https://statweb.stanford.edu/~joftius/yosemite.jpg)
+]
+
+???
+
+I am a person in the world, not just on lecture slides!
+
+
 
 ---
 class: inverse, center, middle
