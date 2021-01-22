@@ -1477,10 +1477,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
+<h2 id="what-is-machine-learning">What is machine learning?</h2>
+<p>This week introduced some of the key conceptual themes in machine learning. Two simple examples illustrated different strategies for building more complex models:</p>
+<ul>
+<li>increasing complexity of the function class, for example by allowing functions to fit flexibly/locally to different subsets of the data</li>
+<li>increasing the dimension of predictors (while otherwise keeping the function class fixed)</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)">Model complexity</a> relates to the <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">bias-variance trade-off</a>: more complexity <em>typically</em> results in lower bias and higher variance.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<p><img src="https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-lm-1.png" width="50%" /><img src="https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png" width="50%" /></p>
 </div>
-<h3 id="slides-and-notebooks">Slides and notebooks</h3>
+<p>Increasing complexity also (essentially always) results in a lower mean-squared error if the MSE is calculated on the same dataset that was used to fit the model. But if the MSE is calculated on a different dataset this is no longer true, and more complexity may result in a larger MSE.</p>
+<p>Why should we evaluate model fit (like MSE) on a different dataset than the one used to fit the model? First, if we evaluate it on the same dataset instead, then such an evaluation will always prefer greater complexity until the model fully saturates the data. In this case there was nothing gained from using a model–we have only created a <a href="https://en.wikipedia.org/wiki/On_Exactitude_in_Science#Influences_and_legacy">map as large as the entire territory</a>. Second, if our purpose in using a model is to describe some <em>stable</em> aspect of the world, then we would hope that such a model’s fit would not immediately fail if the time or context of the data collection is slightly different.</p>
+<p>Since these concepts are so central to machine learning we will return to them several times through the term and understand them through more examples and some mathematical derivations.</p>
+<h2 id="slides-and-notebooks">Slides and notebooks</h2>
 <p><a href="slides/01-1-introduction.html">Slides</a> for first video</p>
 <p><a href="notebooks/gapminder.html">Notebook</a> for <code>gapminder</code> example</p>
 <p><a href="notebooks/candy.html">Notebook</a> for <code>candy</code> example</p>

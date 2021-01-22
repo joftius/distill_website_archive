@@ -329,7 +329,7 @@ life_exp_plot +
   geom_line(aes(y = .fitted),
     size = 1,
     data = augment(gm_complex)) +
-  ggtitle("Complex")
+  ggtitle("Too complex?")
 ```
 
 ]
