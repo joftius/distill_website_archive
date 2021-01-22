@@ -2,19 +2,19 @@
   {
     "path": "ml4ds/01-introduction-foundations/",
     "title": "Introduction and foundations",
-    "description": "A short description of the post.",
+    "description": "A brief introduction to the course, preview of things to come, and some foundational background material.",
     "author": [
       {
-        "name": "J",
+        "name": "Joshua Loftus",
         "url": {}
       }
     ],
     "date": "2021-01-15",
     "categories": [],
-    "contents": "\nyes\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\nmaybe we can even do slides in here like this\n\n\n\n\n\n\n\n",
+    "contents": "\nSlides for video 1\n\n\n\n\nLink to slides\nSlides for video 2\n\n\n\n\nLink to slides\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-01-15T22:04:30+00:00",
-    "input_file": {}
+    "last_modified": "2021-01-17T19:40:44+00:00",
+    "input_file": "01-introduction-foundations.utf8.md"
   },
   {
     "path": "ml4ds/02-linear-regression/",

@@ -1,9 +1,9 @@
 ---
 title: "Introduction and foundations"
 description: |
-  A short description of the post.
+  A brief introduction to the course, preview of things to come, and some foundational background material.
 author:
-  - name: J
+  - name: Joshua Loftus
 date: 01-15-2021
 output:
   distill::distill_article:
@@ -13,17 +13,49 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+theme_set(theme_minimal(base_size = 22))
 ```
 
-yes
 
-Distill is a publication format for scientific and technical writing, native to the web.
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
 
-maybe we can even do slides in here like this
+
+
+
+
+
+
+
+
+
+```{r}
+smoothing_model <- loess(lifeExp ~ gdp, data = gm2007, span = .4)
+xrange <- range(gm2007$gdp)
+xseq <- seq(from=xrange[1], to=xrange[2], length=80)
+
+smooth_line <- predict(smoothing_model, newdata = data.frame(gdp = xseq), se=FALSE)
+smooth_yhat <- predict(smoothing_model)
+```
+
+
+
+
+### Slides for video 1
 
 ```{r}
 knitr::include_url("slides/01-1-introduction.html")
 ```
+
+[Link to slides](slides/01-1-introduction.html)
+
+### Slides for video 2
+
+```{r}
+knitr::include_url("slides/01-2-foundations.html")
+```
+
+[Link to slides](slides/01-2-foundations.html)
 
