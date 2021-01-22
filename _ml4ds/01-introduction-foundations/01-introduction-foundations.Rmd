@@ -8,6 +8,7 @@ date: 01-15-2021
 output:
   distill::distill_article:
     self_contained: false
+preview: https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png
 ---
 
 
@@ -16,22 +17,16 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
 library(tidyverse)
 library(knitr)
+library(gapminder)
 theme_set(theme_minimal(base_size = 22))
 ```
 
 
 
-
-
-
-
-
-
-
-
-
-
 ```{r}
+gm2007 <- gapminder %>% 
+  filter(year == 2007) %>%
+  mutate(gdp = log10(gdpPercap))
 smoothing_model <- loess(lifeExp ~ gdp, data = gm2007, span = .4)
 xrange <- range(gm2007$gdp)
 xseq <- seq(from=xrange[1], to=xrange[2], length=80)
@@ -43,19 +38,14 @@ smooth_yhat <- predict(smoothing_model)
 
 
 
-### Slides for video 1
+### Slides and notebooks
 
-```{r}
-knitr::include_url("slides/01-1-introduction.html")
-```
+[Slides](slides/01-1-introduction.html) for first video
 
-[Link to slides](slides/01-1-introduction.html)
+[Notebook](notebooks/gapminder.html) for `gapminder` example
 
-### Slides for video 2
+[Notebook](notebooks/candy.html) for `candy` example
 
-```{r}
-knitr::include_url("slides/01-2-foundations.html")
-```
+[Slides](slides/01-2-foundations.html) for last video
 
-[Link to slides](slides/01-2-foundations.html)
-
+[Notebook](notebooks/seminar.html) from seminar

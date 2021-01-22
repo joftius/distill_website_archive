@@ -11,10 +11,10 @@
     ],
     "date": "2021-01-15",
     "categories": [],
-    "contents": "\nSlides for video 1\n\n\n\n\nLink to slides\nSlides for video 2\n\n\n\n\nLink to slides\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-01-17T19:40:44+00:00",
-    "input_file": {}
+    "contents": "\n\n\n\nSlides and notebooks\nSlides for first video\nNotebook for gapminder example\nNotebook for candy example\nSlides for last video\nNotebook from seminar\n\n\n\n",
+    "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
+    "last_modified": "2021-01-22T22:29:58+00:00",
+    "input_file": "01-introduction-foundations.utf8.md"
   },
   {
     "path": "ml4ds/02-linear-regression/",
