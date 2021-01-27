@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/02-linear-regression/",
+    "title": "Linear regression",
+    "description": "Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-01-25",
+    "categories": [],
+    "contents": "\nMachine learning before the information age\nSlides and notebooks\nNotebook for gapminder example\nSlides for second video\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-01-27T20:48:29+00:00",
+    "input_file": "02-linear-regression.utf8.md"
+  },
+  {
     "path": "ml4ds/01-introduction-foundations/",
     "title": "Introduction and foundations",
     "description": "A brief introduction to the course, preview of things to come, and some foundational background material.",
@@ -15,22 +32,5 @@
     "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
     "last_modified": "2021-01-22T23:07:01+00:00",
     "input_file": "01-introduction-foundations.utf8.md"
-  },
-  {
-    "path": "ml4ds/02-linear-regression/",
-    "title": "Linear regression",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "J",
-        "url": {}
-      }
-    ],
-    "date": "2021-01-15",
-    "categories": [],
-    "contents": "\nlearning and intelligence before automated computers\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-01-15T21:42:43+00:00",
-    "input_file": {}
   }
 ]
