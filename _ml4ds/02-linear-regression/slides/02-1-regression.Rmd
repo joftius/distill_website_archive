@@ -33,7 +33,7 @@ style_duo_accent(
   link_color = "#55c667",
   text_bold_color = '#f68f46',
   title_slide_background_color = "#ffffff", #"#042333",
-  title_slide_background_image = "../../../files/theme/ceres.jpg",
+  title_slide_background_image = "./../../../files/theme/ceres.jpg",
   title_slide_background_size = "cover",
   ) #or contain
 ```
@@ -76,7 +76,7 @@ How do you travel? With the original GPS: **astronomy**
 
 ---
 class: inverse, center
-background-image: url("../../../files/theme/ceres.jpg")
+background-image: url("./../../../files/theme/ceres.jpg")
 
 # Discovering planets and things
 
