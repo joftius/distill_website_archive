@@ -132,7 +132,6 @@ By default, conditional expectation functions--and therefore the linear models w
 
 - Intervening to set `X = x` for a particular observation means we actually do something in the world--not just in the dataset--to change the value of `X`
 
-
 This simple simulation shows the difference between these two kinds of relationships. In this simulation we know the true data generation process, so we know what would happen if we intervened to change the value of `X` for some observation: `Y` would be unchanged, because `Y` does not (functionally) depend on `X`
 
 ```{r}
@@ -176,8 +175,14 @@ Y <- U + rnorm(n)
 
 Would the `Y` values for these intervened observations be any different? Would their average be larger by an amount close to the regression slope?
 
+**Exercise**: Change the code generating the example above so that intervening on `X` results in a decrease in the average of `Y` for the observations whose `X` values are changed
 
-**Question**: Suppose we could intervene and change a country's GDP per capita and increase it by some amount. Would this increase life expectancy? Why or why not?
+```{r}
+
+```
+
+
+**Question**: Suppose we could intervene and change a country's GDP per capita and increase it by some amount. Would this change life expectancy, and if so would the change be roughly the amount captured by the regression coefficient in that data? Why or why not?
 
 
 ## Multiple regression
@@ -200,6 +205,7 @@ candy <- fivethirtyeight::candy_rankings
 
 ```
 
+Hint: plot confidence intervals with `ggcoef` 
 
 ### Diagnostics
 
@@ -209,5 +215,7 @@ candy <- fivethirtyeight::candy_rankings
 
 ### Problem: high dimensional plots...
 
+e.g. `ggpairs` shows many 2-dimensional projections of the data, but there is no guarantee that these projections together help us understand higher dimensional relationships... including possibly higher dimensional patterns in the residuals
 
+**Question**: What does this mean for diagnostic plots when our regression model is high dimensional (e.g. p > 3 predictors)
 
