@@ -46,7 +46,7 @@
   --header-color: #2d708e;
   --background-color: #FFFFFF;
   --link-color: #55c667;
-  --text-bold-color: #230433;
+  --text-bold-color: #f68f46;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #FFFFFF;
   --inverse-background-color: #230433;
@@ -133,7 +133,7 @@ a, a > code {
 }
 .title-slide {
   background-color: var(--title-slide-background-color);
-  background-image: url("../../../files/theme/LSE/sign_reflection.jpg");
+  background-image: url("../../../files/theme/LSE/aerial5.jpg");
   background-size: cover;
 }
 .title-slide .remark-slide-number {

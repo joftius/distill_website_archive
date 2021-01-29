@@ -30,5 +30,7 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/02-1-regression.html) for second video
 
+[Notebook](notebooks/seminar.html) for seminar
+
 
 

@@ -133,7 +133,7 @@ a, a > code {
 }
 .title-slide {
   background-color: var(--title-slide-background-color);
-  background-image: url("../../../files/theme/ceres.jpg");
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/34/Wreck_of_The_Queen_Victoria_Dublin_Mail_Steam_Packet_in_a_snowstorm_on_the_Howth_Rocks%2C_Coast_of_Ireland%2C_between_2_and_3_o%27clock_on_Tuesday_Morning%2C_February_15th_1853%2C_when_80_of_the_unfortunate_Passengers_and_Crew_RMG_PU6699.jpg");
   background-size: cover;
 }
 .title-slide .remark-slide-number {

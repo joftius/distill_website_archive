@@ -32,6 +32,7 @@ style_duo_accent(
   primary_color = "#2d708e",
   secondary_color = "#230433",
   link_color = "#55c667",
+  text_bold_color = '#f68f46',  
   title_slide_background_color = "#ffffff", #"#042333",
   title_slide_background_image = "../../../files/theme/LSE/aerial5.jpg",
   title_slide_background_size = "cover",
