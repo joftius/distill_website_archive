@@ -11,10 +11,10 @@
     ],
     "date": "2021-01-25",
     "categories": [],
-    "contents": "\nMachine learning before the information age\nSlides and notebooks\nNotebook for gapminder example\nSlides for second video\nNotebook for seminar\n\n\n\n",
+    "contents": "\nMachine learning before the information age\nSlides and notebooks\nNotebook for gapminder example\nSlides for second video\nSlides for third video\nNotebook for seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-01-29T10:38:54+00:00",
-    "input_file": {}
+    "last_modified": "2021-01-30T19:23:15+00:00",
+    "input_file": "02-linear-regression.utf8.md"
   },
   {
     "path": "ml4ds/01-introduction-foundations/",
