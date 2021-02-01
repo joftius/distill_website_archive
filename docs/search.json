@@ -18,8 +18,8 @@
       "path": "ml4ds.html",
       "title": "Machine Learning 4 Data Science",
       "author": [],
-      "contents": "\n \nWhere does this file go? Nobody knows\n\n\n\n",
-      "last_modified": "2021-01-30T19:25:44+00:00"
+      "contents": "\n \nReferences:\nISLR Introduction to Statistical Learning\nESL Elements of Statistical Learning\nCASI Computer Age Statistical Inference\nMixtape Causal Inference: The Mixtape\nR4DS R for Data Science\n\n\n\n",
+      "last_modified": "2021-01-31T16:24:38+00:00"
     },
     {
       "path": "old_about.html",

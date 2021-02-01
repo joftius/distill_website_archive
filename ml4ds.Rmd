@@ -7,4 +7,10 @@ listing: ml4ds
 
  \ 
 
-Where does this file go? Nobody knows
+References:
+
+- **ISLR** [Introduction to Statistical Learning](https://statlearning.com/)
+- **ESL** [Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/)
+- **CASI** [Computer Age Statistical Inference](https://web.stanford.edu/~hastie/CASI/)
+- **Mixtape** [Causal Inference: The Mixtape](https://mixtape.scunning.com/index.html)
+- **R4DS** [R for Data Science](https://r4ds.had.co.nz/)
