@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/03-causality/",
+    "title": "Causal inference",
+    "description": "Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-02-01",
+    "categories": [],
+    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nExercise Set\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-02-02T19:35:31+00:00",
+    "input_file": {}
+  },
+  {
     "path": "ml4ds/02-linear-regression/",
     "title": "Linear regression",
     "description": "Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.",
