@@ -260,9 +260,7 @@ Minimizing expected squared-error also gives us...
 
 --
 
-$$
-\mathbb E\\{[Y - \hat f(X)]^2\\} = \text{Var}(\hat f) + \text{Bias}(\hat f)^2
-$$
+$$\mathbb E\{[Y - \hat f(X)]^2\} = \text{Var}(\hat f) + \text{Bias}(\hat f)^2 + \text{const.}$$
 
 ## the bias-variance trade-off
 

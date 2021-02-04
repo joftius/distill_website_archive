@@ -4,6 +4,7 @@
     <title>Machine learning</title>
     <meta charset="utf-8" />
     <meta name="author" content="Joshua Loftus" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/animate.css-xaringan/animate.slide_left.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
@@ -239,9 +240,7 @@ Minimizing expected squared-error also gives us...
 
 --
 
-$$
-\mathbb E\\{[Y - \hat f(X)]^2\\} = \text{Var}(\hat f) + \text{Bias}(\hat f)^2
-$$
+`$$\mathbb E\{[Y - \hat f(X)]^2\} = \text{Var}(\hat f) + \text{Bias}(\hat f)^2 + \text{const.}$$`
 
 ## the bias-variance trade-off
 
@@ -322,6 +321,8 @@ mean(residuals(candy_complex)^2))
 ### A victory for machine learning!
 
 ... or is it? Find out in our first seminar
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
