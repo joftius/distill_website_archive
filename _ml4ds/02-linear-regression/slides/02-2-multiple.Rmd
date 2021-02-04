@@ -387,7 +387,7 @@ $$L(\mathbf X, \mathbf y, \mathbf \beta) = (\mathbf y - \mathbf X \beta)^T(\math
 
 Reach the same conclusion: at a stationary point of $L$,
 
-$$\mathbf X^T \mathbf X \hat \beta = \mathbf X \mathbf y$$
+$$\mathbf X^T \mathbf X \hat \beta = \mathbf X^T \mathbf y$$
 
 ---
 
