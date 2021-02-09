@@ -49,6 +49,6 @@ Since these concepts are so central to machine learning we will return to them s
 
 [Notebook](notebooks/candy.html) for `candy` example
 
-[Slides](slides/01-2-foundations.html) for last video
+[Slides](slides/01-2-foundations.html) for last video ([PDF](slides/foundations.pdf))
 
 [Notebook](notebooks/seminar.html) from seminar

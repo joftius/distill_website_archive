@@ -1,7 +1,24 @@
 [
   {
+    "path": "ml4ds/04-classification/",
+    "title": "Classification",
+    "description": "Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-02-08",
+    "categories": [],
+    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nComing soon\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-02-08T16:23:09+00:00",
+    "input_file": {}
+  },
+  {
     "path": "ml4ds/03-causality/",
-    "title": "Causal inference",
+    "title": "Multiple regression and causality",
     "description": "Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.",
     "author": [
       {
@@ -11,9 +28,9 @@
     ],
     "date": "2021-02-01",
     "categories": [],
-    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nExercise Set\n\n\n\n",
+    "contents": "\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for simple regression video (PDF)\nSlides for causality video (PDF)\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-02-02T19:35:31+00:00",
+    "last_modified": "2021-02-09T16:03:02+00:00",
     "input_file": {}
   },
   {
@@ -28,9 +45,9 @@
     ],
     "date": "2021-01-25",
     "categories": [],
-    "contents": "\nMachine learning before the information age\nSlides and notebooks\nNotebook for gapminder example\nSlides for second video\nSlides for third video\nNotebook for seminar\n\n\n\n",
+    "contents": "\nMachine learning before the information age\nSlides and notebooks\nNotebook for gapminder example\nSlides for simple regression video (PDF)\nSlides for risk and CEFs video (PDF)\nNotebook for seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-01-30T19:23:15+00:00",
+    "last_modified": "2021-02-09T15:59:54+00:00",
     "input_file": {}
   },
   {
@@ -45,9 +62,9 @@
     ],
     "date": "2021-01-15",
     "categories": [],
-    "contents": "\nWhat is machine learning?\nThis week introduced some of the key conceptual themes in machine learning. Two simple examples illustrated different strategies for building more complex models:\nincreasing complexity of the function class, for example by allowing functions to fit flexibly/locally to different subsets of the data\nincreasing the dimension of predictors (while otherwise keeping the function class fixed)\nModel complexity relates to the bias-variance trade-off: more complexity typically results in lower bias and higher variance.\n\n\n\nIncreasing complexity also (essentially always) results in a lower mean-squared error if the MSE is calculated on the same dataset that was used to fit the model. But if the MSE is calculated on a different dataset this is no longer true, and more complexity may result in a larger MSE.\nWhy should we evaluate model fit (like MSE) on a different dataset than the one used to fit the model? First, if we evaluate it on the same dataset instead, then such an evaluation will always prefer greater complexity until the model fully saturates the data. In this case there was nothing gained from using a model–we have only created a map as large as the entire territory. Second, if our purpose in using a model is to describe some stable aspect of the world, then we would hope that such a model’s fit would not immediately fail if the time or context of the data collection is slightly different.\nSince these concepts are so central to machine learning we will return to them several times through the term and understand them through more examples and some mathematical derivations.\nSlides and notebooks\nSlides for first video\nNotebook for gapminder example\nNotebook for candy example\nSlides for last video\nNotebook from seminar\n\n\n\n",
+    "contents": "\nWhat is machine learning?\nThis week introduced some of the key conceptual themes in machine learning. Two simple examples illustrated different strategies for building more complex models:\nincreasing complexity of the function class, for example by allowing functions to fit flexibly/locally to different subsets of the data\nincreasing the dimension of predictors (while otherwise keeping the function class fixed)\nModel complexity relates to the bias-variance trade-off: more complexity typically results in lower bias and higher variance.\n\n\n\nIncreasing complexity also (essentially always) results in a lower mean-squared error if the MSE is calculated on the same dataset that was used to fit the model. But if the MSE is calculated on a different dataset this is no longer true, and more complexity may result in a larger MSE.\nWhy should we evaluate model fit (like MSE) on a different dataset than the one used to fit the model? First, if we evaluate it on the same dataset instead, then such an evaluation will always prefer greater complexity until the model fully saturates the data. In this case there was nothing gained from using a model–we have only created a map as large as the entire territory. Second, if our purpose in using a model is to describe some stable aspect of the world, then we would hope that such a model’s fit would not immediately fail if the time or context of the data collection is slightly different.\nSince these concepts are so central to machine learning we will return to them several times through the term and understand them through more examples and some mathematical derivations.\nSlides and notebooks\nSlides for first video\nNotebook for gapminder example\nNotebook for candy example\nSlides for last video (PDF)\nNotebook from seminar\n\n\n\n",
     "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
-    "last_modified": "2021-01-22T23:07:01+00:00",
+    "last_modified": "2021-02-09T12:54:43+00:00",
     "input_file": {}
   }
 ]

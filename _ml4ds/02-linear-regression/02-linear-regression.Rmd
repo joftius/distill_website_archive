@@ -28,9 +28,9 @@ theme_set(theme_minimal(base_size = 22))
 
 [Notebook](notebooks/gapminder-simple.html) for `gapminder` example
 
-[Slides](slides/02-1-regression.html) for second video
+[Slides](slides/02-1-regression.html) for simple regression video ([PDF](slides/simple_regression.pdf))
 
-[Slides](slides/02-2-risk.html) for third video
+[Slides](slides/02-2-risk.html) for risk and CEFs video ([PDF](slides/risk_CEFs.pdf))
 
 [Notebook](notebooks/seminar.html) for seminar
 

@@ -20,19 +20,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -52,7 +51,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
@@ -129,7 +128,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["02-linear-regression_files/anchor-4.2.2/anchor.min.js","02-linear-regression_files/bowser-1.9.3/bowser.min.js","02-linear-regression_files/distill-2.2.21/template.v2.js","02-linear-regression_files/jquery-1.11.3/jquery.min.js","02-linear-regression_files/popper-2.6.0/popper.min.js","02-linear-regression_files/tippy-6.2.7/tippy-bundle.umd.min.js","02-linear-regression_files/tippy-6.2.7/tippy-light-border.css","02-linear-regression_files/tippy-6.2.7/tippy.css","02-linear-regression_files/tippy-6.2.7/tippy.umd.min.js","02-linear-regression_files/webcomponents-2.0.0/webcomponents.js","notebooks/gapminder-simple.html","notebooks/gapminder-simple.Rmd","notebooks/seminar.html","notebooks/seminar.Rmd","slides/02-1-regression.html","slides/02-1-regression.Rmd","slides/02-2-risk.html","slides/02-2-risk.Rmd","slides/conditionaldist.png","slides/libs/animate.css-xaringan/animate.slide_left.css","slides/libs/panelset/panelset.css","slides/libs/panelset/panelset.js","slides/libs/remark-css/default.css","slides/libs/tile-view/tile-view.css","slides/libs/tile-view/tile-view.js","slides/xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["02-linear-regression_files/anchor-4.2.2/anchor.min.js","02-linear-regression_files/bowser-1.9.3/bowser.min.js","02-linear-regression_files/distill-2.2.21/template.v2.js","02-linear-regression_files/header-attrs-2.6/header-attrs.js","02-linear-regression_files/jquery-1.11.3/jquery.min.js","02-linear-regression_files/popper-2.6.0/popper.min.js","02-linear-regression_files/tippy-6.2.7/tippy-bundle.umd.min.js","02-linear-regression_files/tippy-6.2.7/tippy-light-border.css","02-linear-regression_files/tippy-6.2.7/tippy.css","02-linear-regression_files/tippy-6.2.7/tippy.umd.min.js","02-linear-regression_files/webcomponents-2.0.0/webcomponents.js","notebooks/gapminder-simple.html","notebooks/gapminder-simple.Rmd","notebooks/seminar.html","notebooks/seminar.Rmd","slides/02-1-regression.html","slides/02-1-regression.Rmd","slides/02-2-risk.html","slides/02-2-risk.Rmd","slides/libs/animate.css-xaringan/animate.slide_left.css","slides/libs/header-attrs/header-attrs.js","slides/libs/panelset/panelset.css","slides/libs/panelset/panelset.js","slides/libs/remark-css/default.css","slides/libs/tile-view/tile-view.css","slides/libs/tile-view/tile-view.js","slides/risk_CEFs.pdf","slides/simple_regression.pdf","slides/xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2370,6 +2369,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2464,8 +2464,8 @@ Teaching
 <h2 id="machine-learning-before-the-information-age">Machine learning before the information age</h2>
 <h2 id="slides-and-notebooks">Slides and notebooks</h2>
 <p><a href="notebooks/gapminder-simple.html">Notebook</a> for <code>gapminder</code> example</p>
-<p><a href="slides/02-1-regression.html">Slides</a> for second video</p>
-<p><a href="slides/02-2-risk.html">Slides</a> for third video</p>
+<p><a href="slides/02-1-regression.html">Slides</a> for simple regression video (<a href="slides/simple_regression.pdf">PDF</a>)</p>
+<p><a href="slides/02-2-risk.html">Slides</a> for risk and CEFs video (<a href="slides/risk_CEFs.pdf">PDF</a>)</p>
 <p><a href="notebooks/seminar.html">Notebook</a> for seminar</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

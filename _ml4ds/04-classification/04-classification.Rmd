@@ -1,0 +1,30 @@
+---
+title: "Classification"
+description: |
+  Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.
+author:
+  - name: Joshua Loftus
+date: 02-08-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(gapminder)
+theme_set(theme_minimal(base_size = 22))
+```
+
+## Rerum cognoscere causas
+
+[Virgil](https://en.wikipedia.org/wiki/Felix,_qui_potuit_rerum_cognoscere_causas):
+
+> Fortunate, who can know the causes of things
+
+## Slides, notebooks, exercises
+
+Coming soon

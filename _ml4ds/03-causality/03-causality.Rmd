@@ -1,5 +1,5 @@
 ---
-title: "Causal inference"
+title: "Multiple regression and causality"
 description: |
   Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.
 author:
@@ -19,6 +19,10 @@ library(gapminder)
 theme_set(theme_minimal(base_size = 22))
 ```
 
+## Multiple regression
+
+Regression, when conditioning on more than one predictor variable.
+
 ## Rerum cognoscere causas
 
 [Virgil](https://en.wikipedia.org/wiki/Felix,_qui_potuit_rerum_cognoscere_causas):
@@ -27,4 +31,6 @@ theme_set(theme_minimal(base_size = 22))
 
 ## Slides, notebooks, exercises
 
-[Exercise Set](exercises/set1.html)
+[Slides](slides/03-1-multiple.html) for simple regression video ([PDF](slides/multiple_regression.pdf))
+
+[Slides](slides/03-2-causality.html) for causality video ([PDF](slides/causality.pdf))

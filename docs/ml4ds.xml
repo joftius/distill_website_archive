@@ -7,9 +7,17 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 01 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Causal inference</title>
+      <title>Classification</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/04-classification</link>
+      <description>Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.</description>
+      <guid>http://joshualoftus.com/ml4ds/04-classification</guid>
+      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Multiple regression and causality</title>
       <dc:creator>Joshua Loftus</dc:creator>
       <link>http://joshualoftus.com/ml4ds/03-causality</link>
       <description>Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.</description>
