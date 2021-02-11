@@ -31,6 +31,6 @@ Regression, when conditioning on more than one predictor variable.
 
 ## Slides, notebooks, exercises
 
-[Slides](slides/03-1-multiple.html) for simple regression video ([PDF](slides/multiple_regression.pdf))
+[Slides](slides/03-1-multiple.html) for multiple regression video ([PDF](slides/multiple_regression.pdf))
 
 [Slides](slides/03-2-causality.html) for causality video ([PDF](slides/causality.pdf))

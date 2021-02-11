@@ -19,12 +19,10 @@ library(gapminder)
 theme_set(theme_minimal(base_size = 22))
 ```
 
-## Rerum cognoscere causas
+## Carving nature at its joints
 
-[Virgil](https://en.wikipedia.org/wiki/Felix,_qui_potuit_rerum_cognoscere_causas):
-
-> Fortunate, who can know the causes of things
+> "A good cook gets a new knife every year; he chops! Mediocre cooks change knives monthly; they hack. My knife now has 19 years on it; it’s carved several thousand oxen and the edge is as if I had just taken it from the sharpener. Those joints have gaps, and the knife’s edge no thickness, to put something infinitesimally thin in an empty space?! Effortless! It even allows the edge wander in with ample room to play. That is why, with 19 years on it, this knife’s edge is grindstone fresh." - Butcher Ding, [the Zhuangzi](https://plato.stanford.edu/entries/zhuangzi/#PonP)
 
 ## Slides, notebooks, exercises
 
-Coming soon
+[Notebook](notebooks/nonlinear.Rmd) for seminar
