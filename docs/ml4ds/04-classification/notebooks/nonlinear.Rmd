@@ -1,6 +1,6 @@
 ---
 title: "Non-linear and local methods"
-author: "ST310"
+author: "Joshua Loftus"
 date: "2/12/2021"
 output: html_document
 ---

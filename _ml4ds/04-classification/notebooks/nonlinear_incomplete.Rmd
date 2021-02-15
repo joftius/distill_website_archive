@@ -22,7 +22,8 @@ n <- 800
 # defines the perfect (Bayes) decision boundary
 true_boundary_function <- function(x1, x2) {
   # experiment with changing this
-  abs(x1-.5) - abs(2*x2+.5) + .3
+  thing <- x1^2*x2^3
+  (x1^2 + x2^2 - 1)^3 - thing
 }
 train <- data.frame(
   # change the distribution
@@ -79,7 +80,7 @@ Also try changing the formula to fit a logistic regression model with non-linear
 ```{r}
 # Fit model
 logit_model <-  
-  glm(y ~ x1 + x2, family = "binomial", data = train)
+  glm(y ~ x1 + x2 + poly(x1,2) * poly(x2,2), family = "binomial", data = train)
 # try formula + poly(x1,2) * poly(x2,2)
 
 # Generate decision boundary
@@ -110,8 +111,8 @@ Generate a one-dimensional example with a non-linear relationship
 
 ```{r}
 # change this function
-f <- function(x) x * sin(1/x^2)
-n <- 50
+f <- function(x) sin(4*pi*x)
+n <- 200
 train1d <- 
   data.frame(
     x = rbeta(n, 1, 3)
@@ -128,7 +129,17 @@ ggplot(train1d, aes(x, y)) +
 Linear regression with a polynomial transform of x
 
 ```{r}
+model_lm <- lm(y ~ poly(x, 5), data = train1d)
 
+train1d_grid <- 
+  data_grid(train1d,
+          x = seq_range(c(x, .78), 500, expand = .05))
+
+augment(model_lm,
+        newdata = train1d_grid) %>%
+  ggplot(aes(x, y)) +
+  geom_point(data = train1d) +
+  geom_line(aes(y = .fitted))
 ```
 
 
@@ -150,13 +161,58 @@ to x0.
 4. Use the weighted least squares model to predict for x0
 
 ```{r}
-
+# assume input data has variables x and y
+# assume data is sorted on x from smallest to largest
+local_regression <- function(data, x0, s = .1) {
+  n <- nrow(data)
+  k <- ceiling(n*s)
+  i <- 0
+  loop <- TRUE
+  while (loop) {
+    i <- i + 1
+    if (data$x[i] > x0) {
+      loop <- FALSE
+    }
+    if (i >= n) {
+      loop <- FALSE
+    }
+  }
+  # i such that
+  # data$x[i] > x0
+  # but data$x[i-1] <= x0
+  local_range <- (i - ceiling(k/2)) : (i + floor(k/2))
+  
+  if (min(local_range) < 1) {
+    local_range <- 1:k
+  } else if (max(local_range) > n) {
+    local_range <- (n-k):n
+  }
+  
+  local_lm <- lm(y ~ x, data = data[local_range, ])
+  sum(coef(local_lm) * c(1, x0))
+}
 ```
 
 Generate predictions from these methods and plot them
 
 ```{r}
+train_local <- train1d %>%
+  arrange(x)
 
+local_regression(train_local, x0 = .2)
+```
+
+
+Plot
+
+```{r}
+for (i in 1:nrow(train1d_grid)) {
+  train1d_grid$.fitted[i] <- local_regression(train_local, x0 = train1d_grid$x[i], s = .05)
+}
+
+  ggplot(train1d_grid, aes(x, y)) +
+  geom_point(data = train1d) +
+  geom_line(aes(y = .fitted))
 ```
 
 ### Classify 2d example with k-nearest neighbors
