@@ -7,7 +7,15 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Regularization and optimization</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/05-regularization</link>
+      <description>Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.</description>
+      <guid>http://joshualoftus.com/ml4ds/05-regularization</guid>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Classification</title>
       <dc:creator>Joshua Loftus</dc:creator>

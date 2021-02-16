@@ -1,0 +1,34 @@
+---
+title: "Regularization and optimization"
+description: |
+  Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.
+author:
+  - name: Joshua Loftus
+date: 02-16-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(gapminder)
+theme_set(theme_minimal(base_size = 22))
+```
+
+## Optimization
+
+## Overfitting
+
+## Regularization
+
+## Slides, notebooks, exercises
+
+**The links below will be updated, right now they are placeholders**
+
+[Slides](slides/03-1-multiple.html) for multiple regression video ([PDF](slides/multiple_regression.pdf))
+
+[Slides](slides/03-2-causality.html) for causality video ([PDF](slides/causality.pdf))
