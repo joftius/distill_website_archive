@@ -27,8 +27,9 @@ theme_set(theme_minimal(base_size = 22))
 
 ## Slides, notebooks, exercises
 
-**The links below will be updated, right now they are placeholders**
+[Slides](slides/05-1-optimization.html) for optimization video ([PDF](slides/optimization.pdf))
 
-[Slides](slides/03-1-multiple.html) for multiple regression video ([PDF](slides/multiple_regression.pdf))
+[Slides](slides/05-2-regularization.html) for regularization video ([PDF](slides/regularization.pdf))
 
-[Slides](slides/03-2-causality.html) for causality video ([PDF](slides/causality.pdf))
+[Notebook](notebooks/optimization.Rmd) for optimization
+[Notebook](notebooks/regularization.Rmd) for regularization
