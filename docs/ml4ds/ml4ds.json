@@ -1,7 +1,7 @@
 [
   {
-    "path": "ml4ds/05-regularization/",
-    "title": "Regularization and optimization",
+    "path": "ml4ds/05-optimization/",
+    "title": "Optimization and overfitting",
     "description": "Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.",
     "author": [
       {
@@ -11,10 +11,10 @@
     ],
     "date": "2021-02-16",
     "categories": [],
-    "contents": "\nOptimization\nOverfitting\nRegularization\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for regularization video (PDF)\nNotebook for optimization\nNotebook for regularization\n\n\n\n",
+    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for optimization\nNotebook for regularization\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-02-18T21:47:07+00:00",
-    "input_file": "05-regularization.utf8.md"
+    "last_modified": "2021-02-22T15:56:37+00:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/04-classification/",

@@ -1,5 +1,5 @@
 ---
-title: "Regularization and optimization"
+title: "Optimization and overfitting"
 description: |
   Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.
 author:
@@ -23,13 +23,11 @@ theme_set(theme_minimal(base_size = 22))
 
 ## Overfitting
 
-## Regularization
-
 ## Slides, notebooks, exercises
 
 [Slides](slides/05-1-optimization.html) for optimization video ([PDF](slides/optimization.pdf))
 
-[Slides](slides/05-2-regularization.html) for regularization video ([PDF](slides/regularization.pdf))
+[Slides](slides/05-2-overfitting.html) for overfitting video ([PDF](slides/overfitting.pdf))
 
 [Notebook](notebooks/optimization.Rmd) for optimization
 
