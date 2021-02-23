@@ -1,0 +1,47 @@
+---
+title: "Exercise set 2"
+author: Joshua Loftus
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(gapminder)
+theme_set(theme_minimal(base_size = 22))
+```
+
+## ISLR Chapter 4, Section 4.7
+
+- 2 (don't need to know about LDA)
+- 4 (replace KNN with local regression)
+- 8 (replace KNN with local regression)
+
+## ISLR Chapter 9, Section 9.7
+
+- 2
+- 3
+- 5(a-f) [save your code for this because we'll re-use it in the next exercise set]
+
+## Gradient descent for high-dim. logistic regression
+
+(a) Generate some synthetic data including a design matrix (predictors) with n = 100, p = 200, a (sparse) coefficient vector with only 20 nonzero coefficients, and a binary outcome with probability determined by the inverse logistic function applied to X %*% beta. In other words, the data generation process is truly a logistic regression probability model.
+
+(b) Pick 2 of the predictors that have nonzero coefficients (from among the 20 that you know) and create a plot with these two predictors as the horizontal and vertical axes and the binary values of the outcome determine the color of the points.
+
+(c) Using only these two predictors, fit a logistic regression with the `glm` function. Use the fitted low-dimensional model to **classify** test data as follows: generate 100 new observations from the same model as test data and calculate the misclassification rate, e.g. `mean(y == yhat)` (note that for classification you need to predict 0 or 1 rather than the fitted probability `phat`)
+
+(d) Write down the logistic loss function **with a 2-norm penalty on the coefficient vector**, and derive a formula for its gradient. (Your code should allow changing the penalty parameter in front of the 2-norm)
+
+(e) Write R functions to evaluate the loss function and gradient.
+
+(f) Implement gradient descent, using the Barzilai–Borwein method for step size described here https://en.wikipedia.org/wiki/Gradient_descent#Description -- run it on your synthetic data starting from an initial estimate of beta = rep(0, p). Compare the estimated value of beta to the true beta in several ways: compute the MSE of the estimate, check to see if the estimate is sparse like the true vector,  and compare the nonzero values of the true beta to their estimated values, making note of anything that stands out to you.
+
+(g) Start gradient descent from a few random initial estimates, try beta = rnorm(p) a few times and try beta = rnorm(p, sd = 5) a few times, and each time compute the MSE of the estimate after convergence. Can you notice/conjecture anything about these solutions?
+
+(h) Use one of these gradient descent fits to classify the same test data from part (c) and compare the misclassification rate to the low-dimensional model from that part. 
+
+(i) Experiment with running gradient descent for different values of the 2-norm penalty parameter. Prove, by demonstration, that you can overfit by using some value of this parameter.
+
