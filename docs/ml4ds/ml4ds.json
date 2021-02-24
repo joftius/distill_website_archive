@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/06-regularization/",
+    "title": "Regularization and validation",
+    "description": "When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-01",
+    "categories": [],
+    "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for validation video (PDF)\nNotebook for regularization\nNotebook for validation\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-02-24T20:53:49+00:00",
+    "input_file": "06-regularization.utf8.md"
+  },
+  {
     "path": "ml4ds/05-optimization/",
     "title": "Optimization and overfitting",
     "description": "Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.",
