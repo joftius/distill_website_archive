@@ -1,0 +1,75 @@
+---
+title: "Machine learning"
+subtitle: "Regularization"
+author: "Joshua Loftus"
+#institute: "LSE"
+#date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "xaringan-themer.css", "../../../theme.css"]
+#    seal: false    
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["top", "left"]
+      countdown: 59000
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+---
+
+class: inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+options(knitr.table.format = "html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#2d708e",
+  secondary_color = "#230433",
+  link_color = "#55c667",
+  text_bold_color = '#f68f46',
+#  title_slide_text_color = "#292929",
+  title_slide_background_color = "#ffffff", #"#042333",
+  title_slide_background_image = "../../../files/theme/LSE/hock_exterior.jpg",
+#    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Workhouse_Nantwich.jpg",
+  title_slide_background_size = "cover",
+  ) #or contain
+```
+
+```{r xaringanextra, include=FALSE, warning=FALSE}
+library(xaringanExtra)
+#xaringanExtra::use_animate_all("slide_left")
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(font_family = "inherit")
+```
+
+```{r tidyverse, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+theme_set(theme_minimal(base_size = 22))
+set.seed(1)
+library(broom)
+library(modelr)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 1.2rem;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+# ok
+
+
+
+
+
+
+
