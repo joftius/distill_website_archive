@@ -52,7 +52,7 @@
   --inverse-background-color: #230433;
   --inverse-header-color: #FFFFFF;
   --title-slide-background-color: #ffffff;
-  --title-slide-text-color: #FFFFFF;
+  --title-slide-text-color: #444444;
   --header-background-color: #2d708e;
   --header-background-text-color: #FFFFFF;
   --primary: #2d708e;
@@ -133,7 +133,7 @@ a, a > code {
 }
 .title-slide {
   background-color: var(--title-slide-background-color);
-  background-image: url("../../../files/theme/LSE/centre_building_day.jpg");
+  background-image: url("../../../files/theme/LSE/library_atrium.jpg");
   background-size: cover;
 }
 .title-slide .remark-slide-number {
