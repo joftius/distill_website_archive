@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/07-nonlinear/",
+    "title": "Nonlinear methods",
+    "description": "Kernel methods, tree based methods, neural networks and graphs structured learning, these are some of the main approaches in the purely prediction-focused, less interpretable side of machine learning.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-08",
+    "categories": [],
+    "contents": "\nKernel methods\nTrees and forests\nCompositional nonlinearity\n(these links don’t work yet) Slides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation\nNotebook for lasso\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-03-08T21:28:12+00:00",
+    "input_file": "07-nonlinear.utf8.md"
+  },
+  {
     "path": "ml4ds/06-regularization/",
     "title": "Regularization and validation",
     "description": "When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.",
@@ -13,8 +30,8 @@
     "categories": [],
     "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation\nNotebook for lasso\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-08T20:58:29+00:00",
-    "input_file": "06-regularization.utf8.md"
+    "last_modified": "2021-03-08T20:58:30+00:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/05-optimization/",

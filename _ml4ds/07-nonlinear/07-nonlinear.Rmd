@@ -1,0 +1,36 @@
+---
+title: "Nonlinear methods"
+description: |
+  Kernel methods, tree based methods, neural networks and graphs structured learning, these are some of the main approaches in the purely prediction-focused, less interpretable side of machine learning. 
+author:
+  - name: Joshua Loftus
+date: 03-08-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(gapminder)
+theme_set(theme_minimal(base_size = 22))
+```
+
+## Kernel methods
+
+## Trees and forests
+
+## Compositional nonlinearity
+
+## (these links don't work yet) Slides, notebooks, exercises
+
+[Slides](slides/06-1-regularization.html) for regularization video ([PDF](slides/regularization.pdf))
+
+[Slides](slides/06-2-lasso.html) for lasso video ([PDF](slides/validation.pdf))
+
+[Notebook](notebooks/validation.Rmd) for validation
+
+[Notebook](notebooks/lasso.Rmd) for lasso

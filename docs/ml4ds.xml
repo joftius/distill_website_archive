@@ -7,7 +7,15 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Nonlinear methods</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/07-nonlinear</link>
+      <description>Kernel methods, tree based methods, neural networks and graphs structured learning, these are some of the main approaches in the purely prediction-focused, less interpretable side of machine learning.</description>
+      <guid>http://joshualoftus.com/ml4ds/07-nonlinear</guid>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Regularization and validation</title>
       <dc:creator>Joshua Loftus</dc:creator>
