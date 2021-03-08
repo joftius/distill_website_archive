@@ -27,8 +27,8 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/06-1-regularization.html) for regularization video ([PDF](slides/regularization.pdf))
 
-[Slides](slides/06-2-validation.html) for validation video ([PDF](slides/validation.pdf))
-
-[Notebook](notebooks/regularization.Rmd) for regularization
+[Slides](slides/06-2-lasso.html) for lasso video ([PDF](slides/validation.pdf))
 
 [Notebook](notebooks/validation.Rmd) for validation
+
+[Notebook](notebooks/lasso.Rmd) for lasso

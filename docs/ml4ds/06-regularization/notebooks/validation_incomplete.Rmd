@@ -1,0 +1,180 @@
+---
+title: "Validation experiments"
+author: "ST310"
+date: "3/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse) 
+library(broom)     
+library(modelr)    
+library(glmnet)    
+library(selectiveInference)
+theme_set(theme_minimal(base_size = 20))
+```
+
+## Choose one of these datasets
+
+```{r}
+library(modeldata)
+data("attrition")
+# in console: View(attrition)
+dim(attrition) # observations, variables
+```
+
+```{r}
+library(AppliedPredictiveModeling)
+data("permeability")
+head(permeability) # numeric outcome
+length(permeability) # n
+fingerprints %>% dim() # n by p
+```
+
+```{r}
+library(caret)
+data("cox2")
+head(cox2Class) # binary outcome
+length(cox2Class) # n
+dim(cox2Descr) # n by p
+```
+
+Preprocess attrition data
+
+```{r}
+x_variables  <- attrition %>% 
+  dplyr::select(-Attrition) 
+X <- model.matrix(~. -1, data = x_variables) 
+Y <- attrition %>% pull(Attrition)
+```
+
+
+## Split data into training/test sets
+
+- Use the `sample()` and `setdiff()` functions to split the data into two random subsets
+
+(Why random subsets instead of 1,...k, and k+1,...n?)
+
+```{r}
+n <- length(Y) # nrow(X)
+train <- sample(1:n, floor(4*n/5), replace = FALSE)
+test <- setdiff(1:n, train)
+c(length(train), length(test))
+X_train <- X[train, ]
+X_test <- X[test, ]
+Y_train <- Y[train]
+Y_test <- Y[test]
+```
+
+## Regularized regression models
+
+- Fit models using `glmnet` on the **training data**
+
+- Plot **test error** as a function of `lambda`
+
+- Plot the fitted coefficients as a function of `lambda`
+
+- For lasso and elastic net, examine `coef()` at the value of `lambda` which minimizes test error
+
+### Ridge regression
+
+```{r}
+ridge_fit <- glmnet(X_train,
+                    Y_train,
+                    family = "binomial",
+                    alpha = 0)
+plot(ridge_fit, xvar = "lambda")
+```
+
+Training error
+
+```{r}
+predict_train <- function(j) {
+  mean(predict(ridge_fit,
+        type = "class",
+        newx = X_train)[, j] != Y_train)
+  # or for continuous
+  # mean((predict(ridge_fit, newx = X_train)[, j] - Y_train)^2)
+}
+predict_test <- function(j) {
+  mean(predict(ridge_fit,
+        type = "class",
+        newx = X_test)[, j] != Y_test)
+}
+accuracy_train <- map(1:100, predict_train) 
+accuracy_test <- map(1:100, predict_test) 
+plot_data <- data.frame(
+  train_error = do.call(rbind, accuracy_train),
+  test_error = do.call(rbind, accuracy_test),
+  lambda = ridge_fit$lambda
+) 
+```
+
+
+
+```{r}
+ggplot(plot_data, aes(lambda, train_error)) +
+ geom_line() + theme_minimal() +
+  geom_line(aes(y = test_error),
+            linetype = "dotted",
+            color = "orange", size = 1) +
+ scale_x_log10()
+```
+
+
+### Lasso regression
+
+```{r}
+lasso_fit <- glmnet(X_train,
+                    Y_train,
+                    family = "binomial")
+plot(lasso_fit, xvar = "lambda")
+```
+
+
+```{r}
+predict_train <- function(j) {
+  mean(predict(lasso_fit,
+        type = "class",
+        newx = X_train)[, j] != Y_train)
+  # or for continuous
+  # mean((predict(ridge_fit, newx = X_train)[, j] - Y_train)^2)
+}
+predict_test <- function(j) {
+  mean(predict(lasso_fit,
+        type = "class",
+        newx = X_test)[, j] != Y_test)
+}
+nlambdas <- length(lasso_fit$lambda)
+accuracy_train <- map(1:nlambdas, predict_train) 
+accuracy_test <- map(1:nlambdas, predict_test) 
+plot_data <- data.frame(
+  train_error = do.call(rbind, accuracy_train),
+  test_error = do.call(rbind, accuracy_test),
+  lambda = lasso_fit$lambda
+) 
+```
+
+```{r}
+ggplot(plot_data, aes(lambda, train_error)) +
+ geom_line() + theme_minimal() +
+  geom_line(aes(y = test_error),
+            linetype = "dotted",
+            color = "orange", size = 1) +
+ scale_x_log10()
+```
+
+
+```{r}
+coef(lasso_fit, s = 0.005)
+```
+
+
+### Elastic net regression
+
+```{r}
+
+```
+
+### Coefficients
