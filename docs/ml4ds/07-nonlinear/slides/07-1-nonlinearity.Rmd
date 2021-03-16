@@ -1,6 +1,6 @@
 ---
 title: "Machine learning"
-subtitle: "Linear classification"
+subtitle: "Non-linear supervised learning"
 author: "Joshua Loftus"
 #institute: "LSE"
 #date: "`r Sys.Date()`"
@@ -34,7 +34,7 @@ style_duo_accent(
   link_color = "#55c667",
   text_bold_color = '#f68f46',
   title_slide_background_color = "#ffffff", #"#042333",
-  title_slide_background_image = "../../../files/theme/LSE/centre_building_day.jpg",
+  title_slide_background_image = "../../../files/theme/LSE/aerial2.jpg",
 #    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Workhouse_Nantwich.jpg",
   title_slide_background_size = "cover",
   ) #or contain
@@ -42,7 +42,7 @@ style_duo_accent(
 
 ```{r xaringanextra, include=FALSE, warning=FALSE}
 library(xaringanExtra)
-xaringanExtra::use_animate_all("slide_left")
+#xaringanExtra::use_animate_all("slide_left")
 xaringanExtra::use_tile_view()
 xaringanExtra::use_panelset()
 xaringanExtra::style_panelset_tabs(font_family = "inherit")
@@ -64,428 +64,47 @@ library(modelr)
 }
 </style>
 
+## Who's afraid of nonlinearity?
 
-This lecture is about
+#### Simulated examples with pictures for intuition
 
-# Linearity
+#### What's different/difficult about nonlinear models
 
-in
+#### Concluding real data example
 
-## supervised machine learning
+Upcoming lectures on variety of approaches
 
-and especially
+- Nearest neighbors
+- Kernels
+- Trees
+- GAMs (Generalized Additive Models)
+- Networks
 
-### Support Vector Machines
-
-along with other context
-
-
----
-class: inverse
-
-### Classification
-
-Supervised learning with categorical/qualitative outcomes
-
-"Labels"
-
-Binary thinking might be easier $\rightarrow$ bin / discretise numeric outcomes and do classification instead of regression (warning: information loss)
+Can use any for both **regression** and **classification**
 
 ---
 
-### Mental warm-up: logistic regression 
+# "Linear modeling **assumption**"
 
-$$\mathbb E(Y| \mathbf X = \mathbf x) =  g^{-1}(\mathbf x^T \beta)$$
-for
-$$g(p) = \log{\left(\frac{p}{1-p}\right)}$$
-
-- Other GLMs have different "link" functions $g$
-- (Linear regression is a special case with $g = \text{id}$)
-- Multi-class / multinomial / "softmax" regression
-- Estimation/optimization: maximum-likelihood via Newton-Raphson / IRLS
-
----
-
-```{r logit-data, echo = FALSE}
-set.seed(42)
-n <- 50
-Y <- rbinom(n, 1, .5)
-train <- data.frame(
-  y = factor(Y),
-  x1 = rnorm(n) + 1.5*Y,
-  x2 = rnorm(n) + 1.2*Y
-)
-```
-
-### One predictor, binary outcome
-
-```{r logit-1dm, echo = FALSE, fig.align='center', out.width="540px"}
-eg1 <- ggplot(train, aes(x1, y)) +
-  geom_point(aes(color = y), show.legend = FALSE, alpha = .4) +
-  geom_line(
-    data = augment(
-      glm(y ~ x1, family = "binomial", data  = train),
-      type.predict = "response"
-    ),
-    aes(x1, .fitted + 1),
-    size = 1
-  ) + scale_color_viridis_d(option = "D", end = .8) +
-  annotate("text", x = 0.2, y = 1.5, label = "g^{-1}", size = 6, parse = TRUE) 
-eg1
-```
-
----
-
-### Classifications/decisions: threshold probability
-
-```{r logit-1d-class, echo = FALSE, fig.align='center', out.width="540px"}
-eg1 +
-  annotate("segment", x = .9, xend = .9, y = .8, yend  = 2.2, linetype = "dashed", size = 1, color = "blue") +
-  geom_point(data =  train,
-             aes(color =  y), alpha =  .4,
-             show.legend = FALSE) +
-  annotate("text", x = -.25, y = 2.2, color = "red",
-           label = "false negatives", size = 6) +
-  annotate("text", x = 2, y = 2.2,
-           label = "true positives", size = 6) +
-  annotate("text", x = -.25, y = .8,
-           label = "true negatives", size = 6) +
-  annotate("text", x = 2, y = .8, color = "red",
-           label = "false positives", size = 6) 
-```
-
----
-
-### Without giving $y$ a spatial dimension
-
-```{r logit-0d-class, echo = FALSE, fig.align='center', out.width="540px"}
-ggplot(train, aes(x1, y = 0)) +
-  geom_point(aes(color = y), show.legend = FALSE, alpha =  .4) +
-  scale_color_viridis_d(option = "D", end = .8) +
-  ylim(c(-.2,.2)) +
-  annotate("segment", x = .9, xend = .9, y = -.1, yend  = .1, linetype = "dashed", size = 1, color = "blue")
-```
-
-
----
-
-### Two predictors, binary outcome
-
-```{r logit-data-plot, echo = FALSE, fig.align='center', out.width="540px"}
-train_plot <-
-  ggplot(train, aes(x1, x2)) +
-  geom_point(aes(shape = y, fill = y),
-             color = "black", size = 2, stroke = 1,
-             show.legend = FALSE, alpha =  .4) +
-  scale_shape_manual(values=c(21, 22)) + 
-  scale_fill_viridis_d(direction = -1, end = .8)
-train_plot
-```
-
-
----
-
-### Contours of GLM-predicted class probabilities
-
-```{r logit-contour, echo = FALSE, fig.align='center', out.width="540px"}
-logit_model <-  glm(y ~ x1 + x2, family = "binomial", data = train)
-logit_surface <- logit_model %>%
-   augment(type.predict = "response",
-              newdata = data_grid(data = train,
-                                  x1 = seq_range(x1, 100, expand = .1),
-                                  x2 = seq_range(x2, 100, expand = .1)))
-ggplot(
-  data = logit_surface,
-  aes(x1,x2)) +
-  geom_contour_filled(
-    aes(z = .fitted),
-    show.legend = FALSE,
-    alpha = .3,
-    ) +
-  geom_abline(slope = -coef(logit_model)[2]/coef(logit_model)[3],
-              intercept = 3.05, linetype = "dashed", size = 1, color = "blue") +
-  geom_point(
-    data = train,
-             aes(shape = y, color = y),
-             size = 2, stroke = 1, alpha = .9,
-             show.legend = FALSE) +
-  scale_shape_manual(values=c(21, 22)) + 
-  scale_color_viridis_d(option = "viridis", direction = -1, end = .8) + 
-  scale_fill_viridis_d(option = "viridis", end = .8) +
-  geom_point(
-    data = augment(logit_model,
-                   type.predict = "response") %>%
-      mutate(yhat = as.numeric(.fitted > .56),
-             class = as.numeric(y)-1 == yhat) %>%
-      filter(class == FALSE),
-    aes(shape = y, color = y),
-             stroke = 1.5, alpha = .9,
-             show.legend = FALSE,
-    fill = "red", size = 3)
-```
-
----
-class: middle, center
-
-**Classification boundaries** with
-
-## $p = 3$ predictors
-
-### Boundary = plane
-
-## $p > 3$ predictors
-
-### Boundary = hyperplane
-
-(In practice, "high-dimensional" = can't easily plot it)
-
----
-
-### Logistic regression fitting
-
-Newton-IRLS (equivalent) steps:
+Why are we so often *assuming* linearity? (of the right hand side)
 
 $$
-\begin{eqnarray}
-\hat{\mathbf p}_t & = & g^{-1}(\mathbf X \hat \beta_t)
-& \ \text{ update probs.} \\
-\mathbf W_t & = & \text{diag}[\hat{\mathbf p}_t (1 - \hat{\mathbf p}_t)]  
-& \ \text{ update weights} \\
-\hat{\mathbf{y}}_t & = & g(\hat{\mathbf p}_t) + \mathbf W_t^{-1}(\mathbf y - \hat{\mathbf p}_t)
-& \ \text{ update response}
-\end{eqnarray}
+g(\mathbb E[\mathbf y]) = \beta_0 + \beta^T \mathbf x
 $$
 
-and then update parameter estimate:
+- Easier to interpret, sure...
+- But also easier to estimate
 
-$$\hat{\beta}_{t+1} = \arg \min_{\beta} (\hat{\mathbf{y}}_t - \mathbf X \beta)^T \mathbf W_t (\hat{\mathbf{y}}_t - \mathbf X \beta)$$ 
+Sometimes non-linearity is clear from the data or domain info
 
-**Note**: larger weights on observations with $\hat p$ closer to 1/2, i.e. the most difficult to classify (*look for variations of this theme*)
+Other times it's less clear, and makes it harder to learn a CEF
 
-.footnote[See Section 4.4.1 of [ESL](https://web.stanford.edu/~hastie/ElemStatLearn/)]
 
 ---
 
-###  Challenges
+### Non-linear classification
 
-#### Separable case (guaranteed if $p > n$)
-
-If classes can be perfectly separated, the MLE is undefined, fitting algorithm diverges as $\hat \beta$ coordinates $\to \pm \infty$
-
-Awkwardly, classification is *too easy*(!?) for this probabilistic approach
-
---
-
-#### Curse of dimensionality
-
-Biased MLE and wrong variance/asymp. dist. if $n/p \to \text{const}$, even if $> 1$
-
-.footnote[See [Sur and Candès, (2019)](https://www.pnas.org/content/116/29/14516)]
-
----
-class: inverse
-
-### "Generative" supervised learning
-
-Some binary thinking...
-
-- **Science vs humanities**. C. P. Snow, *The Two Cultures and the Scientific Revolution* (1959)
-
-- **Intuition vs logic** or **fast vs slow** (Kahneman, 2011), **fox vs hedgehog** (Berlin, 1953 or Gould, 2003)
-
-- **Algorithm vs inference**, *Statistical Modeling: The Two Cultures* (Breiman, 2001) or *Computer Age Statistical Inference* (Efron and Hastie, 2016)
-
-- **Probabilistic** (generative, random, stochastic) vs physical (geometric, deterministic)
-
-(Of course, none of these binaries are "real")
-
----
-class: inverse
-
-### Comparison
-
-Probability axioms = **constraints**
-
-#### Without probability
-
-- Prediction accuracy
-- Algorithm efficiency 
-
---
-
-#### With probability
-
-- Inference: prediction/confidence intervals, hypothesis tests
-- Interpretation: coefficients might be meaningful
-- Model diagnostics
-
-History according to Efron and Hastie: algorithm first (possibly unconstrained), then inference gradually catches up
-
----
-
-### Support Vector Machines
-
-What if we just want a linear classification boundary?
-
-Forget modeling the class probabilities (maybe inference can catch up later)
-
-Consider the separable case... Classification should be easy!
-
----
-
-### Support Vector Machines
-
-Define a **linear classifier** $f(\mathbf x)$ by
-
-$$
-f(\mathbf x) = \beta_0 + \mathbf x^T \beta
-$$
-
-with classification boundary $f(\mathbf x) = 0$, and decision rule
-
-$$
-G(\mathbf x) = \text{sign}[f(\mathbf x)]
-$$
-
-**Notation change**: It's convenient to assume $y \in \{ \pm  1 \}$ instead of 0-1
-
-$$
-\text{Misclassification } \leftrightarrow y \cdot G(\mathbf x) < 0
-$$
-
---
-
-#### How to choose $\beta$?
-
----
-class: inverse, middle
-
-## First some geometric intuition
-
-### Then an interesting tour of generally useful optimization ideas
-
-After SVMs we'll connect these ideas to other methods like ridge regression and lasso (i.e. $\ell^1$-penalized regression)
-
----
-
-### Geometric intuition: maximize distance
-
-.pull-left[
-![](islr9.2.png)
-Many linear classifiers with zero training error
-]
-.pull-right[
-![](islr9.3.png)
-Unique classifier with largest distance
-]
-
-
-
-.footnote[Figures from Chapter 9 of [ISLR](https://statlearning.com/)]
-
----
-
-### Maximizing the "margin" (separable case)
-
-Distance from $\mathbf x$ to the decision boundary $\{ \mathbf z : f(\mathbf z) = 0 \}$ 
-
-$$\min \| \mathbf x - \mathbf  z \| \text{ s.t. } f(\mathbf z) = 0$$
-
-is (by orthogonal projection)
-
-$$\frac{| f(\mathbf x) | }{ \| \beta \|}$$
-and the smallest such distance in the training data is
-
-$$\min_{1 \leq i \leq n} \frac{| f(\mathbf x_i) | }{ \| \beta \|}$$
-
----
-
-### SVM estimation/optimization (separable case)
-
-So there are infinitely many $\beta$ where on our training data
-
-$$
-y_i f(\mathbf x_i) > 0 \text{ for } 1 \leq i \leq n
-$$
-and we want to find the unique one of these solving
-
-$$\text{maximize}\left[ \min_{1 \leq i \leq n} \frac{| f(\mathbf x_i) | }{ \| \beta \|} \right]$$
-
-(*Recurring theme*: optimization/fit depends (more strongly / only) on point(s) closest to the boundary)
-
----
-
-### Reformulating optimization (separable case)
-
-**Exercise**: convince yourself this is equivalent to
-
-$$\text{maximize } M$$
-$$\text{s.t. }  y_i f(\mathbf x_i) / \| \beta \| \geq M  \text{ for } 1 \leq i \leq n$$
-
---
-
-Then, use re-scaling to show it's equivalent to
-
-$$\text{minimize } \| \beta \|$$
-$$\text{s.t. }  y_i (\beta_0 + \mathbf x_i^T \beta) \geq 1  \text{ for } 1 \leq i \leq n$$
-
---
-
-Since $\text{minimize } \| \beta \| \leftrightarrow \text{minimize } \| \beta \|^2$ this is a quadratic program with linear inequality constraints, i.e. can use **convex optimization** methods
-
----
-
-### Non-separable case
-
-Idea: allow a "budget" for constraint violations
-
-If observation $i$ is misclassified then let $\xi_i/\|\beta\|$ be its distance from the boundary. Solve ("soft" SVM in the UML book)
-
-$$\text{minimize } \| \beta \|^2$$
-$$\text{s.t. for } 1 \leq i \leq n,$$
-$$y_i (\beta_0 + \mathbf x_i^T \beta) \geq 1 - \xi_i$$
-$$\xi_i \geq 0, \sum \xi_i \leq C$$
-
-**Complexity**: $C$ is a tuning parameter (more about this in a moment)
-
----
-
-### "Support vectors"
-
-**Exercise**: use any formulation of the SVM optimization problem and [careful calculus](https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions) to show the optimal $\hat \beta$ can be written as a linear combination of the feature vectors $\mathbf x_i$.
-
-**Exercise**: also show that $\hat \beta$ can be written as a *sparse* linear combination of $\mathbf x_i$ (with nonzero coefficients only for those observations on or violating the constraint)
-
-(Hint: see ESL 12.2.1)
-
---
-
-This formalizes part of the *recurring theme* -- solution depends only on a few observations, those closest to the boundary
-
-#### Could provide significant dimension reduction!
-
----
-
-### Bias-variance trade off (ISLR 9.7)
-
-.pull-left[
-![](islr9.7a.png)
-.center[
-Budget $\uparrow$ \# support vectors $\uparrow$
-
-Bias $\uparrow$  Variance $\downarrow$]
-]
-.pull-right[
-![](islr9.7b.png)
-.center[
-Budget $\downarrow$ \# support vectors $\downarrow$
-
-Bias $\downarrow$  Variance $\uparrow$]
-]
-
----
-
-### Non-linear classification boundaries
+Sometimes the relationships in the data are clearly nonlinear
 
 .pull-left[
 ```{r circle-eg, echo = FALSE, fig.align='center', out.width="500px"}
@@ -528,456 +147,422 @@ circle_plot
 ```
 ]
 
-
-What if the data looks like this? Game over `r emo::ji("scream")` for linear classifiers?
+- Linear decision boundary $\to$ more/systematic errors
+- Allow curving boundary $\to$ lower error rate, not systematic
 
 ---
 
-### Feature transformation
+### Non-linear regression
 
-- First, embed predictors in a higher-dimensional space
+Other times it's less clear, based on noise level and sample size
+
+.pull-left[
+```{r nonlinear-reg-simple, echo = FALSE}
+f <- function(x) -1 + 2*x - x^2
+g <- function(x) sin(100*x)
+gen_f <- function(x) {
+  data.frame(x = x) %>%
+  mutate(y = f(x) + rnorm(length(x)))
+}
+gen_fg <- function(D) {
+  D %>%
+    mutate(y = y + g(x))
+}
+set.seed(1)
+n <- 400
+x <- 2*runif(n) + .5
+data_f <- gen_f(x)
+plot_f <- ggplot(data_f, aes(x,y)) +
+  geom_point(alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm", size = 2, linetype = "dashed") +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank()) 
+plot_f  +
+  geom_line(aes(x,f(x)), color = "#00aa00", size = 1,
+            data = data_grid(data_f, x = seq_range(x, 1000)))
+```
+]
+.pull-right[
+```{r  nonlinear-reg-sin, echo = FALSE}
+data_fg <- gen_fg(data_f)
+plot_fg <- ggplot(data_fg, aes(x,y)) +
+  geom_point(alpha = .5) +
+  geom_smooth(se = FALSE, method = "lm", size = 2, linetype = "dashed") +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank())
+plot_fg  +
+  geom_line(aes(x,f(x)), color = "#00aa00", size = 1,
+            data = data_grid(data_fg, x = seq_range(x, 1000)))
+```
+
+]
+
+One CEF is $f(x) = -1 + 2x - x^2$, the other is $f(x) + g(x)$
+
+---
+
+### Fitting the "true" models
+
+.pull-left[
+```{r}
+fit <- function(D) {
+  list(
+  lm(y ~ x, D),
+  lm(y ~ f(x), D),
+  lm(y ~ f(x) + g(x), D)) 
+}
+models_data_f <- 
+  fit(data_f)
+models_data_fg <- 
+  fit(data_fg)
+```
+Lists of fitted models on each dataset
+- Linear (underfit?)
+- $f(x)$
+- $f(x) + g(x)$
+]
+.pull-right[
+```{r}
+models_data_f
+```
+]
+
+---
+
+```{r highlight.output = c(6)}
+map_dfr(models_data_f, glance) # true CEF = f
+```
+
+```{r highlight.output = c(6)}
+map_dfr(models_data_fg, glance) # CEF = f + g
+```
+
+Both look like high noise level, but 1 has ~double $R^2$? `r emo::ji("face_with_raised_eyebrow")` 
+
+---
+
+### Revealing $f(x) + g(x)$ `r emo::ji("zany_face")` 
+
+.pull-left[
+```{r echo = FALSE}
+plot_f +
+  geom_line(aes(x,f(x)), color = "#00aa00", size = 1,
+            data = data_grid(data_f, x = seq_range(x, 1000)))
+```
+]
+.pull-right[
+```{r echo = FALSE}
+plot_fg +
+  geom_line(aes(x,f(x) + g(x)), color = "#00aa00", size = 1,
+            data = data_grid(data_fg, x = seq_range(x, 1000)))
+```
+]
+
+Datasets *look* very similar, but $f+g$ fits one and not the other
+
+
+---
+
+## If not linear, then what?
+
+Choose a **space of functions** to optimize over
+
+- Linear functions in $p$ variables $\leftrightarrow$ vector space $\mathbb R^p$
+
+- Polynomials up to a fixed, maximum degree: also finite dimensional vector space
+
+- Many (non-linear) function spaces are **infinite dimensional** vector spaces
+
+  - $\{ f_k(x) = \sin(k \pi x) : k \in \mathbb Z \}$ (Fourier basis)
+  
+  - Spaces of integrable functions, or differentiable
+
+- Underlying math: linear algebra $\to$ functional analysis
+
+---
+
+### Intuitions about function spaces
+
+- Optimize over a larger space $\to$ fit more complex models
+
+- Bias-variance trade-off: *both* choice of right/good space of functions *and* amount of complexity in that space
+
+  - e.g. periodic (like last example), right wavelengths
+  
+  - e.g. smooth, right amount of wiggliness
+  
+  - e.g. "Shape constraints" like monotonic, unimodal, (log-)concave (*Application*: epidemic trajectory)
+
+Science/modeling/inference approach: domain knowledge, first principles
+
+ML approach: whichever function space has current SOTA software (with easy to use default settings `r emo::ji("grinning_squinting_face")`)
+
+---
+
+### Optimizing over a large function space
+
+```{r}
+overfit <- function(D, k_range = 0:200) {
+  fit_sin_k <- function(k) {
+    fit_k <- lm(y ~ x + sin(k*x), data = D)
+    glance(fit_k)$r.squared
+  }
+  r_squareds <- map_dbl(k_range, fit_sin_k)
+  best_k <- k_range[which.max(r_squareds)]
+  best_k
+}
+khat_f <- overfit(data_f)
+khat_fg <- overfit(data_fg)
+c(khat_f, khat_fg)
+```
 
 $$
-\mathbf x \mapsto h(\mathbf x)
+\hat f(x) = \beta_0 + \beta_1 x + \beta_2 \sin(\hat k x)
 $$
 
-.center[*unsupervised step, without using the outcome*]
+Apparently $\hat k = 1$ or $\hat k = 100$, respectively
+
+---
+
+### Plotting the "best" models
+
+```{r echo = FALSE}
+fhat_f <- function(x) sin(khat_f*x)
+fhat_fg <- function(x) sin(khat_fg*x)
+best_model_f <- lm(y ~ x + fhat_f(x), data = data_f)
+best_model_fg <- lm(y ~ x + fhat_fg(x), data = data_fg)
+```
+
+.pull-left[
+```{r echo = FALSE}
+# signal_plot <- ggplot(data_f, aes(x,y)) +
+#   geom_point(alpha = .5) +
+#   geom_smooth(se = FALSE, method = "lm", linetype = "dashed", color = "#00aa00", size = 2) +
+#   theme(
+#   axis.text.x = element_blank(),
+#   axis.text.y = element_blank())
+# signal_
+plot_f +
+  #ggtitle("The 'best' (overfit) model") +
+  geom_line(aes(x, .fitted), color = "blue", size = 1,
+            data = augment(best_model_f,
+                           newdata = data_grid(data_f,
+                           x = seq_range(x, 1000))))
+```
+]
+.pull-right[
+```{r echo = FALSE}
+plot_fg +
+  #ggtitle("The 'best' (overfit) model") +
+  geom_line(aes(x, .fitted), color = "blue", size = 1,
+            data = augment(best_model_fg,
+                           newdata = data_grid(data_fg,
+                           x = seq_range(x, 1000))))
+```
+]
+
+Can we believe this?
+
+---
+
+### So which is it?
+
+When we aren't doing simulations we just have the data
+
+.pull-left[
+```{r echo = F}
+plot_f + ggtitle("Test data could prevent overfitting")
+```
+]
+.pull-right[
+```{r echo = F}
+plot_fg + ggtitle("Doomed to underfit?")
+```
+]
+
+We don't know signal/noise level, function space, complexity...
+
+---
+
+### The "big data" advantange
+
+With larger samples we could tell these two cases apart
+
+.pull-left[
+```{r echo = F}
+set.seed(1)
+n <- 10000
+x <- 2*runif(n) + .5
+bigdata_f <- gen_f(x)
+bigdata_fg <- gen_fg(bigdata_f)
+noise_plot <- ggplot(bigdata_f, aes(x,y)) +
+  geom_point(alpha = .7) +
+  geom_smooth(se = FALSE, method = "lm", size = 2, linetype = "dashed") +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank())
+noise_plot #+
+    #geom_line(aes(x, .fitted), color = "blue", size = 2, data = augment(best_model_f, newdata = data_grid(bigdata_f, x = seq_range(x, 1000))))
+```
+]
+.pull-right[
+```{r echo = F}
+signal_plot <- ggplot(bigdata_fg, aes(x,y)) +
+  geom_point(alpha = .7) +
+  geom_smooth(se = FALSE, method = "lm", linetype = "dashed", size = 2) +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank())
+signal_plot #+
+  #geom_line(aes(x, .fitted), color = "blue", size = 2, data = augment(best_model_fg, newdata = data_grid(bigdata_fg, x = seq_range(x, 1000))))
+```
+]
+
+Use more data for validation / in-distribution generalization
+
+---
+
+## Non-linearity and overfitting
+
+Much of machine learning and "AI" is about having large enough datasets to search large spaces of functions and fit complex models without **variability problems** from overfitting
+
+i.e. good in-distribution generalization (new data, same DGP)
+
+#### Intuition: more complex models are more sensitive to small changes in the data, or more "brittle"
 
 --
 
-- Then solve classification (or regression) problem optimizing over much larger(?) space of functions
+#### Statistical wisdom: another reason to prefer simpler models may be better out-of-distribution generalization
 
-e.g., this doubles the number of parameters
-
-$$
-(x_1, x_2) \mapsto (x_1, x_2, x_1^2, x_2^2, x_1x_2)
-$$
-$$
-f(\mathbf x) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1^2 + \beta_4 x_2^2 + \beta_5 x_1x_2
-$$
-is **linear** in the higher-dimensional features
+i.e. avoiding **bias problems** from overfitting
 
 ---
 
-### But... which transformations?
+### Out-of-distribution generalization
 
-- If original feature space has $p > 3$ may not be able to "see" any obvious choices (like previous circle example)
+What if we test on data outside the original range/distribution?
 
---
+.pull-left[
+```{r echo = F}
+set.seed(1)
+n <- 1000
+x <- 5*runif(n) + .5
+bigdata_f <- gen_f(x)
+bigdata_fg <- gen_fg(bigdata_f)
+noise_plot <- ggplot(bigdata_f, aes(x,y)) +
+  geom_point(alpha = .7) +
+  geom_smooth(se = FALSE, method = "lm", size = 2, linetype = "dashed") +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank())
+noise_plot +
+    geom_line(aes(x, .fitted), color = "blue", size = 2,
+            data = augment(best_model_f,
+                           newdata = data_grid(bigdata_f,
+                           x = seq_range(x, 1000))))
+```
+]
+.pull-right[
+```{r echo = F}
+signal_plot <- ggplot(bigdata_fg, aes(x,y)) +
+  geom_point(alpha = .7) +
+  geom_smooth(se = FALSE, method = "lm", linetype = "dashed", size = 2) +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank())
+signal_plot +
+  geom_line(aes(x, .fitted), color = "blue", size = 2,
+            data = augment(best_model_fg,
+                           newdata = data_grid(bigdata_fg,
+                           x = seq_range(x, 1000))))
+```
+]
 
-- Some choices with nice mathematical and computational properties, and often good performance in practice: **kernels**
-
---
-
-Background reading on related mathematical concepts/results: [Linear duality](https://en.wikipedia.org/wiki/Dual_space), [Riesz representation theorem](https://en.wikipedia.org/wiki/Riesz_representation_theorem), [RKHSs](https://en.wikipedia.org/wiki/Reproducing_kernel_Hilbert_space), "[Kernel trick](https://en.wikipedia.org/wiki/Kernel_method)", [Representer theorem](https://en.wikipedia.org/wiki/Representer_theorem)
-
-Two key ingredients:
-
-1. Algorithm/optimization depends on transformed features *only through inner products evaluated on training data*
-2. Aforementioned inner products can be computed fast
-
----
-
-### Kernel methods
-
-I think of these as something like a "parametric version of nearest neighbors"
-
-A **kernel function** is just a generalization of a positive definite matrix, i.e. also an inner product or similar measure
-
-e.g. (in ESL), for any inner product $\langle \cdot, \cdot \rangle$
-
-- $K(\mathbf x, \mathbf x') = \langle \mathbf x, \mathbf x' \rangle$ is a kernel, and so are
-
---
-
-- $K(\mathbf x, \mathbf x') = (1 + \langle \mathbf x, \mathbf x' \rangle )^d$ - degree $d$ polynomial
-
-- $K(\mathbf x, \mathbf x') = \exp(-\gamma \| \mathbf x - \mathbf x' \|^\alpha)$ - radial basis, $\alpha = 1$ or $2$
-
-- $K(\mathbf x, \mathbf x') = \tanh(\kappa_1 \langle \mathbf x, \mathbf x' \rangle + \kappa_2)$ - neural network
-
----
-
-### OK but what do these give us?
-
-- Fairly automatic way to vastly expand feature space, possibly achieving perfect separation of classes in higher dimensions
-
-e.g. For degree $d$ polynomial, dimension $p \mapsto \binom{p+d}{d}$
-
---
-
-- Fast algorithms for trading off complexity
-
-Vary cost parameter, tune with (cross)validation data
-
-Computational complexity depends $n$ and not $p$, between $o(n^3)$ and $o(n^2)$ depending on problem specifics
-
---
-
-- Theory of RKHSs 
-
-Provide guarantees, write papers...
+Simpler/"underfit" models (dashed lines) *might* do better
 
 ---
 
-## Some cool theorems
+### Choosing function spaces and methods
 
-**Theorem** (Moore–Aronszajn)
+Since this is a course in ML, we won't assume these choices can be informed by domain knowledge
 
-For any kernel $K$, there is a (unique) corresponding Hilbert space of functions [for which $K$ defines the inner product], and a natural norm $\| \mathbf x \| = \langle \mathbf x, \mathbf x \rangle^{1/2} = K(\mathbf x, \mathbf x)^{1/2}$
+A few examples based on high level **properties of the data** and **goals of the analysis** -- not an exhaustive list or flowchart
 
----
+(Assuming data shape is rectangular and i.i.d., otherwise we need specialized models for other data/dependence types)
 
-## Representer theorems
+|    Goals   | $n > p$ (tall) | $n \approx p$ or $p > n$ (wide)    |
+| :---        |    :----:   |          :---: |
+| Prediction only      | Network methods       | Ridge   |
+| + Interpretation   | See below        | Lasso      |
 
-**Theorem** (Wahba, 1990)
-
-For certain loss functions $V$, and any kernel $K$, the minimizer of
-
-$$\sum_{i=1}^n V(y_i - f(\mathbf x_i)) + \lambda \| f \|$$
-where $\| \cdot \|$ is the norm associated with $K$, has the form
-
-$$
-\hat f(\cdot) = \sum_{i=1}^n \hat a_i K(\cdot, \mathbf x_i)
-$$
-
-Potentially infinite dimensional problem? *Nope, at most* $n$
+Additivity $\to$ GAMs. Interactions $\to$ tree methods
 
 ---
 
-## Representer theorems
+## Caveats 
 
-**Theorem** (Scholkopf, Herbrich, Smola, 2001)
+- Nearest neighbors: more often treated as an uninteresting baseline for comparison
 
-Extended Wahba's result to more general loss functions and penalties of the form
+- Some methods can be combined, all can be customized, more "researcher degrees of freedom" -- and therefore more model complexity -- if there are more ways to customize (e.g. network models)
 
-$$
-g(\| f \|)
-$$
-for any strictly increasing $g(\cdot)$
+- Remember: "[All models are wrong](https://en.wikipedia.org/wiki/All_models_are_wrong) but some are useful"
 
---
+- Remember: [No Free Lunch](https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization) -- methods that do well in one situation will do poorly in another
 
-#### Intuition?
-
-Penalized ERM over a function class that's infinite dimensional...
-
-but we only have $n$ observations and it is the *empirical* risk over these $n$...
+Learning about a diverse set of approaches helps our understanding, and you will have more than [one kind of tool](https://en.wiktionary.org/wiki/if_all_you_have_is_a_hammer,_everything_looks_like_a_nail) at your disposal
 
 ---
 
-### Algorithms other than SVM?
+### Smooth non-linearity?
 
-Yes, a few...
+CEF based on bins (like nearest neighbors). Credit: Reddit user [SurfingPolice](https://www.reddit.com/r/dataisbeautiful/comments/lkjlhy/relationship_between_film_length_and_average_imdb/gnk46yh/)
 
-- Smoothing splines
-- Ridge/lasso regression
-- Gaussian processes
-- PCA/CCA
-- Spectral clustering
+```{r echo = FALSE, cache = TRUE}
+titles <- read_tsv("~/Downloads/archive/title.basics.tsv")
+ratings <- read_tsv("~/Downloads/archive/title.ratings.tsv")
+df <- titles %>%
+  filter(titleType  == "movie") %>%
+  inner_join(ratings, by = "tconst") %>%
+  mutate(runtimeMinutes = parse_number(runtimeMinutes, na = c("\\N")))
+rm(titles)
+rm(ratings)
+```
 
-Versions of all of these can be combined with feature map and kernel combinations that allow fast evaluation and optimization
-
----
-
-### Recent kernel usefulness
-
-*To understand deep learning we need to understand kernel learning.* (Belkin, Ma, and Mandal, [ICML 2018](https://arxiv.org/abs/1802.01396))
-
-> ... Certain key phenomena of deep learning are manifested similarly in kernel methods in the modern "overfitted" regime. ...
-
-e.g. Zero training error but not overfit... not surprising!
-
----
-
-### What about logistic regression?
-
-![](islr9.12.png)
-
----
-
-### SVM vs logistic regression
-
-
-- SVM preferable if classes separated
-
-- KLR comparable to kernel SVM
-
-- Support vector property: SVM robust to outliers
-
-- It is, apparently, somewhat of a *historical accident* `r emo::ji("roll_eyes")` that the kernel method became associated with SVMs
+```{r echo = FALSE, fig.height=6}
+df %>%
+  drop_na(runtimeMinutes) %>%
+  filter(runtimeMinutes < 60 * 6, runtimeMinutes > 30, numVotes > 10) %>%
+  mutate(roundedRuntimeMinutes = floor(runtimeMinutes),
+         decade = startYear - startYear %% 10) %>%
+  group_by(roundedRuntimeMinutes) %>%
+  summarise(
+    avgRatingPerTime = mean(averageRating),
+    n_movies = n()
+  ) %>%
+  ggplot(aes(roundedRuntimeMinutes, avgRatingPerTime, color = n_movies)) +
+  geom_point() +
+  guides(color = FALSE) +
+  labs(x = "Runtime", y = "Average Rating") +
+  scale_x_continuous(breaks = seq(0, 360, 30)) +
+  theme(axis.title = element_text(face = "bold"))
+```
 
 ---
-class: inverse
-
-### Winner's curse?
-
-Algorithm $\to$ inference, history rhyming
-
-1. New algorithm drops, impressive results
-2. Grandiose claims about algorithm's novelty and "secret sauce"
-3. People start realizing what isn't new, and that the secret sauce [can be used](https://xkcd.com/1838/) as an ingredient in other algorithms 
-
-ESL:
-
-> *In the early literature on support vectors, there were claims that the kernel property of the support vector machine is unique to it and allows one to finesse the curse of dimensionality. Neither of these claims is true...*
-
-
----
-
-![](googletrends.png)
-
-Why am I telling you this?
-
----
-
-
-### Some things are (relatively) timeless...
-
-# Mathematical foundations!
-
-Linear algebra and functional analysis: linearity, orthogonality, additivity, basis expansions, duality, etc
-
-Optimization: regularization, equivalent/similar problems, sparsity (primal/dual or observations/parameters), etc
-
-
-(*Maybe you'll see this history rhyming again when we talk about neural networks, or for some not-yet invented new thing...*)
-
----
-
-### Lasting impacts of SVM/kernels
-
-- Support Vectors
-
-Solution typically depends on only a fraction of training data
-
-Sparsity in observations, robustness
-
---
-
-- "Automatic" feature engineering
-
-Outside low-dimensional motivating examples, typically don't choose type of kernel very carefully
-
-Ultra-algorithmic supervised ML philosophy: focus on expanding **expressivity** of the function class, let efficient optimization algorithms do the work of "respecting the structure in the data"
-
-Influential idea $\to$ deep learning
-
-
----
-class: inverse
-
-## End of SVM part
-
-### Time for break
-
-Then: a kernel bridge to high-dimensional regression
-
-and sparsity in features, rather than training examples
-
----
-
-### General kernel usefulness
-
-Consider e.g. kernel ridge regression
-
-$$\text{minimize } \sum_{i=1}^n (y_i - f(\mathbf x_i))^2 + \lambda \| f \|^2$$
-minimizing over an RKHS with norm $\| \cdot \|$. Then, good things happen, e.g.
-
-$$
-\hat f(\mathbf x) = \mathbf k(\mathbf x)^T (\mathbf K + \lambda n \mathbf I)^{-1} \mathbf y
-$$
-where $\mathbf k(\cdot)^T = [K(\mathbf x_1, \cdot ), \ldots, K(\mathbf x_n, \cdot)]$ and $\mathbf K_{ij} = K(\mathbf x_i, \mathbf x_j)$
-
---
-
-**Bayesian interpretation**: MAP estimator for a *Gaussian Process prior on function space* with GP covariance $K$
-
-.footnote[Adapted from [these](https://en.wikipedia.org/wiki/Bayesian_interpretation_of_kernel_regularization) [notes](https://arxiv.org/abs/1106.6251)]
-
-
----
-
-### Ridge regression
-
-Also called [Tikhonov regularization](https://en.wikipedia.org/wiki/Tikhonov_regularization) or $L^2$-penalized regression
-
-#### Problem: 
-
-Design matrix $\mathbf X$ is ill-conditioned or rank deficient, OLS estimator 
-
-$$
-\hat \beta = 
-(\mathbf X^T \mathbf X)^{-1} \mathbf X^T  \mathbf y
-$$
-may be highly variable or undefined because $\mathbf X^T \mathbf X$ is (close to being) uninvertible
-
---
-
-Guaranteed to happen in **high-dimensional regression** where number of predictors $p > n$, the sample size
-
----
-
-### High-dimensional regression
-
-#### Problem:
-
-With $p > n$, there are generally infinitely many $\beta$ satisfying
-
-$$
-y = \mathbf X \beta
-$$
-Least squares has no unique solution
-
---
-
-#### Ridge solution
-
-Solve a different, penalized optimization problem
-
-$$\text{minimize} \| y - \mathbf X \beta \|^2 + \lambda \| \beta \|^2$$
-for some $\lambda > 0$.
-
----
-
-### Ridge solution
-
-It's basically calculus to show this has solution
-
-$$
-\hat \beta = (\mathbf X^T \mathbf X + \lambda \mathbf I)^{-1} \mathbf X^T \mathbf y
-$$
-where $\mathbf I$ is the $n \times n$ identity matrix.
-
---
-
-**Linearity**: similarly to OLS, the solution is linear in $\mathbf y$.
-
-**Bayesian interpretation**: MAP estimate for a prior $\beta \sim N(0, \tau^2 \mathbf I)$ with likelihood $\mathbf y | \mathbf X, \beta \sim N(\mathbf X \beta, \sigma^2 \mathbf I)$
-
----
-
-### Lasso solution
-
-Notationally similar, just replace the 2-norm penalty with a 1-norm
-
-$$\| \beta \|_1 = \sum_{j=1}^p |\beta_j|$$
-and solve
-
-$$\text{minimize} \| y - \beta_0 - \mathbf X \beta \|^2 + \lambda \| \beta \|_1$$
-
---
-
-**No closed-form**: optimization requires iterative algorithms
-
-**Sparsity**: solutions $\hat \beta$ usually have few nonzero entries
-
-Sparse linear models may be considered simpler and more interpretable
-
-
----
-
-### Lasso regularization solution path
-
-![](http://joshualoftus.com/files/lasso.gif)
-
----
-
-### Optimization 
-
-Like SVMs, $\exists$ different formulations. *Re-parametrizations*
-
-#### Constrained form (entire solution path)
-
-$$\text{minimize} \| y - \beta_0 - \mathbf X \beta \|^2$$
-$$\text{s.t. } \| \beta \|_1 \leq t$$
---
-
-Solve this for some $t$ $\leftrightarrow$ solve the **Lagrangian form** for some $\lambda$
-
-#### Square-root lasso (alternative to cross-validation)
-
-$$\text{minimize} \| y - \beta_0 - \mathbf X \beta \| + \lambda \| \beta \|_1$$
-
-Solve this for deterministic $\lambda$ $\leftrightarrow$ solve lasso at *random* $\hat \lambda$
-
----
-
-### Optimization
-
-The KKT conditions (for the Lagrangian form) are (under very general assumptions) necessary and sufficient for solution
-
-$$\mathbf X^T (\mathbf y - \mathbf X \hat \beta_\lambda) + \lambda \mathbf s = \mathbf 0$$
-$$\mathbf s \in \text{sign}(\hat \beta_\lambda)$$
-
-i.e. $s_j = \text{sign}(\hat \beta_{\lambda,j})$ if $\beta_{\lambda,j} \neq 0$ and $s_j \in [-1, 1]$ otherwise (the *subgradient* of $\| \cdot \|_1$)
-
-(Warning: possibly missing factor of $n$)
-
-(Warning: beware intercept term)
-
-**Not explicit**, but still useful in theory and practice (e.g. to check solution)
-
----
-
-### Optimization algorithms
-
-Least Angle Regression (LAR) motivated as *less greedy* alternative to forward stepwise selection, solves lasso solution path
-
-Notice: continuous, piece-wise linear paths, just need to know where the "knots" occur, i.e. the "active set" (possibly) changes
-
-In practice, software like `glmnet` uses additional knowledge about spacing between knots to speed up fitting
-
-**Coordinate descent** algorithms because penalty is "separable"
-
----
-
-### Sparsity in feature space
-
-Constrained form + this famous picture (ESL 3.1, lasso vs ridge)
-
-![](sparsity.png)
-
----
-
-### Challenges
-
-- Lasso trades off some prediction accuracy relative to ridge for interpretability
-
-- But are the interpretations of sparse coefficients justified?
-
-Regularization $\to$ biased estimates
-
-Non-OLS estimates $\to$ how to compute intervals?
-
----
-class: inverse
-
-## The end, for now
-
-In the next part, lecture 6 of the term
-
-- First we'll resume studying the lasso and high-dimensional inference
-
-- Then we'll turn to neural networks
-
----
-
-### References
-
-#### [ESL](https://web.stanford.edu/~hastie/ElemStatLearn/)
-
-Chapter 12 for SVMs, 3.4 for ridge and lasso, 5.8 for RKHS in the splines context, and 6 on kernel regression
-
-#### Other kernel method readings
-
-- [AoS paper](https://projecteuclid.org/euclid.aos/1211819561) with solid definition-theorem presentation for statisticians ([arxiv version](https://arxiv.org/abs/math/0701907))
-
-- R package vignettes for [`kernlab`](https://cran.r-project.org/web/packages/kernlab/vignettes/kernlab.pdf) and/or [`e1071`](https://cran.r-project.org/web/packages/e1071/vignettes/svmdoc.pdf)
-
-- Python scikit learn documentation for [kernel ridge](https://scikit-learn.org/stable/modules/kernel_ridge.html) and [svm](https://scikit-learn.org/stable/modules/svm.html)
-
-#### [SLS](https://web.stanford.edu/~hastie/StatLearnSparsity/)
-
-- Chapter 2 on the lasso
+  
+### Disaggregated (full data instead of bin averages)
+  
+```{r echo = FALSE}
+df %>%
+  drop_na(runtimeMinutes) %>%
+  filter(runtimeMinutes < 60 * 6, runtimeMinutes > 30, numVotes > 10) %>%
+  mutate(roundedRuntimeMinutes = floor(runtimeMinutes),
+         decade = startYear - startYear %% 10) %>%
+  filter(!is.na(decade), decade > 1930) %>%
+  ggplot(aes(runtimeMinutes, averageRating)) +
+  geom_point(alpha = 0.1) +
+  guides(color = FALSE) +
+  labs(x = "Runtime", y = "Average Rating")
+```
 

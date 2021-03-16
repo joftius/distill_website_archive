@@ -29,6 +29,6 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/06-2-lasso.html) for lasso video ([PDF](slides/validation.pdf))
 
-[Notebook](notebooks/validation.Rmd) for validation
+[Notebook](notebooks/validation.Rmd) for validation ([partially complete](notebooks/validation_incomplete.html))
 
-[Notebook](notebooks/lasso.Rmd) for lasso
+[Notebook](notebooks/lasso.Rmd) for lasso (no partially complete version)

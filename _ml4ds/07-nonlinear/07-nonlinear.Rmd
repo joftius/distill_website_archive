@@ -25,12 +25,10 @@ theme_set(theme_minimal(base_size = 22))
 
 ## Compositional nonlinearity
 
-## (these links don't work yet) Slides, notebooks, exercises
+## Slides, notebooks, exercises
 
-[Slides](slides/06-1-regularization.html) for regularization video ([PDF](slides/regularization.pdf))
+[Slides](slides/07-1-nonlinearity.html) for non-linearity video ([PDF])
 
-[Slides](slides/06-2-lasso.html) for lasso video ([PDF](slides/validation.pdf))
+[Slides](slides/07-2-knn.html) for $k$-NN video ([PDF])
 
-[Notebook](notebooks/validation.Rmd) for validation
-
-[Notebook](notebooks/lasso.Rmd) for lasso
+[Notebook](notebooks/nonlinear_knn_incomplete.html) for $k$-NN
