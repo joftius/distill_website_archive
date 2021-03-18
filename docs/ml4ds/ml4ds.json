@@ -14,7 +14,7 @@
     "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for trees and forests video ([PDF])\nSlides for GAMs video ([PDF])\nSlides for neural networks video ([PDF])\nNotebook for ?\n\n\n\n",
     "preview": {},
     "last_modified": "2021-03-16T19:00:09+00:00",
-    "input_file": "08-nonlinear.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/07-nonlinear/",
@@ -30,8 +30,8 @@
     "categories": [],
     "contents": "\nKernel methods\nTrees and forests\nCompositional nonlinearity\nSlides, notebooks, exercises\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for \\(k\\)-NN\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-17T14:09:43+00:00",
-    "input_file": "07-nonlinear.utf8.md"
+    "last_modified": "2021-03-17T14:09:44+00:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/06-regularization/",
@@ -47,8 +47,8 @@
     "categories": [],
     "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation (partially complete)\nNotebook for lasso (no partially complete version)\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-16T12:08:34+00:00",
-    "input_file": "06-regularization.utf8.md"
+    "last_modified": "2021-03-16T12:08:35+00:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/05-optimization/",
@@ -65,7 +65,7 @@
     "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
     "preview": {},
     "last_modified": "2021-03-16T12:04:51+00:00",
-    "input_file": "05-optimization.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/04-classification/",
