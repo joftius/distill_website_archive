@@ -4,20 +4,11 @@ author: Joshua Loftus
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
-library(tidyverse)
-library(knitr)
-library(gapminder)
-theme_set(theme_minimal(base_size = 22))
-```
-
 ## Conceptual
 
 ### ISLR Section 5.4
 
-- 2 (a-f), also calculate $e^{-1}$ to a few decimal places for comparison
+- 2 (a-f), and calculate $e^{-1}$ to a few decimal places for comparison
 - 3 (a)
 
 ### ISLR Section 6.8

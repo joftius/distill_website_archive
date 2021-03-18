@@ -34,3 +34,5 @@ theme_set(theme_minimal(base_size = 22))
 [Slides](slides/08-3-neural.html) for neural networks video ([PDF])
 
 [Notebook](notebooks/tbd.html) for ?
+
+[Exercises](exercises/set3.html)
