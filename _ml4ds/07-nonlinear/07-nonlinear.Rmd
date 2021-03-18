@@ -19,13 +19,11 @@ library(gapminder)
 theme_set(theme_minimal(base_size = 22))
 ```
 
+## Nearest neighbors
+
 ## Kernel methods
 
-## Trees and forests
-
-## Compositional nonlinearity
-
-## Slides, notebooks, exercises
+## Slides, notebooks
 
 [Slides](slides/07-1-nonlinearity.html) for non-linearity video ([PDF])
 

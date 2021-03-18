@@ -28,10 +28,10 @@
     ],
     "date": "2021-03-08",
     "categories": [],
-    "contents": "\nKernel methods\nTrees and forests\nCompositional nonlinearity\nSlides, notebooks, exercises\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for \\(k\\)-NN\n\n\n\n",
+    "contents": "\nNearest neighbors\nKernel methods\nSlides, notebooks\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for \\(k\\)-NN\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-17T14:09:44+00:00",
-    "input_file": {}
+    "last_modified": "2021-03-18T15:09:46+00:00",
+    "input_file": "07-nonlinear.utf8.md"
   },
   {
     "path": "ml4ds/06-regularization/",
