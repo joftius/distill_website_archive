@@ -1,0 +1,241 @@
+---
+title: "Machine learning"
+subtitle: "Tree-based methods"
+author: "Joshua Loftus"
+#institute: "LSE"
+#date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "xaringan-themer.css", "../../../theme.css"]
+#    seal: false    
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["bottom", "left"]
+      countdown: 59000
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+---
+
+class: inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+options(knitr.table.format = "html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#2d708e",
+  secondary_color = "#230433",
+  link_color = "#55c667",
+  text_bold_color = '#f68f46',
+  title_slide_background_color = "#ffffff", #"#042333",
+  title_slide_background_image = "../../../files/theme/LSE/spectra_close.jpg",
+#    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Workhouse_Nantwich.jpg",
+  title_slide_background_size = "cover",
+  ) #or contain
+```
+
+```{r xaringanextra, include=FALSE, warning=FALSE}
+library(xaringanExtra)
+#xaringanExtra::use_animate_all("slide_left")
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(font_family = "inherit")
+```
+
+```{r tidyverse, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+theme_set(theme_minimal(base_size = 22))
+set.seed(1)
+library(broom)
+library(modelr)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 1.2rem;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+## Regression and classification trees
+
+### More interpretable than linear models?!
+
+Sequence of simple questions about individual predictors
+
+### Strategies for improving "weak" models
+
+- Bagging
+
+- Boosting
+
+- Random forests (similar to "dropout" -- future topic)
+
+---
+
+## Decision trees
+
+### Are you eligible for the COVID-19 vaccine?
+
+- If `Age >= 50` then `yes`, otherwise continue
+- If `HighRisk == TRUE` then `yes`, otherwise continue
+- If `Job == CareWorker` then `yes`, otherwise `no`
+
+This is (arguably) more interpretable than a linear model with multiple predictors
+
+(This is just an example, find the real vaccination criteria [here](https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/))
+
+---
+
+[Penguin data](https://education.rstudio.com/blog/2020/07/palmerpenguins-cran) from Palmer Station Antarctica
+
+![](https://education.rstudio.com/blog/2020/07/palmerpenguins-cran/penguin-expedition.jpg)
+
+---
+
+### Measuring our large adult penguins
+
+```{r}
+library(palmerpenguins)
+pg <- penguins %>% drop_na()
+```
+
+```{r penguinplot, echo = FALSE, fig.width = 10, fig.height = 5.5, fig.align='center'}
+pg_bmg_plot <- pg %>% 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = body_mass_g)) +
+  geom_point() +
+#  geom_vline(xintercept = 208) +
+  scale_color_viridis_c(end = .8, option = "D") 
+#  facet_wrap(vars(sex)) +  theme(axis.text.x = element_blank())
+pg_bmg_plot
+```
+
+---
+
+### Regression tree to predict penguin massiveness
+
+```{r penguintree, fig.height=5, fig.width=10, fig.align='center'}
+library(tree)
+fit_tree <- 
+  tree(body_mass_g ~ flipper_length_mm + bill_length_mm, control = tree.control(nrow(pg), mindev = 0.007), data = pg) #<<
+plot(fit_tree, type = "uniform")
+text(fit_tree, pretty = 0, cex = 1.7)
+```
+
+---
+
+### Regression tree predictions
+
+```{r penguinctreeplot, echo = FALSE, fig.width = 10, fig.height = 7, fig.align='center'}
+pg %>% 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm)) +
+  scale_color_viridis_d(end = .8, option = "D")  +
+  geom_point(aes(color = as.factor(round(predict(fit_tree)))),
+             alpha = .6) +
+  geom_vline(xintercept = 206.5, size = 1.5) + 
+  geom_vline(xintercept = 193.5, size = 1.5, linetype = "dashed") + 
+  geom_vline(xintercept = 214.5, size = 1.5, linetype = "dashed") + 
+  geom_segment(x = 214.5,
+               y = 48.55,
+               xend = 240,
+               yend = 48.55, size = 1.5, linetype = "dotdash")  + 
+  geom_segment(x = 170,
+               y = 38.15,
+               xend = 193.5,
+               yend = 38.15, size = 1.5, linetype = "dotdash") +
+  labs(color = "Predicted\nmass_g")
+```
+
+
+---
+
+### Recursive rectangular splitting on predictors
+
+"Stratification of the feature space"
+
+```
+Input: subset of data
+  For each predictor variable x_j in subset
+    Split left: observations with x_j < cutoff
+    Split right: observations with x_j >= cutoff
+    Predict constants in each split
+    Compute model improvement
+    Scan cutoff value to find best split for x_j
+Output: predictor and split with best improvement
+```
+
+---
+
+#### Partial dependence plots with `plotmo`
+
+```{r plotmotree, fig.width = 10, fig.height = 6, fig.align='center'}
+library(plotmo)
+vars <- c("bill_length_mm", "flipper_length_mm")
+plotmo(fit_tree, trace = -1, degree1 = NULL, degree2 = vars)
+```
+
+--
+
+Starting from full dataset, compute first split as above
+
+Recurse: take the two subsets of data from each side of the split and plug them both back into the same function
+
+Until reaching some stopping rule that prevents more splitting
+
+
+---
+
+### Categorical predictors
+
+```{r penguinctree, fig.height=4, fig.width=9, fig.align='center'}
+fit_tree <- tree(body_mass_g ~ ., data = pg)
+plot(fit_tree, type = "uniform")
+text(fit_tree, pretty = 0, cex = 1.7)
+```
+
+Split using `levels`, e.g. the species `r levels(pg$species)`
+
+---
+
+
+### Stopping rules
+
+```{r}
+fit_tree <- tree(body_mass_g ~ .,
+      control = tree.control(nrow(pg), mindev = 0.001), data = pg) #<<
+```
+
+
+```{r penguinbigtree, echo = FALSE, fig.height=6, fig.width=14, fig.align='center'}
+plot(fit_tree, type = "uniform")
+text(fit_tree, pretty = 3, cex = 1.7)
+```
+
+Interpretable?... (see `?tree.control` for options)
+
+---
+
+## Complexity and overfitting
+
+Could keep recursively splitting on predictor space until we have bins containing only 1 unique set of predictor values each
+
+This would be like 1-nearest neighbors
+
+**Lab exercise**: create a plot of training error versus tree size
+
+```{r}
+summary(fit_tree)$size
+fit_tree <- tree(body_mass_g ~ .,
+      control = tree.control(nrow(pg), mindev = 0.000001), data = pg) #<<
+sum((predict(fit_tree) - pg$body_mass_g)^2)
+```

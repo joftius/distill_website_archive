@@ -11,10 +11,10 @@
     ],
     "date": "2021-03-15",
     "categories": [],
-    "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for trees and forests video ([PDF])\nSlides for GAMs video ([PDF])\nSlides for neural networks video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
+    "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for GAMs video ([PDF])\nSlides for trees and forests video ([PDF])\nSlides for neural networks video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-18T14:49:14+00:00",
-    "input_file": {}
+    "last_modified": "2021-03-20T10:24:03+00:00",
+    "input_file": "08-nonlinear.utf8.md"
   },
   {
     "path": "ml4ds/07-nonlinear/",
