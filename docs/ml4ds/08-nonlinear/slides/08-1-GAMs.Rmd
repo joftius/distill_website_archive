@@ -376,6 +376,6 @@ Less accurate predictions
 ```{r echo = F, fig.width = 10, fig.height = 7.5, fig.align='center'}
 df %>%
   ggplot(aes(year, length)) +
-  geom_point(alpha = .1) + geom_smooth()
+  geom_point(alpha = .2) + geom_smooth()
 ```
 
