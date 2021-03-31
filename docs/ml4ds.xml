@@ -7,7 +7,15 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 15 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Less interpretable methods</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/09-uninterpretable</link>
+      <description>Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.</description>
+      <guid>http://joshualoftus.com/ml4ds/09-uninterpretable</guid>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>More nonlinear methods</title>
       <dc:creator>Joshua Loftus</dc:creator>

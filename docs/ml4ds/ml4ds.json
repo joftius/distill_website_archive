@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/09-uninterpretable/",
+    "title": "Less interpretable methods",
+    "description": "Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-28",
+    "categories": [],
+    "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles video ([PDF])\nNotebook for ?\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-03-31T17:06:10+01:00",
+    "input_file": {}
+  },
+  {
     "path": "ml4ds/08-nonlinear/",
     "title": "More nonlinear methods",
     "description": "We continue our exploration of non-linear supervised machine learning approaches including tree based methods, GAMs, and neural networks and graphs structured learning.",
