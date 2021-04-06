@@ -25,7 +25,9 @@ theme_set(theme_minimal(base_size = 22))
 
 ## (not active yet) Slides, notebooks, exercises
 
-[Slides](slides/09-1-ensembles.html) for (tree) ensembles video ([PDF])
+[Slides](slides/09-1-ensembles.html) for (tree) ensembles ([PDF])
+
+[Slides](slides/09-2-composition.html) for deep learning ([PDF])
 
 [Notebook](notebooks/tbd.html) for ?
 

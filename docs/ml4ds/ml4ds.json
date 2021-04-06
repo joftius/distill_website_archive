@@ -11,10 +11,10 @@
     ],
     "date": "2021-03-28",
     "categories": [],
-    "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles video ([PDF])\nNotebook for ?\n\n\n\n",
+    "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles ([PDF])\nSlides for deep learning ([PDF])\nNotebook for ?\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-31T17:06:10+01:00",
-    "input_file": {}
+    "last_modified": "2021-04-06T15:29:07+01:00",
+    "input_file": "09-uninterpretable.utf8.md"
   },
   {
     "path": "ml4ds/08-nonlinear/",
