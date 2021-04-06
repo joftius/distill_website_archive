@@ -14,7 +14,7 @@
     "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for ?\n\n\n\n",
     "preview": {},
     "last_modified": "2021-04-06T16:00:24+01:00",
-    "input_file": "10-action.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/09-uninterpretable/",
@@ -30,8 +30,8 @@
     "categories": [],
     "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles ([PDF])\nSlides for deep learning ([PDF])\nNotebook for ?\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-04-06T15:29:07+01:00",
-    "input_file": "09-uninterpretable.utf8.md"
+    "last_modified": "2021-04-06T15:29:08+01:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/08-nonlinear/",

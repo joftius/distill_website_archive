@@ -204,12 +204,13 @@ pre code {
 <p>Your team should work together to create one R Markdown (<code>Rmd</code>) document with all of your analysis and interpretation.</p>
 <p>In order to streamline the process of fitting and comparing multiple models you should <strong>learn about and use the <code>tidymodels</code> package</strong>. This <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/">blog post</a> shows some basic usage, and this <a href="https://recipes.tidymodels.org/reference/index.html">reference page</a> shows the names of a lot of useful helper functions. The standardized approach of this package guarantees each model/method uses the same training/testing data with the same pre-processing steps. (Although it’s relatively new I expect proficiency with <code>tidymodels</code> to become a more common expectation for data science roles).</p>
 <p>Your project should use multiple machine learning models or methods, meeting these minimum requirements:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li><p>At least one model must be simple enough to consider as a baseline for comparison to the more sophisticated models. Regression models or nearest neighbors methods, based on only a few predictors, are good candidates for baseline methods.</p></li>
+<li><p>At least one model should be fit using your own implementation of gradient descent. The only restrictions on this model are that the gradient of the loss function should not be a constant. You are free to use a simple model and a simple loss function to make the derivation and computation manageable.</p></li>
 <li><p>At least one <em>non-baseline</em> model must be (relatively) interpretable. For this model you should write a brief sub-section including your interpretation of the results. You could compare to a baseline model on both predictive accuracy and (in)consistency of interpretations.</p></li>
 <li><p>At least one model must be (relatively) high-dimensional. If your dataset has many predictors, and the number of observations is not much larger, then for example you could fit a penalized regression model using all the predictors. If your dataset does not have many predictors you could consider models that include non-linear transformations, interaction terms, and/or local smoothing to increase the effective degrees of freedom.</p></li>
 <li><p>At least one model must be (relatively) more focused on predictive accuracy without interpretability. Imagine that you would submit this model to a prediction competition where the winner is chosen using a separate set of test data from the same data generating process (in-distribution generalization).</p></li>
-</ul>
+</ol>
 <p>Note that it may be possible to satisfy multiple requirements with one model, e.g. the last two requirements in the above list.</p>
 </div>
 <div id="write-up-stage" class="section level3">
