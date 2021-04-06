@@ -7,7 +7,15 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>From prediction to action</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/10-action</link>
+      <description>Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.</description>
+      <guid>http://joshualoftus.com/ml4ds/10-action</guid>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Less interpretable methods</title>
       <dc:creator>Joshua Loftus</dc:creator>

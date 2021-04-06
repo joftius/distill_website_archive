@@ -1,5 +1,22 @@
 [
   {
+    "path": "ml4ds/10-action/",
+    "title": "From prediction to action",
+    "description": "Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-04-05",
+    "categories": [],
+    "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for ?\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-04-06T16:00:24+01:00",
+    "input_file": "10-action.utf8.md"
+  },
+  {
     "path": "ml4ds/09-uninterpretable/",
     "title": "Less interpretable methods",
     "description": "Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.",

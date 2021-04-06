@@ -44,13 +44,15 @@ In order to streamline the process of fitting and comparing multiple models you 
 
 Your project should use multiple machine learning models or methods, meeting these minimum requirements:
 
-- At least one model must be simple enough to consider as a baseline for comparison to the more sophisticated models. Regression models or nearest neighbors methods, based on only a few predictors, are good candidates for baseline methods.
+1. At least one model must be simple enough to consider as a baseline for comparison to the more sophisticated models. Regression models or nearest neighbors methods, based on only a few predictors, are good candidates for baseline methods.
 
-- At least one *non-baseline* model must be (relatively) interpretable. For this model you should write a brief sub-section including your interpretation of the results. You could compare to a baseline model on both predictive accuracy and (in)consistency of interpretations.
+2. At least one model should be fit using your own implementation of gradient descent. The only restrictions on this model are that the gradient of the loss function should not be a constant. You are free to use a simple model and a simple loss function to make the derivation and computation manageable. 
 
-- At least one model must be (relatively) high-dimensional. If your dataset has many predictors, and the number of observations is not much larger, then for example you could fit a penalized regression model using all the predictors. If your dataset does not have many predictors you could consider models that include non-linear transformations, interaction terms, and/or local smoothing to increase the effective degrees of freedom.
+3. At least one *non-baseline* model must be (relatively) interpretable. For this model you should write a brief sub-section including your interpretation of the results. You could compare to a baseline model on both predictive accuracy and (in)consistency of interpretations.
 
-- At least one model must be (relatively) more focused on predictive accuracy without interpretability. Imagine that you would submit this model to a prediction competition where the winner is chosen using a separate set of test data from the same data generating process (in-distribution generalization).
+4. At least one model must be (relatively) high-dimensional. If your dataset has many predictors, and the number of observations is not much larger, then for example you could fit a penalized regression model using all the predictors. If your dataset does not have many predictors you could consider models that include non-linear transformations, interaction terms, and/or local smoothing to increase the effective degrees of freedom.
+
+5. At least one model must be (relatively) more focused on predictive accuracy without interpretability. Imagine that you would submit this model to a prediction competition where the winner is chosen using a separate set of test data from the same data generating process (in-distribution generalization).
 
 Note that it may be possible to satisfy multiple requirements with one model, e.g. the last two requirements in the above list.
 
