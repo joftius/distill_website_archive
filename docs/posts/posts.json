@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2021-04-18-conference-on-machine-learning-and-inequality/",
+    "title": "Conference on machine learning and inequality",
+    "description": "Slides for my own talk and an updating-blog post with comments.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": "https://joshualoftus.com/"
+      }
+    ],
+    "date": "2021-04-18",
+    "categories": [],
+    "contents": "\n[Slides] for my own talk\nConference page\nYoutube channel\n\n\n\n\n",
+    "preview": "posts/2021-04-18-conference-on-machine-learning-and-inequality/preview.png",
+    "last_modified": "2021-04-18T23:00:19+01:00",
+    "input_file": {},
+    "preview_width": 859,
+    "preview_height": 629
+  },
+  {
     "path": "posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools/",
     "title": "Did the new variant of COVID spread through schools?",
     "description": "The common theory of the new COVID variant is that intrinsic biological factors make it more transmissible. An alternate theory attributes the same dynamics to social explanations like community spread among school-aged children.",

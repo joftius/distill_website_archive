@@ -1,0 +1,27 @@
+---
+title: "Conference on machine learning and inequality"
+description: |
+  Slides for my own talk and an updating-blog post with comments.
+author:
+  - name: Joshua Loftus
+    url: https://joshualoftus.com/
+date: 04-18-2021
+output:
+  distill::distill_article:
+    self_contained: false
+preview: preview.png
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Slides] for my own talk
+
+[Conference page](https://maxkasy.github.io/home/ML_inequality_conference/)
+
+[Youtube channel](https://www.youtube.com/channel/UCB3VHmtU-Acta1o0wbzWaag)
+
+
+![](fig2.png)

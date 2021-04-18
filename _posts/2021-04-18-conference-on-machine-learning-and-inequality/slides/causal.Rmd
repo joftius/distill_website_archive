@@ -1,0 +1,131 @@
+---
+title: "Causality and the normative dimensions of machine learning"
+subtitle: ""
+author: "Joshua Loftus (LSE Statistics)"
+#institute: "LSE"
+#date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "xaringan-themer.css", "../../../theme.css"]
+#    seal: false    
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["bottom", "left"]
+      countdown: 59000
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+---
+
+class: inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+options(knitr.table.format = "html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#2d708e",
+  secondary_color = "#230433",
+  link_color = "#55c667",
+  text_bold_color = '#f68f46',
+#  title_slide_text_color = "#444444",
+  title_slide_background_color = "#ffffff", #"#042333",
+  title_slide_background_image = "https://miro.medium.com/max/6261/1*x__Az7mQU0ALHQIe4MrP8Q.jpeg",
+#    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Workhouse_Nantwich.jpg",
+  title_slide_background_size = "cover",
+  ) #or contain
+```
+
+```{r xaringanextra, include=FALSE, warning=FALSE}
+library(xaringanExtra)
+#xaringanExtra::use_animate_all("slide_left")
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(font_family = "inherit")
+```
+
+```{r tidyverse, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+theme_set(theme_minimal(base_size = 22))
+set.seed(1)
+library(broom)
+library(modelr)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 1.2rem;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+## High level intro
+
+## Counterfactual fairness
+
+## Intersectional fairness
+
+## Designing interventions
+
+---
+
+Tech solutionism, using ML/AI in every situation
+
+![](https://pbs.twimg.com/media/EinhU7AXYAcSpkF?format=jpg&name=medium)
+
+
+---
+
+## Why is causality important?
+
+.pull-left[
+![](https://www.marxists.org/archive/marx/works/cw/volume05/thesis11.gif)
+"ML models have hitherto only predicted the world in various ways; [the point is to change it](https://en.wikipedia.org/wiki/Theses_on_Feuerbach)"
+
+]
+.pull-right[
+![](https://oxford.universitypressscholarship.com/view/covers/9780195155273.jpg)
+
+([Evolutionary](https://en.wikipedia.org/wiki/Causal_reasoning#Causal_reasoning_in_non-human_animals) explanation?)
+]
+
+Pearl's [ladder of causation](https://en.wikipedia.org/wiki/Causal_model#Ladder_of_causation) level 2
+
+But we can also go to level 3...
+
+---
+
+### Statistical wisdom: models a  (thinking) tools
+
+.pull-left[
+![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
+[George Box](https://en.wikipedia.org/wiki/George_E._P._Box)
+]
+
+.pull-right[
+
+> [All models are wrong](All_models_are_wrong) but some are useful
+
+therefore,
+
+> ... the scientist must be alert to what is importantly wrong
+
+> ... the scientist cannot obtain a "correct" one by excessive elaboration
+
+]
+
+---
+class: inverse
+
+#### Science fiction
+
+[Anxiety Is the Dizziness of Freedom](https://onezero.medium.com/anxiety-is-the-dizziness-of-freedom-b5ab45cae2a5), short story by [Ted Chiang](https://www.buzzfeednews.com/article/tedchiang/the-real-danger-to-civilization-isnt-ai-its-runaway)
+
+![](https://miro.medium.com/max/6261/1*x__Az7mQU0ALHQIe4MrP8Q.jpeg)
+(Art: [Jinhwa Jang](https://www.jinhwajangart.com/))
