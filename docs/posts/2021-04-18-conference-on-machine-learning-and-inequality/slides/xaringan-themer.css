@@ -138,7 +138,7 @@ a, a > code {
 }
 .title-slide {
   background-color: var(--title-slide-background-color);
-  background-image: url("https://miro.medium.com/max/6261/1*x__Az7mQU0ALHQIe4MrP8Q.jpeg");
+  background-image: url("../../../files/theme/LSE/LSEcrest_large.jpg");
   background-size: cover;
 }
 .title-slide .remark-slide-number {

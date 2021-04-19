@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## This page will update
 
-[Slides] for my own talk
+[Slides](slides/causal.html) for my own talk
 
 [Conference page](https://maxkasy.github.io/home/ML_inequality_conference/)
 
