@@ -2,7 +2,7 @@
   {
     "path": "posts/2021-04-18-conference-on-machine-learning-and-inequality/",
     "title": "Conference on machine learning and inequality",
-    "description": "Slides for my own talk and an updating-blog post with comments.",
+    "description": "Slides for my own talk on using causality to study the normative dimensions of machine learning models, and a blog post with additional comments on the conference.",
     "author": [
       {
         "name": "Joshua Loftus",
@@ -11,10 +11,10 @@
     ],
     "date": "2021-04-18",
     "categories": [],
-    "contents": "\nThis page will update\nSlides for my own talk\nConference page\nYoutube channel\n\n\n\n\n",
+    "contents": "\nOn Fairness, Equality, and Power\nIn a really illuminating paper, Kasy and Abebe argue that some of the leading definitions of fairness imply the original, unconstrained goals of the algorithm designer themselves must be fair. The designer wishes to make (yes/no) decisions on the basis of merit \\(M\\)–we can also think of this as qualification, just desert, utility, or some similar concept. Whatever we call this variable, it’s what the designer really cares about, and it’s rarely measured directly.\nSo, the algorithm designer uses machine learning methods with some predictor variable(s) \\(X\\), and presumably some proxy/surrogate outcome \\(Y\\) which stands in for the unmeasured \\(M\\), and then makes decisions using the predictions \\(\\hat f(x) \\approx \\mathbb E[Y | X = x]\\). For simplicity we can assume the decision variable \\(W\\) is binary, and takes the form of thresholding, i.e. \\(W(x) = 1\\) if and only if \\(\\hat f(x) > c\\), some constant (marginal cost of the decision).\nNow let’s say we have a sensitive attribute \\(A\\), and we take the very common approach to fairness by requiring calibration of the predictions:\n\\[\\mathbb E[\\hat f(x) | W = 1, A = a] = \\mathbb E[\\hat f(x) | W = 1]\\]\nIn words: among those who receive the decision \\(W = 1\\), the estimated proxy for merit is the same regardless of the value of the sensitive attribute \\(A\\).\nLinks\nSlides for my own talk\nConference page\nYoutube channel\n\n\n\n\n",
     "preview": "posts/2021-04-18-conference-on-machine-learning-and-inequality/preview.png",
-    "last_modified": "2021-04-19T19:04:50+01:00",
-    "input_file": "conference-on-machine-learning-and-inequality.utf8.md",
+    "last_modified": "2021-04-26T17:17:52+01:00",
+    "input_file": {},
     "preview_width": 859,
     "preview_height": 629
   },
