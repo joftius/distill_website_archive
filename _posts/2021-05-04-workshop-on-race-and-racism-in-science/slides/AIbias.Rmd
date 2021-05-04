@@ -1,0 +1,151 @@
+---
+title: "Racial bias in AI and data science"
+subtitle: ""
+author: "Joshua Loftus (LSE Statistics)"
+#institute: "LSE"
+#date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "xaringan-themer.css", "../../../theme.css", "ninjutsu"]
+#    seal: false    
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["bottom", "left"]
+      countdown: 59000
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+header-includes: 
+  - \usepackage{tikz}
+  - \usepackage{color}
+---
+
+class: inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+options(knitr.table.format = "html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#2d708e",
+  secondary_color = "#230433",
+  link_color = "#55c667",
+  text_bold_color = '#f68f46',
+#  title_slide_text_color = "#444444",
+  title_slide_background_color = "#ffffff", #"#042333",
+  title_slide_background_image = "../studentcenterpolice.jpg",
+  title_slide_background_size = "cover",
+  ) #or contain
+```
+
+```{r xaringanextra, include=FALSE, warning=FALSE}
+library(xaringanExtra)
+#xaringanExtra::use_animate_all("slide_left")
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(font_family = "inherit")
+```
+
+```{r tidyverse, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+theme_set(theme_minimal(base_size = 22))
+set.seed(1)
+library(broom)
+library(modelr)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 1.2rem;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+# Outline
+
+### Brief intro to AI
+
+with motivating examples
+
+### Concepts
+
+Data, algorithms, bias and fairness
+
+### Actions
+
+Inclusion, democratization, challenging power
+
+---
+class: inverse
+
+# What is AI?
+
+$$
+\text{AI} \approx \text{machine learning} \approx \text{regression}
+$$
+
+---
+
+# Motivating examples
+
+Slides on
+
+- Health: Obermeyer et al
+- Policing: Lum and Isaacs, ProPublica
+- Consumption: Amazon
+- Labor: ghost work?
+- Environment: e.g. cobalt extraction, also labor
+
+---
+
+### Interventions, counterfactuals, thought experiments
+
+- Pearl's [ladder of causation](https://en.wikipedia.org/wiki/Causal_model#Ladder_of_causation) level 2
+
+Intervention, action, manipulation, policy change
+
+*What will (or is more likely to) happen if...*
+
+- But we can also go to level 3
+
+Counterfactuals, potential histories(?)
+
+*What would have (been more likely to have) happened if...*
+
+- Thought experiments
+
+Models as thinking tools, *over-simplified models as diagnostics for more realistic ones*
+
+---
+
+### Statistical wisdom: models as (thinking) tools
+
+.pull-left[
+![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
+[George Box](https://en.wikipedia.org/wiki/George_E._P._Box)
+]
+
+.pull-right[
+
+> [All models are wrong](All_models_are_wrong) but some are useful
+
+therefore,
+
+> ... the scientist must be alert to what is **importantly wrong**
+
+> ... **cannot obtain a "correct" one** by excessive elaboration
+
+]
+
+---
+
+What's **important** and what's **useful**?
+
+- to who?
+- for what?

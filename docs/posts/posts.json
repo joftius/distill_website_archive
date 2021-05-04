@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-05-04-workshop-on-race-and-racism-in-science/",
+    "title": "Workshop on race and racism in science",
+    "description": "Slides for my talk on racial bias in machine learning, AI, and data science, along with additional comments and links to other resources.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": "https://joshualoftus.com/"
+      }
+    ],
+    "date": "2021-05-06",
+    "categories": [],
+    "contents": "\nResponsible research\nThis talk is part of a workshop at NYU organized in parallel with the usual kind of graduate training on ethics in research. Its organization began in response to the 2020 wave of protests which were part of the global Black Lives Matter social movement, and it is:\n\nsponsored by the NYU Department of Psychology, the Department of Biology, and the Center for Neural Science.\n\nIt’s an honor and great responsibility to me to participate in such a necessary and worthwhile effort.\nLinks\nSlides for my own talk\nWorkshop page\n\n\n\n",
+    "preview": "posts/2021-05-04-workshop-on-race-and-racism-in-science/techundoing.jpg",
+    "last_modified": "2021-05-04T21:49:06+01:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-04-18-conference-on-machine-learning-and-inequality/",
     "title": "Conference on machine learning and inequality",
     "description": "Slides for my own talk on using causality to study the normative dimensions of machine learning models, and a blog post with additional comments on the conference.",
@@ -11,9 +28,9 @@
     ],
     "date": "2021-04-18",
     "categories": [],
-    "contents": "\nOn Fairness, Equality, and Power\nIn a really illuminating paper, Kasy and Abebe argue that some of the leading definitions of fairness imply the original, unconstrained goals of the algorithm designer themselves must be fair. The designer wishes to make (yes/no) decisions on the basis of merit \\(M\\)–we can also think of this as qualification, just desert, utility, or some similar concept. Whatever we call this variable, it’s what the designer really cares about, and it’s rarely measured directly.\nSo, the algorithm designer uses machine learning methods with some predictor variable(s) \\(X\\), and presumably some proxy/surrogate outcome \\(Y\\) which stands in for the unmeasured \\(M\\), and then makes decisions using the predictions \\(\\hat f(x) \\approx \\mathbb E[Y | X = x]\\). For simplicity we can assume the decision variable \\(W\\) is binary, and takes the form of thresholding, i.e. \\(W(x) = 1\\) if and only if \\(\\hat f(x) > c\\), some constant (marginal cost of the decision).\nNow let’s say we have a sensitive attribute \\(A\\), and we take the very common approach to fairness by requiring calibration of the predictions:\n\\[\\mathbb E[\\hat f(x) | W = 1, A = a] = \\mathbb E[\\hat f(x) | W = 1]\\]\nIn words: among those who receive the decision \\(W = 1\\), the estimated proxy for merit is the same regardless of the value of the sensitive attribute \\(A\\).\nLinks\nSlides for my own talk\nConference page\nYoutube channel\n\n\n\n\n",
+    "contents": "\nOn Fairness, Equality, and Power\nIn a really illuminating paper, Kasy and Abebe argue that some of the leading definitions of fairness imply the original, unconstrained goals of the algorithm designer themselves must be fair. The paper has other interesting results, like using implied welfare weights to show who are the greatest beneficiaries of an algorithm. But in this post I’ll focus on their Observation 1, which I briefly summarize next.\nBackground: The designer wishes to make (yes/no) decisions on the basis of merit \\(M\\)–we can also think of this as qualification, just desert, utility, or some similar concept. Whatever we call this variable, it’s what the designer really cares about, and it’s rarely measured directly. So, the algorithm designer uses machine learning methods with some predictor variable(s) \\(X\\), and presumably some proxy/surrogate outcome \\(Y\\) which stands in for the unmeasured \\(M\\), and then makes decisions using the predictions \\(\\hat f(x) \\approx \\mathbb E[Y | X = x]\\). For simplicity we can assume the decision variable \\(W\\) is binary, and takes the form of thresholding, i.e. \\(W(x) = 1\\) if and only if \\(\\hat f(x) > c\\), some constant (marginal cost of the decision).\nFairness: Now let’s say we have a sensitive attribute \\(A\\), and we take the very common approach to fairness by requiring calibration of the predictions:\n\\[\\mathbb E[\\hat f(x) | W = 1, A = a] = \\mathbb E[\\hat f(x) | W = 1]\\]\nIn words: among those who receive the decision \\(W = 1\\), the estimated proxy for merit has the same average value, regardless of the sensitive attribute \\(A\\).\nObservation 1: If the algorithm could predict \\(M\\) perfectly, then (we would not have to use a proxy \\(Y\\) for it, and also) it would automatically satisfy this fairness definition.\nThis isn’t a novel observation, it’s usually stated as one of the trivial cases in impossibility theorems, but Kasy and Abebe ask us to think again about its implications. Take statistical error and measurement problems out of the picture and we realize that fairness is defined using whatever notion of merit that the algorithm designer chooses.\nCausal connection (in progress)\nLinks\nSlides for my own talk\nConference page\nYoutube channel\nCausal Intersectionality and Fair Ranking\n\n\n\n\n",
     "preview": "posts/2021-04-18-conference-on-machine-learning-and-inequality/preview.png",
-    "last_modified": "2021-04-26T17:17:52+01:00",
+    "last_modified": "2021-05-04T21:06:43+01:00",
     "input_file": {},
     "preview_width": 859,
     "preview_height": 629

@@ -7,7 +7,16 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Workshop on race and racism in science</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science</link>
+      <description>Slides for my talk on racial bias in machine learning, AI, and data science, along with additional comments and links to other resources.</description>
+      <guid>http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science</guid>
+      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science/techundoing.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Conference on machine learning and inequality</title>
       <dc:creator>Joshua Loftus</dc:creator>

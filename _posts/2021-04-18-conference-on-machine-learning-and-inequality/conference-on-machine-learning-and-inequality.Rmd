@@ -33,6 +33,8 @@ In words: among those who receive the decision $W = 1$, the estimated proxy for 
 
 This isn't a novel observation, it's usually stated as one of the trivial cases in impossibility theorems, but Kasy and Abebe ask us to think again about its implications. Take statistical error and measurement problems out of the picture and we realize that fairness is defined using whatever notion of merit that the algorithm designer chooses. 
 
+## Causal connection (in progress)
+
 ## Links
 
 [Slides](slides/causal.html) for my own talk
