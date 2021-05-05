@@ -54,7 +54,7 @@
   --inverse-header-color: #FFFFFF;
   --inverse-link-color: #55c667;
   --title-slide-background-color: #ffffff;
-  --title-slide-text-color: #FFFFFF;
+  --title-slide-text-color: #111111;
   --header-background-color: #2d708e;
   --header-background-text-color: #FFFFFF;
   --primary: #2d708e;
@@ -138,7 +138,7 @@ a, a > code {
 }
 .title-slide {
   background-color: var(--title-slide-background-color);
-  background-image: url("../studentcenterpolice.jpg");
+  background-image: url("https://cdn.vox-cdn.com/thumbor/eRYfQL3wM_LXvgAwR57_4qsE4uA=/0x0:4656x3104/1200x800/filters:focal(520x716:1264x1460)/cdn.vox-cdn.com/uploads/chorus_image/image/55292787/629851774.0.jpg");
   background-size: cover;
 }
 .title-slide .remark-slide-number {

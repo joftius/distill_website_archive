@@ -1,7 +1,7 @@
 ---
-title: "Racial bias in AI and data science"
+title: "Racial bias in AI"
 subtitle: ""
-author: "Joshua Loftus (LSE Statistics)"
+author: ""
 #institute: "LSE"
 #date: "`r Sys.Date()`"
 output:
@@ -10,7 +10,7 @@ output:
 #    seal: false    
     lib_dir: libs
     nature:
-      titleSlideClass: ["bottom", "left"]
+      titleSlideClass: ["top", "left"]
       countdown: 59000
       highlightStyle: github
       highlightLines: true
@@ -36,9 +36,9 @@ style_duo_accent(
   secondary_color = "#230433",
   link_color = "#55c667",
   text_bold_color = '#f68f46',
-#  title_slide_text_color = "#444444",
+  title_slide_text_color = "#111111",
   title_slide_background_color = "#ffffff", #"#042333",
-  title_slide_background_image = "../studentcenterpolice.jpg",
+  title_slide_background_image = "https://cdn.vox-cdn.com/thumbor/eRYfQL3wM_LXvgAwR57_4qsE4uA=/0x0:4656x3104/1200x800/filters:focal(520x716:1264x1460)/cdn.vox-cdn.com/uploads/chorus_image/image/55292787/629851774.0.jpg",
   title_slide_background_size = "cover",
   ) #or contain
 ```
@@ -69,32 +69,135 @@ library(modelr)
 
 # Outline
 
-### Brief intro to AI
+### Intro to AI
 
-with motivating examples
+Motivating examples showing racial bias
 
-### Concepts
+### Useful concepts
 
-Data, algorithms, bias and fairness
+Fairness, biased data, biased models, biased systems
 
 ### Actions
 
-Inclusion, democratization, challenging power
+Tech "solutions," inclusion, democratization, power
 
 ---
 class: inverse
 
 # What is AI?
 
+(this might be the most controversial part of the talk)
+
 $$
 \text{AI} \approx \text{machine learning} \approx \text{regression}
 $$
 
-Predictions from seeing lots of "similar" examples
+Predictions from lots of "similar" examples. From [Stanford](http://cs231n.stanford.edu/):
+
+![](../imagetraining.png)
 
 ---
 
-Gender shades
+![](https://miro.medium.com/max/1826/1*9cdCxwJO-mgpN7t5tfZODQ.png)
+
+"Examples" don't have to be images, this generalizes to anything that can be measured and transformed into data
+
+---
+
+## Historical
+
+### Early computer era (~50 years ago)
+
+Regression (prediction recipe) -- decision trees -- low dimensional smoothing
+
+### Internet era (~20 years ago)
+
+Machine learning -- "black box" (more complex) algorithms
+
+### Big data, 3rd wave of AI (~10 years ago)
+
+Network architecture (depth) -- datafication of images, etc
+
+---
+
+### Classic methods
+
+#### Regression
+
+- Predictor variables in the dataset: $x_1, x_2, \ldots, x_p$
+- Coefficients/**parameters**, unknown: $\beta_1, \beta_2, \ldots, \beta_p$
+- Outcome variable, also in data: $y$
+- Algorithm inputs the data, outputs: estimated parameters, predictions of $y$ using "recipe" or "weighted" combination
+
+$$
+\beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p
+$$
+
+#### Decision trees (e.g. vaccine eligibility in the UK)
+
+- If `Age >= 40` then `yes`, otherwise `continue`
+- If `HighRisk == TRUE` then `yes`, otherwise `continue`
+- If `Job == CareWorker` then `yes`, otherwise `no`
+
+---
+
+### Present day methods
+
+.pull-left[
+![](https://joshualoftus.com/ml4ds/07-nonlinear/slides/gtrendDL.png)
+]
+.pull-right[
+From [Computer Age Statistical Inference](https://web.stanford.edu/~hastie/CASI/):
+![](https://joshualoftus.com/ml4ds/07-nonlinear/slides/CASI18.3.png)
+]
+
+Non-linear, deep (multiple) composition of functions
+
+
+---
+
+## Consistent trends
+
+- Larger datasets, faster computation, more parameters
+
+1801: [Gauss's](https://sites.math.rutgers.edu/~cherlin/History/Papers1999/weiss.html) first use of regression, ~5 parameters
+
+2000s: models with ~thousands of parameters (e.g. [lasso](https://pubmed.ncbi.nlm.nih.gov/?term=lasso+regression))
+
+2012: image model [AlexNet](https://en.wikipedia.org/wiki/AlexNet) uses ~61 million parameters
+
+2020: language model [GPT-3](https://en.wikipedia.org/wiki/GPT-3) uses ~175 billion parameters
+
+
+- Focus on improving prediction accuracy, sacrifice explainability to (non-expert) human audiences
+
+- More categories of things analyzed as data
+
+- More kinds of tasks "automated" (possibly: outsourced)
+
+---
+
+### Dangers of opacity
+
+[Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G), in 2018:
+
+![Amazon scraps secret AI recruiting tool that showed bias against women](./../amazonhiring.png)
+
+> Amazon’s system **taught itself** that male candidates were preferable. It penalized resumes that included the word “women’s,” as in “women’s chess club captain.” And it downgraded graduates of two all-women’s colleges, according to people familiar with the matter.
+
+
+
+---
+
+### Auditing opaque models: accuracy
+
+From the [Gender shades](http://gendershades.org/) project
+
+![](../gendershades.png)
+---
+class: inverse, center, middle
+
+![](../gendershades2.png)
 
 ---
 
@@ -109,6 +212,85 @@ Slides on
 - Environment: e.g. cobalt extraction, also labor
 
 (anatomy of AI / global picture)
+
+---
+
+### Pre-trial detention risk scores
+
+.pull-left[
+![](../compas_logit.png)
+]
+.pull-right[
+![](../propublicalogo.png)
+
+![](../propublica.png)
+
+![](../propublica2.png)
+
+![](../propublica3.png)
+]
+
+---
+
+The [hope](https://www.kqed.org/education/507247/can-algorithms-help-wind-down-mass-incarceration): could more accurate risk assessments reduce incarceration, and maybe even reduce racial bias?
+
+The reality: proprietary, opaque algorithms
+
+![](../prop25.png)
+
+- Multibillion-dollar bail industry spent $10 million opposing
+
+- Did voters understand what these algorithms would do?
+
+---
+
+"Algorithm does not *explicitly* use race" -- in an unfair system other things can correlate with race, e.g. previous convictions. From [Lum and Isaac (2016)](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2016.00960.x)
+
+---
+
+.pull-left[
+![](../lumisaac1.jpg)
+]
+
+.pull-right[
+![](../lumisaac2.jpg)
+]
+
+---
+
+### (Sampling) bias in healthcare patient data
+
+.pull-left[
+
+![](../obermeyer.PNG)
+
+]
+.pull-right[
+
+[Obermeyer et al (2019)](https://science.sciencemag.org/content/366/6464/447.editor-summary)
+
+- Algorithm assigns risk scores by **predicting healthcare costs** from patient records
+- Underestimates risk of health conditions for black patients compared to white patients
+- **Adjusting algorithm** to close the gap results in ~2.5x black patients receiving more care
+
+]
+
+---
+
+Scaling up: cheaper, faster, maybe more accurate than humans
+
+Tech solution: maybe fairer than humans
+
+Key drawback: maybe *this task should not be scaled up* (or done at all)?
+
+---
+
+.pull-left[
+
+]
+.pull-right[
+
+]
 
 ---
 
@@ -180,3 +362,36 @@ But we should not neglect more important actions
 - Democratizing data
 - Decolonial AI
 - Irwin Bross: scientist or shoe clerk? Need professional organization to back up an individual (data) scientist so they can act on conscience
+
+---
+
+https://www.ictworks.org/barriers-data-sharing-african-artificial-intelligence-solutions/#.YJF6csCSk2w
+
+---
+
+## Regulation
+
+Public/worker desire for regulation https://www.cnet.com/news/even-silicon-valley-workers-want-more-regulation-of-the-tech-industry/
+
+Potential drawbacks: legal/technical arms races, regulatory capture
+
+(necessary but not sufficient)
+
+---
+
+- [Black in AI](https://blackinai.github.io/#/about) founded in 2017
+- Examples of tech workers organizing
+- Examples of gig workers organizing
+
+Obstacles: opposition, knowledge
+
+Google firing AI ethics researchers
+
+
+
+---
+
+Changing the objective function
+
+https://en.wikipedia.org/wiki/Twelve_leverage_points
+
