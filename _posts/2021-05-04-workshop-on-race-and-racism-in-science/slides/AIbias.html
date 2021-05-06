@@ -10,6 +10,14 @@
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/d3/d3.min.js"></script>
+    <script src="libs/dagre/dagre-d3.min.js"></script>
+    <link href="libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+    <script src="libs/mermaid/dist/mermaid.slim.min.js"></script>
+    <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+    <script src="libs/chromatography/chromatography.js"></script>
+    <script src="libs/DiagrammeR-binding/DiagrammeR.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="../../../theme.css" type="text/css" />
   </head>
@@ -68,11 +76,11 @@ class: inverse
 .center[
 (this might be the most controversial part of the talk)
 
-## AI `\(\approx\)` machine learning `\(\approx\)` regression
+## AI `\(\approx\)` machine learning `\(\approx\)` **regression**
 
 ]
 
-- Mathematical function fit using an algorithm on data
+- Function fit using an algorithm on data
 
 - Maybe too complex for complete human understanding
 
@@ -82,7 +90,9 @@ class: inverse
 
 ---
 
-Predictions from lots of "similar" examples. From [Stanford](http://cs231n.stanford.edu/):
+## ML / AI are "data hungry"
+
+Predictions from lots of similar observations/examples. From [Stanford](http://cs231n.stanford.edu/):
 
 ![](../imagetraining.png)
 
@@ -145,13 +155,62 @@ It comes with politics, unequal costs and benefits
 
 ---
 
-This may seem obvious, but [naive](https://statmodeling.stat.columbia.edu/2020/12/29/retired-computer-science-professor-argues-that-decisions-are-being-made-by-algorithms-that-are-mathematically-incapable-of-bias-what-does-this-mean/) "progress" or "solutionist" views are (still, post 2016) very widespread...
+### Learn from history!
+
+[David Gresham's talk](https://as.nyu.edu/cns/events/EventDescriptions/WorkshopRace/SessionOne.html) covered a lot of history already, but a few points specific to statistics / data / IT:
+
+- Some founders of statistics were [eugenicists](https://nautil.us/issue/92/frontiers/how-eugenics-shaped-statistics)
+
+- US Census Bureau [assisted with internment](https://exhibits.lib.berkeley.edu/spotlight/census/feature/japanese-americans-in-world-war-ii-and-the-census) of Japanese Americans during WW2
+
+- [Before 1974](https://en.wikipedia.org/wiki/Equal_Credit_Opportunity_Act), [credit scores](https://www.forbes.com/advisor/credit-cards/from-inherent-racial-bias-to-incorrect-data-the-problems-with-current-credit-scoring-models/) could be explicitly racist
+
+---
+
+### Academics to the rescue! 
+
+[FATML](https://www.fatml.org) workshop, 2014-2018, [FAccT conference](https://facctconference.org/) 2018-
+
+.pull-left[
+![](../weapons.jpg)
+[2016](https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction)
+]
+.pull-right[
+Examples: admissions, credit, employment, insurance, healthcare
+
+New dangers: scale, opacity, proxies/wrong data, faux objectivity
+]
+
+---
+
+### Dangers of opacity, for example
+
+[Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G), in 2018:
+
+![Amazon scraps secret AI recruiting tool that showed bias against women](../amazonhiring.png)
+
+&gt; Amazon’s system **taught itself** that male candidates were preferable. It penalized resumes that included the word “women’s,” as in “women’s chess club captain.” And it downgraded graduates of two all-women’s colleges, according to people familiar with the matter.
+
+
+---
+
+Naive "progress" or "solutionist" views are (still) very widespread...
 
 ![](../domingos.png)
 
 &gt; What do you do if decisions that used to be made by humans, with all their biases, start being made by algorithms that are *mathematically incapable of bias*? If you’re rational, you should celebrate.
 
 ---
+class: center, middle
+
+(I'm not sure it's worth [taking this argument seriously](https://statmodeling.stat.columbia.edu/2020/12/29/retired-computer-science-professor-argues-that-decisions-are-being-made-by-algorithms-that-are-mathematically-incapable-of-bias-what-does-this-mean/), so only read this if the previous slide sounds reasonable
+
+
+We might ask: was AI really not already political? Is there any way to interpret the statement that algorithms are "mathematically incapable of bias" to make it meaningfully true regarding the examples that people are trying to "debias"?)
+
+
+---
+
 
 ### Classic methods (context/comparison)
 
@@ -266,19 +325,6 @@ We can check the **output** for [disparate impact](https://en.wikipedia.org/wiki
 
 More difficult to understand how the model [treats](https://en.wikipedia.org/wiki/Disparate_treatment) people
 
-
----
-
-### Dangers of opacity
-
-[Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G), in 2018:
-
-![Amazon scraps secret AI recruiting tool that showed bias against women](./../amazonhiring.png)
-
-&gt; Amazon’s system **taught itself** that male candidates were preferable. It penalized resumes that included the word “women’s,” as in “women’s chess club captain.” And it downgraded graduates of two all-women’s colleges, according to people familiar with the matter.
-
-
-
 ---
 
 ### Auditing opaque models: accuracy
@@ -287,71 +333,38 @@ From the [Gender shades](http://gendershades.org/) project (Buolamwini and Gebru
 
 ![](../gendershades.png)
 ---
-class: inverse, center, middle
+class: center, middle
 
 ![](../gendershades2.png)
 
+
 ---
-class: inverse
+class: inverse, center, middle
+
+# Biases and racist algorithms
+
+---
+
 
 # More motivating examples
-
-Slides on
 
 - Health: Obermeyer et al
 - Policing: Lum and Isaacs, ProPublica
 - Consumption: Amazon
 - Labor: ghost work?
-- Environment: e.g. cobalt extraction, also labor
+- Environment: e.g. cobalt extraction, also labor (anatomy of AI / global picture)
 
-(anatomy of AI / global picture)
+With attention to these issues:
 
----
+- Sampling bias, feedback
+- Optimizing for the wrong thing
+- Opacity, dimensionality, structural racism, causation
+- Responsibility 
 
-### Pre-trial detention risk scores
-
-.pull-left[
-![](../compas_logit.png)
-]
-.pull-right[
-![](../propublicalogo.png)
-
-![](../propublica.png)
-
-![](../propublica2.png)
-
-![](../propublica3.png)
-]
 
 ---
 
-The [hope](https://www.kqed.org/education/507247/can-algorithms-help-wind-down-mass-incarceration): could more accurate risk assessments reduce incarceration, and maybe even reduce racial bias?
-
-The reality: proprietary, opaque algorithms
-
-![](../prop25.png)
-
-- Multibillion-dollar bail industry spent $10 million opposing
-
-- Did voters understand what these algorithms would do?
-
----
-
-"Algorithm does not *explicitly* use race" -- in an unfair system other things can correlate with race, e.g. previous convictions. From [Lum and Isaac (2016)](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2016.00960.x)
-
----
-
-.pull-left[
-![](../lumisaac1.jpg)
-]
-
-.pull-right[
-![](../lumisaac2.jpg)
-]
-
----
-
-### (Sampling) bias in healthcare patient data
+### AI and healthcare patient data
 
 .pull-left[
 
@@ -370,14 +383,130 @@ The reality: proprietary, opaque algorithms
 
 ---
 
+### Race and genomics in healthcare
+
+We've heard about biased samples in health research
+
+Different risk: a similar problem underlying [racist applications](https://www.nature.com/articles/d41586-018-06784-5) of behavioral genomics
+
+.pull-left[
+<div id="htmlwidget-a1433718a550d748aced" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a1433718a550d748aced">{"x":{"diagram":"\ngraph LR\n  R-->Y\n  S-->Y\n  R-->G\n"},"evals":[],"jsHooks":[]}</script>
+]
+.pull-right[
+Race `\(R\)`, structural racism `\(S\)`, health outcome `\(Y\)`, polygenic score `\(G\)`
+
+Higher dimensional `\(G\)` + more complex models = predicting `\(Y\)` without knowing why
+]
+
+
+
+---
+
+### Healthcare recap
+
+- **Optimizing for the wrong thing**: price signals aggregate a lot of social information, possibly including lack of access, poverty, etc. Also an **opacity** issue because we generally don't know all these influences on observed demand/spending
+
+- **Sampling bias**: differential access to healthcare
+
+- **Dimensionality and causation**: we have far more (high-dimensional) genomic data now than socio-economic/environment data
+
+---
+
+### Policing: pre-trial detention risk scores
+
+.pull-left[
+![](../compas_logit.png)
+]
+.pull-right[
+![](../propublicalogo.png)
+
+![](../propublica.png)
+
+![](../propublica2.png)
+
+![](../propublica3.png)
+]
+
+---
+
+The [hope](https://www.kqed.org/education/507247/can-algorithms-help-wind-down-mass-incarceration): could more accurate risk assessments reduce incarceration, and maybe even reduce racial bias?
+
+The reality: **proprietary**, opaque algorithms
+
+![](../prop25.png)
+
+- Multibillion-dollar bail industry spent $10 million opposing
+
+- Did voters understand what these algorithms would do?
+
+---
+
+"Algorithm does not *explicitly* use race" -- in an unfair system **other things can correlate with race**, e.g. prior convictions
+
+.pull-left[
+<div id="htmlwidget-dd48ca95df6702b292a0" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dd48ca95df6702b292a0">{"x":{"diagram":"\ngraph LR\n  R-->M\n  S-->M\n  S-->P\n  M-->P\n  P-->C\n"},"evals":[],"jsHooks":[]}</script>
+]
+.pull-right[
+Race `\(R\)`, structural racism `\(S\)`, arrested for marijuana `\(M\)`, prior conviction `\(P\)`, COMPAS risk score `\(C\)`
+
+If `\(C\)` is computed using only `\(P\)`, is that "fair"?
+
+Next slide from [Lum and Isaac (2016)](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2016.00960.x)
+]
+
+
+
+---
+
+.pull-left[
+![](../lumisaac1.jpg)
+]
+
+.pull-right[
+![](../lumisaac2.jpg)
+]
+
+---
+
+## Predictive policing recap
+
+- **Sampling bias, feedback**: training data from an unfair world, predictions leading to continued unfairness
+
+- **Optimizing for the wrong thing**: algorithms learn from previous *arrests*, there is no (unbiased) data on all criminal activity
+
+- **Structural racism and causation**: even if the algorithm does not explicitly use race, it uses variables that may be correlated with race *because* of a history of structural racism
+
+---
+
+### Commerce: Amazon same-day delivery
+
+
+![](../atlanta.png)
+- **Responsibility**: who should remedy this disparity?
+
+---
+
+### AI in the economy
+
+[Ghost work](https://www.theverge.com/2019/5/13/18563284/mary-gray-ghost-work-microwork-labor-silicon-valley-automation-employment-interview), [dark kitchens](https://www.ft.com/content/a66619b0-77e4-11e9-be7d-6d846537acab), [faster delivery](https://chuangcn.org/2020/11/delivery-renwu-translation/)
+
+
+![](https://chuangcn.org/wp-content/uploads/2020/11/waimai2.png)
+
+---
+
+### More common themes
+
 Scaling up: cheaper, faster, maybe more accurate than humans
 
 Tech solution: maybe fairer than humans
 
-Key drawback: maybe *this task should not be scaled up* (or done at all)?
+Another possible drawback: maybe *this task should not be scaled up* (or done at all)?
 
 ---
-class: inverse
+class: inverse, center, middle
 
 ## Useful concepts
 
@@ -511,6 +640,13 @@ Risks unique to High dimensional
 Obstacles: information economy, informing public, [sycophantic journalism](https://www.zdnet.com/article/why-is-a-i-reporting-so-bad/)
 
 Institutions, don’t rock the boat, dead labor, outsourcing responsibility and risk, whistleblowing, organizing
+
+
+---
+
+More learnings
+
+https://data-ppf.github.io/
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
