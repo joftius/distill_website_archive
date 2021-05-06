@@ -73,13 +73,11 @@ library(modelr)
 
 What is it? What's *really* new about it?
 
-#### Biases and racist algorithms(?)
+#### Biases and racist algorithms
 
 Examples in healthcare, policing, commerce
 
-#### Useful concepts
-
-Fairness, biased data, models/systems, responsibility
+Fairness, biased data/models/systems, responsibility
 
 #### Actions
 
@@ -518,66 +516,65 @@ Next slide from [Lum and Isaac (2016)](https://rss.onlinelibrary.wiley.com/doi/f
 
 
 ![](https://chuangcn.org/wp-content/uploads/2020/11/waimai2.png)
+- **Responsibility**: who's taking the risks, who's getting rich?
 
 ---
 
-### More common themes
+### AI, globalization, and labor
 
-Scaling up: cheaper, faster, maybe more accurate than humans
+[FT](https://www.ft.com/content/c6909812-9ce4-11e9-9c06-a4640c9feebb): Congo, child labour and your electric car
 
-Tech solution: maybe fairer than humans
+[Guardian](https://www.theguardian.com/global-development/2019/dec/16/apple-and-google-named-in-us-lawsuit-over-congolese-child-cobalt-mining-deaths): Apple and Google named in US lawsuit over Congolese child cobalt mining deaths
 
-Another possible drawback: maybe *this task should not be scaled up* (or done at all)?
+[Anatomy of AI](https://anatomyof.ai/): 
+> Amnesty has documented children as young as 7 working in the mines. In contrast, Amazon CEO Jeff Bezos, at the top of our fractal pyramid, made an average of $275 million a day during the first five months of 2018, according to the Bloomberg Billionaires Index. A child working in a mine in the Congo would need **more than 700,000 years of non-stop work to earn the same amount as a single day of Bezos’ income**.
 
----
-class: inverse, center, middle
-
-## Useful concepts
-
-And how they relate to previous examples
 
 ---
+class: inverse
 
-.pull-left[
+# Changing the world
 
-]
-.pull-right[
+There are real opportunities to make *fast/cheap* progress by changing algorithms
 
-]
+But we should not neglect more important actions
 
----
-
-How to think like a statistician about AI
-
-- Model is always wrong
-- Data is (almost) always biased
-- Measurement
+- Inclusion
+- Regulations
+- Democratizing data
+- Educating and organizing
 
 ---
 
-edit this
+### Inclusion
 
-### Interventions, counterfactuals, thought experiments
+[Black in AI](https://blackinai.github.io/#/about) founded in 2017
 
-- Pearl's [ladder of causation](https://en.wikipedia.org/wiki/Causal_model#Ladder_of_causation) level 2
+![](../blackinai.png)
 
-Intervention, action, manipulation, policy change
+Obstacles: opposition, e.g. Google [firing AI ethics researchers](https://www.theverge.com/2021/2/19/22292011/google-second-ethical-ai-researcher-fired), toxic community/[workplaces](https://www.theguardian.com/technology/2019/nov/13/facebook-discrimination-black-workers-letter)
 
-*What will (or is more likely to) happen if...*
-
-- But we can also go to level 3
-
-Counterfactuals, potential histories(?)
-
-*What would have (been more likely to have) happened if...*
-
-- Thought experiments
-
-Models as thinking tools, *over-simplified models as diagnostics for more realistic ones*
 
 ---
 
-### Statistical wisdom: models as (thinking) tools
+### Regulation
+
+Members of the (US) [public](https://www.pewresearch.org/fact-tank/2020/10/27/how-americans-see-u-s-tech-companies-as-government-scrutiny-increases/) and [tech workers](https://www.cnet.com/news/even-silicon-valley-workers-want-more-regulation-of-the-tech-industry/) want more regulation. Obstacles: political/legal arms races, capture
+
+![](https://www.pewresearch.org/wp-content/uploads/2020/07/ft_2020.07.22_techcompanies_02.png)
+
+---
+
+### Democratizing data and AI
+
+
+[Salomé Viljoen](https://phenomenalworld.org/analysis/data-as-property):
+
+> Several proto-democratic data governance projects show us how the democratic governance over information flows may be realized. [...] Labor activists are developing worker data collectives to counter growing workplace surveillance by employers, track and monitor forms of workplace oppression, and document OSHA violations and wage theft. Finally, old models of public data collection and management like that of the US Census and its statistical agencies, which adhere to strong purpose limitations and confidentiality rules, may be expanded into more general bodies for the governance of data. 
+
+---
+
+### Conclusion: educating and organizing
 
 .pull-left[
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
@@ -603,72 +600,4 @@ What's **important** and what's **useful**?
 - to who?
 - for what?
 
----
-class: inverse
-
-# Changing the world
-
-There are real opportunities to make *fast/cheap* progress by changing algorithms
-
-But we should not neglect more important actions
-
-- Democratizing data
-- Decolonial AI
-- Irwin Bross: scientist or shoe clerk? Need professional organization to back up an individual (data) scientist so they can act on conscience
-
----
-
-https://www.ictworks.org/barriers-data-sharing-african-artificial-intelligence-solutions/#.YJF6csCSk2w
-
----
-
-## Regulation
-
-Public/worker desire for regulation https://www.cnet.com/news/even-silicon-valley-workers-want-more-regulation-of-the-tech-industry/
-
-Potential drawbacks: legal/technical arms races, regulatory capture
-
-(necessary but not sufficient)
-
----
-
-- [Black in AI](https://blackinai.github.io/#/about) founded in 2017
-- Examples of tech workers organizing
-- Examples of gig workers organizing
-
-Obstacles: opposition, knowledge
-
-Google firing AI ethics researchers
-
-
-
----
-
-Changing the objective function
-
-https://en.wikipedia.org/wiki/Twelve_leverage_points
-
----
-
-Who is controlling AI?
-
-Who is being controlled by AI?
-
-
-To do:
-
-Hiring, randomized studies 
-
-Risks unique to High dimensional
-
-Obstacles: information economy, informing public, [sycophantic journalism](https://www.zdnet.com/article/why-is-a-i-reporting-so-bad/)
-
-Institutions, don’t rock the boat, dead labor, outsourcing responsibility and risk, whistleblowing, organizing
-
-
----
-
-More learnings
-
-https://data-ppf.github.io/
-
+How can we [change the objective function](https://en.wikipedia.org/wiki/Twelve_leverage_points) before it's [too late](https://en.wikipedia.org/wiki/Instrumental_convergence#Paperclip_maximizer)?
