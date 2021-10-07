@@ -7,6 +7,8 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Page for recent [talks/slides](talks.html)
+
 My two areas of active work are summarized below with links to selected papers. More information can be found on my [Google Scholar](https://scholar.google.com/citations?user=SIbr3XUAAAAJ) profile page.
 
 # Causal inference in fairness

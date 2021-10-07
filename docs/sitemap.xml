@@ -18,27 +18,19 @@
   </url>
   <url>
     <loc>http://joshualoftus.com/research.html</loc>
-    <lastmod>2020-12-21T20:20:31+00:00</lastmod>
+    <lastmod>2021-10-07T17:49:16+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/talks.html</loc>
+    <lastmod>2021-10-07T17:50:41+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/teaching.html</loc>
     <lastmod>2021-10-07T17:17:08+01:00</lastmod>
   </url>
   <url>
-    <loc>http://joshualoftus.com/posts/2021-06-21-bernoulli-ims-world-congress-talk-and-notes/</loc>
-    <lastmod>2021-10-07T17:08:55+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://joshualoftus.com/posts/2021-06-18-ai-in-society-comments-on-the-ezra-klein-podcast/</loc>
     <lastmod>2021-06-18T19:10:58+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science/</loc>
-    <lastmod>2021-05-04T21:49:06+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/posts/2021-04-18-conference-on-machine-learning-and-inequality/</loc>
-    <lastmod>2021-05-04T21:06:43+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools/</loc>
@@ -107,5 +99,17 @@
   <url>
     <loc>http://joshualoftus.com/ml4ds/01-introduction-foundations/</loc>
     <lastmod>2021-03-02T15:27:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/talks/2021-06-21-bernoulli-ims-world-congress-talk-and-notes/</loc>
+    <lastmod>2021-10-07T17:25:48+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/talks/2021-05-04-workshop-on-race-and-racism-in-science/</loc>
+    <lastmod>2021-10-07T17:24:18+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/talks/2021-04-18-conference-on-machine-learning-and-inequality/</loc>
+    <lastmod>2021-10-07T17:26:28+01:00</lastmod>
   </url>
 </urlset>
