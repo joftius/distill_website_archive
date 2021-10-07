@@ -7,4 +7,3 @@ listing: talks
 
  \ 
 
-### Something maybe

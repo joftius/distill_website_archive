@@ -19,10 +19,6 @@ library(gapminder)
 theme_set(theme_minimal(base_size = 22))
 ```
 
-## Multiple regression
-
-Regression, when conditioning on more than one predictor variable.
-
 ## Rerum cognoscere causas
 
 [Virgil](https://en.wikipedia.org/wiki/Felix,_qui_potuit_rerum_cognoscere_causas):
@@ -31,6 +27,4 @@ Regression, when conditioning on more than one predictor variable.
 
 ## Slides, notebooks, exercises
 
-[Slides](slides/03-1-multiple.html) for multiple regression video ([PDF](slides/multiple_regression.pdf))
-
-[Slides](slides/03-2-causality.html) for causality video ([PDF](slides/causality.pdf))
+[Slides](slides/03-1-causality.html) for causality video ([PDF](slides/causality.pdf))
