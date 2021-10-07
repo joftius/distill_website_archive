@@ -8,13 +8,18 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Course pages
+# Current course pages
 
-- [ST 310](ml4ds.html): Machine learning for data science
-- [Stat-GB.4304](ms4ds.html): Modern statistics for data science
-- [Stat-UB.103](http://stats103.org/): Introductory statistics (created by Vinu Abeywick)
-- [Stat-UB.103]: Statistics for business: control, regression, and forecasting (page not active)
-- [Stats 390]: Statistical Consulting Workshop (to be refactored)
+- [ST310](ml4ds.html): Machine learning for data science
+
+# Older course pages
+
+Some day these links will be fixed
+
+- Stat-GB.4304: Modern statistics for data science
+- Stat-UB.103: Introductory statistics (created by Vinu Abeywick)
+- Stat-UB.103: Statistics for business: control, regression, and forecasting (page not active)
+- Stats 390: Statistical Consulting Workshop
 
 # Selected links
 

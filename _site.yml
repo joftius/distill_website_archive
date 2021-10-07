@@ -12,6 +12,8 @@ collections:
     categories: false
   ml4ds:
     categories: false
+  talks:
+    categories: true
 output_dir: "docs"
 include: ["post", "files"]
 creative_commons: CC BY
@@ -27,13 +29,7 @@ navbar:
     - text: "Research"
       href: research.html
     - text: "Teaching"
-      menu:
-        - text: "Machine Learning"
-          href: ml4ds.html
-        - text: "Modern Statistics"
-          href: ms4ds.html
-        - text: "Older pages"
-          href: teaching.html
+      href: teaching.html
     - icon: fa fa-rss
       href: index.xml
 cookie_consent:
