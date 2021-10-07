@@ -7,15 +7,7 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 21 Jun 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Bernoulli-IMS World Congress talk and notes</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/posts/2021-06-21-bernoulli-ims-world-congress-talk-and-notes</link>
-      <description>Slides for my own talk on causal foundations for fair and responsible machine learning, and a blog post with additional comments on the conference.</description>
-      <guid>http://joshualoftus.com/posts/2021-06-21-bernoulli-ims-world-congress-talk-and-notes</guid>
-      <pubDate>Mon, 21 Jun 2021 00:00:00 +0000</pubDate>
-    </item>
+    <lastBuildDate>Fri, 18 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>AI in society: comments on the Ezra Klein podcast</title>
       <dc:creator>Joshua Loftus</dc:creator>
@@ -23,24 +15,6 @@
       <description>Tech utopianism, liberal fears, and challenging monopoly/power with democratic socialism</description>
       <guid>http://joshualoftus.com/posts/2021-06-18-ai-in-society-comments-on-the-ezra-klein-podcast</guid>
       <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Workshop on race and racism in science</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science</link>
-      <description>Slides for my talk on racial bias in machine learning, AI, and data science, along with additional comments and links to other resources.</description>
-      <guid>http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science</guid>
-      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://joshualoftus.com/posts/2021-05-04-workshop-on-race-and-racism-in-science/techundoing.jpg" medium="image" type="image/jpeg"/>
-    </item>
-    <item>
-      <title>Conference on machine learning and inequality</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/posts/2021-04-18-conference-on-machine-learning-and-inequality</link>
-      <description>Slides for my own talk on using causality to study the normative dimensions of machine learning models, and a blog post with additional comments on the conference.</description>
-      <guid>http://joshualoftus.com/posts/2021-04-18-conference-on-machine-learning-and-inequality</guid>
-      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://joshualoftus.com/posts/2021-04-18-conference-on-machine-learning-and-inequality/preview.png" medium="image" type="image/png" width="859" height="629"/>
     </item>
     <item>
       <title>Did the new variant of COVID spread through schools?</title>

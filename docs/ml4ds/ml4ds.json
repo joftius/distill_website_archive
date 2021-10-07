@@ -133,7 +133,7 @@
     "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for causality video (PDF)\n\n\n\n",
     "preview": {},
     "last_modified": "2021-10-07T18:12:02+01:00",
-    "input_file": "03-causality.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/02-linear-regression/",
@@ -150,7 +150,7 @@
     "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\n\n\n\n",
     "preview": {},
     "last_modified": "2021-10-07T18:12:40+01:00",
-    "input_file": "02-linear-regression.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/01-introduction-foundations/",
