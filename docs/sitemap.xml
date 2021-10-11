@@ -29,10 +29,6 @@
     <lastmod>2021-10-07T17:17:08+01:00</lastmod>
   </url>
   <url>
-    <loc>http://joshualoftus.com/posts/2021-06-18-ai-in-society-comments-on-the-ezra-klein-podcast/</loc>
-    <lastmod>2021-06-18T19:10:58+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools/</loc>
     <lastmod>2021-01-02T12:56:23+00:00</lastmod>
   </url>
@@ -61,44 +57,44 @@
     <lastmod>2020-12-22T12:29:01+00:00</lastmod>
   </url>
   <url>
-    <loc>http://joshualoftus.com/ml4ds/10-action/</loc>
-    <lastmod>2021-04-06T16:00:24+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/09-uninterpretable/</loc>
-    <lastmod>2021-04-06T15:29:08+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/08-nonlinear/</loc>
-    <lastmod>2021-03-20T10:24:03+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/07-nonlinear/</loc>
-    <lastmod>2021-03-18T15:09:47+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/06-regularization/</loc>
-    <lastmod>2021-03-16T12:08:35+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/05-optimization/</loc>
-    <lastmod>2021-03-16T12:04:51+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/04-classification/</loc>
-    <lastmod>2021-02-15T13:38:24+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/ml4ds/03-causality/</loc>
-    <lastmod>2021-10-07T18:12:02+01:00</lastmod>
+    <loc>http://joshualoftus.com/ml4ds/01-introduction-foundations/</loc>
+    <lastmod>2021-10-11T11:41:21+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/ml4ds/02-linear-regression/</loc>
-    <lastmod>2021-10-07T18:12:40+01:00</lastmod>
+    <lastmod>2021-10-11T11:41:55+01:00</lastmod>
   </url>
   <url>
-    <loc>http://joshualoftus.com/ml4ds/01-introduction-foundations/</loc>
-    <lastmod>2021-03-02T15:27:39+00:00</lastmod>
+    <loc>http://joshualoftus.com/ml4ds/03-causality/</loc>
+    <lastmod>2021-10-11T11:42:32+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/04-classification/</loc>
+    <lastmod>2021-10-11T11:42:58+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/05-optimization/</loc>
+    <lastmod>2021-10-11T11:43:35+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/06-regularization/</loc>
+    <lastmod>2021-10-11T11:44:02+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/07-nonlinear/</loc>
+    <lastmod>2021-10-11T11:44:34+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/08-nonlinear/</loc>
+    <lastmod>2021-10-11T11:45:51+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/09-uninterpretable/</loc>
+    <lastmod>2021-10-11T11:45:23+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/ml4ds/10-action/</loc>
+    <lastmod>2021-10-11T11:48:00+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/talks/2021-06-21-bernoulli-ims-world-congress-talk-and-notes/</loc>

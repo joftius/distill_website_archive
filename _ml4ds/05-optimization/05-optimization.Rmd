@@ -1,10 +1,10 @@
 ---
-title: "Optimization and overfitting"
+title: "5 Optimization and overfitting"
 description: |
   Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.
 author:
   - name: Joshua Loftus
-date: 02-16-2021
+date: 10-07-2021
 output:
   distill::distill_article:
     self_contained: false

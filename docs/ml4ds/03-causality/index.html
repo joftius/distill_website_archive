@@ -85,7 +85,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Neurath's Speedboat: Multiple regression and causality</title>
+<title>Neurath's Speedboat: 3 Multiple regression and causality</title>
 
 <meta property="description" itemprop="description" content="Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships."/>
 
@@ -93,12 +93,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-02-01"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-02-01"/>
+<meta property="article:published" itemprop="datePublished" content="2021-10-09"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-10-09"/>
 <meta name="article:author" content="Joshua Loftus"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Neurath&#39;s Speedboat: Multiple regression and causality"/>
+<meta property="og:title" content="Neurath&#39;s Speedboat: 3 Multiple regression and causality"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships."/>
 <meta property="og:url" content="http://joshualoftus.com/ml4ds/03-causality/"/>
@@ -107,28 +107,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Neurath&#39;s Speedboat: Multiple regression and causality"/>
+<meta property="twitter:title" content="Neurath&#39;s Speedboat: 3 Multiple regression and causality"/>
 <meta property="twitter:description" content="Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships."/>
 <meta property="twitter:url" content="http://joshualoftus.com/ml4ds/03-causality/"/>
 <meta property="twitter:site" content="@joftius"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Neurath&#39;s Speedboat: Multiple regression and causality"/>
+<meta name="citation_title" content="Neurath&#39;s Speedboat: 3 Multiple regression and causality"/>
 <meta name="citation_fulltext_html_url" content="http://joshualoftus.com/ml4ds/03-causality/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2021/02/01"/>
-<meta name="citation_publication_date" content="2021/02/01"/>
+<meta name="citation_online_date" content="2021/10/09"/>
+<meta name="citation_publication_date" content="2021/10/09"/>
 <meta name="citation_author" content="Joshua Loftus"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Multiple regression and causality"]},{"type":"character","attributes":{},"value":["Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]}]}]},{"type":"character","attributes":{},"value":["02-01-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/ml4ds/03-causality/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/ml4ds/03-causality/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["3 Multiple regression and causality"]},{"type":"character","attributes":{},"value":["Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Joshua Loftus"]}]}]},{"type":"character","attributes":{},"value":["10-09-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/ml4ds/03-causality/"]},{"type":"character","attributes":{},"value":["http://joshualoftus.com/ml4ds/03-causality/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["03-causality_files/anchor-4.2.2/anchor.min.js","03-causality_files/bowser-1.9.3/bowser.min.js","03-causality_files/distill-2.2.21/template.v2.js","03-causality_files/header-attrs-2.6/header-attrs.js","03-causality_files/jquery-1.11.3/jquery.min.js","03-causality_files/popper-2.6.0/popper.min.js","03-causality_files/tippy-6.2.7/tippy-bundle.umd.min.js","03-causality_files/tippy-6.2.7/tippy-light-border.css","03-causality_files/tippy-6.2.7/tippy.css","03-causality_files/tippy-6.2.7/tippy.umd.min.js","03-causality_files/webcomponents-2.0.0/webcomponents.js","exercises/set1.html","exercises/set1.Rmd","slides/03-1-causality_files/figure-html/unnamed-chunk-1-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-10-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-11-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-12-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-13-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-14-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-15-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-16-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-17-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-18-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-19-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-2-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-20-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-21-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-28-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-3-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-38-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-4-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-5-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-6-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-7-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-8-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-9-1.png","slides/03-1-causality.html","slides/03-1-causality.Rmd","slides/causality.pdf","slides/chesterfield.jpg","slides/conditionaldist.png","slides/libs/animate.css-xaringan/animate.slide_left.css","slides/libs/header-attrs/header-attrs.js","slides/libs/panelset/panelset.css","slides/libs/panelset/panelset.js","slides/libs/remark-css/default.css","slides/libs/tile-view/tile-view.css","slides/libs/tile-view/tile-view.js","slides/lung-cancer-deaths.png","slides/xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["03-causality_files/anchor-4.2.2/anchor.min.js","03-causality_files/bowser-1.9.3/bowser.min.js","03-causality_files/distill-2.2.21/template.v2.js","03-causality_files/header-attrs-2.6/header-attrs.js","03-causality_files/header-attrs-2.7/header-attrs.js","03-causality_files/jquery-1.11.3/jquery.min.js","03-causality_files/popper-2.6.0/popper.min.js","03-causality_files/tippy-6.2.7/tippy-bundle.umd.min.js","03-causality_files/tippy-6.2.7/tippy-light-border.css","03-causality_files/tippy-6.2.7/tippy.css","03-causality_files/tippy-6.2.7/tippy.umd.min.js","03-causality_files/webcomponents-2.0.0/webcomponents.js","exercises/set1.html","exercises/set1.Rmd","slides/03-1-causality_files/figure-html/unnamed-chunk-1-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-10-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-11-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-12-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-13-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-14-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-15-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-16-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-17-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-18-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-19-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-2-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-20-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-21-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-28-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-3-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-38-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-4-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-5-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-6-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-7-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-8-1.png","slides/03-1-causality_files/figure-html/unnamed-chunk-9-1.png","slides/03-1-causality.html","slides/03-1-causality.Rmd","slides/causality.pdf","slides/chesterfield.jpg","slides/conditionaldist.png","slides/libs/animate.css-xaringan/animate.slide_left.css","slides/libs/header-attrs/header-attrs.js","slides/libs/panelset/panelset.css","slides/libs/panelset/panelset.js","slides/libs/remark-css/default.css","slides/libs/tile-view/tile-view.css","slides/libs/tile-view/tile-view.js","slides/lung-cancer-deaths.png","slides/xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2409,7 +2409,7 @@ gtag('config', 'UA-114292497-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Multiple regression and causality","description":"Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.","authors":[{"author":"Joshua Loftus","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-01T00:00:00.000+00:00","citationText":"Loftus, 2021"}
+{"title":"3 Multiple regression and causality","description":"Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.","authors":[{"author":"Joshua Loftus","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-09T00:00:00.000+00:00","citationText":"Loftus, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2437,7 +2437,7 @@ gtag('config', 'UA-114292497-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Multiple regression and causality</h1>
+<h1>3 Multiple regression and causality</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.</p></p>
@@ -2446,7 +2446,7 @@ gtag('config', 'UA-114292497-1');
 <div class="d-byline">
   Joshua Loftus  
   
-<br/>02-01-2021
+<br/>10-09-2021
 </div>
 
 <div class="d-article">
@@ -2474,11 +2474,11 @@ gtag('config', 'UA-114292497-1');
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Loftus (2021, Feb. 1). Neurath's Speedboat: Multiple regression and causality. Retrieved from http://joshualoftus.com/ml4ds/03-causality/</pre>
+  <pre class="citation-appendix short">Loftus (2021, Oct. 9). Neurath's Speedboat: 3 Multiple regression and causality. Retrieved from http://joshualoftus.com/ml4ds/03-causality/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{loftus2021multiple,
+  <pre class="citation-appendix long">@misc{loftus20213,
   author = {Loftus, Joshua},
-  title = {Neurath's Speedboat: Multiple regression and causality},
+  title = {Neurath's Speedboat: 3 Multiple regression and causality},
   url = {http://joshualoftus.com/ml4ds/03-causality/},
   year = {2021}
 }</pre>

@@ -1,10 +1,10 @@
 ---
-title: "Less interpretable methods"
+title: "9 Less interpretable methods"
 description: |
   Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.
 author:
   - name: Joshua Loftus
-date: 03-28-2021
+date: 10-03-2021
 output:
   distill::distill_article:
     self_contained: false

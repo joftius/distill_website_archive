@@ -1,10 +1,10 @@
 ---
-title: "Multiple regression and causality"
+title: "3 Multiple regression and causality"
 description: |
   Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.
 author:
   - name: Joshua Loftus
-date: 02-01-2021
+date: 10-09-2021
 output:
   distill::distill_article:
     self_contained: false

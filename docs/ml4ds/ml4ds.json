@@ -1,160 +1,7 @@
 [
   {
-    "path": "ml4ds/10-action/",
-    "title": "From prediction to action",
-    "description": "Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-04-05",
-    "categories": [],
-    "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for ?\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-04-06T16:00:24+01:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/09-uninterpretable/",
-    "title": "Less interpretable methods",
-    "description": "Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-03-28",
-    "categories": [],
-    "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles ([PDF])\nSlides for deep learning ([PDF])\nNotebook for ?\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-04-06T15:29:08+01:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/08-nonlinear/",
-    "title": "More nonlinear methods",
-    "description": "We continue our exploration of non-linear supervised machine learning approaches including tree based methods, GAMs, and neural networks and graphs structured learning.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-03-15",
-    "categories": [],
-    "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for GAMs video ([PDF])\nSlides for trees and forests video ([PDF])\nSlides for neural networks video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-03-20T10:24:03+00:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/07-nonlinear/",
-    "title": "Nonlinear methods",
-    "description": "Non-linearity may result in models that trade interpretability for increased predictive accuracy. These notes discuss the challenges of non-linearity and introduce nearest neighbors and kernel methods.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-03-08",
-    "categories": [],
-    "contents": "\nNearest neighbors\nKernel methods\nSlides, notebooks\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for \\(k\\)-NN\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-03-18T15:09:47+00:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/06-regularization/",
-    "title": "Regularization and validation",
-    "description": "When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-03-01",
-    "categories": [],
-    "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation (partially complete)\nNotebook for lasso (no partially complete version)\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-03-16T12:08:35+00:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/05-optimization/",
-    "title": "Optimization and overfitting",
-    "description": "Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-02-16",
-    "categories": [],
-    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-03-16T12:04:51+00:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/04-classification/",
-    "title": "Classification",
-    "description": "Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-02-08",
-    "categories": [],
-    "contents": "\nCarving nature at its joints\n\n“A good cook gets a new knife every year; he chops! Mediocre cooks change knives monthly; they hack. My knife now has 19 years on it; it’s carved several thousand oxen and the edge is as if I had just taken it from the sharpener. Those joints have gaps, and the knife’s edge no thickness, to put something infinitesimally thin in an empty space?! Effortless! It even allows the edge wander in with ample room to play. That is why, with 19 years on it, this knife’s edge is grindstone fresh.” - Butcher Ding, the Zhuangzi\n\nSlides, notebooks, exercises\nSlides for logistic regression lecture (PDF)\nSlides for SVM lecture (PDF)\nNotebook for seminar\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-02-15T13:38:24+00:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/03-causality/",
-    "title": "Multiple regression and causality",
-    "description": "Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-02-01",
-    "categories": [],
-    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for causality video (PDF)\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-10-07T18:12:02+01:00",
-    "input_file": {}
-  },
-  {
-    "path": "ml4ds/02-linear-regression/",
-    "title": "Linear regression",
-    "description": "Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2021-01-25",
-    "categories": [],
-    "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-10-07T18:12:40+01:00",
-    "input_file": {}
-  },
-  {
     "path": "ml4ds/01-introduction-foundations/",
-    "title": "Introduction and foundations",
+    "title": "1 Introduction and foundations",
     "description": "A brief introduction to the course, preview of things to come, and some foundational background material.",
     "author": [
       {
@@ -162,11 +9,164 @@
         "url": {}
       }
     ],
-    "date": "2021-01-15",
+    "date": "2021-10-11",
     "categories": [],
     "contents": "\nWhat is machine learning?\nThis week introduced some of the key conceptual themes in machine learning. Two simple examples illustrated different strategies for building more complex models:\nincreasing complexity of the function class, for example by allowing functions to fit flexibly/locally to different subsets of the data\nincreasing the dimension of predictors (while otherwise keeping the function class fixed)\nModel complexity relates to the bias-variance trade-off: more complexity typically results in lower bias and higher variance.\n\n\n\nIncreasing complexity also (essentially always) results in a lower mean-squared error if the MSE is calculated on the same dataset that was used to fit the model. But if the MSE is calculated on a different dataset this is no longer true, and more complexity may result in a larger MSE.\nWhy should we evaluate model fit (like MSE) on a different dataset than the one used to fit the model? First, if we evaluate it on the same dataset instead, then such an evaluation will always prefer greater complexity until the model fully saturates the data. In this case there was nothing gained from using a model–we have only created a map as large as the entire territory. Second, if our purpose in using a model is to describe some stable aspect of the world, then we would hope that such a model’s fit would not immediately fail if the time or context of the data collection is slightly different.\nSince these concepts are so central to machine learning we will return to them several times through the term and understand them through more examples and some mathematical derivations.\nSlides and notebooks\nSlides for first video\nNotebook for gapminder example\nNotebook for candy example\nSlides for last video (PDF)\nNotebook from seminar\n\n\n\n",
     "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
-    "last_modified": "2021-03-02T15:27:39+00:00",
+    "last_modified": "2021-10-11T11:41:21+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/02-linear-regression/",
+    "title": "2 Linear regression",
+    "description": "Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-10",
+    "categories": [],
+    "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:41:55+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/03-causality/",
+    "title": "3 Multiple regression and causality",
+    "description": "Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-09",
+    "categories": [],
+    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for causality video (PDF)\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:42:32+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/04-classification/",
+    "title": "4 Classification",
+    "description": "Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-08",
+    "categories": [],
+    "contents": "\nCarving nature at its joints\n\n“A good cook gets a new knife every year; he chops! Mediocre cooks change knives monthly; they hack. My knife now has 19 years on it; it’s carved several thousand oxen and the edge is as if I had just taken it from the sharpener. Those joints have gaps, and the knife’s edge no thickness, to put something infinitesimally thin in an empty space?! Effortless! It even allows the edge wander in with ample room to play. That is why, with 19 years on it, this knife’s edge is grindstone fresh.” - Butcher Ding, the Zhuangzi\n\nSlides, notebooks, exercises\nSlides for logistic regression lecture (PDF)\nSlides for SVM lecture (PDF)\nNotebook for seminar\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:42:58+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/05-optimization/",
+    "title": "5 Optimization and overfitting",
+    "description": "Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-07",
+    "categories": [],
+    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:43:35+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/06-regularization/",
+    "title": "6 Regularization and validation",
+    "description": "When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-06",
+    "categories": [],
+    "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation (partially complete)\nNotebook for lasso (no partially complete version)\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:44:02+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/07-nonlinear/",
+    "title": "7 Nonlinear methods",
+    "description": "Non-linearity may result in models that trade interpretability for increased predictive accuracy. These notes discuss the challenges of non-linearity and introduce nearest neighbors and kernel methods.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-05",
+    "categories": [],
+    "contents": "\nNearest neighbors\nKernel methods\nSlides, notebooks\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for \\(k\\)-NN\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:44:34+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/08-nonlinear/",
+    "title": "8 More nonlinear methods",
+    "description": "We continue our exploration of non-linear supervised machine learning approaches including tree based methods, GAMs, and neural networks and graphs structured learning.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-04",
+    "categories": [],
+    "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for GAMs video ([PDF])\nSlides for trees and forests video ([PDF])\nSlides for neural networks video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:45:51+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/09-uninterpretable/",
+    "title": "9 Less interpretable methods",
+    "description": "Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-03",
+    "categories": [],
+    "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles ([PDF])\nSlides for deep learning ([PDF])\nNotebook for ?\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:45:23+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "ml4ds/10-action/",
+    "title": "10 From prediction to action",
+    "description": "Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-02",
+    "categories": [],
+    "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for ?\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-10-11T11:48:00+01:00",
     "input_file": {}
   }
 ]

@@ -7,87 +7,87 @@
     <description>Academic website and blog of Joshua Loftus
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Oct 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>From prediction to action</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/10-action</link>
-      <description>Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.</description>
-      <guid>http://joshualoftus.com/ml4ds/10-action</guid>
-      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Less interpretable methods</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/09-uninterpretable</link>
-      <description>Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.</description>
-      <guid>http://joshualoftus.com/ml4ds/09-uninterpretable</guid>
-      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>More nonlinear methods</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/08-nonlinear</link>
-      <description>We continue our exploration of non-linear supervised machine learning approaches including tree based methods, GAMs, and neural networks and graphs structured learning.</description>
-      <guid>http://joshualoftus.com/ml4ds/08-nonlinear</guid>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Nonlinear methods</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/07-nonlinear</link>
-      <description>Non-linearity may result in models that trade interpretability for increased predictive accuracy. These notes discuss the challenges of non-linearity and introduce nearest neighbors and kernel methods.</description>
-      <guid>http://joshualoftus.com/ml4ds/07-nonlinear</guid>
-      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Regularization and validation</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/06-regularization</link>
-      <description>When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.</description>
-      <guid>http://joshualoftus.com/ml4ds/06-regularization</guid>
-      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Optimization and overfitting</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/05-optimization</link>
-      <description>Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.</description>
-      <guid>http://joshualoftus.com/ml4ds/05-optimization</guid>
-      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Classification</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/04-classification</link>
-      <description>Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.</description>
-      <guid>http://joshualoftus.com/ml4ds/04-classification</guid>
-      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Multiple regression and causality</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/03-causality</link>
-      <description>Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.</description>
-      <guid>http://joshualoftus.com/ml4ds/03-causality</guid>
-      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Linear regression</title>
-      <dc:creator>Joshua Loftus</dc:creator>
-      <link>http://joshualoftus.com/ml4ds/02-linear-regression</link>
-      <description>Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.</description>
-      <guid>http://joshualoftus.com/ml4ds/02-linear-regression</guid>
-      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Introduction and foundations</title>
+      <title>1 Introduction and foundations</title>
       <dc:creator>Joshua Loftus</dc:creator>
       <link>http://joshualoftus.com/ml4ds/01-introduction-foundations</link>
       <description>A brief introduction to the course, preview of things to come, and some foundational background material.</description>
       <guid>http://joshualoftus.com/ml4ds/01-introduction-foundations</guid>
-      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
       <media:content url="https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>2 Linear regression</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/02-linear-regression</link>
+      <description>Reviewing linear regression and framing it as a prototypical example and source of intuition for other machine learning methods.</description>
+      <guid>http://joshualoftus.com/ml4ds/02-linear-regression</guid>
+      <pubDate>Sun, 10 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>3 Multiple regression and causality</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/03-causality</link>
+      <description>Multiple linear regression does not, by default, tell us anything about causality. But with the right data and careful interpretation we might be able to learn some causal relationships.</description>
+      <guid>http://joshualoftus.com/ml4ds/03-causality</guid>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>4 Classification</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/04-classification</link>
+      <description>Categorical or qualitative outcome variables are ubiquitous. We review some supervised learning methods for classification, and see how these may be applied to observational causal inference.</description>
+      <guid>http://joshualoftus.com/ml4ds/04-classification</guid>
+      <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>5 Optimization and overfitting</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/05-optimization</link>
+      <description>Optimization is about finding the best model. With greater model complexity it becomes increasingly important to avoid overfitting: finding a model that is best for one specific dataset but does not generalize well to others.</description>
+      <guid>http://joshualoftus.com/ml4ds/05-optimization</guid>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>6 Regularization and validation</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/06-regularization</link>
+      <description>When optimizing an ML model there are a variety of strategies to improve generalization from the training data. We can add a complexity penalty to the loss function, and we can evaluate the loss function on validation data.</description>
+      <guid>http://joshualoftus.com/ml4ds/06-regularization</guid>
+      <pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>7 Nonlinear methods</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/07-nonlinear</link>
+      <description>Non-linearity may result in models that trade interpretability for increased predictive accuracy. These notes discuss the challenges of non-linearity and introduce nearest neighbors and kernel methods.</description>
+      <guid>http://joshualoftus.com/ml4ds/07-nonlinear</guid>
+      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>8 More nonlinear methods</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/08-nonlinear</link>
+      <description>We continue our exploration of non-linear supervised machine learning approaches including tree based methods, GAMs, and neural networks and graphs structured learning.</description>
+      <guid>http://joshualoftus.com/ml4ds/08-nonlinear</guid>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>9 Less interpretable methods</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/09-uninterpretable</link>
+      <description>Neural networks and ensemble methods like bagging, random forests, and boosting can greatly increase predictive accuracy at the cost of ease of interpretation.</description>
+      <guid>http://joshualoftus.com/ml4ds/09-uninterpretable</guid>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>10 From prediction to action</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/ml4ds/10-action</link>
+      <description>Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.</description>
+      <guid>http://joshualoftus.com/ml4ds/10-action</guid>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

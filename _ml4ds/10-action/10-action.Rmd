@@ -1,10 +1,10 @@
 ---
-title: "From prediction to action"
+title: "10 From prediction to action"
 description: |
   Supervised machine learning methods excel at predicting an outcome. But being able to predict an outcome does not mean we know how to change it, or that we should.
 author:
   - name: Joshua Loftus
-date: 04-05-2021
+date: 10-02-2021
 output:
   distill::distill_article:
     self_contained: false
