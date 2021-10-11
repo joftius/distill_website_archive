@@ -14,24 +14,17 @@ theme_set(theme_minimal(base_size = 22))
 
 ## ISLR Chapter 2, Section 2.4
 
-Exercises 1, 2, 3, 5, and 6
-
-After loading the `ISLR` library you can access the `College` dataset to complete Exercise 8. Continue using this dataset to do the following:
-
--   Choose a numeric variable to be an outcome variable in regression models
--   Choose another numeric variable to be a predictor and fit a simple regression model. Show the model summary, confidence intervals for coefficients (hint: use the `ggcoef` function), and diagnostic plots. Comment on each of these with one or a few sentences describing your practical interpretation of the result.
--   Next, use the `loess` function to fit a non-linear model, and create a plot showing the prediction lines from both of these models. Comment on the relative strengths and weaknesses of these models.
--   Now repeat the simple linear regression step but with at least one more predictor so that the model is a multiple regression model.
+#### Exercises 1, 3, 5, and 6
 
 ## ISLR Chapter 3, Section 3.6
 
-Read the `R` lab, especially Sections 3.6.3-3.6.6
+#### Read the `R` lab, especially Sections 3.6.3-3.6.6
 
 ## ISLR Chapter 3, Section 3.7
 
-Exercises 1, 4
+#### Exercises 1, 4
 
-Exercises 10, 11, 13, and 14
+#### Exercises 10, 11, 13, and 14
 
 ## Mathematical practice
 
