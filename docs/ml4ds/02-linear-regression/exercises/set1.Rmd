@@ -1,6 +1,5 @@
 ---
 title: "Exercise set 1"
-author: Joshua Loftus
 output: html_document
 ---
 
@@ -15,31 +14,34 @@ theme_set(theme_minimal(base_size = 22))
 
 ## ISLR Chapter 2, Section 2.4
 
-Exercises 1, 2, 3, 5, and 6
-
-After loading the `ISLR` library you can access the `College` dataset to complete Exercise 8. Continue using this dataset to do the following:
-
--   Choose a numeric variable to be an outcome variable in regression models
--   Choose another numeric variable to be a predictor and fit a simple regression model. Show the model summary, confidence intervals for coefficients (hint: use the `ggcoef` function), and diagnostic plots. Comment on each of these with one or a few sentences describing your practical interpretation of the result.
--   Next, the `loess` function to fit a non-linear model, and create a plot showing the prediction lines from both of these models. Compare the relative strengths and weaknesses of these models.
--   Now repeat the simple linear regression step but with at least one more predictor so that the model is a multiple regression model.
+#### Exercises 1, 3, 5, and 6
 
 ## ISLR Chapter 3, Section 3.6
 
-Read the `R` lab, especially Sections 3.6.3-3.6.6
+#### Read the `R` lab, especially Sections 3.6.3-3.6.6
 
 ## ISLR Chapter 3, Section 3.7
 
-Exercises 1, 4
+#### Exercises 1, 4
 
-Exercises 10, 11, 13, and 14
+#### Exercises 10, 11, 13, and 14
 
-## Mixtape Chapter 3
+## Mathematical practice
 
-Choose one of the datasets analyzed in previous exercises, lectures, or seminars, and pick 2 or 3 variables in this dataset. Invent an unobserved variable that you believe may also be important but not included in the dataset. Using these variables:
+*These exercises are **optional** but highly recommended as practice, particularly for the exam*.
 
--   Propose and draw a DAG that you believe to be importantly wrong compared to the real world, and explain why you think it does not accurately model the causal relationships that you believe to exist.
+It may help to also review your notes from one of the prerequisite courses like MA100.
 
--   Propose and draw a DAG that you believe to be an improvement compared to the previous one. Comment in one or a few sentences why this second DAG is better, and also what you believe is its most important remaining weakness as a model for the real world causal relationships.
+#### CEFs and [partial derivatives](https://en.wikipedia.org/wiki/Partial_derivative)
 
-This is a conceptual exercise which would not be graded based on any kind of accuracy in relating to the real world, but only on your reasoning.
+- Suppose the conditional expectation function $f(x) := \mathbb E[Y | X = x]$ is linear as a function of $x = (x_1, \ldots, x_p)$. Find a simple formula for the partial derivative of $f$ with respect to predictor $x_j$ and interpret this geometrically.
+
+- Repeat the above but for an example function (you can invent the example) where $f(x)$ is non-linear. If we had a sample of data from this model and fit a linear regression, would we get an unbiased estimate of $\partial f/\partial x_j$ from $\hat \beta_j$? Explain.
+
+- Now suppose again that $f(x)$ is linear. Also assume that $x_1 = g_1(u)$ and $x_2 = g_2(u)$ for some variable $u$ and functions $g_1, g_2$. Find simple formulas for $\partial f/\partial x_1$, $\partial f/\partial x_2$, and $\partial f/\partial u$. Which of these can we interpret as "effects, holding all other variables constant"? Explain.
+
+#### Regression and linear algebra
+
+- Consider the column space, row space, and null space of the predictor matrix $X$. For each of these, what can we say about the least squares coefficients for regressing $Y$ on $X$ if we know that $Y$ is in the corresponding subspace (e.g. if $Y$ is in the null space of $X$)?
+
+- Suppose the third predictor is in the span of the first two $X_3 \in \text{span}(X_1, X_2)$ (interpreting $X_j$ as a column vector). Consider the regression models $M_0: Y \sim X_1 + X_2$ and $M_A : Y \sim X_1 + X_2 + X_3$. Show these two models yield the same predictions of $Y$ but may not have the same coefficients for $X_1$ and $X_2$. 
