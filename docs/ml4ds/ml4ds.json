@@ -28,10 +28,10 @@
     ],
     "date": "2021-10-10",
     "categories": [],
-    "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\n\n\n\n",
+    "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-11T11:41:55+01:00",
-    "input_file": {}
+    "last_modified": "2021-10-11T13:06:59+01:00",
+    "input_file": "02-linear-regression.utf8.md"
   },
   {
     "path": "ml4ds/03-causality/",

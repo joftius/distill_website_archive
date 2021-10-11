@@ -20,6 +20,10 @@ Some of this work was covered in the [New Scientist](https://www.newscientist.co
 
 ### Publications
 
+- L. E. J. Bynum, J. R. Loftus, J. Stoyanovich, **Disaggregated Interventions to Reduce Inequality**. Equity and Access in Algorithms, Mechanisms, and Optimization, 2021. [[link](https://eaamo.org/accepted/)]
+
+- K. Yang, J. R. Loftus, J. Stoyanovich, **Causal intersectionality and fair ranking**. Foundations of Responsible Computing, 2021. [[link](https://drops.dagstuhl.de/opus/frontdoor.php?source_opus=13875)]
+
 - M. J. Kusner, C. Russell, J. R. Loftus, R. Silva. **Making Decisions that Reduce Discriminatory Impact**. International Conference on Machine Learning, 2019. [[link](http://proceedings.mlr.press/v97/kusner19a/kusner19a.pdf)]
 
 - M. J. Kusner, J. R. Loftus, C. Russell, R. Silva. **Counterfactual fairness**. Advances in Neural Information Processing Systems, 2017. [[link](http://papers.nips.cc/paper/6995-counterfactual-fairness)]

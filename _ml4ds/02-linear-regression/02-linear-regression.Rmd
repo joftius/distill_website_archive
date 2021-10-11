@@ -38,5 +38,6 @@ Regression, when conditioning on more than one predictor variable.
 
 [Notebook](notebooks/seminar_regression.html) for seminar
 
+[Exercises](exercises/set1.html) 
 
 
