@@ -27,4 +27,8 @@ theme_set(theme_minimal(base_size = 22))
 
 ## Slides, notebooks, exercises
 
-[Slides](slides/03-1-causality.html) for causality video ([PDF](slides/causality.pdf))
+[Slides](slides/03-1-causality.html) for first causality video ([PDF](slides/causality.pdf))
+
+[Slides](../10-action/slides/10-2-changetheworld.html) for second causality video
+
+[Slides](../04-classification/slides/04-1-classification.html) for logistic regression video
