@@ -101,7 +101,7 @@ From the final paragraph of Bickel et al (1975)
 
 ![](berkeley.png)
 
-- Assumption: directed paths show conditional dependence
+- Assumption: paths show conditional dependence
 - Assumption: intervention to change one variable also affects all variables on paths away from it
 
 ---
@@ -370,7 +370,7 @@ Claim: **causality** points us in good directions for research
 
 ---
 
-## Future work
+## New / future work
 
 - Intervening (earlier?) in the ML pipeline, breaking feedback loops
 
@@ -437,5 +437,9 @@ Margarita Boyarskaya
 
 Reading for a fairly general audience: The long road to fairer algorithms ([Nature, 2020](https://www.nature.com/articles/d41586-020-00274-3))
 
+For another recent paper: [blog post](https://nyudatascience.medium.com/the-impact-remediation-framework-discovering-optimal-intervention-policies-to-improve-equity-dfeea9d03cef) and [10min video](https://youtu.be/dnadhGEDIBQ?t=5340)
+
 [joshualoftus.com](joshualoftus.com) where these slides are available, with links
+
+Longer version of this talk: [video](https://youtu.be/0xju3pEbPFE)
 
