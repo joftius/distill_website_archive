@@ -110,12 +110,63 @@ From the final paragraph of Bickel et al (1975)
 
 ### Interventions
 
-**Can we change the DAG**, for example via socialization or education- emphasizing more women role models in STEM curricula?
+**Can we change the DAG**, for example via socialization or education (emphasizing more women role models in STEM curricula, say?)
 
 ### Counterfactual fairness
 
 I was admitted to grad school. **If I had been different**, had a different gender for example, maybe I would have had different socialization, applied to a different department, and not been admitted. **Is that fair**?
 
+---
+
+### (Infamous?) policing example
+
+"Algorithm does not *explicitly* use race" -- in an unfair system **other things can correlate with race**, e.g. prior convictions
+
+.pull-left[
+```{r echo = FALSE}
+library(DiagrammeR)
+mermaid("
+graph LR
+  R-->M
+  S-->M
+  S-->P
+  M-->P
+  P-->C
+")
+```
+]
+.pull-right[
+Race $R$, structural racism $S$, arrested for marijuana $M$, prior conviction $P$, risk score $C$
+
+If $C$ is computed using only $P$, is that "fair"?
+
+Next slide from [Lum and Isaac (2016)](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2016.00960.x)
+]
+
+
+---
+
+.pull-left[
+![](../../2021-05-04-workshop-on-race-and-racism-in-science/lumisaac1.jpg)
+]
+
+.pull-right[
+![](../../2021-05-04-workshop-on-race-and-racism-in-science/lumisaac2.jpg)
+]
+
+---
+
+## How do we get a DAG?
+
+Simple examples are easy to understand
+
+Too simple? Don't correspond to the real world?
+
+### How do we know if it's "true"?
+
+My opinion: we could use a healthy dose of (philosophical)
+
+> [Pragmatism](https://en.wikipedia.org/wiki/Pragmatism) is a philosophical tradition that considers words and thought as *tools and instruments for prediction, problem solving, and action*, and rejects the idea that the function of thought is to describe, represent, or mirror reality.
 
 ---
 
@@ -138,20 +189,6 @@ therefore,
 
 ]
 
-
----
-
-[Imbens (2019)](https://siepr.stanford.edu/sites/default/files/publications/19-022.pdf) on DAGs, reviewing The Book of Why:
-
->  TBOW and the DAG approach fully deserve the attention of all researchers and users of causal inference as one of its leading methodologies.
-
-DAGs conveniently express some things but not others
-
-> In economics the endogeneity often arises from agents actively making choices regarding the causal variable on the basis of anticipated effects of those choices
-
-DAGs and Potential Outcomes are both useful
-
-> identification results are also easier to derive in the PO framework
 
 ---
 class: split-four
@@ -229,6 +266,20 @@ Transparency: we can say specifically what we disagree on (sometimes denote sens
 [Nabi and Shpitser (2018)](https://ojs.aaai.org/index.php/AAAI/article/view/11553),
 [Zhang and Bareinboim (2018)](https://aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16949/0),
 [Chiappa (2019)](https://ojs.aaai.org//index.php/AAAI/article/view/4777), and a growing list of others
+
+---
+
+[Imbens (2019)](https://siepr.stanford.edu/sites/default/files/publications/19-022.pdf) on DAGs, reviewing The Book of Why:
+
+>  TBOW and the DAG approach fully deserve the attention of all researchers and users of causal inference as one of its leading methodologies.
+
+DAGs conveniently express some things but not others
+
+> In economics the endogeneity often arises from agents actively making choices regarding the causal variable on the basis of anticipated effects of those choices
+
+DAGs and Potential Outcomes are both useful
+
+> identification results are also easier to derive in the PO framework
 
 ---
 
@@ -372,13 +423,11 @@ Claim: **causality** points us in good directions for research
 
 ## New / future work
 
-- Intervening (earlier?) in the ML pipeline, breaking feedback loops
-
-- Modeling construction of social categories
-
-- Measuring inequality before and after interventions
+- Another recent paper ([blog post](https://nyudatascience.medium.com/the-impact-remediation-framework-discovering-optimal-intervention-policies-to-improve-equity-dfeea9d03cef) and [10min video](https://youtu.be/dnadhGEDIBQ?t=5340)) optimizing an intervention to reduce inequality, avoiding some causal modeling assumptions about social categories as causes
 
 - More specific models/methods (e.g. multiple causes and mediators, various interference structures)
+
+- Counterfactual "depth" (e.g. changing names to alter perception of gender/race) and responsibility
 
 ---
 class: split-four
@@ -437,9 +486,7 @@ Margarita Boyarskaya
 
 Reading for a fairly general audience: The long road to fairer algorithms ([Nature, 2020](https://www.nature.com/articles/d41586-020-00274-3))
 
-For another recent paper: [blog post](https://nyudatascience.medium.com/the-impact-remediation-framework-discovering-optimal-intervention-policies-to-improve-equity-dfeea9d03cef) and [10min video](https://youtu.be/dnadhGEDIBQ?t=5340)
-
 [joshualoftus.com](joshualoftus.com) where these slides are available, with links
 
-Longer version of this talk: [video](https://youtu.be/0xju3pEbPFE)
+Another version of this talk: [video](https://youtu.be/0xju3pEbPFE)
 
