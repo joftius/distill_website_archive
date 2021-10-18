@@ -45,10 +45,10 @@
     ],
     "date": "2021-10-09",
     "categories": [],
-    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for first causality video (PDF)\nSlides for second causality video\nSlides for logistic regression video\n\n\n\n",
+    "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for first causality video (PDF)\nSlides for second causality video\nSlides for logistic regression video\nNotebook from seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-12T17:47:22+01:00",
-    "input_file": {}
+    "last_modified": "2021-10-18T15:37:32+01:00",
+    "input_file": "03-causality.utf8.md"
   },
   {
     "path": "ml4ds/04-classification/",
