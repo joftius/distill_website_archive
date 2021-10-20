@@ -29,4 +29,4 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/04-2-svm.html) for SVM lecture ([PDF](slides/classification_svm.pdf))
 
-[Notebook](notebooks/nonlinear.Rmd) for seminar
+[Notebook](notebooks/optimization.html) for seminar
