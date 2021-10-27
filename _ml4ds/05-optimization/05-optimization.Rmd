@@ -29,6 +29,8 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/05-2-overfitting.html) for overfitting video ([PDF](slides/overfitting.pdf))
 
+[Notebook](notebooks/generalization.Rmd) for generalization ([partially complete](notebooks/generalization_incomplete.html))
+
 [Notebook](notebooks/optimization.Rmd) for optimization ([partially complete](notebooks/optimization_incomplete.html))
 
 [Notebook](notebooks/regularization.Rmd) for regularization ([partially complete](notebooks/regularization_incomplete.html))

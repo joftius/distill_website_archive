@@ -79,10 +79,10 @@
     ],
     "date": "2021-10-07",
     "categories": [],
-    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
+    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for generalization (partially complete)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-11T11:43:35+01:00",
-    "input_file": {}
+    "last_modified": "2021-10-27T20:36:11+01:00",
+    "input_file": "05-optimization.utf8.md"
   },
   {
     "path": "ml4ds/06-regularization/",
