@@ -48,7 +48,7 @@
     "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for first causality video (PDF)\nSlides for second causality video\nSlides for logistic regression video\nNotebook from seminar\n\n\n\n",
     "preview": {},
     "last_modified": "2021-10-18T15:37:32+01:00",
-    "input_file": "03-causality.utf8.md"
+    "input_file": {}
   },
   {
     "path": "ml4ds/04-classification/",
@@ -64,8 +64,8 @@
     "categories": [],
     "contents": "\nCarving nature at its joints\n\n“A good cook gets a new knife every year; he chops! Mediocre cooks change knives monthly; they hack. My knife now has 19 years on it; it’s carved several thousand oxen and the edge is as if I had just taken it from the sharpener. Those joints have gaps, and the knife’s edge no thickness, to put something infinitesimally thin in an empty space?! Effortless! It even allows the edge wander in with ample room to play. That is why, with 19 years on it, this knife’s edge is grindstone fresh.” - Butcher Ding, the Zhuangzi\n\nSlides, notebooks, exercises\nSlides for logistic regression lecture (PDF)\nSlides for SVM lecture (PDF)\nNotebook for seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-20T17:37:56+01:00",
-    "input_file": "04-classification.utf8.md"
+    "last_modified": "2021-10-20T17:37:57+01:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/05-optimization/",
@@ -79,10 +79,10 @@
     ],
     "date": "2021-10-07",
     "categories": [],
-    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for generalization (partially complete)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\n\n\n\n",
+    "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for generalization (partially complete)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-27T20:36:11+01:00",
-    "input_file": "05-optimization.utf8.md"
+    "last_modified": "2021-10-31T13:58:48+00:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/06-regularization/",

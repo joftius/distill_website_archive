@@ -34,3 +34,5 @@ theme_set(theme_minimal(base_size = 22))
 [Notebook](notebooks/optimization.Rmd) for optimization ([partially complete](notebooks/optimization_incomplete.html))
 
 [Notebook](notebooks/regularization.Rmd) for regularization ([partially complete](notebooks/regularization_incomplete.html))
+
+[Exercises](exercises/set2.html) 
