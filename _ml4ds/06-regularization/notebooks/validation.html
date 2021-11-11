@@ -166,6 +166,7 @@ pre code {
 
 <h1 class="title toc-ignore">Validation experiments</h1>
 <h4 class="author">ST310</h4>
+<h4 class="date">3/05/2021</h4>
 
 </div>
 
@@ -189,15 +190,12 @@ head(permeability) # numeric outcome</code></pre>
 ## 6        0.510</code></pre>
 <pre class="r"><code>length(permeability) # n</code></pre>
 <pre><code>## [1] 165</code></pre>
-<pre class="r"><code>fingerprints %&gt;% dim() # n by p</code></pre>
+<pre class="r"><code>dim(fingerprints) # n by p</code></pre>
 <pre><code>## [1]  165 1107</code></pre>
 <pre class="r"><code>library(caret)</code></pre>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:survival&#39;:
-## 
-##     cluster</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     lift</code></pre>
@@ -209,109 +207,33 @@ head(cox2Class) # binary outcome</code></pre>
 <pre><code>## [1] 462</code></pre>
 <pre class="r"><code>dim(cox2Descr) # n by p</code></pre>
 <pre><code>## [1] 462 255</code></pre>
-<div id="preprocess-data" class="section level4">
-<h4>Preprocess data</h4>
-<pre class="r"><code># x_variables &lt;- select predictors
-# X &lt;- model.matrix(~. -1, data = x_variables) 
-# Y &lt;- ...</code></pre>
-<p>If your dataset has a binary outcome, use penalized logistic regression instead of penalized linear regression. See the <code>family = &quot;binomial&quot;</code> option in the <code>glmnet</code> function below (ignore this comment if your data has a numeric outcome)</p>
-</div>
 </div>
 <div id="split-data-into-trainingtest-sets" class="section level2">
 <h2>Split data into training/test sets</h2>
-<div id="use-the-sample-and-setdiff-functions-to-split-the-data-into-two-random-subsets" class="section level4">
-<h4>Use the <code>sample()</code> and <code>setdiff()</code> functions to split the data into two random subsets</h4>
+<ul>
+<li>Use the <code>sample()</code> and <code>setdiff()</code> functions to split the data into two random subsets</li>
+</ul>
 <p>(Why random subsets instead of 1,…k, and k+1,…n?)</p>
-<pre class="r"><code># remove eval = FALSE from above
-n &lt;- length(Y) # nrow(X)
-train &lt;- sample(1:n, floor(4*n/5), replace = FALSE) # some ratio
-test &lt;- setdiff(1:n, train)
-c(length(train), length(test))
-X_train &lt;- X[train, ]
-Y_train &lt;- Y[train]
-# etc</code></pre>
-<p>Question: is <code>replace = FALSE</code> important? Why or why not?</p>
-</div>
 </div>
 <div id="regularized-regression-models" class="section level2">
 <h2>Regularized regression models</h2>
-<div id="fit-models-using-glmnet-on-the-training-data-for-lasso-and-ridge-regression-see-glmnet" class="section level4">
-<h4>Fit models using <code>glmnet</code> on the <strong>training data</strong> for lasso and ridge regression (see <code>?glmnet</code>)</h4>
-<pre class="r"><code># ridge_fit &lt;- glmnet(..., alpha = 0)</code></pre>
+<ul>
+<li><p>Fit models using <code>glmnet</code> on the <strong>training data</strong></p></li>
+<li><p>Plot <strong>test error</strong> as a function of <code>lambda</code></p></li>
+<li><p>Plot the fitted coefficients as a function of <code>lambda</code></p></li>
+<li><p>For lasso and elastic net, examine <code>coef()</code> at the value of <code>lambda</code> which minimizes test error</p></li>
+</ul>
+<div id="ridge-regression" class="section level3">
+<h3>Ridge regression</h3>
 </div>
-<div id="choose-some-arbitrary-value-of-lambda-and-check-the-coef-of-the-resulting-models-compare-the-coefficient-estimates-between-lasso-and-ridge-check-coef.glmnet" class="section level4">
-<h4>Choose some arbitrary value of <code>lambda</code> and check the <code>coef()</code> of the resulting models, compare the coefficient estimates between lasso and ridge (check <code>?coef.glmnet</code>)</h4>
-<pre class="r"><code># lam &lt;- 42
-# coef(ridge_fit, s = lam)</code></pre>
+<div id="lasso-regression" class="section level3">
+<h3>Lasso regression</h3>
 </div>
-<div id="at-the-same-value-of-lambda-above-calculate-the-accuracy-of-prediction-on-both-training-and-test-data-use-mean-squared-error-for-numeric-outcome-and-misclassification-rate-for-binary-use-the-option-predict...-type-class-for-binary-outcome" class="section level4">
-<h4>At the same value of <code>lambda</code> above, calculate the accuracy of prediction on both training and test data (use mean-squared error for numeric outcome and misclassification rate for binary, use the option <code>predict(..., type = &quot;class&quot;)</code> for binary outcome)</h4>
-<p>Training accuracy for ridge</p>
-<pre class="r"><code># predict(ridge_fit, s = lam, newx = X_train, etc)</code></pre>
-<p>Test accuracy for ridge</p>
-<p>Training accuracy for lasso</p>
-<p>Test accuracy for lasso</p>
+<div id="elastic-net-regression" class="section level3">
+<h3>Elastic net regression</h3>
 </div>
-<div id="experiment-with-changing-the-value-of-lambda-in-the-above-code" class="section level4">
-<h4>Experiment with changing the value of <code>lambda</code> in the above code</h4>
-</div>
-<div id="plot-the-fitted-coefficients-as-a-function-of-lambda" class="section level4">
-<h4>Plot the fitted coefficients as a function of <code>lambda</code></h4>
-<p>Hint: just <code>plot()</code> the model object, or build the plot manually using <code>tidy</code> from the <code>broom</code> package</p>
-<p>(Does <code>glmnet</code> penalize the intercept term by default?)</p>
-</div>
-<div id="plot-accuracy-on-training-and-test-data-as-a-function-of-lambda" class="section level4">
-<h4>Plot accuracy on training and test data as a function of <code>lambda</code></h4>
-<p>Calculating error</p>
-<pre class="r"><code>yhats_train &lt;- predict(ridge_fit, type = &quot;class&quot;, newx = X_train)
-yhats_test &lt;- predict(ridge_fit, type = &quot;class&quot;, newx = X_test)
-plot_data &lt;- data.frame(
-  train_error = colMeans(yhats_train != Y_train),
-  # or colMeans((yhats_train - Y_train)^2) for numeric outcome
-  test_error = colMeans(yhats_test != Y_test),
-  lambda = ridge_fit$lambda
-) 
-ggplot(plot_data, aes(lambda, train_error)) +
- geom_line() + theme_minimal() +
-  geom_line(aes(y = test_error),
-            linetype = &quot;dotted&quot;,
-            color = &quot;orange&quot;, size = 1) +
- scale_x_log10()</code></pre>
-</div>
-<div id="repeat-for-lasso" class="section level4">
-<h4>Repeat for lasso</h4>
-</div>
-<div id="what-do-you-notice-about-these-plots-similarities-and-differences" class="section level4">
-<h4>What do you notice about these plots? Similarities and differences?</h4>
-</div>
-<div id="for-lasso-examine-coef-at-the-value-of-lambda-which-minimizes-test-error" class="section level4">
-<h4>For lasso, examine <code>coef()</code> at the value of <code>lambda</code> which minimizes test error</h4>
-<p>You can roughly guess the value of <code>lambda</code> by looking at the plot</p>
-<p>What is the sparsity (number/proportion of nonzero coefficients)?</p>
-</div>
-</div>
-<div id="cross-validation" class="section level2">
-<h2>Cross-validation</h2>
-<div id="use-the-cv.glmnet-function-to-iterate-the-above-process-over-several-traintest-splits-and-automatically-find-the-value-of-lambda-minimizing-test-accuracy-see-cv.glmnet" class="section level4">
-<h4>Use the <code>cv.glmnet</code> function to iterate the above process over several train/test splits and automatically find the value of <code>lambda</code> minimizing test accuracy (see <code>?cv.glmnet</code>)</h4>
-<p>Do this for lasso and/or ridge, time permitting</p>
-<pre class="r"><code># lasso_cv &lt;- cv.glmnet(...)</code></pre>
-</div>
-<div id="compare-the-values-of-lambda.min-and-lambda.1se-see-cv.glmnet" class="section level4">
-<h4>Compare the values of <code>lambda.min</code> and <code>lambda.1se</code> (see <code>?cv.glmnet</code>)</h4>
-<pre class="r"><code># lmin &lt;- lasso_cv$lambda.min, etc</code></pre>
-</div>
-<div id="compute-the-test-error-accuracy-at-these-two-values" class="section level4">
-<h4>Compute the test error accuracy at these two values</h4>
-</div>
-</div>
-<div id="reflections" class="section level2">
-<h2>Reflections</h2>
-<div id="think-back-on-all-the-results-youve-seen-and-take-notes-here" class="section level4">
-<h4>Think back on all the results you’ve seen and take notes here</h4>
-</div>
-<div id="can-you-think-of-any-questions" class="section level4">
-<h4>Can you think of any questions?</h4>
+<div id="coefficients" class="section level3">
+<h3>Coefficients</h3>
 </div>
 </div>
 

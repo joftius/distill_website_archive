@@ -10,7 +10,6 @@ library(tidyverse)
 library(broom)     
 library(modelr)    
 library(glmnet)    
-library(selectiveInference)
 theme_set(theme_minimal(base_size = 20))
 ```
 
