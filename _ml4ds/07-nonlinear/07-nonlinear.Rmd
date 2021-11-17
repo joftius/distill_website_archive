@@ -31,4 +31,6 @@ theme_set(theme_minimal(base_size = 22))
 
 [Slides](slides/07-3-kernels.html) for kernel video ([PDF])
 
-[Notebook](notebooks/nonlinear_knn_incomplete.html) for $k$-NN
+[Notebook](notebooks/kernel.Rmd) for kernels
+
+[Notebook](notebooks/knn.Rmd) for $k$-NN

@@ -1,30 +1,28 @@
 ---
-title: "Kernel SVM and non-linear regression"
+title: "Nonlinearity and nearest neighbours"
 author: "Joshua Loftus"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)  
-library(tidymodels) 
-library(modelr)     
-library(kernlab)    
-library(gapminder)  
-theme_set(theme_minimal(base_size = 22))
+library(tidyverse) # required
+library(broom)     # required
+library(modelr)    # for data_grid
+theme_set(theme_minimal(base_size = 20))
 ```
 
 ## 2d non-linear classification data
 
 ```{r}
-set.seed(1)
 # sample size
-n <- 200
+n <- 800
 # function with zero set that
 # defines the perfect (Bayes) decision boundary
 true_boundary_function <- function(x1, x2) {
   # experiment with changing this
-  (x1^2 + x2^2 - 1)^3 - x1^2*x2^3
+  thing <- x1^2*x2^3
+  (x1^2 + x2^2 - 1)^3 - thing^2
 }
 train <- data.frame(
   # change the distribution
@@ -99,95 +97,78 @@ boundary_plot +
     aes(x1, x2, z = .fitted),
     size = 1,
     color = "green",
-    bins = 2)
+    bins = 2) 
 ```
 
-## Kernel SVM
+### Classify 2d example with k-nearest neighbors
 
-Use the `ksvm` function from the `kernlab` package to fit a non-linear classification models and plot them
+Write a function to implement k-NN classification
 
-Try different kinds of kernels
+You may use matrix operations and simple functions like `sort` but not any more sophisticated built-in R functions (or libraries)
 
-Experiment with cost/complexity parameters
+#### Write a function that computes some distance between two points
 
-Optional: change the decision boundary function, noise level, sample size
+You can choose which notion of distance you want to use
 
 ```{r}
-
+# Euclidean or L2 distance
+Dist <- function(x1, x2) {
+  sum((x1-x2)^2) # sqrt doesn't change which points are nearest
+}
 ```
 
-
-Use the `alpha()` function to find the support vector points and plot them
+#### Write a function that outputs the y values for the k-nearest nearest neighbors of a point x0
 
 ```{r}
-
+# Requires a distance function D
+# to already be defined
+nearest_y_values <- function(x0, k, x, y) {
+  n <- nrow(x)
+  distances <- rep(0, n)
+  for (i in 1:n) {
+    distances[i] <- Dist(x0, x[i,])
+  }
+  k_neighborhood <- order(distances, decreasing = FALSE)[1:k]
+  y[k_neighborhood]
+}
 ```
 
-
-## 1-d smooth regression example
-
-Generate a one-dimensional example with a non-linear relationship
-
-Experiment with changing `n` and `sd`
+#### Write a function that outputs a classification using majority vote
 
 ```{r}
-# change this function
-f <- function(x) sin(4*pi*x)
-n <- 200
-train1d <- 
-  data.frame(
-    x = rbeta(n, 1, 3)
-    ) %>%
-  # change the noise level sd
-  mutate(y = f(x) + rnorm(n, sd = .1))
-
-# plot data and loess curve
-ggplot(train1d, aes(x, y)) + 
-  geom_point() +
-  geom_smooth()
+knn <- function(x0, k, x, y) {
+  votes <- nearest_y_values(x0, k, x, y)
+  levels(y)[which.max(table(votes))]
+}
 ```
 
-Linear regression with a polynomial transform of x
+
+#### Evaluate your function at various points, using various values of k, and compare the output to the plotted training data
+
+Try points where the nearest neighbors are clearly majority 0 or 1, and a point where the portion is relatively even. Run the code below a few times and see if the answers change, then pick a different `K` and try again
 
 ```{r}
-model_lm <- lm(y ~ poly(x, 5), data = train1d)
-
-train1d_grid <- 
-  data_grid(train1d,
-          x = seq_range(c(x, .78), 1000, expand = .05))
-
-augment(model_lm,
-        newdata = train1d_grid) %>%
-  ggplot(aes(x, y)) +
-  geom_point(data = train1d) +
-  geom_line(aes(y = .fitted))
+K <- 1
+bootstrap_sample <- sample(1:nrow(train), replace = TRUE)
+x <- train[bootstrap_sample, 1:2]
+y <- train$y[bootstrap_sample]
 ```
 
-## Kernel regression
 
-Use the `ksvm` function and `kernelMatrix` functions to fit non-linear kernel regression models and plot the predictions on `train1d_grid`
-
+In a majority 1 region
 
 ```{r}
-
+knn(x0 = c(0,0), k = K, x, y)
 ```
 
-
-Compare the predictions using a `polydot` kernel with those from a (global) polynomial regression
-
-Optional: Compare predictions with `rbfdot` to those from our implementation of local regression
-
-## gapminder
-
-Repeat the above using the `gapminder` data
+In a majority 0 region
 
 ```{r}
-
+knn(x0 = c(0,1.2), k = K, x, y)
 ```
 
-Perform and out-of-distribution test by computing the accuracy or plotting the predictions for a different year of data
+In a relatively even region
 
 ```{r}
-
+knn(x0 = c(1,1), k = K, x, y)
 ```
-

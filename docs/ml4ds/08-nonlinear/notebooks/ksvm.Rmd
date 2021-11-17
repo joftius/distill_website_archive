@@ -1,7 +1,6 @@
 ---
 title: "Kernel SVM and non-linear regression"
 author: "Joshua Loftus"
-date: "2/12/2021"
 output: html_document
 ---
 
