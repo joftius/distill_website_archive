@@ -28,7 +28,7 @@ Notably absent from this list: getting significant results, using the most cutti
 
 ### Proposal stage
 
-1. Each member of your team should read the questions in this survey: https://forms.gle/EmBSz5KgaiS9RbBR9
+1. Each member of your team should read the questions in this survey: https://forms.gle/pzs4CEA8KE4XrbHv6
 
 2. Working together, your team should decide on a dataset and write an initial description that can be included in the final project write-up. Then have one (**only one**) member of your team complete the survey by copy/pasting sentences from your initial description
 
