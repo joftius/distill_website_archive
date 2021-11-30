@@ -16,17 +16,21 @@ output: html_document
 - 2
 - 5 
 
-## Optional: mathematics practice
+## Optional
+
+The remaining exercises are option and will not be graded.
+
+### Mathematics practice
 
 - Can resampling methods be useful for addressing OOD generalization? If not, then why? If so, then how?
 
 - Write out the objective function of the lasso for the case of linear regression with one predictor variable. Use calculus to find an expression for the solution (hint: you may need to consider cases)
 
 
-## Optional: applied practice
+### Applied practice
 
-#### ISLR Section 5.4, problem 8
+- ISLR Section 5.4, problem 8
 
-#### ISLR Section 6.6, problem 9 (a-d)
+- ISLR Section 6.6, problem 9 (a-d)
 
-#### ISLR Section 7.9, problem 9 (a-c)
+- ISLR Section 7.9, problem 9 (a-c)
