@@ -1,7 +1,6 @@
 ---
 title: "Tree splitting rules"
 author: "Joshua Loftus"
-date: "2/12/2021"
 output: html_document
 ---
 
