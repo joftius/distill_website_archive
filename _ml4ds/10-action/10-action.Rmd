@@ -35,5 +35,5 @@ Why are we doing any of this?
 
 [Slides](slides/10-2-professional.html) for ethics ([PDF])
 
-[Notebook](notebooks/tbd.html) for ?
+[Notebook](notebooks/iml.html) for interpretation methods
 
