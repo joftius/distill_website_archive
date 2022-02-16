@@ -1,6 +1,5 @@
 ---
-title: "Blog"
-site: distill::distill_website
+title: "Notes"
 description: |
 preview: https://pbs.twimg.com/profile_images/1338678247022845952/e5426I0l_400x400.jpg
 listing: posts

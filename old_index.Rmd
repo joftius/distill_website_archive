@@ -1,14 +1,22 @@
 ---
 title: "Joshua Loftus"
-site: distill::distill_website
 image: "me.jpg"
+links:
+  - label: Website
+    url: "https://joshualoftus.com/"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/joftius/"
+  - label: Twitter
+    url: "https://twitter.com/joftius"
+  - label: Email
+    url: "mailto:J.R.Lastname@lse.ac.uk"
 output:
   postcards::trestles
 ---
+ 
+#  Assistant Professor of Statistics
 
-## Bio
-
-I am a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
+I'm a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
 
 - Developing methods for inference after model selection such as *p*-values adjusted for selection bias
 - Analyzing the social fairness of machine learning algorithms from a causal perspective
@@ -17,18 +25,15 @@ My peer reviewed research has been published in the **Annals of Statistics**, **
 
 As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I'm happy to speak with, mentor, or help students from any background. 
 
-## Education
-
-- Ph.D. Statistics, (Biostatistics trainee), **Stanford University**, 2016.
-- M.A. Mathematics, (concentration in computational biology), **Rutgers University**, 2011.
-- B.S. Mathematics, (summa cum laude), **Western Michigan University**, 2009.
-- A.A. **Kalamazoo Valley Community College**, 2007.
-
-## Experience
+## History
 
 - Assistant Professor, **London School of Economics**, Department of Statistics, 2021-present.
 - Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-2020.
 - Research Fellow, **Alan Turing Institute** and **University of Cambridge**, 2016-17. 
+- Ph.D. Statistics, (Biostatistics trainee), **Stanford University**, 2016.
+- M.A. Mathematics, (concentration in computational biology), **Rutgers University**, 2011.
+- B.S. Mathematics, (summa cum laude), **Western Michigan University**, 2009.
+
 
 ### The meaning of "Neurath's Speedboat"
 

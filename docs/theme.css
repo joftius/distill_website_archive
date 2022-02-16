@@ -12,6 +12,8 @@
 /* This must remain at the top of this file.                 */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road&display=swap');
 
 
 html {
@@ -28,9 +30,9 @@ html {
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    "Merriweather", serif;
+  --heading-font:    "Special+Elite";
   --mono-font:       monospace;
-  --body-font:       "Merriweather+Sans", sans-serif;
+  --body-font:       "Special+Elite", sans-serif;
   --navbar-font:     "Merriweather", serif;  /* websites + blogs only */
 }
 
@@ -60,9 +62,9 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       1.4rem;
+  --title-size:       1.2rem;
   --text-color:       rgba(55, 55, 55, 0.8);
-  --text-size:        1.2rem;
+  --text-size:        1.1rem;
   --hover-color:      black;
   --bkgd-color:       #FFFFFF;
 }
@@ -82,4 +84,8 @@ code.r{
 }
 pre {
   font-size: 20px
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Turret+Road";
 }

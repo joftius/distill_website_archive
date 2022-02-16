@@ -1,7 +1,7 @@
-name: "."
-title: "neurath's speedboat"
+name: "distill"
+title: "Neurath's Speedboat"
 description: |
-  Joshua Loftus
+  Academic website and blog of Joshua Loftus
 base_url: http://joshualoftus.com/
 google_analytics: "UA-114292497-1"
 collections:
@@ -21,18 +21,15 @@ twitter:
   site: "@joftius"
 theme: theme.css
 navbar:
-  search: false
   right:
-    - text: "home"
+    - text: "Home"
       href: index.html
-    - text: "research"
+    - text: "About"
+      href: about.html
+    - text: "Research"
       href: research.html
-    - text: "teaching"
+    - text: "Teaching"
       href: teaching.html
-    - text: "notes"
-      href: notes.html      
-    - text: "about"
-      href: about.html      
     - icon: fa fa-rss
       href: index.xml
 cookie_consent:

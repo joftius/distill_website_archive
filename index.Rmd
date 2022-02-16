@@ -1,11 +1,22 @@
 ---
-title: "Blog"
+title: "Joshua Loftus"
 site: distill::distill_website
-description: |
-preview: https://pbs.twimg.com/profile_images/1338678247022845952/e5426I0l_400x400.jpg
-listing: posts
+image: "me.jpg"
+links:
+  - label: Website
+    url: "https://joshualoftus.com/"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/joftius/"
+  - label: Twitter
+    url: "https://twitter.com/joftius"
+  - label: Email
+    url: "mailto:J.R.Lastname@lse.ac.uk"
+output:
+  postcards::jolla
 ---
+ 
+Random wanderer from the United States, former homeschooler, and current professor of statistics at the London School of Economics.
 
- \ 
+I love learning, especially about physics and social sciences. I'm happiest when exploring new places with a friend, talking about ideas, and eating authentic or unusual foods.
 
-  
+Technology, institutions, and ideas should serve people. But much of humanity is stuck with this upside-down. I'm trying to figure out how we can change that.
