@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
+  <link rel="alternate" type="application/rss+xml" href="http://joshualoftus.com/teaching.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -108,7 +109,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Teaching"]},{"type":"NULL"}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Teaching"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["teaching"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1866,15 +1867,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Merriweather');
-  @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
-  @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Turret+Road&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&family=Special+Elite&family=Turret+Road&family=Zilla+Slab&display=swap');
 
 
   html {
     /*-- Main font sizes --*/
-    --title-size:      50px;
+    --title-size:      30px;
     --body-size:       1.1rem;
     --code-size:       14px;
     --aside-size:      12px;
@@ -1886,9 +1884,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --aside-color:     rgba(0, 0, 0, 0.6);
     --fig-cap-color:   rgba(0, 0, 0, 0.6);
     /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    "Special+Elite";
+    --title-font:    "Zilla Slab";
+    --heading-font:    "Zilla Slab";
     --mono-font:       monospace;
-    --body-font:       "Special+Elite", sans-serif;
+    --body-font:       "Times+New+Roman", sans-serif;
     --navbar-font:     "Merriweather", serif;  /* websites + blogs only */
   }
 
@@ -1923,6 +1922,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --text-size:        1.1rem;
     --hover-color:      black;
     --bkgd-color:       #FFFFFF;
+    --padding: 40px 0px;  
   }
 
   .distill-site-footer {
@@ -1936,15 +1936,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* Add any additional CSS rules below                      */
 
   code.r{
-    font-size: 20px;
+    font-size: 14px;
   }
   pre {
-    font-size: 20px
+    font-size: 14px
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Turret+Road";
-  }</style>
+  h1, h2, h3, h4, h5, h6, title {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;  
+    line-height: 2rem; /* increases, so wrapping headers don't overlap */ 
+  }
+  </style>
   <style type="text/css">
   /* base style */
 
@@ -2134,7 +2138,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
@@ -2165,6 +2169,182 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).on("load", function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      page_category = decodeURIComponent(page_category)
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-apply-limit l-page">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption="Teaching">Teaching</h1>
+<a href="teaching/resources/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Feb. 17, 2022</div>
+<div class="dt-authors">
+<div class="dt-author">Joshua Loftus</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Teaching philosophy, useful links and resources</h2>
+<div class="dt-tags"></div>
+<p>Useful links and resources on teaching and learning, and an explanation of my teaching goals</p>
+</div>
+</a>
+<a href="teaching/machine-learning-for-data-science/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Feb. 17, 2022</div>
+<div class="dt-authors">
+<div class="dt-author">Joshua Loftus</div>
+</div>
+</div>
+<div class="thumbnail">
+<img src="https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png"/>
+</div>
+<div class="description">
+<h2>Machine learning for data science</h2>
+<div class="dt-tags"></div>
+<p>While introducing a core set of commonly used machine learning tools and practicing them in the R statistical programming language, this course focuses on understanding their mathematical foundations, statistical limitations, and proper interpretation.</p>
+</div>
+</a>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>Teaching</h1>
@@ -2175,35 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<h1 id="current-course-pages">Current course pages</h1>
-<ul>
-<li><a href="ml4ds.html">ST310</a>: Machine learning for data science</li>
-</ul>
-<h1 id="older-course-pages">Older course pages</h1>
-<p>Some day these links will be fixed</p>
-<ul>
-<li>Stat-GB.4304: Modern statistics for data science</li>
-<li>Stat-UB.103: Introductory statistics (created by Vinu Abeywick)</li>
-<li>Stat-UB.103: Statistics for business: control, regression, and forecasting (page not active)</li>
-<li>Stats 390: Statistical Consulting Workshop</li>
-</ul>
-<h1 id="selected-links">Selected links</h1>
-<h2 id="for-the-r-programming-language">For the R programming language</h2>
-<p>Installation: download and install the <a href="https://cran.rstudio.com/">R language</a> itself, then download and install the free desktop version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>, finally, you may find this short, free book on the <a href="https://ismayc.github.io/rbasics-book/">basics of R and RStudio</a> helpful for getting started.</p>
-<h3 id="packages-and-guides">Packages and guides</h3>
-<ul>
-<li><p>The <a href="https://www.tidyverse.org/packages/">tidyverse</a> is essential. It’s a bundle of packages including blockbusters like <code>ggplot2</code> and <code>dplyr</code>.</p></li>
-<li><p>This list of <a href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages">recommended packages</a> has a lot of great suggestions as well.</p></li>
-<li><p>There are many great, free books for learning R in more depth than the R Basics one above, including books focusing on <a href="http://socviz.co/gettingstarted.html">visualization</a>, <a href="http://moderndive.com/">introductory statistics</a>, <a href="https://www.tidytextmining.com/">text mining</a>, and <a href="http://r4ds.had.co.nz/">data science</a>.</p></li>
-</ul>
-<h3 id="interesting-data-sets">Interesting data sets</h3>
-<p>Data in R packages is easy to access. Just <code>install.packages("packagename")</code> (with quotes), then <code>library(packagename)</code> (without quotes), and read the package documentation for help. For example, the <code>nycflights13</code> documentation describes 5 dataframes contained in that package, like the <code>flights</code> dataframe and the name and meaning of each variable it contains.</p>
-<p>If a package is not available on CRAN (the central repository for R), but is instead only hosted on github, you may need to install the package <code>devtools</code> and use the command <code>devtools::install_github("authorname/packagename")</code>.</p>
-<ul>
-<li><p><a href="https://cran.r-project.org/web/packages/fivethirtyeight/index.html">FiveThiryEight</a> is an R package with many interesting datasets from the data journalism site with the same name. There are several sports and politics datasets, one about which movies pass or fail the Bechdel test, one about hate crimes and income inequality, one about employment and earnings of recent college graduates by major, and so on. Check the documentation for a full list of datasets and how to use each one.</p></li>
-<li><p><a href="https://cran.r-project.org/web/packages/gapminder/index.html">Gapminder</a> is an R package with data including life expectancy and GDP per capita by country and year. This is the data shown in a famous TED talk by the late Hans Rosling.</p></li>
-<li><p>The four packages described in <a href="https://blog.rstudio.com/2014/07/23/new-data-packages/">this post</a> on the RStudio blog: <code>babynames</code>, <code>fueleconomy</code>, <code>nasaweather</code> and <code>nycflights13</code>.</p></li>
-</ul>
+<p> </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

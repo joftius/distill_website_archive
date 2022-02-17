@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>neurath's speedboat</title>
+    <link>http://joshualoftus.com/</link>
+    <atom:link href="http://joshualoftus.com/teaching.xml" rel="self" type="application/rss+xml"/>
+    <description>Joshua Loftus
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Teaching philosophy, useful links and resources</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/teaching/resources</link>
+      <description>Useful links and resources on teaching and learning, and an explanation of my teaching goals</description>
+      <guid>http://joshualoftus.com/teaching/resources</guid>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Machine learning for data science</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/teaching/machine-learning-for-data-science</link>
+      <description>While introducing a core set of commonly used machine learning tools and practicing them in the R statistical programming language, this course focuses on understanding their mathematical foundations, statistical limitations, and proper interpretation.</description>
+      <guid>http://joshualoftus.com/teaching/machine-learning-for-data-science</guid>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png" medium="image" type="image/png"/>
+    </item>
+  </channel>
+</rss>

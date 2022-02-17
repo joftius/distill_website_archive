@@ -1,0 +1,24 @@
+---
+title: "Machine learning for data science"
+description: |
+  While introducing a core set of commonly used machine learning tools and practicing them in the R statistical programming language, this course focuses on understanding their mathematical foundations, statistical limitations, and proper interpretation.
+preview: https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png
+author:
+  - name: Joshua Loftus
+    url: {}
+date: 2022-02-17
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Find the full course page here:
+
+- [ST310](../../ml4ds.html): Machine learning for data science
+
+

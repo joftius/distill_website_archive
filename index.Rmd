@@ -3,8 +3,8 @@ title: "Joshua Loftus"
 site: distill::distill_website
 image: "me.jpg"
 links:
-  - label: Website
-    url: "https://joshualoftus.com/"
+  - label: Scholar
+    url: "https://scholar.google.com/citations?user=SIbr3XUAAAAJ"
   - label: LinkedIn
     url: "https://www.linkedin.com/in/joftius/"
   - label: Twitter
@@ -19,4 +19,4 @@ Random wanderer from the United States, former homeschooler, and current profess
 
 I love learning, especially about physics and social sciences. I'm happiest when exploring new places with a friend, talking about ideas, and eating authentic or unusual foods.
 
-Technology, institutions, and ideas should serve people. But much of humanity is stuck with this upside-down. I'm trying to figure out how we can change that.
+Technology, institutions, and ideas should serve people. But much of humanity is stuck with this upside-down. I want to figure out how we can change that.

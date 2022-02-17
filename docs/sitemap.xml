@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>http://joshualoftus.com/about.html</loc>
-    <lastmod>2022-02-16T12:16:06+00:00</lastmod>
+    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/</loc>
-    <lastmod>2022-02-16T13:29:14+00:00</lastmod>
+    <lastmod>2022-02-17T16:19:49+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/ml4ds.html</loc>
@@ -14,19 +14,19 @@
   </url>
   <url>
     <loc>http://joshualoftus.com/notes.html</loc>
-    <lastmod>2022-02-16T12:39:58+00:00</lastmod>
+    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/old_about.html</loc>
-    <lastmod>2022-02-16T10:40:35+00:00</lastmod>
+    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/old_</loc>
-    <lastmod>2022-02-16T10:40:29+00:00</lastmod>
+    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/research.html</loc>
-    <lastmod>2021-10-11T12:19:49+01:00</lastmod>
+    <lastmod>2022-02-17T16:16:22+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/talks.html</loc>
@@ -34,7 +34,11 @@
   </url>
   <url>
     <loc>http://joshualoftus.com/teaching.html</loc>
-    <lastmod>2021-10-07T17:17:08+01:00</lastmod>
+    <lastmod>2022-02-17T15:58:22+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/</loc>
+    <lastmod>2022-02-17T16:31:31+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/posts/2021-01-01-did-the-new-variant-of-covid-spread-through-schools/</loc>
@@ -47,10 +51,6 @@
   <url>
     <loc>http://joshualoftus.com/posts/welcome/</loc>
     <lastmod>2020-12-23T17:45:03+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/</loc>
-    <lastmod>2020-12-23T14:34:01+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/posts/2020-12-21-concise-defense-of-statistical-significance/</loc>
@@ -115,5 +115,25 @@
   <url>
     <loc>http://joshualoftus.com/talks/2021-04-18-conference-on-machine-learning-and-inequality/</loc>
     <lastmod>2021-10-07T17:26:28+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning/</loc>
+    <lastmod>2022-02-17T16:29:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/inference-after-model-selection/</loc>
+    <lastmod>2022-02-17T16:29:42+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/philosophy-talks-links/</loc>
+    <lastmod>2022-02-17T16:17:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/teaching/resources/</loc>
+    <lastmod>2022-02-17T16:29:04+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/teaching/machine-learning-for-data-science/</loc>
+    <lastmod>2022-02-17T16:32:08+00:00</lastmod>
   </url>
 </urlset>

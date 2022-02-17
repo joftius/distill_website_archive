@@ -1,49 +1,13 @@
 ---
 title: "Teaching"
 description: |
+listing: teaching
 ---
 
+ \ 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Current course pages
-
-- [ST310](ml4ds.html): Machine learning for data science
-
-# Older course pages
-
-Some day these links will be fixed
-
-- Stat-GB.4304: Modern statistics for data science
-- Stat-UB.103: Introductory statistics (created by Vinu Abeywick)
-- Stat-UB.103: Statistics for business: control, regression, and forecasting (page not active)
-- Stats 390: Statistical Consulting Workshop
-
-# Selected links
-
-## For the R programming language
-
-Installation: download and install the [R language](https://cran.rstudio.com/) itself, then download and install the free desktop version of [RStudio](https://www.rstudio.com/products/rstudio/download/), finally, you may find this short, free book on the [basics of R and RStudio](https://ismayc.github.io/rbasics-book/) helpful for getting started.
-
-### Packages and guides
-
-- The [tidyverse](https://www.tidyverse.org/packages/) is essential. It's a bundle of packages including blockbusters like `ggplot2` and `dplyr`.
-
-- This list of [recommended packages](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages) has a lot of great suggestions as well.
-
-- There are many great, free books for learning R in more depth than the R Basics one above, including books focusing on [visualization](http://socviz.co/gettingstarted.html), [introductory statistics](http://moderndive.com/), [text mining](https://www.tidytextmining.com/), and [data science](http://r4ds.had.co.nz/).
-
-### Interesting data sets
-
-Data in R packages is easy to access. Just `install.packages("packagename")` (with quotes), then `library(packagename)` (without quotes), and read the package documentation for help. For example, the `nycflights13` documentation describes 5 dataframes contained in that package, like the `flights` dataframe and the name and meaning of each variable it contains. 
-
-If a package is not available on CRAN (the central repository for R), but is instead only hosted on github, you may need to install the package `devtools` and use the command `devtools::install_github("authorname/packagename")`. 
-
-- [FiveThiryEight](https://cran.r-project.org/web/packages/fivethirtyeight/index.html) is an R package with many interesting datasets from the data journalism site with the same name. There are several sports and politics datasets, one about which movies pass or fail the Bechdel test, one about hate crimes and income inequality, one about employment and earnings of recent college graduates by major, and so on. Check the documentation for a full list of datasets and how to use each one. 
-
-- [Gapminder](https://cran.r-project.org/web/packages/gapminder/index.html) is an R package with data including life expectancy and GDP per capita by country and year. This is the data shown in a famous TED talk by the late Hans Rosling.
-
-- The four packages described in [this post](https://blog.rstudio.com/2014/07/23/new-data-packages/) on the RStudio blog: `babynames`, `fueleconomy`, `nasaweather` and `nycflights13`.
 

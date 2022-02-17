@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>neurath's speedboat</title>
+    <link>http://joshualoftus.com/</link>
+    <atom:link href="http://joshualoftus.com/research.xml" rel="self" type="application/rss+xml"/>
+    <description>Joshua Loftus
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Fairness and causality in machine learning</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning</link>
+      <description>Counterfactual fairness formulates fair machine learning within a causal inference perspective, motivated by the intuition that defining or verifying fairness is a similar challenge to determining causality.</description>
+      <guid>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning</guid>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="http://joshualoftus.com/talks/2021-04-18-conference-on-machine-learning-and-inequality/preview.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Inference after model selection</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/research/inference-after-model-selection</link>
+      <description>This work involves challenging mathematical and computational aspects of conducting inference after model selection procedures with complicated underlying geometry. This enables significance testing, for example, after using some of the most popular model selection procedures such as the lasso with regularization chosen by cross-validation, or forward stepwise with number of steps chosen by AIC or BIC. Often the resulting significance tests are slightly modified versions of the classical tests in regression analysis.</description>
+      <guid>http://joshualoftus.com/research/inference-after-model-selection</guid>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Research philosophy, slides from talks, other links</title>
+      <dc:creator>Joshua Loftus</dc:creator>
+      <link>http://joshualoftus.com/research/philosophy-talks-links</link>
+      <description>Slides for recent talks, writing for a general audience, various links, and an explanation of the high level goals and motivations of my research.</description>
+      <guid>http://joshualoftus.com/research/philosophy-talks-links</guid>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
