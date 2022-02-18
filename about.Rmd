@@ -8,14 +8,9 @@ output:
 
 ## Bio
 
-I am a statistician and data scientist with a broad range of interests including theory, applications, and teaching with the R statistical programming language. My research focuses on common practices in machine learning and data science pipelines and addressing sources and types of error that have previously been overlooked. This includes, for example:
+I'm a professor of statistics and data science, and have also studied mathematics and biostatistics. From my background--as a first-generation college graduate starting in community college--I was very fortunate to finish a PhD in Statistics at Stanford University. I'm grateful for that opportunity and to the teachers who helped me along the way, and I care about diversity, inclusion, and mentoring students from underprivileged backgrounds. In my teaching I want to empower students: to understand deeply, to correctly interpret, and to wisely use the powerful tools of data science for good.
 
-- Developing methods for inference after model selection such as *p*-values adjusted for selection bias
-- Analyzing the social fairness of machine learning algorithms from a causal perspective
-
-My peer reviewed research has been published in the **Annals of Statistics**, **Biometrika**, **Advances in Neural Information Processing Systems** (NeurIPS), and the **International Conference on Machine Learning** (ICML).
-
-As a first generation college graduate, my journey in higher education started in community college. I care about diversity and inclusion, and I'm happy to speak with, mentor, or help students from any background. 
+My research focuses on common practices in machine learning and data science pipelines with the goal of correcting biases that have previously been overlooked. Some key applications include finding and repairing the causes of the replication crisis in science and socially harmful applications of machine learning, artificial intelligence, or data-driven systems more broadly. My peer reviewed research has been published in the **Annals of Statistics**, **Biometrika**, **Advances in Neural Information Processing Systems** (NeurIPS), and the **International Conference on Machine Learning** (ICML).
 
 ## Education
 
@@ -26,8 +21,8 @@ As a first generation college graduate, my journey in higher education started i
 
 ## Experience
 
-- Assistant Professor, **London School of Economics**, Department of Statistics, 2021-present.
-- Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, 2017-2020.
+- Assistant Professor, **London School of Economics**, Department of Statistics, and Affiliate of the Data Science Institute, 2021-present.
+- Assistant Professor, **New York University**, Department of Technology, Operations, and Statistics, and Affiliate of the Center for Data Science, 2017-2020.
 - Research Fellow, **Alan Turing Institute** and **University of Cambridge**, 2016-17. 
 
 ### The meaning of "Neurath's Speedboat"

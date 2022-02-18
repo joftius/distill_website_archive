@@ -1,22 +1,5 @@
 [
   {
-    "path": "teaching/resources/",
-    "title": "Teaching philosophy, useful links and resources",
-    "description": "Useful links and resources on teaching and learning, and an explanation of my teaching goals",
-    "author": [
-      {
-        "name": "Joshua Loftus",
-        "url": {}
-      }
-    ],
-    "date": "2022-02-17",
-    "categories": [],
-    "contents": "\nCurrent course pages\nST310: Machine learning for data science\nOlder course pages\nSome day these links will be fixed\nStat-GB.4304: Modern statistics for data science\nStat-UB.103: Introductory statistics (created by Vinu Abeywick)\nStat-UB.103: Statistics for business: control, regression, and forecasting (page not active)\nStats 390: Statistical Consulting Workshop\nSelected links\nFor the R programming language\nInstallation: download and install the R language itself, then download and install the free desktop version of RStudio, finally, you may find this short, free book on the basics of R and RStudio helpful for getting started.\nPackages and guides\nThe tidyverse is essential. It’s a bundle of packages including blockbusters like ggplot2 and dplyr.\nThis list of recommended packages has a lot of great suggestions as well.\nThere are many great, free books for learning R in more depth than the R Basics one above, including books focusing on visualization, introductory statistics, text mining, and data science.\nInteresting data sets\nData in R packages is easy to access. Just install.packages(\"packagename\") (with quotes), then library(packagename) (without quotes), and read the package documentation for help. For example, the nycflights13 documentation describes 5 dataframes contained in that package, like the flights dataframe and the name and meaning of each variable it contains.\nIf a package is not available on CRAN (the central repository for R), but is instead only hosted on github, you may need to install the package devtools and use the command devtools::install_github(\"authorname/packagename\").\nFiveThiryEight is an R package with many interesting datasets from the data journalism site with the same name. There are several sports and politics datasets, one about which movies pass or fail the Bechdel test, one about hate crimes and income inequality, one about employment and earnings of recent college graduates by major, and so on. Check the documentation for a full list of datasets and how to use each one.\nGapminder is an R package with data including life expectancy and GDP per capita by country and year. This is the data shown in a famous TED talk by the late Hans Rosling.\nThe four packages described in this post on the RStudio blog: babynames, fueleconomy, nasaweather and nycflights13.\n\n\n\n",
-    "preview": {},
-    "last_modified": "2022-02-17T16:29:04+00:00",
-    "input_file": "resources.knit.md"
-  },
-  {
     "path": "teaching/machine-learning-for-data-science/",
     "title": "Machine learning for data science",
     "description": "While introducing a core set of commonly used machine learning tools and practicing them in the R statistical programming language, this course focuses on understanding their mathematical foundations, statistical limitations, and proper interpretation.",
@@ -31,6 +14,23 @@
     "contents": "\nFind the full course page here:\nST310: Machine learning for data science\n\n\n\n",
     "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
     "last_modified": "2022-02-17T16:32:08+00:00",
-    "input_file": "machine-learning-for-data-science.knit.md"
+    "input_file": {}
+  },
+  {
+    "path": "teaching/resources/",
+    "title": "Teaching philosophy, useful links and resources",
+    "description": "Useful links and resources on teaching and learning, and an explanation of my teaching goals",
+    "author": [
+      {
+        "name": "Joshua Loftus",
+        "url": {}
+      }
+    ],
+    "date": "2022-02-17",
+    "categories": [],
+    "contents": "\nCurrent course pages\nST310: Machine learning for data science\nOlder course pages\nSome day these links will be fixed\nStat-GB.4304: Modern statistics for data science\nStat-UB.103: Introductory statistics (created by Vinu Abeywick)\nStat-UB.103: Statistics for business: control, regression, and forecasting (page not active)\nStats 390: Statistical Consulting Workshop\nSelected links\nFor the R programming language\nInstallation: download and install the R language itself, then download and install the free desktop version of RStudio, finally, you may find this short, free book on the basics of R and RStudio helpful for getting started.\nPackages and guides\nThe tidyverse is essential. It’s a bundle of packages including blockbusters like ggplot2 and dplyr.\nThis list of recommended packages has a lot of great suggestions as well.\nThere are many great, free books for learning R in more depth than the R Basics one above, including books focusing on visualization, introductory statistics, text mining, and data science.\nInteresting data sets\nData in R packages is easy to access. Just install.packages(\"packagename\") (with quotes), then library(packagename) (without quotes), and read the package documentation for help. For example, the nycflights13 documentation describes 5 dataframes contained in that package, like the flights dataframe and the name and meaning of each variable it contains.\nIf a package is not available on CRAN (the central repository for R), but is instead only hosted on github, you may need to install the package devtools and use the command devtools::install_github(\"authorname/packagename\").\nFiveThiryEight is an R package with many interesting datasets from the data journalism site with the same name. There are several sports and politics datasets, one about which movies pass or fail the Bechdel test, one about hate crimes and income inequality, one about employment and earnings of recent college graduates by major, and so on. Check the documentation for a full list of datasets and how to use each one.\nGapminder is an R package with data including life expectancy and GDP per capita by country and year. This is the data shown in a famous TED talk by the late Hans Rosling.\nThe four packages described in this post on the RStudio blog: babynames, fueleconomy, nasaweather and nycflights13.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-17T16:29:04+00:00",
+    "input_file": {}
   }
 ]

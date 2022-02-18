@@ -14,7 +14,7 @@
     "contents": "\nCausal inference in fairness\nThis work approaches fair machine learning from a causal inference perspective, arguing that determining what is fair is a similar challenge to determining causality.\nPress\nSome of this work was covered in the New Scientist and 36Kr.\nPublications\nL. E. J. Bynum, J. R. Loftus, J. Stoyanovich, Disaggregated Interventions to Reduce Inequality. Equity and Access in Algorithms, Mechanisms, and Optimization, 2021. [link]\nK. Yang, J. R. Loftus, J. Stoyanovich, Causal intersectionality and fair ranking. Foundations of Responsible Computing, 2021. [link]\nM. J. Kusner, C. Russell, J. R. Loftus, R. Silva. Making Decisions that Reduce Discriminatory Impact. International Conference on Machine Learning, 2019. [link]\nM. J. Kusner, J. R. Loftus, C. Russell, R. Silva. Counterfactual fairness. Advances in Neural Information Processing Systems, 2017. [link]\nC. Russell, M. J. Kusner, J. R. Loftus, R. Silva. When worlds collide: integrating different counterfactual assumptions in fairness. Advances in Neural Information Processing Systems, 2017. [link]\nJ. R. Loftus, C. Russell, M. J. Kusner, R. Silva. Causal reasoning for algorithmic fairness. Preprint.\n\n\n\n",
     "preview": "http://joshualoftus.com/talks/2021-04-18-conference-on-machine-learning-and-inequality/preview.png",
     "last_modified": "2022-02-17T16:29:59+00:00",
-    "input_file": "fairness-and-causality-in-machine-learning.knit.md"
+    "input_file": {}
   },
   {
     "path": "research/inference-after-model-selection/",
@@ -30,8 +30,8 @@
     "categories": [],
     "contents": "\nPost-selection inference\nThis work involves challenging mathematical and computational aspects of conducting inference after model selection procedures with complicated underlying geometry. This enables significance testing, for example, after using some of the most popular model selection procedures such as the lasso with regularization chosen by cross-validation, or forward stepwise with number of steps chosen by AIC or BIC. Often the resulting significance tests are slightly modified versions of the classical tests in regression analysis.\nSoftware\nI’m a co-author of the selectiveInference package on CRAN.\nPublications\nX. Tian, J. R. Loftus, J. E. Taylor. Selective inference with unknown variance via the square-root LASSO. Biometrika, 2018. [link]\nJ. E. Taylor, J. R. Loftus, and R. J. Tibshirani. Inference in adaptive regression via the Kac-Rice formula. Annals of Statistics, 2016. [link]\nJ. R. Loftus. Selective inference after cross-validation. Preprint.\nJ. R. Loftus and J. E. Taylor. Selective inference in regression models with groups of variables. Preprint.\nJ. R. Loftus, J. E. Taylor. A significance test for forward stepwise model selection. Preprint.\n\n\n\n",
     "preview": "https://joshualoftus.com/posts/2020-12-22-a-conditional-approach-to-inference-after-model-selection/a-conditional-approach-to-inference-after-model-selection_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2022-02-17T16:29:42+00:00",
-    "input_file": "inference-after-model-selection.knit.md"
+    "last_modified": "2022-02-17T16:29:43+00:00",
+    "input_file": {}
   },
   {
     "path": "research/philosophy-talks-links/",
