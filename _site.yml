@@ -23,6 +23,9 @@ collections:
   physics:
     share: [twitter, linkedin]
     categories: true
+  math:
+    share: [twitter, linkedin]
+    categories: true
 output_dir: "docs"
 include: ["post", "files"]
 creative_commons: CC BY

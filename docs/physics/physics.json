@@ -1,7 +1,7 @@
 [
   {
     "path": "physics/feynman1/",
-    "title": "Notes on Physics",
+    "title": "Feynman Lectures on Physics, part 1",
     "description": "Why am I doing this to myself",
     "author": [
       {
@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\nThese are my notes taken while learning physics, largely from reading the Feynman Lectures.\nClick for the full page here\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-02-21T11:19:21+00:00",
-    "input_file": {}
+    "last_modified": "2022-02-21T18:17:18+00:00",
+    "input_file": "feynman1.knit.md"
   }
 ]

@@ -1,5 +1,5 @@
 ---
-title: "Notes on Physics"
+title: "Feynman Lectures on Physics, part 1"
 description: |
   Why am I doing this to myself
 author:
