@@ -5,6 +5,12 @@ description: |
 base_url: http://joshualoftus.com/
 google_analytics: "UA-114292497-1"
 collections:
+  research:
+    share: [twitter, linkedin]
+    categories: false
+  teaching:
+    share: [twitter, linkedin]
+    categories: false    
   posts:
     share: [twitter, linkedin]
     categories: true
@@ -13,6 +19,9 @@ collections:
   ml4ds:
     categories: false
   talks:
+    categories: true
+  physics:
+    share: [twitter, linkedin]
     categories: true
 output_dir: "docs"
 include: ["post", "files"]
@@ -30,7 +39,9 @@ navbar:
     - text: "teaching"
       href: teaching.html
     - text: "notes"
-      href: notes.html      
+      href: notes.html   
+    - text: "blog"
+      href: posts.html         
     - text: "about"
       href: about.html      
     - icon: fa fa-rss

@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>http://joshualoftus.com/notes.html</loc>
-    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
+    <lastmod>2022-02-21T11:18:29+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/old_about.html</loc>
@@ -23,6 +23,14 @@
   <url>
     <loc>http://joshualoftus.com/old_</loc>
     <lastmod>2022-02-16T16:34:50+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/physics.html</loc>
+    <lastmod>2022-02-21T11:06:40+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/posts.html</loc>
+    <lastmod>2022-02-21T10:45:15+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/research.html</loc>
@@ -35,6 +43,26 @@
   <url>
     <loc>http://joshualoftus.com/teaching.html</loc>
     <lastmod>2022-02-17T15:58:22+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning/</loc>
+    <lastmod>2022-02-17T16:29:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/inference-after-model-selection/</loc>
+    <lastmod>2022-02-17T16:29:43+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/research/philosophy-talks-links/</loc>
+    <lastmod>2022-02-17T16:17:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/teaching/machine-learning-for-data-science/</loc>
+    <lastmod>2022-02-17T16:32:08+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/teaching/resources/</loc>
+    <lastmod>2022-02-17T16:29:04+00:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/posts/2020-11-23-least-squares-as-springs/</loc>
@@ -117,23 +145,7 @@
     <lastmod>2021-10-07T17:26:28+01:00</lastmod>
   </url>
   <url>
-    <loc>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning/</loc>
-    <lastmod>2022-02-17T16:29:59+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/research/inference-after-model-selection/</loc>
-    <lastmod>2022-02-17T16:29:43+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/research/philosophy-talks-links/</loc>
-    <lastmod>2022-02-17T16:17:34+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/teaching/machine-learning-for-data-science/</loc>
-    <lastmod>2022-02-17T16:32:08+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://joshualoftus.com/teaching/resources/</loc>
-    <lastmod>2022-02-17T16:29:04+00:00</lastmod>
+    <loc>http://joshualoftus.com/physics/feynman1/</loc>
+    <lastmod>2022-02-21T11:19:21+00:00</lastmod>
   </url>
 </urlset>

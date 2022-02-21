@@ -7,10 +7,6 @@
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
-    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
-    <script src="libs/tile-view/tile-view.js"></script>
-    <link href="libs/panelset/panelset.css" rel="stylesheet" />
-    <script src="libs/panelset/panelset.js"></script>
     <script src="libs/htmlwidgets/htmlwidgets.js"></script>
     <script src="libs/d3/d3.min.js"></script>
     <script src="libs/dagre/dagre-d3.min.js"></script>
@@ -20,7 +16,6 @@
     <script src="libs/chromatography/chromatography.js"></script>
     <script src="libs/DiagrammeR-binding/DiagrammeR.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="../../../theme.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -69,6 +64,10 @@ Two cultures again: prediction vs [action](https://twitter.com/whitesphd/status/
 ![](truck.jpg)
 ---
 
+&lt;iframe src="https://en.wikipedia.org/wiki/Simpson%27s_paradox#UC_Berkeley_gender_bias" scrolling= "no" height="600" width="760" &gt;&lt;/iframe&gt;
+
+---
+
 ### Berkeley graduate admissions example
 
 &gt; The bias in the aggregated data stems **not from any pattern of discrimination on the part of admissions committees**, which seem quite fair on the whole, but apparently from **prior screening at earlier levels** of the educational system. Women are shunted by their **socialization and education** toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.
@@ -105,8 +104,8 @@ I was admitted to grad school. **If I had been different**, had a different gend
 "Algorithm does not *explicitly* use race" -- in an unfair system **other things can correlate with race**, e.g. prior convictions
 
 .pull-left[
-<div id="htmlwidget-f843a680a1fcd62a0dd1" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f843a680a1fcd62a0dd1">{"x":{"diagram":"\ngraph LR\n  R-->M\n  S-->M\n  S-->P\n  M-->P\n  P-->C\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a3c87662a2939578a855" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a3c87662a2939578a855">{"x":{"diagram":"\ngraph LR\n  R-->M\n  S-->M\n  S-->P\n  M-->P\n  P-->C\n"},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 Race `\(R\)`, structural racism `\(S\)`, arrested for marijuana `\(M\)`, prior conviction `\(P\)`, risk score `\(C\)`
@@ -171,28 +170,28 @@ class: split-four
 .column[
 &amp;nbsp; 
 
-<div id="htmlwidget-ba32e0541469b5ed4906" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ba32e0541469b5ed4906">{"x":{"diagram":"\ngraph TB\n  Race-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d26bfe112ba61c5aa31f" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d26bfe112ba61c5aa31f">{"x":{"diagram":"\ngraph TB\n  Race-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
 ]
 .column[
 &amp;nbsp; 
 
-<div id="htmlwidget-484ed42468d86de4a421" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-484ed42468d86de4a421">{"x":{"diagram":"\ngraph TB\n  Racism-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-de3276d0e432f67cb358" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-de3276d0e432f67cb358">{"x":{"diagram":"\ngraph TB\n  Racism-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
 ]
 
 .column[
 &amp;nbsp; 
 
 
-<div id="htmlwidget-697d58abce2053a24549" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-697d58abce2053a24549">{"x":{"diagram":"\ngraph TB\n  A-->X\n  X-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c894144e72fb64bfd74d" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c894144e72fb64bfd74d">{"x":{"diagram":"\ngraph TB\n  A-->X\n  X-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
 ]
 .column[
 &amp;nbsp; 
 
-<div id="htmlwidget-29a56e939b13f92b7856" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-29a56e939b13f92b7856">{"x":{"diagram":"\ngraph TB\n  A-->X\n  A-->R\n  X-->Y\n  R-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-467f3ada599dec390e71" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-467f3ada599dec390e71">{"x":{"diagram":"\ngraph TB\n  A-->X\n  A-->R\n  X-->Y\n  R-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -269,8 +268,8 @@ Lots of scholarship, not much using formal mathematical models. See [Bright et a
 
 .pull-left[
 Race, gender, weightlifting test, application score
-<div id="htmlwidget-457827ab1876f7c57926" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-457827ab1876f7c57926">{"x":{"diagram":"\ngraph TB\n  R-->X\n  G-->X\n  R-->Y\n  X-->Y\n  G-->Y\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3f8521140010cc3d742c" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3f8521140010cc3d742c">{"x":{"diagram":"\ngraph TB\n  R-->X\n  G-->X\n  R-->Y\n  X-->Y\n  G-->Y\n"},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 Weightlifting considered a **resolving variable** (company argues it is a necessary qualification)

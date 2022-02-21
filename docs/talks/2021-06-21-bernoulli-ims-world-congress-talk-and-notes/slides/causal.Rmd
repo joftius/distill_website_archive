@@ -6,8 +6,9 @@ author: "Joshua Loftus (LSE Statistics)"
 #date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
-    css: ["default", "xaringan-themer.css", "../../../theme.css", "ninjutsu"]
+    css: ["default", "xaringan-themer.css",  "ninjutsu"]
 #    seal: false    
+# "../../../theme.css",
     lib_dir: libs
     nature:
       titleSlideClass: ["bottom", "left"]
@@ -43,11 +44,11 @@ style_duo_accent(
 ```
 
 ```{r xaringanextra, include=FALSE, warning=FALSE}
-library(xaringanExtra)
+#library(xaringanExtra)
 #xaringanExtra::use_animate_all("slide_left")
-xaringanExtra::use_tile_view()
-xaringanExtra::use_panelset()
-xaringanExtra::style_panelset_tabs(font_family = "inherit")
+#xaringanExtra::use_tile_view()
+#xaringanExtra::use_panelset()
+#xaringanExtra::style_panelset_tabs(font_family = "inherit")
 ```
 
 ```{r tidyverse, include=FALSE, warning=FALSE}
@@ -85,6 +86,10 @@ Optimal fair policies, causal **interference**
 Two cultures again: prediction vs [action](https://twitter.com/whitesphd/status/1308094245669081089)
 
 ![](truck.jpg)
+---
+
+<iframe src="https://en.wikipedia.org/wiki/Simpson%27s_paradox#UC_Berkeley_gender_bias" scrolling= "no" height="600" width="760" ></iframe>
+
 ---
 
 ### Berkeley graduate admissions example

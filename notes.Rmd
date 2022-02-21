@@ -1,8 +1,21 @@
 ---
 title: "Notes"
 description: |
-preview: https://pbs.twimg.com/profile_images/1338678247022845952/e5426I0l_400x400.jpg
-listing: posts
+  On various topics
+author:
+  - name: Joshua Loftus
+    url: https://joshualoftus.com
+date: "`r Sys.Date()`"
+output: distill::distill_article
 ---
 
- \ 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Look at my notes on [physics](physics.html)
+
+
+
+
+

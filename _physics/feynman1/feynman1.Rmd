@@ -1,0 +1,22 @@
+---
+title: "Notes on Physics"
+description: |
+  Why am I doing this to myself
+author:
+  - name: Joshua Loftus
+date: 2022-02-21
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+These are my notes taken while learning physics, largely from reading the [Feynman Lectures](https://www.feynmanlectures.caltech.edu/).
+
+Click for the full page [here](../../physics.html)
+
+
