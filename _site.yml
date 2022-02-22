@@ -1,9 +1,11 @@
-name: "."
+name: "Joshua Loftus"
+orcid_id: "0000-0002-2905-1632"
 title: "neurath's speedboat"
 description: |
   Joshua Loftus
 base_url: http://joshualoftus.com/
 google_analytics: "UA-114292497-1"
+citations: false
 collections:
   research:
     share: [twitter, linkedin]
