@@ -6,7 +6,8 @@ author: "Joshua Loftus"
 #date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
-    css: ["default", "xaringan-themer.css", "../../../theme.css"]
+    css: ["default", "xaringan-themer.css"]
+    # , "../../../theme.css"
 #    seal: false    
     lib_dir: libs
     nature:
@@ -203,7 +204,7 @@ Driven by empirical performance on prediction/classification, very little theory
 
 ---
 
-### What's special about deep learning?
+### What's special about **deep** learning?
 
 Faster optimizers and hardware, and larger datasets, also allow other methods to scale up number of parameters. So why did deep learning become SoTA?
 
@@ -257,6 +258,12 @@ Chain rule, automatic differentiation, [efficient implementations](https://en.wi
 
 ---
 
+### Optimization: backprop for efficient chain-rule
+
+![](backprop.png)
+
+---
+
 ## Specialized regularization
 
 .pull-left[
@@ -275,19 +282,6 @@ Averaging over many models represented by all possible subnetworks
 (Figure 7.6 from [DLbook](https://www.deeplearningbook.org/contents/regularization.html))
 ]
 
----
-
-### Specialized (or same old?) statistical problems
-
-Decisions about network architecture made by experimenting, checking error on test data, and trying again...
-
-Recall Duda and Hart:
-
-> A [...] problem arises *when a classifier undergoes a long series of refinements guided by the results of repeated testing on the same data*. This form of "**training on the testing data**" often escapes attention until new test samples are obtained.
-
-Crisis: [adversarial](https://en.wikipedia.org/wiki/Adversarial_machine_learning) examples, robustness, [OOD](https://en.wikipedia.org/wiki/Multi-task_learning) [generalization](https://en.wikipedia.org/wiki/Transfer_learning)
-
-Crisis: breakdown of the [Common Task Framework](https://arxiv.org/abs/2001.07648)? ([David Donoho](https://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf) attributes the success of machine learning to the CTF)
 
 ---
 
@@ -307,17 +301,80 @@ Short answer: a lot of resources (expertise, time, data, money) went into making
 
 ---
 
-### Questions/mathematical lessons
+### Specialized (or same old?) statistical problems
 
-Non-convex, but doesn't seem to suffer local minima problems
+Decisions about network architecture made by experimenting, checking error on test data, and trying again...
 
-Overparametrized so global optimum is 0 training loss. Real question is why do these solutions generalize, aren't overfit?
+Recall Duda and Hart:
 
-- Representer theorem heuristic - $p$ dimensional problem reduces to $n$ dimensional problem
+> A [...] problem arises *when a classifier undergoes a long series of refinements guided by the results of repeated testing on the same data*. This form of "**training on the testing data**" often escapes attention until new test samples are obtained.
 
-- "Implicit regularization" - SGD converges to minimum norm solutions
+Crisis: [adversarial](https://en.wikipedia.org/wiki/Adversarial_machine_learning) examples, robustness, [OOD](https://en.wikipedia.org/wiki/Multi-task_learning) [generalization](https://en.wikipedia.org/wiki/Transfer_learning)
 
-- Remember, optimization and generalization are still not equivalent! No guarantee that minimum norm solution is a good one, but maybe if there's signal in the data [can always find a minimum norm solution to predict $y$ sampled independently from `rnorm(n)`]
+Crisis: breakdown of the [Common Task Framework](https://arxiv.org/abs/2001.07648)? ([David Donoho](https://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf) attributes the success of machine learning to the CTF)
+
+---
+
+## Optimization issues: non-convexity
+
+Almost all our understanding is based on *empirical results*
+
+No mathematical guarantees about convergence
+
+Plot graph of test error... has it converged yet?
+
+(Dangerous/confusing territory- we'll come back to this)
+
+(Time for break?)
+
+
+
+---
+
+### Does statistics apply to DL?
+
+The bias-variance trade-off is one of the most important pillars of statistical wisdom
+
+If we make a model too complex, it overfits to the training data... or does it?
+
+Some people think that deep learning is an exception
+
+![](doubledescent.jpg)
+
+Lots of citations/papers, a big mystery!... Or is it?
+
+---
+
+## Apply the logic carefully
+
+Does zero training error *necessarily* mean the model is overfit?
+
+--
+
+**No**! Anna Karenina principle: 
+
+> All truly optimal models are alike; each overfit model is overfit in its own way.
+
+e.g. 1-dim interpolation of the same (training) points with curves of different smoothness
+
+---
+
+#### Why is "double descent" often observed in practice?
+
+--
+
+**Too many moving parts**! Choices in training. [Nakkiran et al](https://arxiv.org/abs/2003.01897): 
+
+![](tuneddescent.png)
+
+---
+
+#### Why can training-interpolating models generalize?
+
+**Simple plus spiky** decomposition. [Bartlett et al](https://arxiv.org/abs/2103.09177):
+
+![](simpleplusspiky.png)
+
 
 ---
 
@@ -329,9 +386,18 @@ Overparametrized so global optimum is 0 training loss. Real question is why do t
 
 ---
 
-## Deep = problematic?
+### Questions/mathematical lessons
 
-![](https://tvline.com/wp-content/uploads/2020/09/the-boys-season-2-the-deep-gills-2.jpg)
+Non-convex, but doesn't seem to suffer local minima problems
+
+Overparametrized so global optimum is 0 training loss. Real question is why do these solutions generalize, aren't overfit?
+
+- Low dimensional data manifold heuristic
+
+- "Implicit regularization" - SGD converges to minimum norm solutions
+
+- Remember, optimization and generalization are still not equivalent! No guarantee that minimum norm solution is a good one, but maybe if there's signal in the data [can always find a minimum norm solution to predict $y$ sampled independently from `rnorm(n)`]
+
 
 ---
 class: inverse
