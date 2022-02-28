@@ -1,0 +1,28 @@
+---
+title: "Stochastic ordering"
+description: |
+  A short description of the post.
+author:
+  - name: Joshua Loftus
+date: 2022-02-21
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(tidyverse) # ok
+```
+
+When is **stochastic ordering** *preserved under conditioning*?
+
+# Testing
+
+## What does this have to do with inference
+
+### Selective unbiasedness
