@@ -33,7 +33,7 @@ Why are we doing any of this?
 
 [Slides](slides/10-1-interpretation.html) for interpretation ([PDF])
 
-[Slides](slides/10-2-professional.html) for ethics ([PDF])
+[Slides](slides/10-2-changetheworld.html) for ethics ([PDF])
 
 [Notebook](notebooks/iml.html) for interpretation methods
 

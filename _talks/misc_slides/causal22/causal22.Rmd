@@ -1,5 +1,5 @@
 ---
-title: "Fair algorithms and causal models"
+title: "Causal foundations for fair and responsible machine learning"
 subtitle: ""
 author: "Joshua Loftus (LSE Statistics)"
 #institute: "LSE"

@@ -109,7 +109,7 @@ epochs <- 5
 model %>% compile(
   loss = loss_categorical_crossentropy,
   #optimizer = optimizer_adadelta(),
-  optimizer = optimizer_sgd(momentum = .9, learning_rate = 0.1),
+  optimizer = optimizer_sgd(momentum = .9, learning_rate = 0.05),
   metrics = c('accuracy')
 )
 
@@ -165,14 +165,14 @@ y_test <- to_categorical(y_test, num_classes)
 
 
 ```{r}
-N <- 1 # 1, 5, 10, 20, 50 
+N <- 5 # 1, 5, 10, 20, 50 
 
 model <- keras_model_sequential(input_shape = input_shape) %>%
   layer_flatten() %>% 
   layer_dense(units = 10*N, activation = 'relu') %>%
-  #layer_dropout(rate = 0.25) %>%
-  #layer_batch_normalization() %>%
-  #layer_dense(units = 4*K, activation = 'relu') %>%
+  layer_dropout(rate = 0.25) %>%
+  layer_batch_normalization() %>%
+  layer_dense(units = 4*K, activation = 'relu') %>%
   #layer_dropout(rate = 0.5) %>%    
   layer_dense(units = num_classes, activation = 'softmax')
 
