@@ -132,8 +132,8 @@
     "categories": [],
     "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for GAMs video ([PDF])\nSlides for trees and forests video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-04-01T12:03:26+01:00",
-    "input_file": "08-nonlinear.knit.md"
+    "last_modified": "2022-04-01T12:03:27+01:00",
+    "input_file": {}
   },
   {
     "path": "ml4ds/09-uninterpretable/",
@@ -166,7 +166,7 @@
     "categories": [],
     "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for interpretation methods\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-04-01T12:02:37+01:00",
-    "input_file": "10-action.knit.md"
+    "last_modified": "2022-04-01T12:02:38+01:00",
+    "input_file": {}
   }
 ]
