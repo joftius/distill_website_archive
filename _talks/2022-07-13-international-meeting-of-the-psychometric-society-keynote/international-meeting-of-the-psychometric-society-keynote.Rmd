@@ -1,0 +1,24 @@
+---
+title: "International Meeting of the Psychometric Society keynote"
+description: |
+  A talk on fair algorithms, causality, and some related issues in measurement.
+author:
+  - name: Joshua Loftus
+    url: https://joshualoftus.com/
+date: 2022-07-13
+output:
+  distill::distill_article:
+    self_contained: false
+preview: preview.png
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Links
+
+[Slides](slides/causal.html) for my talk
+
+

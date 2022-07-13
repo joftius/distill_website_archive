@@ -2,51 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>http://joshualoftus.com/about.html</loc>
-    <lastmod>2022-02-18T12:46:34+00:00</lastmod>
+    <lastmod>2022-02-18T13:46:34+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/</loc>
-    <lastmod>2022-02-18T12:59:30+00:00</lastmod>
+    <lastmod>2022-07-13T15:24:01+02:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/math.html</loc>
-    <lastmod>2022-02-21T18:15:17+00:00</lastmod>
+    <lastmod>2022-02-21T19:15:17+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/ml4ds.html</loc>
-    <lastmod>2021-10-13T14:35:08+01:00</lastmod>
+    <lastmod>2021-10-13T15:35:08+02:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/notes.html</loc>
-    <lastmod>2022-02-21T11:18:29+00:00</lastmod>
+    <lastmod>2022-02-21T12:18:29+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/old_about.html</loc>
-    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
+    <lastmod>2022-02-16T17:34:50+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/old_</loc>
-    <lastmod>2022-02-16T16:34:50+00:00</lastmod>
+    <lastmod>2022-02-16T17:34:50+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/physics.html</loc>
-    <lastmod>2022-02-21T11:06:40+00:00</lastmod>
+    <lastmod>2022-02-21T12:06:40+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/posts.html</loc>
-    <lastmod>2022-02-21T10:45:15+00:00</lastmod>
+    <lastmod>2022-02-21T11:45:15+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/research.html</loc>
-    <lastmod>2022-02-17T16:16:22+00:00</lastmod>
+    <lastmod>2022-02-17T17:16:22+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/talks.html</loc>
-    <lastmod>2021-10-07T18:04:43+01:00</lastmod>
+    <lastmod>2021-10-07T19:04:43+02:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/teaching.html</loc>
-    <lastmod>2022-02-17T15:58:22+00:00</lastmod>
+    <lastmod>2022-02-17T16:58:22+01:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/research/fairness-and-causality-in-machine-learning/</loc>
@@ -135,6 +135,10 @@
   <url>
     <loc>http://joshualoftus.com/ml4ds/10-action/</loc>
     <lastmod>2022-04-01T12:02:38+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://joshualoftus.com/talks/2022-07-13-international-meeting-of-the-psychometric-society-keynote/</loc>
+    <lastmod>2022-07-13T16:38:00+02:00</lastmod>
   </url>
   <url>
     <loc>http://joshualoftus.com/talks/2021-06-21-bernoulli-ims-world-congress-talk-and-notes/</loc>
