@@ -247,7 +247,7 @@ My opinion: we could use a healthy dose of (philosophical)
 
 ---
 
-### Statistical wisdom: models as (thinking) tools
+#### Statistical wisdom: models as (thinking) tools
 
 .pull-left[
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
@@ -560,8 +560,6 @@ Claim: **causality** points us in good directions for research
 
 - Making models/assumptions transparent
 
-- Trade-off between increasing utility and certainty?
-
 ---
 
 [Why focus on causality?](https://twitter.com/whitesphd/status/1308094245669081089)
@@ -578,16 +576,30 @@ Why trade-offs? Constraints of time and other resources...
 
 --
 
-#### Information age
-
-A key trade-off: measurement/prediction vs action
-
---
-
 #### Constructs and measures
 Validity, reliability, and **malleability**
 
 (e.g. "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer))
+
+
+---
+
+### Key trade-off of the "information age"
+
+```{r, echo=FALSE}
+df2 <- data.frame(
+  world = c("measure", "measure", "act", "act"),
+  choice = c("A", "B", "A", "B"),
+  utility = c(1, 1.1, 1.3, 1.2),
+  sd = c(.07, .1, .3, .25)
+)
+ggplot(df2, aes(x=world, y=utility, fill=choice)) + 
+  geom_bar(stat="identity", color="black", 
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=utility-sd, ymax=utility+sd), width=.2,
+                 position=position_dodge(.9)) 
+  
+```
 
 ---
 class: inverse
