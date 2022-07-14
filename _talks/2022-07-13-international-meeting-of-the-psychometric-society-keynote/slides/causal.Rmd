@@ -1,5 +1,5 @@
 ---
-title: "Counterfactual fairness"
+title: "Fair algorithms, causality, and measurement"
 #Causal foundations for fair and responsible machine learning
 subtitle: ""
 author: "Joshua Loftus (LSE Statistics)"
@@ -23,6 +23,7 @@ header-includes:
   - \usepackage{color}
 ---
 
+class: split-four
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -68,19 +69,98 @@ library(modelr)
 }
 </style>
 
+
+
+
+.column[
+![](matt.png)
+Matt Kusner (UCL)
+&nbsp; 
+
+&nbsp; 
+
+![](julia.png)
+Julia Stoyanovich
+]
+
+.column[
+![](chris.png)
+Chris Russell (AWS/ELLIS)
+
+&nbsp; 
+
+![](ke.jpg)
+Ke Yang
+]
+
+.column[
+![](ricardo.png)
+
+Ricardo Silva (UCL)
+
+&nbsp;  
+
+![](lucius.png)
+Lucius Bynum
+]
+
+.column[
+## Turing group
+
+&nbsp; 
+
+&nbsp; 
+
+&nbsp; 
+
+### NYU
+![](margarita.jpeg)
+Margarita Boyarskaya
+
+]
+
+---
+
 ### High level intro
 
 Motivating examples, guiding philosophies
 
-### A formalism for causal fairness
+### Causal fairness
 
 In prediction and ranking tasks, with intersectionality, interference, ...
 
 ### Concluding thoughts
 
+And totally unfounded speculations
+
 ---
 
-<iframe src="https://en.wikipedia.org/wiki/Simpson%27s_paradox#UC_Berkeley_gender_bias" scrolling= "no" height="600" width="760" ></iframe>
+### Serious business...
+
+.pull-left[
+"New products and services, including those that incorporate or utilize **artificial intelligence and machine learning**, can raise new or exacerbate existing *ethical, technological, legal*, and other challenges, which **may negatively affect our brands** and demand for our products and services and **adversely affect our revenues** and operating results"
+]
+.pull-right[
+![](../dumb.png)
+
+Source: [WIRED](https://www.wired.com/story/google-microsoft-warn-ai-may-do-dumb-things/), Feb. 2019.
+
+]
+
+---
+
+### Not a new problem for psychometrics!
+
+![](../civilrights.jpg)
+
+See [50 Years of Test (Un)fairness: Lessons for Machine Learning](https://dl.acm.org/doi/10.1145/3287560.3287600) (Hutchinson and Mitchell, 2019) 
+
+---
+
+### Simpson's paradox
+
+<iframe src="https://en.wikipedia.org/wiki/Simpson%27s_paradox#UC_Berkeley_gender_bias" scrolling= "no" height="490" width="760" ></iframe>
+
 
 ---
 
@@ -115,39 +195,11 @@ I was admitted to grad school. **If I had been different**, had a different gend
 
 ---
 
-## How do we get a DAG?
+## Recidivism prediction
 
-Simple examples are easy to understand
+![](../compas.png)
 
-Too simple? Don't correspond to the real world?
-
-### How do we know if it's "true"?
-
-My opinion: we could use a healthy dose of (philosophical)
-
-> [Pragmatism](https://en.wikipedia.org/wiki/Pragmatism) is a philosophical tradition that considers words and thought as *tools and instruments for prediction, problem solving, and action*, and rejects the idea that the function of thought is to describe, represent, or mirror reality.
-
----
-
-### Statistical wisdom: models as (thinking) tools
-
-.pull-left[
-![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
-[George Box](https://en.wikipedia.org/wiki/George_E._P._Box)
-]
-
-.pull-right[
-
-> [All models are wrong](All_models_are_wrong) but some are useful
-
-therefore,
-
-> ... the scientist must be alert to what is **importantly wrong**
-
-> ... **cannot obtain a "correct" one** by excessive elaboration
-
-]
-
+Source: [ProPublica](https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm), 2016.
 
 ---
 
@@ -175,6 +227,50 @@ Race $R$, structural racism $S$, arrested for marijuana $M$, prior conviction $P
 If $C$ is computed using only $P$ (and not $R$ *directly*), is that "fair"?
 ]
 
+
+
+---
+
+## How do we get a DAG?
+
+Simple examples are easy to understand
+
+Too simple? Don't correspond to the real world?
+
+### How do we know if it's "true"?
+
+--
+
+My opinion: we could use a healthy dose of (philosophical)
+
+> [Pragmatism](https://en.wikipedia.org/wiki/Pragmatism) is a philosophical tradition that considers words and thought as *tools and instruments for prediction, problem solving, and action*, and rejects the idea that the function of thought is to describe, represent, or mirror reality.
+
+---
+
+### Statistical wisdom: models as (thinking) tools
+
+.pull-left[
+![](https://upload.wikimedia.org/wikipedia/commons/a/a2/GeorgeEPBox.jpg)
+[George Box](https://en.wikipedia.org/wiki/George_E._P._Box)
+]
+
+.pull-right[
+
+> [All models are wrong](All_models_are_wrong) but some are useful
+
+therefore,
+
+> ... the scientist must be alert to what is **importantly wrong**
+
+> ... **cannot obtain a "correct" one** by excessive elaboration
+
+]
+
+---
+class: inverse, center, middle
+
+## My research focus: **causal fairness**
+
 ---
 
 ## Defining fairness causally
@@ -187,13 +283,45 @@ $$P(\hat Y_a | x, a) = P(\hat Y_{a'} |x, a)$$
 
 
 
-#### Proposition (sufficient, not necessary)
+#### Proposition (sufficient, not necessary):
 Any predictor $\hat Y$ which is a function of only non-descendents of $A$ in the DAG is counterfactually fair
 
-#### Causal pathways
 
-Fairness: block certain DAG paths in prediction (which?)
+---
 
+### Pathway analysis / decomposition
+
+.pull-left[
+
+![](../nabi.png)
+
+- [Kilbertus et al (2017)](https://papers.nips.cc/paper/2017/hash/f5f8590cd58a54e94377e6ae2eded4d9-Abstract.html): proxies and **resolving variables**
+
+]
+
+
+.pull-right[
+- [Kusner et al (2017)](https://papers.nips.cc/paper/2017/hash/a486cd07e4ac3d270571622f4f316ec5-Abstract.html): path-dependent counterfactual fairness (see supplement)
+- [Zhang et al (2017)](https://www.ijcai.org/proceedings/2017/549)
+- [Nabi and Shpitser (2018)](https://ojs.aaai.org/index.php/AAAI/article/view/11553)
+- [Zhang and Bareinboim (2018)](https://aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16949/0)
+- [Chiappa (2019)](https://ojs.aaai.org//index.php/AAAI/article/view/4777)
+- ...
+
+
+]
+
+---
+
+### The Fundamental Contradiction of Fairness
+
+See, e.g.: Kleinberg et al (2016), Chouldechova (2016) 
+
+#### (Simplified) impossibility theorem
+
+> Unless the world is already fair, the only solutions satisfying both equal treatment (or opportunity) and equal outcomes (demographic parity) are trivial ones (e.g. jail everyone)
+
+Many versions can be proven with different sets of assumptions but basically the same conclusion: some fairness definitions are contradictory
 
 ---
 class: split-four
@@ -253,9 +381,6 @@ graph TB
 ```
 ]
 
-
-Transparency: we can say specifically what we disagree on (sometimes denote sensitive attribute $A$)
-
 &nbsp;
 
 &nbsp;
@@ -266,27 +391,17 @@ Transparency: we can say specifically what we disagree on (sometimes denote sens
 
 &nbsp;
 
-[Kusner et al (2017)](https://papers.nips.cc/paper/2017/hash/a486cd07e4ac3d270571622f4f316ec5-Abstract.html),
-[Kilbertus et al (2017)](https://papers.nips.cc/paper/2017/hash/f5f8590cd58a54e94377e6ae2eded4d9-Abstract.html),
-[Nabi and Shpitser (2018)](https://ojs.aaai.org/index.php/AAAI/article/view/11553),
-[Zhang and Bareinboim (2018)](https://aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16949/0),
-[Chiappa (2019)](https://ojs.aaai.org//index.php/AAAI/article/view/4777), and a growing list of others
+&nbsp;
+
+
+Transparency: we can say specifically what we disagree on
+
+Interpretation: meanings of variables, edges (mechanisms)
+
 
 ---
 
-### The Fundamental Contradiction of Fairness
-
-Various works showing impossibility of simultaneously satisfying several of the different fairness definitions at once: Kleinberg et al (2016), Chouldechova (2016) 
-
-#### (Simplified) impossibility theorem
-
-> Unless the world is already fair, the only solutions satisfying both equal treatment (or opportunity) and equal outcomes (demographic parity) are trivial ones (e.g. jail everyone)
-
-Many versions can be proven with different sets of assumptions but basically the same conclusion: some fairness definitions are contradictory
-
----
-
-### Problem: competing DAGs / pathways
+### Impossibility: competing DAGs / pathways
 
 When Worlds Collide: Integrating Different Counterfactual Assumptions in Fairness (Russell et al, *NeurIPS 2017*)
 
@@ -407,6 +522,21 @@ With constraint
 
 ---
 
+### Exciting advances in causal modeling
+
+Observational data, machine learning, causal reinforcement learning, ...
+
+### Applications in ethical data science
+
+Prioritizing normative values: fairness, privacy, interpretability, replicability, "alignment," ...
+
+---
+class: inverse, center, middle
+
+## Discussion and speculation
+
+---
+
 ### DAGs can be useful tools
 
 [Imbens (2019)](https://siepr.stanford.edu/sites/default/files/publications/19-022.pdf) on DAGs, reviewing The Book of Why:
@@ -417,20 +547,10 @@ But they have limitations:
 
 > In economics the endogeneity often arises from agents actively making choices regarding the causal variable on the basis of anticipated effects of those choices
 
-Perhaps mathematicians can help...
-
-- Expand this formal framework (new definitions, notation)
-- Make it (more) rigorous
 
 ---
 
-[Why focus on causality?](https://twitter.com/whitesphd/status/1308094245669081089)
-
-![](truck.jpg)
-
----
-
-### "Bet" on causality
+### Bet on causality
 
 Claim: **causality** points us in good directions for research
 
@@ -440,66 +560,52 @@ Claim: **causality** points us in good directions for research
 
 - Making models/assumptions transparent
 
+- Trade-off between increasing utility and certainty?
+
+---
+
+[Why focus on causality?](https://twitter.com/whitesphd/status/1308094245669081089)
+
+![](truck.jpg)
+
+---
+
+### Actions, decisions, trade-offs
+
+> Various models have only predicted the world in various ways. The point, however, is to change it
+
+Why trade-offs? Constraints of time and other resources...
+
+--
+
+#### Information age
+
+A key trade-off: measurement/prediction vs action
+
+--
+
+#### Constructs and measures
+Validity, reliability, and **malleability**
+
+(e.g. "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer))
+
+---
+class: inverse
+
+### Parting wisdom (hard won, not by me)
+
 Remember pragmatism, Box's rule, and what's **important** and what's **useful**? (to who? for what?)
 
 How can we [change the objective function](https://en.wikipedia.org/wiki/Twelve_leverage_points) before it's [too late](https://en.wikipedia.org/wiki/Instrumental_convergence#Paperclip_maximizer)?
 
----
-class: split-four
-
-.column[
-![](matt.png)
-Matt Kusner (UCL)
-&nbsp; 
-
-&nbsp; 
-
-![](julia.png)
-Julia Stoyanovich
-]
-
-.column[
-![](chris.png)
-Chris Russell (AWS/ELLIS)
-
-&nbsp; 
-
-![](ke.jpg)
-Ke Yang
-]
-
-.column[
-![](ricardo.png)
-
-Ricardo Silva (UCL)
-
-&nbsp;  
-
-![](lucius.png)
-Lucius Bynum
-]
-
-.column[
-## Turing group
-
-&nbsp; 
-
-&nbsp; 
-
-&nbsp; 
-
-### NYU
-![](margarita.jpeg)
-Margarita Boyarskaya
-
-]
-
----
-
+--
 
 ### Thank you for listening!
 
 Reading for a fairly general audience: The long road to fairer algorithms ([Nature, 2020](https://www.nature.com/articles/d41586-020-00274-3))
 
-[joshualoftus.com](joshualoftus.com) links to papers, descriptions of other research, etc
+[joshualoftus.com/talks.html](joshualoftus.com/talks.html) slides
+
+[joshualoftus.com](joshualoftus.com) other research, teaching, etc
+
 

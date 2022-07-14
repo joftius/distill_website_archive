@@ -1,8 +1,8 @@
 [
   {
     "path": "talks/2022-07-13-international-meeting-of-the-psychometric-society-keynote/",
-    "title": "International Meeting of the Psychometric Society keynote",
-    "description": "A talk on fair algorithms, causality, and some related issues in measurement.",
+    "title": "Keynote at the IMPS 2022 in Bologna",
+    "description": "A talk on fair algorithms, causality, and some related issues in measurement at the International Meeting of the Psychometric Society.",
     "author": [
       {
         "name": "Joshua Loftus",
@@ -11,10 +11,10 @@
     ],
     "date": "2022-07-13",
     "categories": [],
-    "contents": "\nLinks\nSlides for my talk\n\n\n\n",
+    "contents": "\n(To be updated)\nLinks\nSlides from my presentation\nBack to all recent talks\n\n\n\n",
     "preview": "talks/2022-07-13-international-meeting-of-the-psychometric-society-keynote/preview.png",
-    "last_modified": "2022-07-13T16:38:01+02:00",
-    "input_file": {},
+    "last_modified": "2022-07-14T10:27:57+02:00",
+    "input_file": "international-meeting-of-the-psychometric-society-keynote.knit.md",
     "preview_width": 350,
     "preview_height": 350
   },

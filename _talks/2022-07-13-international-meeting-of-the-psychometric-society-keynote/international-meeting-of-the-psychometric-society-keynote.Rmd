@@ -1,7 +1,7 @@
 ---
-title: "International Meeting of the Psychometric Society keynote"
+title: "Keynote at the IMPS 2022 in Bologna"
 description: |
-  A talk on fair algorithms, causality, and some related issues in measurement.
+  A talk on fair algorithms, causality, and some related issues in measurement at the International Meeting of the Psychometric Society.
 author:
   - name: Joshua Loftus
     url: https://joshualoftus.com/
@@ -17,8 +17,12 @@ preview: preview.png
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## (To be updated)
+
 ## Links
 
-[Slides](slides/causal.html) for my talk
+[Slides](slides/causal.html) from my presentation
+
+[Back](../../talks.html) to all recent talks
 
 
