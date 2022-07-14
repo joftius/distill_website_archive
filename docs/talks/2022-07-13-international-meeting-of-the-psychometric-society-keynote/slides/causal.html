@@ -187,8 +187,8 @@ Source: [ProPublica](https://www.propublica.org/article/how-we-analyzed-the-comp
 "Algorithm does not *explicitly* use race" -- in an unfair world, **other things can correlate with race**, e.g. prior convictions
 
 .pull-left[
-<div id="htmlwidget-31c1e67d13cd77efc994" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-31c1e67d13cd77efc994">{"x":{"diagram":"\ngraph LR\n  R-->M\n  S-->M\n  S-->P\n  M-->P\n  P-->C\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f843a680a1fcd62a0dd1" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f843a680a1fcd62a0dd1">{"x":{"diagram":"\ngraph LR\n  R-->M\n  S-->M\n  S-->P\n  M-->P\n  P-->C\n"},"evals":[],"jsHooks":[]}</script>
 ]
 
 .pull-right[
@@ -208,6 +208,8 @@ Simple examples are easy to understand
 Too simple? Don't correspond to the real world?
 
 ### How do we know if it's "true"?
+
+--
 
 My opinion: we could use a healthy dose of (philosophical)
 
@@ -279,45 +281,6 @@ Any predictor `\(\hat Y\)` which is a function of only non-descendents of `\(A\)
 
 ]
 
-
----
-class: split-four
-
-### Every DAG is (importantly?) wrong
-
-.column[
-&amp;nbsp; 
-
-<div id="htmlwidget-a0761ff31b1b4603589d" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a0761ff31b1b4603589d">{"x":{"diagram":"\ngraph TB\n  Race-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
-]
-.column[
-&amp;nbsp; 
-
-<div id="htmlwidget-9da49fe7892c96087720" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9da49fe7892c96087720">{"x":{"diagram":"\ngraph TB\n  Racism-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
-]
-
-.column[
-&amp;nbsp; 
-
-
-<div id="htmlwidget-6c364a5353b66148ae0c" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6c364a5353b66148ae0c">{"x":{"diagram":"\ngraph TB\n  A-->X\n  X-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
-]
-.column[
-&amp;nbsp; 
-
-<div id="htmlwidget-043e8219f36d90c0ad2f" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-043e8219f36d90c0ad2f">{"x":{"diagram":"\ngraph TB\n  A-->X\n  A-->R\n  X-->Y\n  R-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
-]
-
-
-Transparency: we can say specifically what we disagree on (sometimes denote sensitive attribute `\(A\)`)
-
-Interpretation: meanings of variables, edges (mechanisms)
-
-
 ---
 
 ### The Fundamental Contradiction of Fairness
@@ -330,11 +293,59 @@ See, e.g.: Kleinberg et al (2016), Chouldechova (2016)
 
 Many versions can be proven with different sets of assumptions but basically the same conclusion: some fairness definitions are contradictory
 
+---
+class: split-four
+
+### Every DAG is (importantly?) wrong
+
+.column[
+&amp;nbsp; 
+
+<div id="htmlwidget-ba32e0541469b5ed4906" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ba32e0541469b5ed4906">{"x":{"diagram":"\ngraph TB\n  Race-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
+]
+.column[
+&amp;nbsp; 
+
+<div id="htmlwidget-484ed42468d86de4a421" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-484ed42468d86de4a421">{"x":{"diagram":"\ngraph TB\n  Racism-->Outcome\n"},"evals":[],"jsHooks":[]}</script>
+]
+
+.column[
+&amp;nbsp; 
+
+
+<div id="htmlwidget-697d58abce2053a24549" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-697d58abce2053a24549">{"x":{"diagram":"\ngraph TB\n  A-->X\n  X-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
+]
+.column[
+&amp;nbsp; 
+
+<div id="htmlwidget-29a56e939b13f92b7856" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29a56e939b13f92b7856">{"x":{"diagram":"\ngraph TB\n  A-->X\n  A-->R\n  X-->Y\n  R-->Y\n  A-->Y\n"},"evals":[],"jsHooks":[]}</script>
+]
+
+&amp;nbsp;
+
+&amp;nbsp;
+
+&amp;nbsp;
+
+&amp;nbsp;
+
+&amp;nbsp;
+
+&amp;nbsp;
+
+
+Transparency: we can say specifically what we disagree on
+
+Interpretation: meanings of variables, edges (mechanisms)
 
 
 ---
 
-### Problem: competing DAGs / pathways
+### Impossibility: competing DAGs / pathways
 
 When Worlds Collide: Integrating Different Counterfactual Assumptions in Fairness (Russell et al, *NeurIPS 2017*)
 
@@ -368,8 +379,8 @@ Lots of scholarship, not much using formal mathematical models. See [Bright et a
 
 .pull-left[
 Race, gender, weightlifting test, application score
-<div id="htmlwidget-87d27f77d181add52336" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-87d27f77d181add52336">{"x":{"diagram":"\ngraph TB\n  R-->X\n  G-->X\n  R-->Y\n  X-->Y\n  G-->Y\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-457827ab1876f7c57926" style="width:504px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-457827ab1876f7c57926">{"x":{"diagram":"\ngraph TB\n  R-->X\n  G-->X\n  R-->Y\n  X-->Y\n  G-->Y\n"},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 Weightlifting considered a **resolving variable** (company argues it is a necessary qualification)
@@ -443,6 +454,16 @@ With constraint
 (See paper for discussion of results)
 
 ---
+
+### Exciting advances in causal modeling
+
+Observational data, machine learning, causal reinforcement learning, ...
+
+### Applications in ethical data science
+
+Prioritizing normative values: fairness, privacy, interpretability, replicability, "alignment," ...
+
+---
 class: inverse, center, middle
 
 ## Discussion and speculation
@@ -462,7 +483,7 @@ But they have limitations:
 
 ---
 
-### "Bet" on causality
+### Bet on causality
 
 Claim: **causality** points us in good directions for research
 
@@ -482,11 +503,27 @@ Claim: **causality** points us in good directions for research
 
 ---
 
+### Actions, decisions, trade-offs
+
+&gt; Various models have only predicted the world in various ways. The point, however, is to change it
+
+Why trade-offs? Constraints of time and other resources...
+
+--
+
+#### Information age
+
+A key trade-off: measurement/prediction vs action
+
+--
+
+#### Constructs and measures
 Validity, reliability, and **malleability**
 
-Consider: "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer)
+(e.g. "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer))
 
 ---
+class: inverse
 
 ### Parting wisdom (hard won, not by me)
 
@@ -494,13 +531,16 @@ Remember pragmatism, Box's rule, and what's **important** and what's **useful**?
 
 How can we [change the objective function](https://en.wikipedia.org/wiki/Twelve_leverage_points) before it's [too late](https://en.wikipedia.org/wiki/Instrumental_convergence#Paperclip_maximizer)?
 
-----
+--
 
 ### Thank you for listening!
 
 Reading for a fairly general audience: The long road to fairer algorithms ([Nature, 2020](https://www.nature.com/articles/d41586-020-00274-3))
 
-[joshualoftus.com](joshualoftus.com) links to papers, descriptions of other research, etc
+[joshualoftus.com/talks.html](joshualoftus.com/talks.html) slides
+
+[joshualoftus.com](joshualoftus.com) other research, teaching, etc
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

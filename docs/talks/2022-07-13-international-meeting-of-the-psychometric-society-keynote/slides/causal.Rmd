@@ -239,6 +239,8 @@ Too simple? Don't correspond to the real world?
 
 ### How do we know if it's "true"?
 
+--
+
 My opinion: we could use a healthy dose of (philosophical)
 
 > [Pragmatism](https://en.wikipedia.org/wiki/Pragmatism) is a philosophical tradition that considers words and thought as *tools and instruments for prediction, problem solving, and action*, and rejects the idea that the function of thought is to describe, represent, or mirror reality.
@@ -309,6 +311,17 @@ Any predictor $\hat Y$ which is a function of only non-descendents of $A$ in the
 
 ]
 
+---
+
+### The Fundamental Contradiction of Fairness
+
+See, e.g.: Kleinberg et al (2016), Chouldechova (2016) 
+
+#### (Simplified) impossibility theorem
+
+> Unless the world is already fair, the only solutions satisfying both equal treatment (or opportunity) and equal outcomes (demographic parity) are trivial ones (e.g. jail everyone)
+
+Many versions can be proven with different sets of assumptions but basically the same conclusion: some fairness definitions are contradictory
 
 ---
 class: split-four
@@ -368,29 +381,27 @@ graph TB
 ```
 ]
 
+&nbsp;
 
-Transparency: we can say specifically what we disagree on (sometimes denote sensitive attribute $A$)
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+Transparency: we can say specifically what we disagree on
 
 Interpretation: meanings of variables, edges (mechanisms)
 
 
 ---
 
-### The Fundamental Contradiction of Fairness
-
-See, e.g.: Kleinberg et al (2016), Chouldechova (2016) 
-
-#### (Simplified) impossibility theorem
-
-> Unless the world is already fair, the only solutions satisfying both equal treatment (or opportunity) and equal outcomes (demographic parity) are trivial ones (e.g. jail everyone)
-
-Many versions can be proven with different sets of assumptions but basically the same conclusion: some fairness definitions are contradictory
-
-
-
----
-
-### Problem: competing DAGs / pathways
+### Impossibility: competing DAGs / pathways
 
 When Worlds Collide: Integrating Different Counterfactual Assumptions in Fairness (Russell et al, *NeurIPS 2017*)
 
@@ -510,6 +521,16 @@ With constraint
 (See paper for discussion of results)
 
 ---
+
+### Exciting advances in causal modeling
+
+Observational data, machine learning, causal reinforcement learning, ...
+
+### Applications in ethical data science
+
+Prioritizing normative values: fairness, privacy, interpretability, replicability, "alignment," ...
+
+---
 class: inverse, center, middle
 
 ## Discussion and speculation
@@ -529,7 +550,7 @@ But they have limitations:
 
 ---
 
-### "Bet" on causality
+### Bet on causality
 
 Claim: **causality** points us in good directions for research
 
@@ -549,11 +570,27 @@ Claim: **causality** points us in good directions for research
 
 ---
 
+### Actions, decisions, trade-offs
+
+> Various models have only predicted the world in various ways. The point, however, is to change it
+
+Why trade-offs? Constraints of time and other resources...
+
+--
+
+#### Information age
+
+A key trade-off: measurement/prediction vs action
+
+--
+
+#### Constructs and measures
 Validity, reliability, and **malleability**
 
-Consider: "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer)
+(e.g. "math ability" measured in 1088 (pre-calculus) vs 1988 (post-computer))
 
 ---
+class: inverse
 
 ### Parting wisdom (hard won, not by me)
 
@@ -561,11 +598,14 @@ Remember pragmatism, Box's rule, and what's **important** and what's **useful**?
 
 How can we [change the objective function](https://en.wikipedia.org/wiki/Twelve_leverage_points) before it's [too late](https://en.wikipedia.org/wiki/Instrumental_convergence#Paperclip_maximizer)?
 
-----
+--
 
 ### Thank you for listening!
 
 Reading for a fairly general audience: The long road to fairer algorithms ([Nature, 2020](https://www.nature.com/articles/d41586-020-00274-3))
 
-[joshualoftus.com](joshualoftus.com) links to papers, descriptions of other research, etc
+[joshualoftus.com/talks.html](joshualoftus.com/talks.html) slides
+
+[joshualoftus.com](joshualoftus.com) other research, teaching, etc
+
 
