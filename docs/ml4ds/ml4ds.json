@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\nWhat is machine learning?\nWe begin with some key conceptual themes in machine learning. The subject mainly focuses on algorithms for finding potentially useful structure in data.\nSupervised machine learning\nThis refers to the special case where one variable in the dataset is specified as an “outcome”–usually represented as \\(y\\)–the other variables are considered inputs or “predictors”–written as \\(x\\)–and the algorithm attempts to “fit” a functional relationship between these using the dataset. A key idea in applied mathematics is that there may be some “true” function \\(f\\) that describes the relationship between \\(x\\) and \\(y\\), so that measured data will approximately satisfy\n\\[\ny \\approx f(x)\n\\] In the physical sciences, for example, this function could describe a “law” such as the laws of mechanics or elecromagnetism, etc. In machine learning we usually don’t know the function, or even have good a priori reasons to believe there is a useful functional relationship. Instead we hope that a (powerful enough) algorithm can “learn” a function \\(\\hat f\\) by approximating the examples in a (large enough) dataset:\n\\[\n\\hat f(x) \\approx y\n\\] We might only care about the prediction accuracy of this learned function, or we might also want to interpret it based on the assumption that it is close to the “true” function: \\[\n\\hat f(x) \\approx f(x)\n\\] Technological advances in computing enable us to use more sophisticated algorithms and achieve better accuracy. This often creates tension between the two goals above, since new “state of the art” (SOTA) algorithms that have the highest prediction accuracy are usually very complicated and hence difficult to interpret. Later in the course we will learn about some algorithmic tools to help us interpret other algorithms.\nModel complexity\nThe distinguishing feature of machine learning as compared to statistics, for example, is that it is mainly concerned with the accuracy of the fitted relationship. In statistics we usually want some kind of inference for our fitted models, for example confidence/prediction intervals, hypothesis tests, and diagnostic plots. Machine learning drops this requirement allowing us to more kinds of models, including ones where we do not know how to compute valid inferences or provide any simple interpretations. To move in the direction of machine learning, then, we can imagine starting at statistics and taking a step in the direction of greater model complexity.\nTwo simple examples illustrate different strategies for building more complex models:\nincreasing complexity of the function class, for example by using (more highly) non-linear functions and/or allowing functions to fit flexibly/locally to different subsets of the data\nincreasing the dimension of predictors (while otherwise keeping the function class fixed)\nModel complexity relates to the bias-variance trade-off: more complexity typically results in lower bias and higher variance.\n\n\n\nIncreasing complexity usually results in a lower mean-squared error if the MSE is calculated on the same dataset that was used to fit the model. But if the MSE is calculated on a different dataset this is no longer true, and more complexity may result in a larger MSE on the other dataset.\nWhy should we evaluate model fit (like MSE) on a different dataset than the one used to fit the model? First, if we evaluate it on the same dataset instead, then such an evaluation will always prefer greater complexity until the model “saturates” the data. In this case there was nothing gained from using a model–we have only created a map as large as the entire territory. Second, if our purpose in using a model is to describe some stable aspect of the world, if we think the “true” \\(f\\) is something like a “law of nature,” then we would hope that such a model would not immediately fail if the time or context of the data collection is slightly different.\nSince these concepts are so central to machine learning we will return to them several times through the term and understand them through more examples and some mathematical derivations.\nSlides and notebooks\nSlides for first video\nNotebook for gapminder example\nNotebook for candy example\nSlides for last video (PDF)\nNotebook from seminar\n\n\n\n",
     "preview": "https://joshualoftus.com/ml4ds/01-introduction-foundations/slides/01-2-foundations_files/figure-html/gapminder-loess-1.png",
-    "last_modified": "2021-11-01T20:06:37+01:00",
+    "last_modified": "2021-11-01T19:06:37+00:00",
     "input_file": {}
   },
   {
@@ -30,7 +30,7 @@
     "categories": [],
     "contents": "\nMachine learning before the information age\nMultiple regression\nRegression, when conditioning on more than one predictor variable.\nSlides and notebooks\nSlides for simple regression video (PDF)\nNotebook for gapminder example\nSlides for risk and CEFs video (PDF)\nSlides for multiple regression\nNotebook for seminar\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-11T14:06:59+02:00",
+    "last_modified": "2021-10-11T13:06:59+01:00",
     "input_file": {}
   },
   {
@@ -47,7 +47,7 @@
     "categories": [],
     "contents": "\nRerum cognoscere causas\nVirgil:\n\nFortunate, who can know the causes of things\n\nSlides, notebooks, exercises\nSlides for first causality video (PDF)\nSlides for second causality video\nSlides for logistic regression video\nNotebook from seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-18T16:37:32+02:00",
+    "last_modified": "2021-10-18T15:37:32+01:00",
     "input_file": {}
   },
   {
@@ -64,7 +64,7 @@
     "categories": [],
     "contents": "\nCarving nature at its joints\n\n“A good cook gets a new knife every year; he chops! Mediocre cooks change knives monthly; they hack. My knife now has 19 years on it; it’s carved several thousand oxen and the edge is as if I had just taken it from the sharpener. Those joints have gaps, and the knife’s edge no thickness, to put something infinitesimally thin in an empty space?! Effortless! It even allows the edge wander in with ample room to play. That is why, with 19 years on it, this knife’s edge is grindstone fresh.” - Butcher Ding, the Zhuangzi\n\nSlides, notebooks, exercises\nSlides for logistic regression lecture (PDF)\nSlides for SVM lecture (PDF)\nNotebook for seminar\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-20T18:37:57+02:00",
+    "last_modified": "2021-10-20T17:37:57+01:00",
     "input_file": {}
   },
   {
@@ -81,7 +81,7 @@
     "categories": [],
     "contents": "\nOptimization\nOverfitting\nSlides, notebooks, exercises\nSlides for optimization video (PDF)\nSlides for overfitting video (PDF)\nNotebook for generalization (partially complete)\nNotebook for optimization (partially complete)\nNotebook for regularization (partially complete)\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-10-31T14:58:48+01:00",
+    "last_modified": "2021-10-31T13:58:48+00:00",
     "input_file": {}
   },
   {
@@ -98,7 +98,7 @@
     "categories": [],
     "contents": "\nRegularization\nValidation\nSlides, notebooks, exercises\nSlides for regularization video (PDF)\nSlides for lasso video (PDF)\nNotebook for validation\nNotebook for lasso\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-11-11T23:18:05+01:00",
+    "last_modified": "2021-11-11T22:18:05+00:00",
     "input_file": {}
   },
   {
@@ -115,7 +115,7 @@
     "categories": [],
     "contents": "\nNearest neighbors\nKernel methods\nSlides, notebooks\nSlides for non-linearity video ([PDF])\nSlides for \\(k\\)-NN video ([PDF])\nSlides for kernel video ([PDF])\nNotebook for kernels\nNotebook for \\(k\\)-NN\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-11-17T21:12:25+01:00",
+    "last_modified": "2021-11-17T20:12:25+00:00",
     "input_file": {}
   },
   {
@@ -132,7 +132,7 @@
     "categories": [],
     "contents": "\nTrees and forests\nGAMS\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for GAMs video ([PDF])\nSlides for trees and forests video ([PDF])\nNotebook for ?\nExercises\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-04-01T13:03:27+02:00",
+    "last_modified": "2022-04-01T12:03:27+01:00",
     "input_file": {}
   },
   {
@@ -149,7 +149,7 @@
     "categories": [],
     "contents": "\nTrees and forests\nCompositional nonlinearity\n(not active yet) Slides, notebooks, exercises\nSlides for (tree) ensembles ([PDF])\nSlides for deep learning ([PDF])\nNotebook for tree splitting\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-12-09T16:29:24+01:00",
+    "last_modified": "2021-12-09T15:29:24+00:00",
     "input_file": {}
   },
   {
@@ -166,7 +166,7 @@
     "categories": [],
     "contents": "\nInterpretation\nWhy did the model predict this outcome?\nWhy did this outcome occur?\nProfessional ethics\nWhy are we doing any of this?\n(not active yet) Slides, notebooks, exercises\nSlides for interpretation ([PDF])\nSlides for ethics ([PDF])\nNotebook for interpretation methods\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-04-01T13:02:38+02:00",
+    "last_modified": "2022-04-01T12:02:38+01:00",
     "input_file": {}
   }
 ]
