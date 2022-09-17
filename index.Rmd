@@ -19,4 +19,4 @@ Random wanderer from the United States, professor of Statistics and Data Science
 
 I think technology, institutions, and ideas should serve people, but much of humanity is stuck with this upside-down. How can we change that?
 
-I'm going to break this website and build another one
+I'm going to break this website and build another one, [maybe](./unbiasedgoodness/)
